@@ -1,0 +1,65 @@
+name: peladas
+
+networks:
+  peladas_network:
+    driver: bridge
+
+
+services:
+  db:
+    # env_file:
+    #   - path: ./.env
+    #     required: true
+    container_name: peladas_db
+    image: mysql:latest
+    environment: 
+      # MYSQL_HOST: localhost
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_peladas
+      MYSQL_USER: peladas
+      MYSQL_PASSWORD: peladas
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    restart: unless-stopped
+    volumes:
+      - database:/var/lib/mysql
+      # - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    networks:
+      - peladas_network
+    # command: ["--default-authentication-plugin=mysql_native_password", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci",  "--init-file=/docker-entrypoint-initdb.d/create_schema.sql"]
+  php:
+    container_name: peladas_php
+    mem_limit: 1g
+    mem_reservation: 256m
+    restart: unless-stopped
+    # environment:
+    #   XDEBUG_MODE: debug
+    #   XDEBUG_CONFIG: "client_host=host.docker.internal"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - peladas_network
+    command: ["sh", "-c", "php-fpm"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+  nginx:
+    container_name: peladas_nginx
+    image: nginx
+    restart: unless-stopped
+    ports:
+      - "8888:80"
+    volumes:
+      - .:/var/www/html
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - php
+    networks:
+      - peladas_network
+
+volumes:
+  database:
