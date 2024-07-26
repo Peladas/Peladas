@@ -2,7 +2,10 @@
 
 namespace App\Router;
 
+use App\Controllers\UserController;
+
 $router = new RouterBase();
 
-$router->get("/users", "UserController", "index");
-var_dump($router->routes['GET']); die;
+$router->get("/users", UserController::class , "index");
+
+$router->matchRoute();
