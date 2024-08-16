@@ -13,6 +13,7 @@
             background-color: black; 
             color: #fafafa; 
             font-weight: 600; 
+        }
 
         @media (prefers-color-scheme: dark) {
             .custom-styles {
