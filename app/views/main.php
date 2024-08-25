@@ -11,11 +11,12 @@
     <style>
         
         body {
-            background-color: black; 
+            background-color: #0f172a; 
             color: #fafafa; 
             padding: 5%;
             padding-top: 0.125rem; /* 2px */
             padding-bottom: 0.125rem; /* 2px */
+            display: flex;
 
         h1 {
             color: #fde047;
@@ -24,13 +25,32 @@
         }
         
         h2{
-            font-size: 35px;
+            font-size: 36px;
             font-weight:600;
+            font-weight:bold;
         }
         
         h3 {
             color: #fde047;
             font-weight:bold;
+        }
+
+        button {
+
+            border-radius: 4px ;
+        }
+
+        .imagem_logo {
+
+            width: 55%;
+            height: 55%;
+            padding: 32px;
+        }
+
+        .texto-front {
+
+            padding-top: 190px;
+            padding-left: 30px;
         }
     }
 

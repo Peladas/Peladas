@@ -74,15 +74,16 @@ function getButtonColors(color = null) {
       "dark:hover:bg-orange-700",
       "dark:focus:ring-orange-800",
     ],
-    info: [
+    black: [
       "text-white",
-      "bg-cyan-700",
+      "bg-slate-900",
       "hover:bg-cyan-800",
-      "focus:ring-cyan-300",
-      "dark:bg-cyan-600",
-      "dark:hover:bg-cyan-700",
-      "dark:focus:ring-cyan-800",
+      "focus:bg-slate-900",
+      "dark:bg-slate-900",
+      "dark:hover:bg-slate-900",
+      "dark:focus:bg-slate-900",
     ],
+
   };
 
   return colors[color] ?? colors.primary;
