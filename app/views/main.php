@@ -34,11 +34,7 @@
             color: #fde047;
             font-weight:bold;
         }
-
-        button {
-
-            border-radius: 4px ;
-        }
+        
 
         .imagem_logo {
 
