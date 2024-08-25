@@ -2,12 +2,8 @@
 
 namespace App\Models;
 
-class locador extends Users {
-
+class Locador extends User {
     public $nome_fantasia;
     public $razao_social;
     public $cnpj;
-
 }
-
-?>
