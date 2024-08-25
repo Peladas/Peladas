@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Controllers;
 
@@ -17,6 +17,11 @@ class Controller {
     protected function getBody() {
         $body = $_POST;
         return $body;
+    }
+
+    protected function getMethod() {
+        $method = $_SERVER['REQUEST_METHOD'];
+        return strtolower($method);
     }
 
     protected function render(string $view, array $data = []) {
