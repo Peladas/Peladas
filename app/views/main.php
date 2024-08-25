@@ -9,10 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <style>
-        
+
         body {
-            background-color: #0f172a; 
-            color: #fafafa; 
+            background-color: #1c1917;
+            color: #fafafa;
             padding: 5%;
             padding-top: 0.125rem; /* 2px */
             padding-bottom: 0.125rem; /* 2px */
@@ -21,20 +21,20 @@
         h1 {
             color: #fde047;
             font-size: 80px; /* 36px */
-            font-weight: 700; 
+            font-weight: 700;
         }
-        
+
         h2{
             font-size: 36px;
             font-weight:600;
             font-weight:bold;
         }
-        
+
         h3 {
             color: #fde047;
             font-weight:bold;
         }
-        
+
 
         .imagem_logo {
 
@@ -52,8 +52,8 @@
 
         @media (prefers-color-scheme: dark) {
             .body {
-                background-color: #020617; 
-                color: #f1f5f9; 
+                background-color: #020617;
+                color: #f1f5f9;
             }
         }
     </style>
