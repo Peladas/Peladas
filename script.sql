@@ -1,30 +1,26 @@
 use db_peladas;
 
-create TABLE usuarios (
-	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-	tipo_usuario ENUM('jogador', 'locador', 'admin') NOT NULL,
-	email VARCHAR(20) NOT NULL,
-	telefone VARCHAR(15) NOT NULL,
-	endereco TEXT NOT NULL,
-	senha TEXT NOT NULL,
-	situacao ENUM('ativo', 'inativo') NULL
+CREATE TABLE usuarios (
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(70) NOT NULL,
+  apelido VARCHAR(45) NULL,
+  email VARCHAR(50) NOT NULL,
+  telefone VARCHAR(15) NOT NULL,
+  senha TEXT NOT NULL,
+  ativo TINYINT(1) NOT NULL DEFAULT 1,
 );
 
 create TABLE jogadores (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	usuario_id INT NOT NULL,
-	nome_jogador VARCHAR(70) NOT NULL,
 	cpf VARCHAR(15) NOT NULL,
 	data_nascimento DATE NOT NULL,
-	apelido VARCHAR(45) NULL
 );
 ALTER TABLE jogadores ADD CONSTRAINT fk_jogadores_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios (id);
 
 create TABLE locadores (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	usuario_id INT NOT NULL,
-	nome_fantasia VARCHAR(70) NOT NULL,
-	razao_social VARCHAR(70) NOT NULL,
 	cnpj VARCHAR(30) UNIQUE NOT NULL
 );
 ALTER TABLE locadores ADD CONSTRAINT fk_locadores_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios (id);
@@ -44,7 +40,7 @@ ALTER TABLE quadras ADD CONSTRAINT fk_quadras_locador FOREIGN KEY (locador_id) R
 
 create TABLE reservas (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-	jogador_id INT NOT NULL, 
+	jogador_id INT NOT NULL,
 	quadra_id INT NOT NULL,
 	tipo_reserva ENUM('privada', 'publica') NOT NULL,
 	horario_reservado DATETIME NOT NULL,
