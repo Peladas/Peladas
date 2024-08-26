@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Router;
 
@@ -33,7 +33,7 @@ class RouterBase {
     }
 
     /**
-     * @param GET|POST $httpMethod
+     * @param 'GET'|'POST' $httpMethod
      */
     private function addRoute(string $httpMethod, string $url, string $controller, string $method) {
         $this->routes[$httpMethod][$url] = [$controller, $method];

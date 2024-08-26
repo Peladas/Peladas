@@ -29,7 +29,7 @@ class Controller {
         $is_logged = $this->is_logged;
         // array_push($data, )
         extract($data);
-        include __DIR__ .'/../views/main.php';
+        include __DIR__ .'/../Views/main.php';
     }
 
     protected function setIsLogged() {
