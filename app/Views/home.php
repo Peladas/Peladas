@@ -9,7 +9,7 @@
                 esportiva!</p><br>
             <div class="flex flex-row flex">
                 <button color="black" class="rounded-full border border-slate-100 mr-5" onclick="">Entrar</button>
-                <button color="black" class="rounded-full border border-slate-100" onclick="">Criar Conta</button>
+                <button color="black" class="rounded-full border border-slate-100" onclick="window.location.href='/cadastro';">Criar Conta</button>
             </div>
         </div>
     </div>
