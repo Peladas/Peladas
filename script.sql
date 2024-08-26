@@ -2,8 +2,6 @@ use db_peladas;
 
 CREATE TABLE usuarios (
   id INT NOT NULL AUTO_INCREMENT,
-  nome VARCHAR(70) NOT NULL,
-  apelido VARCHAR(45) NULL,
   email VARCHAR(50) NOT NULL,
   telefone VARCHAR(15) NOT NULL,
   senha TEXT NOT NULL,
@@ -13,14 +11,18 @@ CREATE TABLE usuarios (
 create TABLE jogadores (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	usuario_id INT NOT NULL,
+	nome_jogador VARCHAR(70) NOT NULL,
 	cpf VARCHAR(15) NOT NULL,
 	data_nascimento DATE NOT NULL,
+	apelido VARCHAR(45) NULL
 );
 ALTER TABLE jogadores ADD CONSTRAINT fk_jogadores_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios (id);
 
 create TABLE locadores (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	usuario_id INT NOT NULL,
+	nome_fantasia VARCHAR(70) NOT NULL,
+	razao_social VARCHAR(70) NOT NULL,
 	cnpj VARCHAR(30) UNIQUE NOT NULL
 );
 ALTER TABLE locadores ADD CONSTRAINT fk_locadores_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios (id);

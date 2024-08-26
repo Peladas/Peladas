@@ -59,7 +59,7 @@ class BaseDAO
             }
             $statement = $this->prepareConsultation($query);
             return $statement->fetchAll(PDO::FETCH_CLASS, $this->getModelName());
-        } catch (\PDOException $th) {
+        } catch (PDOException $th) {
             // 1- Escrever no log
             Log::error($th->getMessage());
             // 2- Lançar um erro personalizado (tipo um PDOException)
@@ -91,7 +91,7 @@ class BaseDAO
 
             $query = 'INSERT INTO ' . $this->getTableName() . ' (' . $columns . ') VALUES (' . $values . ')';
             return $this->prepareConsultation($query);
-        } catch (\PDOException $th) {
+        } catch (PDOException $th) {
             // 1- Escrever no log
             Log::error($th->getMessage());
             // 2- Lançar um erro personalizado (tipo um PDOException)

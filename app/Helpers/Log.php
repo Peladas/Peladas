@@ -26,6 +26,15 @@ class Log {
         // $logConfig = $this->getConfigSection('log');
         $path = Config::getConfig('log_path');
         $file = Config::getConfig('log_file');
+
+        if (!is_dir(__DIR__ . '/../../' . $path)) {
+            mkdir(__DIR__ . '/../../' . $path, 0755, true) or die('Não foi possível criar a pasta de logs');
+        }
+        $filePath = __DIR__ . '/../../' . $path . '/' . $file;
+        if (!file_exists($filePath)) {
+            fopen($filePath, 'w') or die('Não foi possível criar o arquivo de logs');
+        }
+
         return __DIR__ . '/../../' . $path . '/' . $file;
     }
 }
