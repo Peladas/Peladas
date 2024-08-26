@@ -35,6 +35,22 @@
             font-weight:bold;
         }
 
+        legend {
+
+            color: #fde047;
+            font-weight:bold;
+            font-size: 24px;
+            text-align: center;
+            padding: 4%;
+        }
+
+        input {
+
+            background-color: #1c1917;
+            border-radius: 6px;
+            border: solid 1px #fde047;
+            padding: 10px 10px;
+        }
 
         .imagem_logo {
 
