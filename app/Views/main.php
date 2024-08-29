@@ -11,8 +11,8 @@
     <style>
 
         body {
-            background-color: #1c1917;
-            color: #fafafa;
+            /* background-color: #1c1917; */
+            /* color: #fafafa; */
             padding: 5%;
             padding-top: 0.125rem; /* 2px */
             padding-bottom: 0.125rem; /* 2px */
@@ -74,7 +74,7 @@
         }
     </style>
 </head>
-<body>
+<body class="bg-zinc-900 text-[#fafafa]">
     <div class="container">
     <?php (isset($is_logged) && $is_logged) ? include_once __DIR__ . "/layout_logged.php" : include_once __DIR__ . "/layout_guest.php"; ?>
     </div>
