@@ -8,7 +8,7 @@ class LoginController extends Controller {
     public function register() {
         $args = [];
         if ($this->getMethod() === 'get') {
-            return $this->render('register1');
+            return $this->render('register');
         };
 
         $data = $this->getBody();

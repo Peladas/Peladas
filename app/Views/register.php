@@ -1,34 +1,57 @@
+<?php
+
+    require_once(__DIR__ . "/include/header.php");
+
+?>
+
 <div>
-    <form action="#" method="post">
+    <form action="#" method="post" class="flex flex-col gap-3 w-[600px] mx-auto">
 
         <legend>Faça seu cadastro</legend>
 
-        <div class="flex flex-col gap-2 mb-4">
+        <div class="relative">
+            <input type="text" id="floating-label-input" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
+            <label for="floating-label-input" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                Exemplo
+            </label>
+        </div>
 
-            <input type="email" id="email" name="email" placeholder="E-mail" class="w-2/5" value="<?php echo $data['email'] ?? '' ?>">
+        <div class="relative">
+            <input type="text" id="floating-label-input" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent " placeholder=" "/>
+            <label for="floating-label-input" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                E-mail
+            </label>
             <?php if (isset($errors['email'])) { ?>
                 <small class="helper-text text-red-600 font-sm"><?php echo $errors['email'] ?></small>
             <?php } ?>
         </div>
-        <div class="flex flex-col gap-2 mb-4">
 
-            <input type="tel" id="phone" name="phone" placeholder="Telefone" required class="w-2/5" value="<?php echo $data['phone'] ?? '' ?>">
+        <div class="relative">
+
+            <input type="text" id="floating-label-input" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
+            <label for="floating-label-input" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                Telefone
+            </label>
             <?php if (isset($errors['phone'])) { ?>
                 <small class="helper-text text-red-600 font-sm"><?php echo $errors['phone'] ?></small>
             <?php } ?>
         </div>
 
-        <div class="flex flex-row">
-            <div class="flex flex-col gap-2 mb-4 mr-4">
+        <div class="flex flex-row w-full gap-4">
+            <div class="relative flex flex-col gap-2 flex-1">
 
-                <input type="password" id="password1" name="password1" placeholder="Senha" required class="pr-16" value="<?php echo $data['password1'] ?? '' ?>">
+            <input type="text" id="floating-label-input" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
+            <label for="floating-label-input" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                Senha </label>
                 <?php if (isset($errors['password1'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['password1'] ?></small>
                 <?php } ?>
             </div>
-            <div class="flex flex-col gap-2 mb-4">
+            <div class="relative flex flex-col gap-2 mb-4 flex-1">
 
-                <input type="password" id="password2" name="password2" placeholder="Confirme a Senha" required class="pr-20" value="<?php echo $data['password2'] ?? '' ?>">
+            <input type="text" id="floating-label-input" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
+            <label for="floating-label-input" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                Confirmar Senha </label>
                 <?php if (isset($errors['password2'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['password2'] ?></small>
                 <?php } ?>
@@ -46,9 +69,9 @@
             </div>
         </div>
 
-        <div class="hidden w-2/5 mt-6" id="cadastro-jogador">
+        <div class="hidden w-full mt-6" id="cadastro-jogador">
 
-            <div class="flex flex-col gap-2 mb-4">
+            <div class="relative flex flex-col gap-2 mb-4">
 
                 <input type="text" id="jogador-name" name="jogador-name" required placeholder="Nome" value="<?php echo $data['jogador-name'] ?? '' ?>">
                 <?php if (isset($errors['jogador-name'])) { ?>
@@ -78,7 +101,7 @@
             </div>
 
         </div>
-        <div class="hidden w-2/5 mt-6" id="cadastro-locador">
+        <div class="hidden w-full mt-6" id="cadastro-locador">
             <div class="flex flex-col gap-2 mb-4">
 
                 <input type="text" id="locador-name" name="locador-name" required placeholder="Razão Social" value="<?php echo $data['locador-name'] ?? '' ?>">
@@ -103,10 +126,16 @@
 
         </div>
         <div class="mt-4">
-            <button color="black" class="rounded-full border border-slate-100 mr-5 houver:bg-purple-950" type="submit">Enviar</button>
+            <button color="black" class="rounded-full border border-slate- mr-5 houver:bg-color focus:border-blue-400" type="submit">Enviar</button>
         </div>
     </form>
 </div>
+
+<?php
+
+    require_once(__DIR__ . "/include/footer.php");
+
+?>
 
 <script>
     function changeUserType(radio) {

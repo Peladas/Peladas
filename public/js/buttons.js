@@ -76,19 +76,17 @@ function getButtonColors(color = null) {
     ],
 
     black: [
-      "text-white",
-      "bg-stone-900",
-      "hover:bg-purple-950",
-      "focus:bg-stone-900",
-      "dark:bg-stone-900",
-      "dark:hover:bg-purple-950",
-      "dark:focus:bg-purple-950",
-      "transform",
-      "hover:scale-105",
-      "hover:shadow-lg",
-    ],
-
-//"bg-purple-950"//
+      "text-slate-100",
+      "bg-stone-900", // Cor de fundo padrão
+      "hover:bg-stone-950", // Cor de fundo ao passar o mouse
+      "focus:bg-stone-950", // Cor de fundo ao focar
+      "dark:bg-stone-900", // Cor de fundo no modo escuro
+      "dark:hover:bg-zinc-950", // Cor de fundo no modo escuro ao passar o mouse
+      "dark:focus:bg-stone-950", // Cor de fundo no modo escuro ao focar
+      "transform", // Habilita transformações
+      "hover:scale-105", // Aumenta o tamanho em 5% ao passar o mouse
+      "hover:shadow-lg", // Adiciona uma sombra ao passar o mouse
+  ],
 
   };
 
