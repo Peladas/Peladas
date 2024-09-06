@@ -12,4 +12,9 @@ class UserDAO extends BaseDAO
     /**@var string */
     protected $modelName = User::class;
 
+    public int $id;
+    public string $email;
+    public string $telefone;
+    public string $senha;
+    public string $ativo;
 }

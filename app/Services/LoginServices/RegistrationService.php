@@ -2,11 +2,41 @@
 
 namespace App\Services\LoginServices;
 
+use App\Dao\JogadorDAO;
+use App\Dao\LocadorDAO;
 use App\Dao\UserDAO;
 use App\Helpers\Validator;
 
 class RegistrationService {
     public function run(array $data) {
+        $errors = $this->validate($data);
+        //var_dump($data);
+
+        if (count($errors) === 0) {
+            $userDAO = new UserDAO();
+            $userId = $userDAO->create([
+                'email' => $data['email'],
+                'telefone' => $data['phone'],
+                'senha' => password_hash($data['password1'], PASSWORD_BCRYPT),
+            ]);
+
+            switch ($data['user_type']) {
+                case 'jogador':
+                    $this->createJogador($userId, $data);
+                    break;
+                case 'locador':
+                    $this->createLocador($userId, $data);
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        return $errors;
+    }
+
+    private function validate (array $data) {
         $errors = [];
         if (!Validator::notEmpty($data['email'])) {
             $errors['email'] = 'E-mail obrigatório';
@@ -49,20 +79,31 @@ class RegistrationService {
             if (!Validator::notEmpty($data['cnpj'])) {
                 $errors['cnpj'] = 'CNPJ obrigatório';
             }
-            if (!Validator::cnpj($data['cnpj'])) {
-                $errors['cnpj'] = 'CNPJ inválido';
-            }
+            //if (!Validator::cnpj($data['cnpj'])) {
+                //$errors['cnpj'] = 'CNPJ inválido';
+            //}
         }
-
-        if (count($errors) === 0) {
-            $userDAO = new UserDAO();
-            $userDAO->create([
-                'email' => $data['email'],
-                'telefone' => $data['phone'],
-                'senha' => password_hash($data['password1'], PASSWORD_BCRYPT),
-            ]);
-        }
-
         return $errors;
+    }
+
+    private function createJogador(int $userId, array $data) {
+        $jogadorDAO = new JogadorDAO();
+        $jogadorDAO->create([
+            'usuario_id' => $userId,
+            'nome_jogador' => $data['jogador-name'],
+            'apelido' => $data['jogador-alias'],
+            'cpf' => $data['cpf'],
+            'data_nascimento' => $data['birthday'],
+        ]);
+    }
+
+    private function createLocador(int $userId, array $data) {
+        $locadorDAO = new LocadorDAO();
+        $locadorDAO->create([
+            'usuario_id' => $userId,
+            'razao_social' => $data['locador-name'],
+            'nome_fantasia' => $data['locador-alias'],
+            'cnpj' => $data['cnpj'],
+        ]);
     }
 }

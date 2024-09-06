@@ -90,7 +90,8 @@ class BaseDAO
             }, array_values($data)));
 
             $query = 'INSERT INTO ' . $this->getTableName() . ' (' . $columns . ') VALUES (' . $values . ')';
-            return $this->prepareConsultation($query);
+            $this->prepareConsultation($query);
+            return $this->connection->lastInsertId();
         } catch (PDOException $th) {
             // 1- Escrever no log
             Log::error($th->getMessage());
