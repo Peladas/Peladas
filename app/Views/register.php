@@ -4,15 +4,8 @@
         <legend>Faça seu cadastro</legend>
 
         <div class="relative">
-            <input type="text" id="floating-label-input" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
-            <label for="floating-label-input" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
-                Exemplo
-            </label>
-        </div>
-
-        <div class="relative">
-            <input type="text" id="floating-label-input" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent " placeholder=" "/>
-            <label for="floating-label-input" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+            <input type="email" id="email" name="email" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent " placeholder=" "/>
+            <label for="email" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                 E-mail
             </label>
             <?php if (isset($errors['email'])) { ?>
@@ -22,8 +15,8 @@
 
         <div class="relative">
 
-            <input type="text" id="floating-label-input" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
-            <label for="floating-label-input" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+            <input type="text" id="phone" name="phone" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
+            <label for="phone" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                 Telefone
             </label>
             <?php if (isset($errors['phone'])) { ?>
@@ -34,8 +27,8 @@
         <div class="flex flex-row w-full gap-4">
             <div class="relative flex flex-col gap-2 flex-1">
 
-            <input type="text" id="floating-label-input" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
-            <label for="floating-label-input" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+            <input type="password" id="password1" name="password1" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
+            <label for="password1" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                 Senha </label>
                 <?php if (isset($errors['password1'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['password1'] ?></small>
@@ -43,8 +36,8 @@
             </div>
             <div class="relative flex flex-col gap-2 mb-4 flex-1">
 
-            <input type="text" id="floating-label-input" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
-            <label for="floating-label-input" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+            <input type="password" id="password2" name="password2" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
+            <label for="password2" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                 Confirmar Senha </label>
                 <?php if (isset($errors['password2'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['password2'] ?></small>

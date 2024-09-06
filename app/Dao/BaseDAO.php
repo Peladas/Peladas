@@ -155,4 +155,27 @@ class BaseDAO
         if (!$statement->execute()) throw new PDOException('Erro executando a consulta');
         return $statement;
     }
+
+    public function findLogin ($email, $senha)
+    {
+        try {
+            // Buscar o usuário pelo e-mail
+            $query = 'SELECT * FROM ' . $this->getTableName() . ' WHERE email = :email';
+            $statement = $this->connection->prepare($query);
+            $statement->bindParam(':email', $email);
+            $statement->execute();
+
+            $usuario = $statement->fetch();
+
+            // Verificar se o usuário foi encontrado
+            if ($usuario && password_verify($senha, $usuario['senha'])) {
+                return $usuario;  // Senha correta, retornar o usuário
+            }
+
+            return null;  // Usuário não encontrado ou senha incorreta
+        } catch (PDOException $e) {
+            Log::error('Erro ao buscar usuário por e-mail e senha: ' . $e->getMessage());
+            throw $e;
+        }
+    }
 }

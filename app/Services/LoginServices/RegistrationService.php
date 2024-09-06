@@ -30,9 +30,7 @@ class RegistrationService {
                 default:
                     break;
             }
-
         }
-
         return $errors;
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Services\LoginServices\LoginService;
 use App\Services\LoginServices\RegistrationService;
 
 class LoginController extends Controller {
@@ -31,8 +32,8 @@ class LoginController extends Controller {
 
         $data = $this->getBody();
 
-        $registrationService = new RegistrationService();
-        $errors = $registrationService->run($data);
+        $loginService = new LoginService();
+        $errors = $loginService->run($data);
 
         if (count($errors) > 0) {
             return $this->render('login', compact('errors', 'data'));

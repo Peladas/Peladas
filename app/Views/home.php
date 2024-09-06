@@ -1,6 +1,6 @@
 <div>
     <div class="flex flex-row">
-            <img class="logo_PNG.png" src="imagens/PELADAS.png">
+            <img class="" src="imagens/logo_PNG.png">
         <div class="texto-front">
                 <h2 class="pb-6">Locações de quadras desportivas</h2>
                 <h3 class="pb-7 text-2xl">Encontre, Reserve e Jogue!</h3>

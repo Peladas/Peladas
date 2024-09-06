@@ -1,7 +1,7 @@
 <div>
     <form action="#" method="post">
 
-        <legend>Faça seu cadastro</legend>
+        <legend>Faça seu Login</legend>
 
         <div class="flex flex-col gap-2 mb-4">
 

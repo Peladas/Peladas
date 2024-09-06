@@ -19,11 +19,17 @@ class LoginService {
         }
         if (count($errors) === 0) {
             $userDAO = new UserDAO();
-            $userDAO->create([
-                'email' => $data['email'],
-                'telefone' => $data['phone'],
-                'senha' => password_hash($data['password'], PASSWORD_BCRYPT),
-            ]);
+            $usuario = $userDAO->findLogin(
+                $data['email'],
+                $data['password']
+            );
+
+            if ($usuario) {
+                // Login bem-sucedido
+                $_SESSION['usuario_id'] = $usuario['id'];
+            } else {
+                $errors['login'] = 'Usuário ou senha incorretos';
+            }
         }
 
         return $errors;
