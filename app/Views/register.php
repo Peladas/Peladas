@@ -1,9 +1,3 @@
-<?php
-
-    require_once(__DIR__ . "/include/header.php");
-
-?>
-
 <div>
     <form action="#" method="post" class="flex flex-col gap-3 w-[600px] mx-auto">
 
@@ -130,12 +124,6 @@
         </div>
     </form>
 </div>
-
-<?php
-
-    require_once(__DIR__ . "/include/footer.php");
-
-?>
 
 <script>
     function changeUserType(radio) {

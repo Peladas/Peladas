@@ -12,11 +12,12 @@
     <style>
 
         body {
-
-            padding: 5%;
-            padding-top: 0.125rem; /* 2px */
-            padding-bottom: 0.125rem; /* 2px */
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
         h1 {
             color: #fde047;
@@ -52,6 +53,11 @@
             padding: 10px 10px;
         }
 
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .imagem_logo {
 
             width: 55%;
@@ -75,9 +81,6 @@
     </style>
 </head>
 <body class="bg-zinc-900 text-[#fafafa]">
-
-    <div class="container">
     <?php (isset($is_logged) && $is_logged) ? include_once __DIR__ . "/layout_logged.php" : include_once __DIR__ . "/layout_guest.php"; ?>
-    </div>
 </body>
 </html>

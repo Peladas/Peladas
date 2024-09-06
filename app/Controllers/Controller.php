@@ -25,9 +25,8 @@ class Controller {
     }
 
     protected function render(string $view, array $data = []) {
-        //print_r("catch");die;
-        $is_logged = $this->is_logged;
-        // array_push($data, )
+        // $is_logged = $this->is_logged;
+        $is_logged = true;
         extract($data);
         include __DIR__ .'/../Views/main.php';
     }
