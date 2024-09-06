@@ -10,9 +10,13 @@ $router = new RouterBase();
 
 $router->get("/", HomeController::class, "index");
 
-// Login
+//Cadastro
 $router->get('/cadastro', LoginController::class, 'register');
 $router->post('/cadastro', LoginController::class, 'register');
+
+//Login
+$router->get('/login', LoginController::class, 'login');
+$router->post('/login', LoginController::class, 'login');
 
 //Rotas Usuário
 $router->get("/joador", UserController::class , "index");
