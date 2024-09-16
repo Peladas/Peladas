@@ -70,6 +70,9 @@ class RegistrationService {
             if (!Validator::cpf($data['cpf'])) {
                 $errors['cpf'] = 'CPF inválido';
             }
+            if (!Validator::minAge($data['birthday'])) {
+                $errors['birthday'] = 'Não possui idade mínima necessária de 16 anos';
+            }
         } else {
             if (!Validator::notEmpty($data['locador-name'])) {
                 $errors['locador-name'] = 'Nome obrigatório';
