@@ -38,17 +38,20 @@
 
         legend {
 
-            color: #fde047;
+            color: #FFD700;
             font-weight:bold;
             font-size: 24px;
             text-align: center;
-            padding: 4%;
+        }
+
+        p {
+            color: #f1f5f9;
         }
 
         input {
 
             background-color: #18181b;
-            border-radius: 6px;
+            border-radius: 8px;
             border: solid 1px #fde047;
             padding: 10px 10px;
         }
