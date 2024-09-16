@@ -54,7 +54,10 @@ class RegistrationService {
         if (!Validator::same($data['password1'], $data['password2'])) {
             $errors['password2'] = 'Senhas não coincidem';
         }
-        if ($data['user_type'] === 'jogador') {
+
+        if(! isset($data['user_type']))
+            $errors['user_type'] = 'Informe o tipo do usuário';
+        else if ($data['user_type'] === 'jogador') {
             if (!Validator::notEmpty($data['jogador-name'])) {
                 $errors['jogador-name'] = 'Nome obrigatório';
             }

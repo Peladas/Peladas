@@ -2,7 +2,7 @@ use db_peladas;
 
 CREATE TABLE usuarios (
   id INT NOT NULL AUTO_INCREMENT,
-  email VARCHAR(50) NOT NULL,
+  email VARCHAR(100) NOT NULL,
   telefone VARCHAR(15) NOT NULL,
   senha TEXT NOT NULL,
   ativo TINYINT(1) NOT NULL DEFAULT 1,

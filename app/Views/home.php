@@ -8,11 +8,7 @@
                 parceiros de jogo ou inscreva sua quadra e aumente</br>suas reservas. Venha fazer parte dessa revolução<br>
                 esportiva!</p><br>
             <div class="flex flex-row flex">
-<<<<<<< HEAD
                 <button color="black" class="rounded-full border border-slate-100 mr-5" onclick="window.location.href='/login';">Entrar</button>
-=======
-                <button color="black" class="rounded-full border border-slate-100 mr-5" onclick="window.location.href='/login'">Entrar</button>
->>>>>>> refs/remotes/origin/main
                 <button color="black" class="rounded-full border border-slate-100" onclick="window.location.href='/cadastro';">Criar Conta</button>
             </div>
         </div>

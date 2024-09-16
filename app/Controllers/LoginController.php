@@ -7,6 +7,7 @@ use App\Services\LoginServices\LoginService;
 use App\Services\LoginServices\RegistrationService;
 
 class LoginController extends Controller {
+
     public function register() {
         $args = [];
         if ($this->getMethod() === 'get') {
