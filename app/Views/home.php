@@ -1,14 +1,18 @@
 <div>
-    <div class="flex flex-row">
+    <div class="flex flex-row justify-center items-center">
             <img class="" src="imagens/logo_PNG.png">
-        <div class="texto-front">
+        <div class="texto-front content-center">
                 <h2 class="pb-6">Locações de quadras desportivas</h2>
                 <h3 class="pb-7 text-2xl">Encontre, Reserve e Jogue!</h3>
                 <p class="text-2xl">Junte-se ao Peladas e descubra uma nova forma de<br>se divertir jogando! Cadastre-se para encontrar<br>
                 parceiros de jogo ou inscreva sua quadra e aumente</br>suas reservas. Venha fazer parte dessa revolução<br>
                 esportiva!</p><br>
             <div class="flex flex-row flex">
+<<<<<<< HEAD
                 <button color="black" class="rounded-full border border-slate-100 mr-5" onclick="window.location.href='/login';">Entrar</button>
+=======
+                <button color="black" class="rounded-full border border-slate-100 mr-5" onclick="window.location.href='/login'">Entrar</button>
+>>>>>>> refs/remotes/origin/main
                 <button color="black" class="rounded-full border border-slate-100" onclick="window.location.href='/cadastro';">Criar Conta</button>
             </div>
         </div>

@@ -1,7 +1,7 @@
 <div>
     <form action="#" method="post" class="flex flex-col gap-3 w-[600px] mx-auto">
 
-        <legend>Faça seu cadastro</legend>
+        <legend class="mb-4">Faça seu cadastro</legend>
 
         <div class="relative">
             <input type="text" id="email" name="email" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent " placeholder=" "/>
@@ -60,28 +60,56 @@
 
             <div class="relative flex flex-col gap-2 mb-4">
 
+<<<<<<< HEAD
                 <input type="text" id="jogador-name" name="jogador-name" placeholder="Nome" value="<?php echo $data['jogador-name'] ?? '' ?>">
+=======
+                <input type="text" id="jogador-name" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" name="jogador-name" required placeholder="Nome" value="<?php echo $data['jogador-name'] ?? '' ?>">
+                <label for="text" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                Nome </label>
+
+>>>>>>> refs/remotes/origin/main
                 <?php if (isset($errors['jogador-name'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['jogador-name'] ?></small>
                 <?php } ?>
             </div>
-            <div class="flex flex-col gap-2 mb-4">
+            <div class=" relative flex flex-col gap-2 mb-4">
 
+                <input type="text" id="jogador-alias" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" name="jogador-alias" required placeholder="Apelido" value="<?php echo $data['jogador-alias'] ?? '' ?>">
+                <label for="text" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                Apelido</label>
+
+<<<<<<< HEAD
                 <input type="text" id="jogador-alias" name="jogador-alias" placeholder="Apelido" value="<?php echo $data['jogador-alias'] ?? '' ?>">
+=======
+>>>>>>> refs/remotes/origin/main
                 <?php if (isset($errors['jogador-alias'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['jogador-alias'] ?></small>
                 <?php } ?>
             </div>
-            <div class="flex flex-col gap-2 mb-4">
+            <div class="relative flex flex-col gap-2 mb-4">
 
+                <input type="text" id="cpf" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" name="cpf" required placeholder="CPF" value="<?php echo $data['cpf'] ?? '' ?>">
+                <label for="text" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                CPF</label>
+
+<<<<<<< HEAD
                 <input type="text" id="cpf" name="cpf" placeholder="CPF" value="<?php echo $data['cpf'] ?? '' ?>">
+=======
+>>>>>>> refs/remotes/origin/main
                 <?php if (isset($errors['cpf'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['cpf'] ?></small>
                 <?php } ?>
             </div>
-            <div class="flex flex-col gap-2 mb-4">
+            <div class="relative flex flex-col gap-2 mb-4">
 
+                <input type="date" id="birthday" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" name="birthday" required placeholder="Data" value="<?php echo $data['birthday'] ?? '' ?>">
+                <label for="text" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                Data de Nascimento</label>
+
+<<<<<<< HEAD
                 <input type="date" id="birthday" name="birthday" placeholder="Data" value="<?php echo $data['birthday'] ?? '' ?>">
+=======
+>>>>>>> refs/remotes/origin/main
                 <?php if (isset($errors['birthday'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['birthday'] ?></small>
                 <?php } ?>
