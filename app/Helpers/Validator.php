@@ -40,4 +40,14 @@ final class Validator {
     public static function validateDocument(string $value): bool {
         return Document::documentIsValid($value);
     }
+
+    public static function minAge(string $birthdate, int $minAge = 16): bool {
+        $birthDate = new \DateTime($birthdate);
+        $today = new \DateTime();
+
+        $age = $today->diff($birthDate)->y;
+
+        return $age >= $minAge;
+    }
+
 }

@@ -25,13 +25,12 @@ class Controller {
     }
 
     protected function render(string $view, array $data = []) {
-        // $is_logged = $this->is_logged;
-        $is_logged = true;
+        $is_logged = $this->is_logged;
         extract($data);
         include __DIR__ .'/../Views/main.php';
     }
 
     protected function setIsLogged() {
-        $this->is_logged = false;
+        $this->is_logged = isset($_SESSION['usuario_id']);
     }
 }

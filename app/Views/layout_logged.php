@@ -2,6 +2,7 @@
 
 <div class="container">
     <main>
+        <!-- <h1>logado</h1> -->
         <?php include __DIR__ . "/$view.php"; ?>
     </main>
 </div>

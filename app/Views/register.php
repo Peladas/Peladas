@@ -4,7 +4,7 @@
         <legend>Faça seu cadastro</legend>
 
         <div class="relative">
-            <input type="email" id="email" name="email" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent " placeholder=" "/>
+            <input type="text" id="email" name="email" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent " placeholder=" "/>
             <label for="email" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                 E-mail
             </label>
@@ -60,28 +60,28 @@
 
             <div class="relative flex flex-col gap-2 mb-4">
 
-                <input type="text" id="jogador-name" name="jogador-name" required placeholder="Nome" value="<?php echo $data['jogador-name'] ?? '' ?>">
+                <input type="text" id="jogador-name" name="jogador-name" placeholder="Nome" value="<?php echo $data['jogador-name'] ?? '' ?>">
                 <?php if (isset($errors['jogador-name'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['jogador-name'] ?></small>
                 <?php } ?>
             </div>
             <div class="flex flex-col gap-2 mb-4">
 
-                <input type="text" id="jogador-alias" name="jogador-alias" required placeholder="Apelido" value="<?php echo $data['jogador-alias'] ?? '' ?>">
+                <input type="text" id="jogador-alias" name="jogador-alias" placeholder="Apelido" value="<?php echo $data['jogador-alias'] ?? '' ?>">
                 <?php if (isset($errors['jogador-alias'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['jogador-alias'] ?></small>
                 <?php } ?>
             </div>
             <div class="flex flex-col gap-2 mb-4">
 
-                <input type="text" id="cpf" name="cpf" required placeholder="CPF" value="<?php echo $data['cpf'] ?? '' ?>">
+                <input type="text" id="cpf" name="cpf" placeholder="CPF" value="<?php echo $data['cpf'] ?? '' ?>">
                 <?php if (isset($errors['cpf'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['cpf'] ?></small>
                 <?php } ?>
             </div>
             <div class="flex flex-col gap-2 mb-4">
 
-                <input type="date" id="birthday" name="birthday" required placeholder="Data" value="<?php echo $data['birthday'] ?? '' ?>">
+                <input type="date" id="birthday" name="birthday" placeholder="Data" value="<?php echo $data['birthday'] ?? '' ?>">
                 <?php if (isset($errors['birthday'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['birthday'] ?></small>
                 <?php } ?>
@@ -91,21 +91,21 @@
         <div class="hidden w-full mt-6" id="cadastro-locador">
             <div class="flex flex-col gap-2 mb-4">
 
-                <input type="text" id="locador-name" name="locador-name" required placeholder="Razão Social" value="<?php echo $data['locador-name'] ?? '' ?>">
+                <input type="text" id="locador-name" name="locador-name" placeholder="Razão Social" value="<?php echo $data['locador-name'] ?? '' ?>">
                 <?php if (isset($errors['locador-name'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['locador-name'] ?></small>
                 <?php } ?>
             </div>
             <div class="flex flex-col gap-2 mb-4">
 
-                <input type="text" id="locador-alias" name="locador-alias" required placeholder="Nome Fantasia" value="<?php echo $data['locador-alias'] ?? '' ?>">
+                <input type="text" id="locador-alias" name="locador-alias" placeholder="Nome Fantasia" value="<?php echo $data['locador-alias'] ?? '' ?>">
                 <?php if (isset($errors['locador-alias'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['locador-alias'] ?></small>
                 <?php } ?>
             </div>
             <div class="flex flex-col gap-2 mb-4">
 
-                <input type="text" id="cnpj" name="cnpj" required placeholder="CNPJ" value="<?php echo $data['cnpj'] ?? '' ?>">
+                <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" value="<?php echo $data['cnpj'] ?? '' ?>">
                 <?php if (isset($errors['cnpj'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['cnpj'] ?></small>
                 <?php } ?>
