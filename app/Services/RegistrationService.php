@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\LoginServices;
+namespace App\Services;
 
 use App\Dao\JogadorDAO;
 use App\Dao\LocadorDAO;
@@ -83,9 +83,9 @@ class RegistrationService {
             if (!Validator::notEmpty($data['cnpj'])) {
                 $errors['cnpj'] = 'CNPJ obrigatório';
             }
-            //if (!Validator::cnpj($data['cnpj'])) {
-                //$errors['cnpj'] = 'CNPJ inválido';
-            //}
+            if (!Validator::cnpj($data['cnpj'])) {
+                $errors['cnpj'] = 'CNPJ inválido';
+            }
         }
         return $errors;
     }
