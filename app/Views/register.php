@@ -1,4 +1,4 @@
-<div>
+<div class="mt-[90px]">
     <form action="#" method="post" class="flex flex-col gap-3 w-[600px] mx-auto" onload="cha">
 
         <legend class="mb-4">Faça seu cadastro</legend>

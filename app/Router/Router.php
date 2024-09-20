@@ -2,6 +2,7 @@
 
 namespace App\Router;
 
+use App\Controllers\CourtController;
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
 use App\Controllers\UserController;
@@ -17,6 +18,10 @@ $router->post('/cadastro', LoginController::class, 'register');
 //Login
 $router->get('/login', LoginController::class, 'login');
 $router->post('/login', LoginController::class, 'login');
+
+//Viualização Quadras
+$router->get('/quadras', CourtController::class, 'quadras');
+$router->post('/quadras', CourtController::class, 'quadras');
 
 //Rotas Usuário
 $router->get("/joador", UserController::class , "index");
