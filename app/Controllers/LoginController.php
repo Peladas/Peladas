@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\User;
 use App\Services\LoginService;
 use App\Services\RegistrationService;
 

@@ -23,6 +23,8 @@ $router->get('/logout', LoginController::class, 'logout');
 //Viualização Quadras
 $router->get('/quadras', CourtController::class, 'quadras');
 $router->post('/quadras', CourtController::class, 'quadras');
+$router->get('/registro-de-quadras', CourtController::class, 'quadras_register');
+$router->post('/registro-de-quadras', CourtController::class, 'quadras_register');
 
 //Rotas Usuário
 $router->get(url: "/jogador", controller: UserController::class , method: "index");
