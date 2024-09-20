@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\LoginServices;
+namespace App\Services;
 
 use App\Dao\UserDAO;
 use App\Helpers\Validator;

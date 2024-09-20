@@ -3,8 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\User;
-use App\Services\LoginServices\LoginService;
-use App\Services\LoginServices\RegistrationService;
+use App\Services\LoginService;
+use App\Services\RegistrationService;
 
 class LoginController extends Controller {
 
@@ -40,6 +40,12 @@ class LoginController extends Controller {
         if (count($errors) > 0) {
             return $this->render('login', compact('errors', 'data'));
         }
+
+        header('Location: /');
+    }
+
+    public function logout() {
+        $_SESSION = [];
 
         header('Location: /');
     }
