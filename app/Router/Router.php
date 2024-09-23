@@ -9,27 +9,27 @@ use App\Controllers\UserController;
 
 $router = new RouterBase();
 
-$router->get("/", HomeController::class, "index");
+$router->get(url: "/", controller: HomeController::class, method: "index");
 
 //Cadastro
-$router->get('/cadastro', LoginController::class, 'register');
-$router->post('/cadastro', LoginController::class, 'register');
+$router->get(url: '/cadastro', controller: LoginController::class, method: 'register');
+$router->post(url: '/cadastro', controller: LoginController::class, method: 'register');
 
 //Login
-$router->get('/login', LoginController::class, 'login');
-$router->post('/login', LoginController::class, 'login');
-$router->get('/logout', LoginController::class, 'logout');
+$router->get(url: '/login', controller: LoginController::class, method: 'login');
+$router->post(url: '/login', controller: LoginController::class, method: 'login');
+$router->get(url: '/logout', controller: LoginController::class, method: 'logout');
 
 //Viualização Quadras
-$router->get('/quadras', CourtController::class, 'quadras');
-$router->post('/quadras', CourtController::class, 'quadras');
-$router->get('/registro-de-quadras', CourtController::class, 'quadras_register');
-$router->post('/registro-de-quadras', CourtController::class, 'quadras_register');
+$router->get(url: '/quadras', controller: CourtController::class, method: 'court');
+$router->post(url: '/quadras', controller: CourtController::class, method: 'court');
+$router->get(url: '/cadastro-quadras', controller: CourtController::class, method: 'court_register');
+$router->post(url: '/cadastro-quadras', controller: CourtController::class, method: 'court_register');
 
 //Rotas Usuário
 $router->get(url: "/jogador", controller: UserController::class , method: "index");
-$router->get("/jogador/:joagdorId", UserController::class , "show");
-$router->post("/jogador", UserController::class , "create");
-$router->post("/jogador/:jogadorId", UserController::class , "update");
+$router->get(url: "/jogador/:joagdorId", controller: UserController::class , method: "show");
+$router->post(url: "/jogador", controller: UserController::class , method: "create");
+$router->post(url: "/jogador/:jogadorId", controller: UserController::class , method: "update");
 
 $router->matchRoute();

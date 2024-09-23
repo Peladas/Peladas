@@ -17,4 +17,9 @@ class UserDAO extends BaseDAO
     public string $telefone;
     public string $senha;
     public string $ativo;
+
+    public function create(User $user): string {
+        $userData = $user->toArray();
+        return $this->persist($userData);
+    }
 }

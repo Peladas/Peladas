@@ -12,4 +12,9 @@ class LocadorDAO extends BaseDAO
     /**@var string */
     protected $modelName = Locador::class;
 
+    public function create(Locador $locador): string {
+        $locadorData = $locador->toArray();
+        return $this->persist($locadorData);
+    }
+
 }

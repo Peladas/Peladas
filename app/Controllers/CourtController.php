@@ -6,30 +6,26 @@ use App\Services\CourtService;
 
 class CourtController extends Controller {
 
-    public function quadras() {
-
+    public function court() {
         if ($this->getMethod() === 'get') {
-            return $this->render('quadras');
+            return $this->render(view: 'court');
         }
-
-        return $this->render('quadras');
     }
 
-    public function quadras_register() {
-        $args = [];
+    public function court_register() {
         if ($this->getMethod() === 'get') {
-            return $this->render('quadras');
-        };
+            return $this->render(view: 'court_register');
+        }
 
         $data = $this->getBody();
 
         $courtService = new CourtService();
-        $errors = $courtService->run($data);
+        $errors = $courtService->run(data: $data);
 
-        if (count($errors) > 0) {
+        if (count(value: $errors) > 0) {
             return $this->render('court_register', compact('errors', 'data'));
         }
 
-        header('Location: /');
+        header(header: 'Location: /');
     }
 }

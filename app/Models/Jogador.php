@@ -4,11 +4,11 @@ namespace App\Models;
 
 class Jogador extends User {
 
-    private ?int $id;
-    private ?String $nomeJogador;
-    private ?String $cpf;
-    private ?String $dataNascimento; //Ver se tem que ser DATE
-    private ?String $apelido;
+    protected ?int $id;
+    protected ?String $nome_jogador;
+    protected ?String $cpf;
+    protected ?String $data_nascimento; //Ver se tem que ser DATE
+    protected ?String $apelido;
 
 
     /**
@@ -34,15 +34,15 @@ class Jogador extends User {
      */
     public function getNomeJogador(): ?String
     {
-        return $this->nomeJogador;
+        return $this->nome_jogador;
     }
 
     /**
      * Set the value of nomeJogador
      */
-    public function setNomeJogador(?String $nomeJogador): self
+    public function setNomeJogador(?String $nome_jogador): self
     {
-        $this->nomeJogador = $nomeJogador;
+        $this->nome_jogador = $nome_jogador;
 
         return $this;
     }
@@ -70,15 +70,15 @@ class Jogador extends User {
      */
     public function getDataNascimento(): ?String
     {
-        return $this->dataNascimento;
+        return $this->data_nascimento;
     }
 
     /**
-     * Set the value of dataNascimento
+     * Set the value of data_nascimento
      */
-    public function setDataNascimento(?String $dataNascimento): self
+    public function setDataNascimento(?String $data_nascimento): self
     {
-        $this->dataNascimento = $dataNascimento;
+        $this->data_nascimento = $data_nascimento;
 
         return $this;
     }

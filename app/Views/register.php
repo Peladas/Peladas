@@ -16,7 +16,8 @@
 
         <div class="relative">
 
-            <input type="text" id="phone" name="phone" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
+            <input type="text" id="phone" name="phone" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "
+                value="<?php echo $data['phone'] ?? '' ?>"/>
             <label for="phone" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                 Telefone
             </label>
@@ -28,7 +29,8 @@
         <div class="flex flex-row w-full gap-4">
             <div class="relative flex flex-col gap-2 flex-1">
 
-            <input type="password" id="password1" name="password1" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
+            <input type="password" id="password1" name="password1" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "
+                value="<?php echo $data['password1'] ?? '' ?>"/>
             <label for="password1" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                 Senha </label>
                 <?php if (isset($errors['password1'])) { ?>
