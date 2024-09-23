@@ -87,6 +87,7 @@ function getButtonColors(color = null) {
       "hover:scale-105", // Aumenta o tamanho em 5% ao passar o mouse
       "hover:shadow-lg", // Adiciona uma sombra ao passar o mouse
   ],
+  
 
   };
 

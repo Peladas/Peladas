@@ -1,7 +1,7 @@
 <div>
     <div class="flex flex-row justify-center items-center">
             <img class="" src="imagens/logo_PNG.png">
-        <div class="texto-front content-center">
+        <div class="texto-front content-center mb-[150px]">
                 <h2 class="pb-6">Locações de quadras desportivas</h2>
                 <h3 class="pb-7 text-2xl">Encontre, Reserve e Jogue!</h3>
                 <p class="text-2xl">Junte-se ao Peladas e descubra uma nova forma de<br>se divertir jogando! Cadastre-se para encontrar<br>
@@ -14,3 +14,4 @@
         </div>
     </div>
 </div>
+    
