@@ -42,7 +42,7 @@ final class Validator {
     }
 
     public static function minAge(string $birthdate, int $minAge = 16): bool {
-        $birthDate = new \DateTime($birthdate);
+        $birthDate = new \DateTime(datetime: $birthdate);
         $today = new \DateTime();
 
         $age = $today->diff($birthDate)->y;

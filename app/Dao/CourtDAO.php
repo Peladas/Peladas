@@ -12,4 +12,9 @@ class CourtDAO extends BaseDAO
     /**@var string */
     protected $modelName = Quadra::class;
 
+    public function create(Quadra $court): string {
+        $courtData = $court->toArray();
+        return $this->persist($courtData);
+    }
+
 }

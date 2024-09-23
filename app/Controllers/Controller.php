@@ -9,24 +9,24 @@ class Controller {
         $this->setIsLogged();
     }
 
-    protected function getSearchParam(string $param) {
+    protected function getSearchParam(string $param): mixed {
         $param = $_REQUEST[$param] ?? null;
         return $param;
     }
 
-    protected function getBody() {
+    protected function getBody(): array {
         $body = $_POST;
         return $body;
     }
 
-    protected function getMethod() {
+    protected function getMethod(): string {
         $method = $_SERVER['REQUEST_METHOD'];
-        return strtolower($method);
+        return strtolower(string: $method);
     }
 
-    protected function render(string $view, array $data = []) {
+    protected function render(string $view, array $data = []): void {
         $is_logged = $this->is_logged;
-        extract($data);
+        extract(array: $data);
         // var_dump('logged: ' . json_encode(['logged' => $is_logged]));
         // var_dump($_SESSION);
         include __DIR__ .'/../Views/main.php';

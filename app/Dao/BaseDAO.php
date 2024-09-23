@@ -4,6 +4,7 @@ namespace App\Dao;
 
 use App\Helpers\Config;
 use App\Helpers\Log;
+use App\Models\Model;
 use PDO;
 use PDOException;
 use PDOStatement;
@@ -81,7 +82,7 @@ class BaseDAO
         }
     }
 
-    public function create(array $data)
+    protected function persist(array $data)
     {
         try {
             $columns = implode(',', array_keys($data));

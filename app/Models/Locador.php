@@ -4,13 +4,13 @@ namespace App\Models;
 
 class Locador extends User {
     /*public $nome_fantasia;
-    public $razao_social;
+    public $razao_socsial;
     public $cnpj;*/
 
-    private ?int $id;
-    private ?String $nome_fantasia;
-    private ?String $razao_social;
-    private ?String $cnpj;
+    protected ?int $id;
+    protected ?String $nome_fantasia;
+    protected ?String $razao_social;
+    protected ?String $cnpj;
 
 
     public function getId(): ?int {
@@ -47,10 +47,11 @@ class Locador extends User {
         return $this->cnpj;
     }
 
-    public function setTelefone(?String $cnpj): self {
+    public function setCnpj(?String $cnpj): ?String {
         $this->cnpj = $cnpj;
 
-        return $this;
+        return $this->cnpj;
     }
+
 
 }

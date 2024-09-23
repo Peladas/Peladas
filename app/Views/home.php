@@ -1,5 +1,5 @@
 <div>
-    <div class="flex flex-row justify-center items-center">
+    <div class="flex flex-row justify-center items-center h-screen">
             <img class="" src="imagens/logo_PNG.png">
         <div class="texto-front content-center">
                 <h2 class="pb-6">Locações de quadras desportivas</h2>

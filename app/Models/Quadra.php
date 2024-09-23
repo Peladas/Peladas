@@ -2,17 +2,29 @@
 
 namespace App\Models;
 
-class Quadra {
+class Quadra extends Model {
 
-    private ?Float $valor_aluguel;
-    private ?int $quant_min_jogadores;
-    private ?String $tamanho_quadra;
-    private ?String $horarios_func;
-    private ?String $identificador;
-    private ?String $modalidades;
-    private ?String $descricao;
+    protected ?int $id;
+    protected ?Float $valor_aluguel;
+    protected ?int $quant_min_jogadores;
+    protected ?String $tamanho_quadra;
+    protected ?String $horarios_func;
+    protected ?String $identificador;
+    protected ?String $modalidades;
+    protected ?String $descricao;
 
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
     public function getValorAluguel(): ?Float
     {
         return $this->valor_aluguel;
