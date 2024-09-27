@@ -1,5 +1,5 @@
 <nav class="border-solid border-2 border-zinc-900 border-b-gray-700 p-3 flex items-center justify-between">
-    <img class="w-28" src="../imagens/pnh.png">
+    <img class="w-28" src="../imagens/pnh.png" onclick="window.location.href='/';">
 
     <?php if (isset($_SESSION['usuario_id'])): ?>
         <!-- Conteúdo exibido apenas se o usuário estiver logado -->

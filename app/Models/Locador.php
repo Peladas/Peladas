@@ -12,6 +12,9 @@ class Locador extends User {
     protected ?String $razao_social;
     protected ?String $cnpj;
 
+    protected ?int $usuario_id;
+
+
 
     public function getId(): ?int {
         return $this->id;
@@ -53,5 +56,15 @@ class Locador extends User {
         return $this->cnpj;
     }
 
+    public function getUsuarioId(): ?int
+    {
+        return $this->usuario_id;
+    }
 
+    public function setUsuarioId(?int $usuario_id): self
+    {
+        $this->usuario_id = $usuario_id;
+
+        return $this;
+    }
 }

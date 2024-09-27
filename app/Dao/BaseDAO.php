@@ -82,6 +82,33 @@ class BaseDAO
         }
     }
 
+    public function first(array $filters = []) {
+        try {
+            $query = 'SELECT * FROM ' . $this->getTableName();
+            if (count($filters) > 0) {
+                $wheres = [];
+                foreach ($filters as $key => $value) {
+                    switch ($value) {
+                        case 'NULL':
+                            $wheres[] = "WHERE $key IS NULL";
+                            break;
+                        case 'NOT NULL':
+                            $wheres[] = "WHERE $key IS NOT NULL";
+                            break;
+                        default:
+                            $wheres[] = "WHERE $key='$value'";
+                            break;
+                    }
+                }
+                $query .= ' ' . implode(' AND ', $wheres);
+            }
+            $statement = $this->prepareConsultation($query);
+            return $statement->fetch(PDO::FETCH_OBJ);
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+
     protected function persist(array $data)
     {
         try {

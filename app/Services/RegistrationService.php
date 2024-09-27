@@ -12,6 +12,8 @@ use App\Models\User;
 
 class RegistrationService {
     public function run(array $data): array {
+
+
         $errors = $this->validate($data);
         //var_dump($data);
 
@@ -97,7 +99,7 @@ class RegistrationService {
 
     private function createJogador(int $userId, array $data): void {
         $newJogador = new Jogador();
-        $newJogador->setId(id: $userId)
+        $newJogador->setUsuarioId(usuario_id: $userId)
             ->setNomeJogador( nome_jogador: $data["jogador-name"])
             ->setApelido(apelido: $data["jogador-alias"])
             ->setCpf(cpf: $data["cpf"])
@@ -109,7 +111,7 @@ class RegistrationService {
 
     private function createLocador(int $userId, array $data): void {
         $newLocador = new Locador();
-        $newLocador->setId(id: $userId)
+        $newLocador->setUsuarioId(usuario_id: $userId)
             ->setNomeFantasia(nome_fantasia: $data["locador-name"])
             ->setRazaoSocial(razao_social: $data["locador-alias"])
             ->setCnpj(cnpj: $data["cnpj"]);

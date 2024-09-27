@@ -7,10 +7,10 @@ use App\Services\RegistrationService;
 
 class LoginController extends Controller {
 
-    public function register(): void {
+    public function register() {
         $args = [];
         if ($this->getMethod() === 'get') {
-            $this->render(view: 'register');
+            return $this->render(view: 'register');
         };
 
         $data = $this->getBody();
