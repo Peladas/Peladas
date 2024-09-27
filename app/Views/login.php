@@ -1,4 +1,4 @@
-<div class="flex justify-center items-center h-screen">
+<div class="flex justify-center items-center">
 
     <div class="container max-w-[900px]">
 

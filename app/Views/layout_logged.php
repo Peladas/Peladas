@@ -1,6 +1,6 @@
 <?php require_once(__DIR__ . "/include/header.php"); ?>
 
-<div class="container">
+<div >
     <main>
         <!-- <h1>logado</h1> -->
         <?php include __DIR__ . "/$view.php"; ?>

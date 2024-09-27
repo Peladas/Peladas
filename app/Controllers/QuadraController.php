@@ -28,4 +28,8 @@ class QuadraController extends Controller {
 
         header(header: 'Location: /quadras');
     }
+
+    public function areas_esportivas() {
+
+    }
 }
