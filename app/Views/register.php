@@ -137,7 +137,7 @@
         </div>
 
         <div class="text-left">
-            <p class="signin">Já tem uma conta? <a href="#" class="text-blue-500" onclick="window.location.href='/login';">Faça Login</a> </p>
+            <p class="signin">Já tem uma conta? <a href="#" class="text-amber-500" onclick="window.location.href='/login';">Faça Login</a> </p>
         </div>
 
         <div class="mt-4">

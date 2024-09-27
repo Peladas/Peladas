@@ -60,6 +60,13 @@
             padding: 10px 10px;
         }
 
+        .section {
+            flex: 1;
+            padding: 20px;
+
+            box-sizing: border-box;
+        }
+
         .container {
             margin-left: auto;
             margin-right: auto;
@@ -91,7 +98,7 @@
         }
     </style>
 </head>
-<body class="bg-zinc-900 text-[#fafafa]">
+<body class="bg-zinc-900 text-[#fafafa] break-words">
     <?php (isset($is_logged) && $is_logged) ? include_once __DIR__ . "/layout_logged.php" : include_once __DIR__ . "/layout_guest.php"; ?>
 </body>
 </html>

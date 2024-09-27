@@ -1,4 +1,4 @@
-<footer class="border-t-2 border-gray-800 mt-6 bg-zinc-800">
+<footer class="border-t-2 border-gray-800 bg-zinc-800">
     <div class="m-[11px]">
         <div class="flex flex-row justify-center">
             <i class="fa-brands fa-instagram mr-2"></i>

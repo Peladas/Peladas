@@ -5,16 +5,14 @@
         <!-- Conteúdo exibido apenas se o usuário estiver logado -->
         <ul class="nav nav-underline flex items-center space-x-4">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active hover:text-blue-600 active:text-blue-700" aria-current="page" onclick="window.location.href='/home_jogador';"  href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">My Matches</a>
+                <a class="nav-link hover:text-blue-600 active:text-blue-700 mr-4" href="#">My Matches</a>
             </li>
 
             <li class="nav-item relative">
-                <button id="button" class="flex items-center focus:outline-none p-3 border-2 border-gray-400 rounded-full bg-transparent hover:bg-gray-100">
-                    <i class="fa-solid fa-user" style="color: #FFD43B;"></i>
-                </button>
+                <i class="flex justify-center fa-solid fa-user mr-4 border-2 border-solid rounded-full p-2 w-9 h-9" id="button" style="color: #FFD43B;"></i>
 
                 <div id="userDropdown" class="hidden absolute right-0 mt-2 w-44 bg-zinc-900 border border-gray-300 rounded-lg shadow-lg">
                     <a href="/profile" class="block px-4 py-2 text-slate-400 hover:text-slate-100">Meu Perfil</a>
