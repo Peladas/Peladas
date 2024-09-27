@@ -12,6 +12,12 @@ class CourtController extends Controller {
         }
     }
 
+    public function areas_desportivas() {
+        if ($this->getMethod() === 'get') {
+            return $this->render(view: 'areas_desportivas');
+        }
+    }
+
     public function court_register() {
         if ($this->getMethod() === 'get') {
             return $this->render(view: 'court_register');

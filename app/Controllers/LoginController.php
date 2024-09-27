@@ -17,7 +17,7 @@ class LoginController extends Controller {
 
         $registrationService = new RegistrationService();
         $errors = $registrationService->run(data: $data);
-        var_dump([$data, $errors]);
+        //var_dump([$data, $errors]);
 
         if (count(value: $errors) > 0) {
             $this->render(view: 'register', data: compact('errors', 'data'));
@@ -41,7 +41,7 @@ class LoginController extends Controller {
             return $this->render(view: 'login', data: compact(var_name: 'errors', var_names: 'data'));
         }
 
-        header(header: 'Location: /');
+        header(header: 'Location: /home_jogador');
     }
 
     public function logout(): void {
