@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class PlayerController extends Controller {
+class JogadorController extends Controller {
 
     public function homePlayer() {
         if ($this->getMethod() === 'get') {

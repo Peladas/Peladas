@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class OwnerController extends Controller {
+class LocadorController extends Controller {
 
     public function homeOwner() {
         if ($this->getMethod() === 'get') {
