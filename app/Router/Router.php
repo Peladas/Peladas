@@ -31,8 +31,8 @@ $router->post(url: '/login', controller: LoginController::class, method: 'login'
 $router->get(url: '/logout', controller: LoginController::class, method: 'logout');
 
 //Viualização Quadras
-$router->get(url: '/quadras', controller: CourtController::class, method: 'court');
-$router->post(url: '/quadras', controller: CourtController::class, method: 'court');
+$router->get(url: '/areas_desportivas', controller: CourtController::class, method: 'areas_desportivas');
+$router->post(url: '/areas_desportivas', controller: CourtController::class, method: 'areas_desportivas');
 $router->get(url: '/cadastro-quadras', controller: CourtController::class, method: 'court_register');
 $router->post(url: '/cadastro-quadras', controller: CourtController::class, method: 'court_register');
 
