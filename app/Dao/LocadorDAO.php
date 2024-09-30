@@ -17,4 +17,8 @@ class LocadorDAO extends BaseDAO
         return $this->persist($locadorData);
     }
 
+    public function getByUsuarioId(int $usuarioId) {
+        return $this->first(['usuario_id' => $usuarioId]);
+    }
+
 }

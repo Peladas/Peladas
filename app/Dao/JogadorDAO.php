@@ -18,4 +18,8 @@ class JogadorDAO extends BaseDAO
         return $this->persist($jogadorData);
     }
 
+    public function getByUsuarioId(int $usuarioId) {
+        return $this->first(['usuario_id' => $usuarioId]);
+    }
+
 }

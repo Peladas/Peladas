@@ -10,43 +10,43 @@ class LoginController extends Controller {
     public function register() {
         $args = [];
         if ($this->getMethod() === 'get') {
-            return $this->render(view: 'register');
+            return $this->render('register');
         };
 
         $data = $this->getBody();
 
         $registrationService = new RegistrationService();
-        $errors = $registrationService->run(data: $data);
+        $errors = $registrationService->run($data);
         //var_dump([$data, $errors]);
 
-        if (count(value: $errors) > 0) {
-            $this->render(view: 'register', data: compact('errors', 'data'));
+        if (count($errors) > 0) {
+            $this->render('register', compact('errors', 'data'));
         }
 
-        header(header: 'Location: /');
+        header('Location: /login');
     }
 
     public function login() {
         $args = [];
         if ($this->getMethod() === 'get') {
-            return $this->render(view: 'login');
+            return $this->render('login');
         };
 
         $data = $this->getBody();
 
         $loginService = new LoginService();
-        $errors = $loginService->run(data: $data);
+        $errors = $loginService->run( $data);
 
-        if (count(value: $errors) > 0) {
-            return $this->render(view: 'login', data: compact(var_name: 'errors', var_names: 'data'));
+        if (count($errors) > 0) {
+            return $this->render('login', compact('errors', 'data'));
         }
 
-        header(header: 'Location: /home_jogador');
+        header('Location: /');
     }
 
     public function logout(): void {
         $_SESSION = [];
 
-        header(header: 'Location: /');
+        header('Location: /');
     }
 }
