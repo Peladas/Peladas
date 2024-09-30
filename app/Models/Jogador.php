@@ -10,6 +10,8 @@ class Jogador extends User {
     protected ?String $data_nascimento; //Ver se tem que ser DATE
     protected ?String $apelido;
 
+    protected ?int $usuario_id;
+
 
     /**
      * Get the value of id
@@ -97,6 +99,24 @@ class Jogador extends User {
     public function setApelido(?String $apelido): self
     {
         $this->apelido = $apelido;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of usuario_id
+     */
+    public function getUsuarioId(): ?int
+    {
+        return $this->usuario_id;
+    }
+
+    /**
+     * Set the value of usuario_id
+     */
+    public function setUsuarioId(?int $usuario_id): self
+    {
+        $this->usuario_id = $usuario_id;
 
         return $this;
     }

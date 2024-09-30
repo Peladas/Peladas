@@ -136,12 +136,12 @@
 
         </div>
 
-        <div class="mt-4">
-            <button color="black" class="rounded-full border border-slate- mr-5 houver:bg-color focus:border-blue-400" type="submit">Enviar</button>
-        </div>
-
         <div class="text-left">
             <p class="signin">Já tem uma conta? <a href="#" class="text-amber-500" onclick="window.location.href='/login';">Faça Login</a> </p>
+        </div>
+
+        <div class="mt-4">
+            <button color="black" class="rounded-full border border-slate- mr-5 houver:bg-color focus:border-blue-400" type="submit">Enviar</button>
         </div>
 
     </form>

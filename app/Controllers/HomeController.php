@@ -10,6 +10,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        return $this->render('home');
+        if (!$this->is_logged) {
+            return $this->render('home');
+        }
+
+        $viewName = ($this->userType === 'jogador') ? 'home_jogador' : 'home_locador';
+
+        return $this->render($viewName);
     }
 }

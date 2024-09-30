@@ -8,10 +8,12 @@ class Quadra extends Model {
     protected ?Float $valor_aluguel;
     protected ?int $quant_min_jogadores;
     protected ?String $tamanho_quadra;
-    protected ?String $horarios_func;
+    protected ?String $horarios_funcionamento;
     protected ?String $identificador;
-    protected ?String $modalidades;
+    protected ?String $modalidade;
     protected ?String $descricao;
+
+    protected ?int $locador_id;
 
 
     public function getId(): ?int
@@ -61,14 +63,14 @@ class Quadra extends Model {
         return $this;
     }
 
-    public function getHorariosFunc(): ?String
+    public function getHorariosFuncionamento(): ?String
     {
-        return $this->horarios_func;
+        return $this->horarios_funcionamento;
     }
 
-    public function setHorariosFunc(?String $horarios_func): self
+    public function setHorariosFuncionamento(?String $horarios_funcionamento): self
     {
-        $this->horarios_func = $horarios_func;
+        $this->horarios_funcionamento = $horarios_funcionamento;
 
         return $this;
     }
@@ -85,14 +87,14 @@ class Quadra extends Model {
         return $this;
     }
 
-    public function getModalidades(): ?String
+    public function getModalidade(): ?String
     {
-        return $this->modalidades;
+        return $this->modalidade;
     }
 
-    public function setModalidades(?String $modalidades): self
+    public function setModalidade(?String $modalidade): self
     {
-        $this->modalidades = $modalidades;
+        $this->modalidade = $modalidade;
 
         return $this;
     }
@@ -106,6 +108,18 @@ class Quadra extends Model {
     public function setDescricao(?String $descricao): self
     {
         $this->descricao = $descricao;
+
+        return $this;
+    }
+
+    public function getLocadorId(): ?int
+    {
+        return $this->locador_id;
+    }
+
+    public function setLocadorId(?int $locador_id): self
+    {
+        $this->locador_id = $locador_id;
 
         return $this;
     }

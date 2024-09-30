@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-class OwnerController extends Controller {
+class LocadorController extends Controller {
 
-    public function homeOwner() {
+    public function homeLocador() {
         if ($this->getMethod() === 'get') {
             return $this->render(view: 'home_locador');
         }

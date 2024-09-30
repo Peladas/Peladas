@@ -14,7 +14,12 @@ class JogadorDAO extends BaseDAO
 
     public function create(Jogador $jogador): string {
         $jogadorData = $jogador->toArray();
+
         return $this->persist($jogadorData);
+    }
+
+    public function getByUsuarioId(int $usuarioId) {
+        return $this->first(['usuario_id' => $usuarioId]);
     }
 
 }

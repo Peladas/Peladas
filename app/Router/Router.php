@@ -2,11 +2,11 @@
 
 namespace App\Router;
 
-use App\Controllers\CourtController;
+use App\Controllers\QuadraController;
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
-use App\Controllers\OwnerController;
-use App\Controllers\PlayerController;
+use App\Controllers\LocadorController;
+use App\Controllers\JogadorController;
 use App\Controllers\UserController;
 
 $router = new RouterBase();
@@ -14,12 +14,12 @@ $router = new RouterBase();
 $router->get(url: "/", controller: HomeController::class, method: "index");
 
 //Home Jogador
-$router->get(url: '/home_jogador', controller: PlayerController::class, method: 'homePlayer');
-$router->post(url: '/home_jogador', controller: PlayerController::class, method: 'homePlayer');
+$router->get(url: '/home_jogador', controller: JogadorController::class, method: 'homeJogador');
+$router->post(url: '/home_jogador', controller: JogadorController::class, method: 'homeJogador');
 
 //Home Locador
-$router->get(url: '/home_locador', controller: OwnerController::class, method: 'homeOwner');
-$router->post(url: '/home_locador', controller: OwnerController::class, method: 'homeOwner');
+$router->get(url: '/home_locador', controller: LocadorController::class, method: 'homeLocador');
+$router->post(url: '/home_locador', controller: LocadorController::class, method: 'homeLocador');
 
 //Cadastro
 $router->get(url: '/cadastro', controller: LoginController::class, method: 'register');
@@ -31,14 +31,14 @@ $router->post(url: '/login', controller: LoginController::class, method: 'login'
 $router->get(url: '/logout', controller: LoginController::class, method: 'logout');
 
 //Viualização Quadras
-$router->get(url: '/areas_desportivas', controller: CourtController::class, method: 'areas_desportivas');
-$router->post(url: '/areas_desportivas', controller: CourtController::class, method: 'areas_desportivas');
-$router->get(url: '/cadastro-quadras', controller: CourtController::class, method: 'court_register');
-$router->post(url: '/cadastro-quadras', controller: CourtController::class, method: 'court_register');
+$router->get(url: '/quadras', controller: QuadraController::class, method: 'quadra');
+$router->post(url: '/quadras', controller: QuadraController::class, method: 'quadra');
+$router->get(url: '/cadastro-quadras', controller: QuadraController::class, method: 'quadra_register');
+$router->post(url: '/cadastro-quadras', controller: QuadraController::class, method: 'quadra_register');
 
 //Viualização das áreas desportivas
-$router->get(url: '/quadras', controller: CourtController::class, method: 'court');
-$router->post(url: '/quadras', controller: CourtController::class, method: 'court');
+$router->get(url: '/quadras', controller: QuadraController::class, method: 'quadra');
+$router->post(url: '/quadras', controller: QuadraController::class, method: 'quadra');
 
 //Rotas Usuário
 $router->get(url: "/jogador", controller: UserController::class , method: "index");

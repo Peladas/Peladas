@@ -5,7 +5,7 @@
         <!-- Conteúdo exibido apenas se o usuário estiver logado -->
         <ul class="nav nav-underline flex items-center space-x-4">
             <li class="nav-item">
-                <a class="nav-link active hover:text-blue-600 active:text-blue-700" aria-current="page" onclick="window.location.href='/home_jogador';"  href="#">Home</a>
+                <a class="nav-link active hover:text-blue-600 active:text-blue-700" aria-current="page" onclick="window.location.href='/';"  href="#">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link hover:text-blue-600 active:text-blue-700 mr-[1px]" href="#">My Matches</a>
