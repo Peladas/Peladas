@@ -1,5 +1,5 @@
 <div class="container mx-auto w-full">
-    <legend class="capitalize absolute top-28 inset-0">Áreas Desportivas Disponíveis para Locação</legend>
+    <legend class="capitalize absolute top-28 inset-0">Áreas Disponíveis para Locação</legend>
 
     <div class="flex flex-row  gap-5 m-8">
 
