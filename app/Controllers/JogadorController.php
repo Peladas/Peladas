@@ -9,4 +9,10 @@ class JogadorController extends Controller {
             return $this->render(view: 'home_jogador');
         }
     }
+
+    public function perfil () {
+        if ($this->getMethod() === 'get') {
+            return $this->render(view: 'perfil_jogador');
+        }
+    }
 }

@@ -8,6 +8,7 @@ use App\Controllers\LoginController;
 use App\Controllers\LocadorController;
 use App\Controllers\JogadorController;
 use App\Controllers\UserController;
+use App\Models\Jogador;
 use App\Models\Locador;
 
 $router = new RouterBase();
@@ -38,5 +39,9 @@ $router->post(url: "/jogador/:jogadorId", controller: UserController::class , me
 //Perfil Locador
 $router->get(url: '/perfil-locador', controller: LocadorController::class, method: 'profile');
 $router->post(url: '/perfil-locador', controller: LocadorController::class, method: 'profile');
+
+//Perfil Jogador
+$router->get(url: '/perfil_jogador', controller: JogadorController::class, method: 'perfil');
+$router->post(url: '/perfil_jogador', controller: JogadorController::class, method: 'perfil');
 
 $router->matchRoute();
