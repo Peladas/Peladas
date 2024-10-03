@@ -15,11 +15,7 @@
                 <i class="flex justify-center fa-solid fa-user p-2 w-9 h-9 mr-2" id="button" style="color: #FFD43B;"></i>
 
                 <div id="userDropdown" class="hidden absolute right-0 mt-2 w-44 bg-zinc-900 border border-gray-300 rounded-lg shadow-lg">
-<<<<<<< HEAD
                     <a class="block px-4 py-2 text-slate-400 hover:text-slate-100" onclick="window.location.href='/perfil-locador';">Meu Perfil</a>
-=======
-                    <a href="/perfil_locador" class="block px-4 py-2 text-slate-400 hover:text-slate-100">Meu Perfil</a>
->>>>>>> f2436f5bfef0bf9372d4447f4a7b7afb079a16f5
                     <a href="/logout" class="block px-4 py-2 text-slate-400 hover:text-slate-100">Logout</a>
                 </div>
             </li>
