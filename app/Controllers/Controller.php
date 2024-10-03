@@ -70,6 +70,7 @@ class Controller {
         // Procurar na tabela locadores se existe um com esse usuarioId
         $locadorDAO = new LocadorDAO();
         $locador = $locadorDAO->getByUsuarioId($usuarioId);
+
         return (bool)$locador;
     }
 }

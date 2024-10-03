@@ -14,6 +14,11 @@ class QuadraController extends Controller {
 
     public function quadra_register() {
         if ($this->getMethod() === 'get') {
+            if($this->userType != "locador") {
+                echo "Acesso negado!";
+                exit;
+            }
+
             return $this->render(view: 'quadra_register');
         }
 

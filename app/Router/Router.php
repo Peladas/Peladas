@@ -36,10 +36,6 @@ $router->post(url: '/quadras', controller: QuadraController::class, method: 'qua
 $router->get(url: '/cadastro-quadras', controller: QuadraController::class, method: 'quadra_register');
 $router->post(url: '/cadastro-quadras', controller: QuadraController::class, method: 'quadra_register');
 
-//Viualização das áreas desportivas
-$router->get(url: '/quadras', controller: QuadraController::class, method: 'quadra');
-$router->post(url: '/quadras', controller: QuadraController::class, method: 'quadra');
-
 //Rotas Usuário
 $router->get(url: "/jogador", controller: UserController::class , method: "index");
 $router->get(url: "/jogador/:joagdorId", controller: UserController::class , method: "show");
