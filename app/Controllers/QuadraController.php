@@ -6,9 +6,9 @@ use App\Services\QuadraService;
 
 class QuadraController extends Controller {
 
-    public function quadra() {
+    public function areas_desportivas() {
         if ($this->getMethod() === 'get') {
-            return $this->render(view: 'quadra');
+            return $this->render(view: 'areas_desportivas');
         }
     }
 
@@ -34,7 +34,4 @@ class QuadraController extends Controller {
         header(header: 'Location: /quadras');
     }
 
-    public function areas_esportivas() {
-
-    }
 }

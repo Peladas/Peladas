@@ -1,10 +1,10 @@
-<div class="flex justify-center items-center mt-[195px]">
+<div class="flex justify-center items-center mt-14 mb-10">
 
     <div class="container max-w-[900px]">
 
         <form action="#" method="post" class="text-center">
 
-            <legend class="font-bold mb-4">Cadastre sua quadra</legend>
+            <legend class="font-bold mb-9">Cadastre sua quadra</legend>
 
             <div class="flex flex-col gap-2 mb-5 items-center">
                 <div class="relative w-2/5">

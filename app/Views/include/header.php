@@ -8,11 +8,11 @@
                 <a class="nav-link active hover:text-blue-600 active:text-blue-700" aria-current="page" onclick="window.location.href='/';"  href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link hover:text-blue-600 active:text-blue-700 mr-4" href="#">My Matches</a>
+                <a class="nav-link hover:text-blue-600 active:text-blue-700 mr-[1px]" onclick="window.location.href='/areas_desportivas';"href="#">Quadras</a>
             </li>
 
             <li class="nav-item relative">
-                <i class="flex justify-center fa-solid fa-user mr-4 border-2 border-solid rounded-full p-2 w-9 h-9" id="button" style="color: #FFD43B;"></i>
+                <i class="flex justify-center fa-solid fa-user p-2 w-9 h-9 mr-2" id="button" style="color: #FFD43B;"></i>
 
                 <div id="userDropdown" class="hidden absolute right-0 mt-2 w-44 bg-zinc-900 border border-gray-300 rounded-lg shadow-lg">
                     <a href="/profile" class="block px-4 py-2 text-slate-400 hover:text-slate-100">Meu Perfil</a>
