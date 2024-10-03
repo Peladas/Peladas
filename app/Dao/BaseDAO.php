@@ -4,7 +4,6 @@ namespace App\Dao;
 
 use App\Helpers\Config;
 use App\Helpers\Log;
-use App\Models\Model;
 use PDO;
 use PDOException;
 use PDOStatement;
