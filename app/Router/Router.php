@@ -23,14 +23,6 @@ $router->get(url: '/login', controller: LoginController::class, method: 'login')
 $router->post(url: '/login', controller: LoginController::class, method: 'login');
 $router->get(url: '/logout', controller: LoginController::class, method: 'logout');
 
-//Home Jogador
-$router->get(url: '/home_jogador', controller: JogadorController::class, method: 'homeJogador');
-$router->post(url: '/home_jogador', controller: JogadorController::class, method: 'homeJogador');
-
-//Home Locador
-$router->get(url: '/home_locador', controller: LocadorController::class, method: 'homeLocador');
-$router->post(url: '/home_locador', controller: LocadorController::class, method: 'homeLocador');
-
 //Viualização Quadras
 $router->get(url: '/areas_desportivas', controller: QuadraController::class, method: 'areas_desportivas');
 $router->post(url: '/areas_desportivas', controller: QuadraController::class, method: 'areas_desportivas');
@@ -44,7 +36,7 @@ $router->post(url: "/jogador", controller: UserController::class , method: "crea
 $router->post(url: "/jogador/:jogadorId", controller: UserController::class , method: "update");
 
 //Perfil Locador
-$router->get(url: '/perfil_locador', controller: LocadorController::class, method: 'profile');
-$router->post(url: '/perfil_locador', controller: LocadorController::class, method: 'profile');
+$router->get(url: '/perfil-locador', controller: LocadorController::class, method: 'profile');
+$router->post(url: '/perfil-locador', controller: LocadorController::class, method: 'profile');
 
 $router->matchRoute();

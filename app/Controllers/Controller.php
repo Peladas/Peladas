@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Dao\JogadorDAO;
 use App\Dao\LocadorDAO;
+use App\Models\Locador;
 
 class Controller {
     protected bool $is_logged;
@@ -41,6 +42,24 @@ class Controller {
 
     protected function setIsLogged(): void {
         $this->is_logged = isset($_SESSION['usuario_id']);
+    }
+
+    protected function getLocador(): Locador {
+        $usuarioId = $_SESSION['usuario_id'] ?? null;
+
+        if (!$this->isLocador($usuarioId)) throw new \App\Exceptions\UnauthorizedException();
+
+        $locadorDAO = new LocadorDAO();
+        $record = $locadorDAO->getByUsuarioId($usuarioId);
+
+        $locador = new Locador();
+        $locador->setId($record->id);
+        $locador->setUsuarioId($record->usuario_id);
+        $locador->setRazaoSocial($record->razao_social);
+        $locador->setCnpj($record->cnpj);
+        $locador->setNomeFantasia($record->nome_fantasia);;
+
+        return $locador;
     }
 
     protected function getUserType(): void {

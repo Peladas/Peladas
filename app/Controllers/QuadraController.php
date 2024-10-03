@@ -2,9 +2,18 @@
 
 namespace App\Controllers;
 
+use App\Dao\QuadraDAO;
 use App\Services\QuadraService;
 
 class QuadraController extends Controller {
+
+    public function index() {
+        $locador = $this->getLocador();
+        $quadraDAO = new QuadraDAO();
+        $quadras = $quadraDAO->getAll(['locador_id' => $locador->getId()]);
+
+        return $this->render('areas_desportivas', compact('quadras'));
+    }
 
     public function areas_desportivas() {
         if ($this->getMethod() === 'get') {
@@ -31,7 +40,7 @@ class QuadraController extends Controller {
             return $this->render('quadra_register', compact('errors', 'data'));
         }
 
-        header(header: 'Location: /quadras');
+        header(header: 'Location: /perfil_locador');
     }
 
 }

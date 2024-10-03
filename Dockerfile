@@ -18,6 +18,7 @@ RUN apt-get update && \
     libx11-dev \
     libjpeg62-turbo \
     libssl1.1 \
+    # php8.2-intl \
     xfonts-base \
     xfonts-75dpi \
     fontconfig \
