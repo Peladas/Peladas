@@ -32,8 +32,9 @@ class Controller {
         return strtolower(string: $method);
     }
 
-    protected function render(string $view, array $data = []): void {
+    public function render(string $view, array $data = []): void {
         $is_logged = $this->is_logged;
+        $user_type = $this->userType;
         extract(array: $data);
         // var_dump('logged: ' . json_encode(['logged' => $is_logged]));
         // var_dump($_SESSION);

@@ -2,6 +2,7 @@
 
 namespace App\Router;
 
+use App\Controllers\AreasDesportivasController;
 use App\Controllers\QuadraController;
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
@@ -25,14 +26,18 @@ $router->post(url: '/login', controller: LoginController::class, method: 'login'
 $router->get(url: '/logout', controller: LoginController::class, method: 'logout');
 
 //Viualização Quadras
-$router->get(url: '/areas_desportivas', controller: QuadraController::class, method: 'areas_desportivas');
-$router->post(url: '/areas_desportivas', controller: QuadraController::class, method: 'areas_desportivas');
-$router->get(url: '/cadastro-quadras', controller: QuadraController::class, method: 'quadra_register');
-$router->post(url: '/cadastro-quadras', controller: QuadraController::class, method: 'quadra_register');
+$router->get(url: '/areas_desportivas', controller: AreasDesportivasController::class, method: 'index');
+//$router->post(url: '/areas_desportivas', controller: QuadraController::class, method: 'areas_desportivas');
+$router->get(url: '/minhas-quadras', controller: QuadraController::class, method: 'index');
+$router->get(url: '/minhas-quadras/:id', controller: QuadraController::class, method: 'show');
+$router->get(url: '/cadastro-quadras', controller: QuadraController::class, method: 'create');
+$router->post(url: '/cadastro-quadras', controller: QuadraController::class, method: 'create');
+$router->get(url: '/editar-quadras/:id', controller: QuadraController::class, method: 'update');
+$router->post(url: '/editar-quadras/:id', controller: QuadraController::class, method: 'update');
 
 //Rotas Usuário
 $router->get(url: "/jogador", controller: UserController::class , method: "index");
-$router->get(url: "/jogador/:joagdorId", controller: UserController::class , method: "show");
+$router->get(url: "/jogador/:jogadorId", controller: UserController::class , method: "show");
 $router->post(url: "/jogador", controller: UserController::class , method: "create");
 $router->post(url: "/jogador/:jogadorId", controller: UserController::class , method: "update");
 

@@ -1,5 +1,7 @@
 <nav class="border-solid border-2 border-zinc-900 border-b-gray-700 p-3 flex items-center justify-between">
-    <img class="w-28" src="../imagens/pnh.png" onclick="window.location.href='/';">
+    <a href="/">
+        <img class="w-28" src="../imagens/pnh.png">
+    </a>
 
     <?php if (isset($_SESSION['usuario_id'])): ?>
         <!-- Conteúdo exibido apenas se o usuário estiver logado -->
@@ -8,7 +10,7 @@
                 <a class="nav-link active hover:text-blue-600 active:text-blue-700" aria-current="page" onclick="window.location.href='/';"  href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link hover:text-blue-600 active:text-blue-700 mr-[1px]" onclick="window.location.href='/areas_desportivas';"href="#">Quadras</a>
+                <a class="nav-link hover:text-blue-600 active:text-blue-700 mr-[1px]" href="<?php echo $user_type === 'jogador' ? '/areas_desportivas' : '/minhas-quadras' ?>">Quadras</a>
             </li>
 
             <li class="nav-item relative">

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\QuadraServices;
 
 use App\Dao\QuadraDAO;
 use App\Dao\LocadorDAO;
@@ -9,20 +9,19 @@ use App\Models\Locador;
 use App\Models\Quadra;
 use App\Traits\LocadorTrait;
 
-class QuadraService {
+class UpdateQuadraService {
     use LocadorTrait;
 
     public function __construct() {
         $this->checkLocador();
     }
 
-    public function run(array $data) {
+    public function run(int $id, array $data) {
         $errors = $this->validate(data: $data);
-        //var_dump($data);
 
         if (count(value: $errors) === 0) {
-            $locadorId = $this->getLocadorId();
-            $this->createQuadra(locadorId: $locadorId, data: $data);
+            $quadraDAO = new QuadraDAO();
+            $this->updateQuadra(id: $id, data: $data);
         }
         return $errors;
     }
@@ -38,8 +37,8 @@ class QuadraService {
         if (!Validator::notEmpty(value: $data['quant_min_jogadores'])) {
             $errors['quant_min_jogadores'] = 'Obrigatório espicificar a quantidade mínima de jogadores';
         }
-        if (!Validator::notEmpty(value: $data['horarios_func'])) {
-            $errors['horarios_func'] = 'Obrigatório espicificar o horário de funcionamento';
+        if (!Validator::notEmpty(value: $data['horarios_funcionamento'])) {
+            $errors['horarios_funcionamento'] = 'Obrigatório espicificar o horário de funcionamento';
         }
         if (!Validator::notEmpty(value: $data['valor_aluguel'])) {
             $errors['valor_aluguel'] = 'Obrigatório espicificar o valor da quadra';
@@ -47,18 +46,16 @@ class QuadraService {
         return $errors;
     }
 
-    private function createQuadra(int $locadorId, array $data) {
-        $newQuadra = new Quadra();
-        $newQuadra->setLocadorId(locador_id: $locadorId)
-            ->setIdentificador(identificador: $data["identificador"])
-            ->setModalidade(modalidade: $data["modalidades"])
-            ->setTamanhoQuadra(tamanho_quadra: $data["tamanho_quadra"])
-            ->setQuantMinJogadores(quant_min_jogadores: $data["quant_min_jogadores"])
-            ->setHorariosFuncionamento(horarios_funcionamento: $data["horarios_func"])
-            ->setValorAluguel(valor_aluguel: $data["valor_aluguel"])
-            ->setDescricao(descricao: $data["descricao"]);
-
+    private function updateQuadra(int $id, array $data) {
         $quadraDAO = new QuadraDAO();
-        $quadraDAO->create(quadra: $newQuadra);
+        $quadraDAO->update($id, $data);
+    }
+
+    public static function getQuadra(int $id) {
+        $quadraDAO = new QuadraDAO();
+
+        $quadra = $quadraDAO->find($id);
+
+        return $quadra;
     }
 }
