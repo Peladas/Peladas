@@ -1,4 +1,5 @@
 <?php
+
 use App\Helpers\Formatter;
 ?>
 
@@ -28,30 +29,38 @@ use App\Helpers\Formatter;
 
         <div class="mt-16">
             <h4 class="text-center text-2xl mb-5 font-semibold text-white">Horários para Locações</h4>
-            <table class="table-auto border-collapse mx-auto mt-10">
+            <table class="flex flex-wrap table-auto border-collapse mt-10">
                 <thead>
                     <tr>
-                        <th class="w-48 text-center  ml-20 text-yellow-500 ">Horários</th>
-                        <th class="w-48 text-center mr-20 text-yellow-500 py-3">Disponibilidade</th>
+                        <th class="w-48 text-center ml-20 text-yellow-500 ">Segunda</th>
+                        <th class="w-48 text-center mr-20 text-yellow-500 py-3">terça</th>
+                        <th class="w-48 text-center mr-20 text-yellow-500 py-3">Quarta</th>
+                        <th class="w-48 text-center mr-20 text-yellow-500 py-3">Quinta</th>
+                        <th class="w-48 text-center mr-20 text-yellow-500 py-3">Sexta</th>
+                        <th class="w-48 text-center mr-20 text-yellow-500 py-3">Sábado</th>
+                        <th class="w-48 text-center mr-20 text-yellow-500 py-3">Domingo</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="text-center border-r border-slate-600 py-4 text-white align-middle">09:00 - 10:00</td>
-                        <td class="text-center py-4 align-middle">Disponível</td>
+                    <tr class="mr-10 text-center border-solid p-5">
+                        <td class="text-center border-r py-4 text-white align-middle">00:00</td>
+                        <td class="text-center py-4 align-middle">00:00</td>
+                        <td class="text-center py-4 align-middle">00:00</td>
+                        <td class="text-center py-4 align-middle text-orange-500">Fechado</td>
+                        <td class="text-center py-4 align-middle">00:00</td>
+                        <td class="text-center py-4 align-middle">00:00</td>
+                        <td class="text-center py-4 align-middle">00:00</td>
                     </tr>
-                    <tr>
-                        <td class="text-center border-r border-slate-600 py-4 text-white align-middle">10:00 - 11:00</td>
-                        <td class="text-center py-4 text-red-500 align-middle">Indisponível</td>
+                    <tr class="mr-10 text-center border-solid p-5">
+                        <td class="text-center border-r py-4 text-white align-middle">00:00</td>
+                        <td class="text-center py-4 align-middle text-orange-500">Fechado</td>
+                        <td class="text-center py-4 align-middle">00:00</td>
+                        <td class="text-center py-4 align-middle">00:00</td>
+                        <td class="text-center py-4 align-middle">00:00</td>
+                        <td class="text-center py-4 align-middle text-orange-500">Fechado</td>
+                        <td class="text-center py-4 align-middle">00:00</td>
                     </tr>
-                    <tr>
-                        <td class="text-center border-r border-slate-600 py-4 text-white align-middle">11:00 - 12:00</td>
-                        <td class="text-center py-4 text-red-500 align-middle">Indisponível</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center border-r border-slate-600 py-4 text-white align-middle">12:00 - 13:00</td>
-                        <td class="text-center py-4 align-middle">Disponível</td>
-                    </tr>
+
                 </tbody>
             </table>
             <div class="flex justify-center mt-8">
@@ -62,7 +71,7 @@ use App\Helpers\Formatter;
     </div>
 
 
-    <div class="flex flex-wrap gap-10 w-2/4">
+    <div class="flex flex-wrap gap-10 w-2/4 w-16">
 
         <div onclick="window.location.href='/cadastro-quadras';" class="border-2 border-slate-700 rounded-md h-64 w-44 flex justify-center items-center hover:cursor-pointer hover:scale-110 transition-all">
             <div class="bg-zinc-900 p-3 rounded-md">
@@ -73,18 +82,21 @@ use App\Helpers\Formatter;
         </div>
 
         <?php foreach ($quadras as $quadra) { ?>
-            <div class="border-2 border-slate-700 p-3 rounded-md  h-64">
-                <div class="p-3 bg-slate-950">
+            <div class="border-2 border-slate-700 p-3 rounded-md h-64 w-44">
+                <div class="p-2 bg-slate-950 h-auto">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                        <path fill="#ffffff" style="width: auto;height:auto" d="M448 80c8.8 0 16 7.2 16 16l0 319.8-5-6.5-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3L202 340.7l-30.5-42.7C167 291.7 159.8 288 152 288s-15 3.7-19.5 10.1l-80 112L48 416.3l0-.3L48 96c0-8.8 7.2-16 16-16l384 0zM64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zm80 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z" />
+                        <path fill="#ffffff" style="width: auto;height:auto;" d="M448 80c8.8 0 16 7.2 16 16l0 319.8-5-6.5-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3L202 340.7l-30.5-42.7C167 291.7 159.8 288 152 288s-15 3.7-19.5 10.1l-80 112L48 416.3l0-.3L48 96c0-8.8 7.2-16 16-16l384 0zM64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zm80 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z" />
                     </svg>
                 </div>
-                <div>
-                    <h4 class="text-amber-300 text-lg"><?php echo $quadra->getIdentificador() ?></h4>
-                    <p class="text-sm">Tamanho: <?php echo $quadra->getTamanhoQuadra() ?></p>
-                    <div class="flex flex-row">
-                        <i class="fa-regular fa-pen-to-square" style="color: #ff8000;"></i>
-                        <p><?php echo Formatter::formatCurrency($quadra->getValorAluguel()) ?></p>
+                <div class="w-auto h-20 mt-2">
+                    <h4 class="text-amber-300 text-base"><?php echo $quadra->getIdentificador() ?></h4>
+                    <div class="flex flex-row relative">
+                        <p class="text-base font-medium">Tamanho:</p>
+                        <p class="text-sm absolute bottom-0 right-0"><?php echo $quadra->getTamanhoQuadra() ?></p>
+                    </div>
+                    <div class="flex flex-row relative">
+                        <i class="fa-regular fa-pen-to-square mt-2 ml-[1px]" style="color: #ff8000;"></i>
+                        <p class="absolute bottom-0 right-0"><?php echo Formatter::formatCurrency($quadra->getValorAluguel()) ?></p>
                     </div>
                 </div>
             </div>
