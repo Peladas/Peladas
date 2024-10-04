@@ -8,7 +8,7 @@
 
             <div class="flex flex-col gap-2 mb-5 items-center">
                 <div class="relative w-2/5">
-                    <input type="text" id="identificador" name="identificador" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
+                    <input type="text" id="identificador" name="identificador" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" " value="<?php echo $data['identificador'] ?? '' ?>"/>
                     <label for="identificador" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                         Tipo de quadra
                     </label>
@@ -20,19 +20,19 @@
 
             <div class="flex flex-col gap-2 mb-8 items-center">
                 <div class="relative w-2/5">
-                    <input type="text" id="modalidades" name="modalidades" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
-                    <label for="modalidades" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                    <input type="text" id="modalidade" name="modalidade" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" " value="<?php echo $data['modalidade'] ?? '' ?>"/>
+                    <label for="modalidade" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                         Modalidade(es)
                     </label>
-                    <?php if (isset($errors['modalidades'])) { ?>
-                        <small class="helper-text text-red-600 font-sm"><?php echo $errors['modalidades'] ?></small>
+                    <?php if (isset($errors['modalidade'])) { ?>
+                        <small class="helper-text text-red-600 font-sm"><?php echo $errors['modalidade'] ?></small>
                     <?php } ?>
                 </div>
             </div>
 
             <div class="flex flex-col gap-2 mb-8 items-center">
                 <div class="relative w-2/5">
-                    <input type="text" id="tamanho_quadra" name="tamanho_quadra" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
+                    <input type="text" id="tamanho_quadra" name="tamanho_quadra" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" " value="<?php echo $data['tamanho_quadra'] ?? '' ?>"/>
                     <label for="tamanho_quadra" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                         Tamanho da quadra
                     </label>
@@ -44,7 +44,7 @@
 
             <div class="flex flex-col gap-2 mb-8 items-center">
                 <div class="relative w-2/5">
-                    <input type="text" id="quant_min_jogadores" name="quant_min_jogadores" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
+                    <input type="text" id="quant_min_jogadores" name="quant_min_jogadores" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" " value="<?php echo $data['quant_min_jogadores'] ?? '' ?>"/>
                     <label for="quant_min_jogadores" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                         Quantidade mínima de jogadores
                     </label>
@@ -56,19 +56,19 @@
 
             <div class="flex flex-col gap-2 mb-8 items-center">
                 <div class="relative w-2/5">
-                    <input type="text" id="horarios_func" name="horarios_func" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
-                    <label for="horarios_func" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                    <input type="text" id="horarios_funcionamento" name="horarios_funcionamento" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" " value="<?php echo $data['horarios_funcionamento'] ?? '' ?>"/>
+                    <label for="horarios_funcionamento" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                         Horários de funcionamento
                     </label>
-                    <?php if (isset($errors['horarios_func'])) { ?>
-                        <small class="helper-text text-red-600 font-sm"><?php echo $errors['horarios_func'] ?></small>
+                    <?php if (isset($errors['horarios_funcionamento'])) { ?>
+                        <small class="helper-text text-red-600 font-sm"><?php echo $errors['horarios_funcionamento'] ?></small>
                     <?php } ?>
                 </div>
             </div>
 
             <div class="flex flex-col gap-2 mb-8 items-center">
                 <div class="relative w-2/5">
-                    <input type="text" id="descricao" name="descricao" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
+                    <input type="text" id="descricao" name="descricao" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" " value="<?php echo $data['descricao'] ?? '' ?>"/>
                     <label for="descricao" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                         Descrição da quadra
                     </label>
@@ -80,7 +80,7 @@
 
             <div class="flex flex-col gap-2 mb-8 items-center">
                 <div class="relative w-2/5">
-                    <input type="text" id="valor_aluguel" name="valor_aluguel" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
+                    <input type="text" id="valor_aluguel" name="valor_aluguel" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" " value="<?php echo $data['valor_aluguel'] ?? '' ?>"/>
                     <label for="valor_aluguel" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                         Valor do aluguel
                     </label>

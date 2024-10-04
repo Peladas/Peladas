@@ -38,8 +38,8 @@ class CreateQuadraService {
         if (!Validator::notEmpty(value: $data['quant_min_jogadores'])) {
             $errors['quant_min_jogadores'] = 'Obrigatório espicificar a quantidade mínima de jogadores';
         }
-        if (!Validator::notEmpty(value: $data['horarios_func'])) {
-            $errors['horarios_func'] = 'Obrigatório espicificar o horário de funcionamento';
+        if (!Validator::notEmpty(value: $data['horarios_funcionamento'])) {
+            $errors['horarios_funcionamento'] = 'Obrigatório espicificar o horário de funcionamento';
         }
         if (!Validator::notEmpty(value: $data['valor_aluguel'])) {
             $errors['valor_aluguel'] = 'Obrigatório espicificar o valor da quadra';
@@ -51,10 +51,10 @@ class CreateQuadraService {
         $newQuadra = new Quadra();
         $newQuadra->setLocadorId(locador_id: $locadorId)
             ->setIdentificador(identificador: $data["identificador"])
-            ->setModalidade(modalidade: $data["modalidades"])
+            ->setModalidade(modalidade: $data["modalidade"])
             ->setTamanhoQuadra(tamanho_quadra: $data["tamanho_quadra"])
             ->setQuantMinJogadores(quant_min_jogadores: $data["quant_min_jogadores"])
-            ->setHorariosFuncionamento(horarios_funcionamento: $data["horarios_func"])
+            ->setHorariosFuncionamento(horarios_funcionamento: $data["horarios_funcionamento"])
             ->setValorAluguel(valor_aluguel: $data["valor_aluguel"])
             ->setDescricao(descricao: $data["descricao"]);
 
