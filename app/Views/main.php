@@ -90,12 +90,6 @@
             }
         }
 
-        td {
-            padding: 5px;
-            width: auto;
-            border: 1px solid #475569;
-            width: 300px;
-        }
         @media (prefers-color-scheme: dark) {
             .body {
                 background-color: #020617;
