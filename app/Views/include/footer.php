@@ -1,6 +1,6 @@
 <footer class="border-t-2 border-gray-800 bg-zinc-800">
     <div class="m-[11px]">
-        <div class="flex flex-row justify-center">
+        <div class="flex flex-row justify-center gap-2">
             <i class="fa-brands fa-instagram mr-2"></i>
             <i class="fa-brands fa-facebook mr-2" style="color: #ffffff;"></i>
             <i class="fa-brands fa-threads mr-2"></i>
