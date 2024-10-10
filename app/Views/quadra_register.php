@@ -18,6 +18,18 @@
                 </div>
             </div>
 
+            <div class="flex flex-col gap-2 mb-7 items-center">
+                <div class="w-2/5">
+                    <select class="p-2 peer w-full h-10 px-2 border-[1px] rounded-lg border-amber-300 placeholder-transparent w-2/5 bg-zinc-900 text-gray-500" name="select" id="">
+                        <option value="text-gray-500">Tipo de quadra</option>
+                        <option value="v1">Areia</option>
+                        <option value="v2">Ginásio</option>
+                        <option value="v1">Grama Natural</option>
+                        <option value="v1">Grama Sintética</option>
+                    </select>
+                </div>
+            </div>
+
             <div class="flex flex-col gap-2 mb-8 items-center">
                 <div class="relative w-2/5">
                     <input type="text" id="modalidade" name="modalidade" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" " value="<?php echo $data['modalidade'] ?? '' ?>"/>

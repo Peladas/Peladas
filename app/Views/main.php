@@ -122,24 +122,24 @@
                 text-align: center;
             }
 
-            .picture:hover {
-                color: #f1f5f9;
-                background: #0f172a;
-                border-color: #f1f5f9;
-            }
+                .picture:hover {
+                    color: #f1f5f9;
+                    background: #0f172a;
+                    border-color: #f1f5f9;
+                }
 
-            .picture:active {
-                border-color: #7c3aed;
-                cursor: grabbing;
-            }
+                .picture:active {
+                    border-color: #7c3aed;
+                    cursor: grabbing;
+                }
 
-            .picture:focus {
-                color: #777;
-                background: #172554;
-                border-color: #777;
-                cursor: grabbing;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            }
+                .picture:focus {
+                    color: #777;
+                    background: #172554;
+                    border-color: #777;
+                    cursor: grabbing;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                }
 
             .picture__img {
                 max-width: 100%;

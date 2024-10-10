@@ -22,7 +22,7 @@
                 <i class="flex justify-center fa-solid fa-user p-2 w-9 h-9 mr-2" id="button" style="color: #FFD43B;"></i>
 
                 <div id="userDropdown" class="hidden absolute right-0 mt-2 w-44 bg-zinc-900 border border-gray-300 rounded-lg shadow-lg">
-                    <a class="block px-4 py-2 text-slate-400 hover:text-slate-100" onclick="window.location.href='/perfil-locador';">Meu Perfil</a>
+                    <a class="block px-4 py-2 text-slate-400 hover:text-slate-100" href="<?php echo $user_type === 'jogador' ? '/perfil-jogador' : '/perfil-locador' ?>">Meu Perfil</a>
                     <a href="/logout" class="block px-4 py-2 text-slate-400 hover:text-slate-100">Logout</a>
                 </div>
             </li>
