@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Dao\JogadorDAO;
 use App\Dao\LocadorDAO;
+use App\Models\Jogador;
 use App\Models\Locador;
 
 class Controller {
@@ -61,6 +62,25 @@ class Controller {
         $locador->setNomeFantasia($record->nome_fantasia);;
 
         return $locador;
+    }
+
+    protected function getJogador(): Jogador {
+        $usuarioId = $_SESSION['usuario_id'] ?? null;
+
+        if (!$this->isJogador($usuarioId)) throw new \App\Exceptions\UnauthorizedException();
+
+        $jogadorDAO = new JogadorDAO();
+        $record = $jogadorDAO->getByUsuarioId($usuarioId);
+
+        $jogador = new Jogador();
+        $jogador->setId($record->id);
+        $jogador->setUsuarioId($record->usuario_id);
+        $jogador->setNomeJogador($record->nome_jogador);
+        $jogador->setCpf($record->cpf);
+        $jogador->setDataNascimento($record->data_nascimento);
+        $jogador->setApelido($record->apelido);
+
+        return $jogador;
     }
 
     protected function getUserType(): void {

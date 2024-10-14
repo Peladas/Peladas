@@ -3,24 +3,26 @@
 namespace App\Services\QuadraServices;
 
 use App\Dao\QuadraDAO;
+use App\Dao\LocadorDAO;
+use App\Dao\ReservaDAO;
 use App\Helpers\Validator;
+use App\Models\Locador;
 use App\Models\Quadra;
 use App\Traits\LocadorTrait;
 
-class CreateQuadraService {
+class UpdateReservaService {
     use LocadorTrait;
 
     public function __construct() {
         $this->checkLocador();
     }
 
-    public function run(array $data) {
+    public function run(int $id, array $data) {
         $errors = $this->validate(data: $data);
-        //var_dump($data);
 
         if (count(value: $errors) === 0) {
-            $locadorId = $this->getLocadorId();
-            $this->createQuadra(locadorId: $locadorId, data: $data);
+            $quadraDAO = new QuadraDAO();
+            $this->updateReserva(id: $id, data: $data);
         }
         return $errors;
     }
@@ -45,18 +47,16 @@ class CreateQuadraService {
         return $errors;
     }
 
-    private function createQuadra(int $locadorId, array $data) {
-        $newQuadra = new Quadra();
-        $newQuadra->setLocadorId(locador_id: $locadorId)
-            ->setIdentificador(identificador: $data["identificador"])
-            ->setModalidade(modalidade: $data["modalidade"])
-            ->setTamanhoQuadra(tamanho_quadra: $data["tamanho_quadra"])
-            ->setQuantMinJogadores(quant_min_jogadores: $data["quant_min_jogadores"])
-            ->setHorariosFuncionamento(horarios_funcionamento: $data["horarios_funcionamento"])
-            ->setValorAluguel(valor_aluguel: $data["valor_aluguel"])
-            ->setDescricao(descricao: $data["descricao"]);
+    private function updateReserva(int $id, array $data) {
+        $reservaDAO = new QuadraDAO();
+        $reservaDAO->update($id, $data);
+    }
 
-        $quadraDAO = new QuadraDAO();
-        $quadraDAO->create(quadra: $newQuadra);
+    public static function getReserva(int $id) {
+        $reservaDAO = new ReservaDAO();
+
+        $reserva = $reservaDAO->find($id);
+
+        return $reserva;
     }
 }

@@ -7,7 +7,7 @@ use App\Helpers\Validator;
 use App\Models\Quadra;
 use App\Traits\LocadorTrait;
 
-class CreateQuadraService {
+class CreateReservaService {
     use LocadorTrait;
 
     public function __construct() {

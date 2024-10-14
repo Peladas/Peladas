@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Dao\QuadraDAO;
 use App\Exceptions\UnauthorizedException;
 use App\Services\QuadraServices\CreateQuadraService;
+use App\Services\QuadraServices\DeleteQuadraService;
 use App\Services\QuadraServices\UpdateQuadraService;
 
 class QuadraController extends Controller {
@@ -76,4 +77,19 @@ class QuadraController extends Controller {
 
         header(header: 'Location: /minhas-quadras');
     }
+
+    // public function delete($id) {
+    //     if ($this->getMethod() === 'get') {
+    //         $quadra = DeleteQuadraService::getQuadra($id);
+    //         return $quadra;
+    //     }
+
+    //     $data = $this->getBody();
+
+    //     $quadraService = new DeleteQuadraService();
+    //     $quadra = $quadraService->run($id);
+    //     return $quadra;
+
+    //     header(header: 'Location: /minhas-quadras');
+    // }
 }
