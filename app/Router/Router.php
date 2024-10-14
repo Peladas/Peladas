@@ -60,7 +60,7 @@ $router->get(url: '/perfil-locador', controller: LocadorController::class, metho
 $router->post(url: '/perfil-locador', controller: LocadorController::class, method: 'profile');
 
 //Perfil Jogador
-$router->get(url: '/perfil_jogador', controller: JogadorController::class, method: 'perfil');
-$router->post(url: '/perfil_jogador', controller: JogadorController::class, method: 'perfil');
+$router->get(url: '/perfil-jogador', controller: JogadorController::class, method: 'perfil');
+$router->post(url: '/perfil-jogador', controller: JogadorController::class, method: 'perfil');
 
 $router->matchRoute();

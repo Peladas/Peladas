@@ -3,82 +3,142 @@
 use App\Helpers\Formatter;
 ?>
 
-<div class="flex flex-row m-10 gap-10 w-auto mt-5">
+<div class="flex flex-row m-5 gap-8 h-auto w-auto mt-14">
 
-    <div class="flex flex-col w-2/4">
-        <div class="flex flex-col gap-16 h-auto">
+    <div class="flex flex-col w-1/2 h-auto">
+        <div class="flex flex-col gap-10 h-auto items-center">
 
-            <div class="relative border-2 border-slate-700 p-3 rounded-lg bg-slate-950 w-40 h-40 z-10 mt-5">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-auto" viewBox="0 0 576 512">
-                    <path fill="#ffffff" style="width: auto; height:auto" d="M160 32c-35.3 0-64 28.7-64 64l0 224c0 35.3 28.7 64 64 64l352 0c35.3 0 64-28.7 64-64l0-224c0-35.3-28.7-64-64-64L160 32zM396 138.7l96 144c4.9 7.4 5.4 16.8 1.2 24.6S480.9 320 472 320l-144 0-48 0-80 0c-9.2 0-17.6-5.3-21.6-13.6s-2.9-18.2 2.9-25.4l64-80c4.6-5.7 11.4-9 18.7-9s14.2 3.3 18.7 9l17.3 21.6 56-84C360.5 132 368 128 376 128s15.5 4 20 10.7zM192 128a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM48 120c0-13.3-10.7-24-24-24S0 106.7 0 120L0 344c0 75.1 60.9 136 136 136l320 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-320 0c-48.6 0-88-39.4-88-88l0-224z" />
-                </svg>
-                <i class="fa-regular fa-pen-to-square absolute right-2 bottom-2 text-orange-500 text-xl z-40"></i>
+            <label class="picture rounded-lg z-10 mr-10" for="picture__input" tabIndex="0" id="picture__dropzone">
+                <span class="picture__image"></span>
+            </label>
+
+            <input type="file" name="picture__input" id="picture__input">
+
+
+            <div class="mt-[1px] pr-10 mb-2">
+                <h4 class="text-3xl mt-0 mb-12 font-semibold text-center">Quadra Nenezão</h4>
+                <div class="flex flex-col gap-5 p-14 pt-0">
+                    <div>
+                        <h4 class="text-slate-100 mb-3">Endereço</h4>
+                        <p class="text-amber-300">Parte Norte Do Patrimonio Muni - Rua Casemiro Kusbick, 1382 - Parte Norte Do Patrimonio, Foz do Iguaçu - PR, 85856-535</p>
+                    </div>
+                    <div class="flex flex-row">
+                        <h4 class="text-slate-100 mb-3">Telefone</h4>
+                        <p class="ml-3 text-amber-300">(45) 3523-1672</p>
+                    </div>
+                    <div class="w-auto mt-5">
+                        <a href="/minhas-quadras" color="black" class="px-4 py-2 rounded-full border border-slate-100 text-slate-100 bg-stone-900 hover:bg-stone-950 focus:bg-stone-950 dark:bg-stone-900 dark:hover:bg-zinc-950 dark:focus:bg-stone-950 transition-colors duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
+                            Minhas quadras
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <div class="mt-2 pr-10">
-                <h4 class="text-3xl mb-5 font-semibold">Quadra Nenezão</h4>
-                <div>
-                    <h4 class="text-slate-100">Endereço</h4>
-                    <p class="mb-3 text-amber-300">Parte Norte Do Patrimonio Muni - Rua Casemiro Kusbick, 1382 - Parte Norte Do Patrimonio, Foz do Iguaçu - PR, 85856-535</p>
-                </div>
-                <div>
-                    <h4 class="text-slate-100">Telefone</h4>
-                    <p class="text-amber-300">Telefone: (45) 3523-1672</p>
-                </div>
-            </div>
         </div>
 
     </div>
 
-    <div class="mt-5 w-1/2">
-    <h4 class="text-center text-2xl mb-5 font-semibold text-white">Horários para Locações</h4>
-    <table class="table-auto border-collapse mt-10">
-        <thead>
-            <tr>
-                <th class="w-48 text-center text-yellow-500 py-3">Horários</th>
-                <th class="w-48 text-center text-yellow-500 py-3">Segunda</th>
-                <th class="w-48 text-center text-yellow-500 py-3">Terça</th>
-                <th class="w-48 text-center text-yellow-500 py-3">Quarta</th>
-                <th class="w-48 text-center text-yellow-500 py-3">Quinta</th>
-                <th class="w-48 text-center text-yellow-500 py-3">Sexta</th>
-                <th class="w-48 text-center text-yellow-500 py-3">Sábado</th>
-                <th class="w-48 text-center text-yellow-500 py-3">Domingo</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="text-center border-solid p-5">
-                <td class="text-center py-4 text-white">00:00</td>
-                <td class="text-center py-4 align-middle">00:00</td>
-                <td class="text-center py-4 align-middle">00:00</td>
-                <td class="text-center py-4 align-middle">00:00</td>
-                <td class="text-center py-4 align-middle text-orange-500">Fechado</td>
-                <td class="text-center py-4 align-middle">00:00</td>
-                <td class="text-center py-4 align-middle">00:00</td>
-                <td class="text-center py-4 align-middle">00:00</td>
-            </tr>
-            <tr class="text-center border-solid p-5">
-                <td class="text-center py-4 text-white">01:00</td>
-                <td class="text-center py-4 align-middle">00:00</td>
-                <td class="text-center py-4 align-middle text-orange-500">Fechado</td>
-                <td class="text-center py-4 align-middle">00:00</td>
-                <td class="text-center py-4 align-middle">00:00</td>
-                <td class="text-center py-4 align-middle">00:00</td>
-                <td class="text-center py-4 align-middle text-orange-500">Fechado</td>
-                <td class="text-center py-4 align-middle">00:00</td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="flex justify-center mt-8">
-        <i class="fa-regular fa-pen-to-square" style="color: #ff8000;"></i>
+    <div class="mt-5 w-[450px] mx-auto m-8 text-base">
+        <h4 class="text-center text-2xl mb-5 font-semibold text-white">Horários para Locações</h4>
+        <table class="table-auto border-collapse mt-14 w-full">
+            <thead>
+                <tr>
+                    <th class="text-left text-yellow-500 py-3">Segunda</th>
+                    <td class="text-right py-3 align-middle">00:00</td>
+                    <td class="text-right py-3 align-middle">00:00</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-t-2 border-slate-700">
+                    <td class="text-left text-yellow-500 py-3 font-bold">Terça</td>
+                    <td class="text-right py-3 align-middle">00:00</td>
+                    <td class="text-right py-3 align-middle">00:00</td>
+                </tr>
+                <tr class="border-t-2 border-slate-700">
+                    <td class="text-left text-yellow-500 py-3 font-bold">Quarta</td>
+                    <td class="text-right py-3 align-middle text-orange-500">Fechado</td>
+                    <td class="text-right py-3 align-middle text-orange-500">Fechado</td>
+                </tr>
+                <tr class="border-t-2 border-slate-700">
+                    <td class="text-left text-yellow-500 py-3 font-bold">Quinta</td>
+                    <td class="text-right py-3 align-middle text-orange-500">Fechado</td>
+                    <td class="text-right py-3 align-middle text-orange-500">Fechado</td>
+                </tr>
+                <tr class="border-t-2 border-slate-700">
+                    <td class="text-left text-yellow-500 py-3 font-bold">Sexta</td>
+                    <td class="text-right py-3 align-middle">00:00</td>
+                    <td class="text-right py-3 align-middle">00:00</td>
+                </tr>
+                <tr class="border-t-2 border-slate-700">
+                    <td class="text-left text-yellow-500 py-3 font-bold">Sábado</td>
+                    <td class="text-right py-3 align-middle text-orange-500">Fechado</td>
+                    <td class="text-right py-3 align-middle text-orange-500">Fechado</td>
+                </tr>
+                <tr class="border-t-2 border-slate-700">
+                    <td class="text-left text-yellow-500 py-3 font-bold">Domingo</td>
+                    <td class="text-right py-3 align-middle">00:00</td>
+                    <td class="text-right py-3 align-middle">00:00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="flex justify-center mt-8">
+            <i class="fa-regular fa-pen-to-square" style="color: #ff8000;"></i>
+        </div>
     </div>
+
+
 </div>
 
+<script>
+    const inputFile = document.querySelector("#picture__input");
+    const pictureImage = document.querySelector(".picture__image");
+    const pictureDropzone = document.querySelector("#picture__dropzone");
+    const pictureImageTxt = "Choose or drag an image";
+    pictureImage.innerHTML = pictureImageTxt;
+
+    function displayImage(file) {
+        const reader = new FileReader();
+
+        reader.addEventListener("load", function(e) {
+            const img = document.createElement("img");
+            img.src = e.target.result;
+            img.classList.add("picture__img");
+
+            pictureImage.innerHTML = "";
+            pictureImage.appendChild(img);
+        });
+
+        reader.readAsDataURL(file);
+    }
 
 
-    <!--<div class="w-2/4">
-        <a href="/minhas-quadras" class="px-4 py-2 rounded text-black bg-amber-300 hover:bg-yellow-500 focus:bg-yellow-500 dark:bg-yellow-400 dark:hover:bg-yellow-500 dark:focus:bg-yellow-500 transition-colors duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
-            Minhas quadras
-        </a>
-    </div>-->
+    inputFile.addEventListener("change", function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            displayImage(file);
+        } else {
+            pictureImage.innerHTML = pictureImageTxt;
+        }
+    });
 
-</div>
+
+    pictureDropzone.addEventListener("dragover", function(e) {
+        e.preventDefault();
+        pictureDropzone.classList.add("picture--hover");
+    });
+
+    pictureDropzone.addEventListener("dragleave", function() {
+        pictureDropzone.classList.remove("picture--hover");
+    });
+
+    pictureDropzone.addEventListener("drop", function(e) {
+        e.preventDefault(); // Previne comportamento padrão
+        pictureDropzone.classList.remove("picture--hover");
+
+        const file = e.dataTransfer.files[0];
+        if (file) {
+            displayImage(file);
+        }
+    });
+</script>
