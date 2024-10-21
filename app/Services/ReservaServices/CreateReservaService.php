@@ -4,27 +4,23 @@ namespace App\Services\QuadraServices;
 
 use App\Dao\QuadraDAO;
 use App\Helpers\Validator;
+use App\Models\Quadra;
 use App\Traits\LocadorTrait;
 
-class UpdateQuadraService extends BaseQuadraService {
+class CreateReservaService {
     use LocadorTrait;
 
     public function __construct() {
         $this->checkLocador();
     }
 
-    public function run(int $id, int $locadorId, ?array $data = null) {
-        if (!$data) {
-            $showQuadraService = new ShowQuadraService();
-            $quadra = $showQuadraService->run($id, $locadorId);
-            return $quadra;
-        }
-
+    public function run(array $data) {
         $errors = $this->validate(data: $data);
+        //var_dump($data);
 
         if (count(value: $errors) === 0) {
-            $quadraDAO = new QuadraDAO();
-            $this->updateQuadra(id: $id, data: $data);
+            $locadorId = $this->getLocadorId();
+            $this->createQuadra(locadorId: $locadorId, data: $data);
         }
         return $errors;
     }
@@ -49,8 +45,18 @@ class UpdateQuadraService extends BaseQuadraService {
         return $errors;
     }
 
-    private function updateQuadra(int $id, array $data) {
+    private function createQuadra(int $locadorId, array $data) {
+        $newQuadra = new Quadra();
+        $newQuadra->setLocadorId(locador_id: $locadorId)
+            ->setIdentificador(identificador: $data["identificador"])
+            ->setModalidade(modalidade: $data["modalidade"])
+            ->setTamanhoQuadra(tamanho_quadra: $data["tamanho_quadra"])
+            ->setQuantMinJogadores(quant_min_jogadores: $data["quant_min_jogadores"])
+            ->setHorariosFuncionamento(horarios_funcionamento: $data["horarios_funcionamento"])
+            ->setValorAluguel(valor_aluguel: $data["valor_aluguel"])
+            ->setDescricao(descricao: $data["descricao"]);
+
         $quadraDAO = new QuadraDAO();
-        $quadraDAO->update($id, $data);
+        $quadraDAO->create(quadra: $newQuadra);
     }
 }

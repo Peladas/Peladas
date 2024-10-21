@@ -3,9 +3,7 @@
 namespace App\Services\QuadraServices;
 
 use App\Dao\QuadraDAO;
-use App\Dao\LocadorDAO;
 use App\Helpers\Validator;
-use App\Models\Locador;
 use App\Models\Quadra;
 use App\Traits\LocadorTrait;
 

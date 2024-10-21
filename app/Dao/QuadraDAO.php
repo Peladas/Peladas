@@ -3,6 +3,8 @@
 namespace App\Dao;
 
 use App\Models\Quadra;
+use App\Helpers\Log;
+
 
 class QuadraDAO extends BaseDAO
 {
@@ -16,5 +18,16 @@ class QuadraDAO extends BaseDAO
         $quadraData = $quadra->toArray();
         return $this->persist($quadraData);
     }
+
+    public function delete($id) {
+        try {
+            $query = 'DELETE FROM ' . $this->getTableName() . ' WHERE id=' . $id;
+            return $this->prepareConsultation($query);
+        } catch (\Throwable $th) {
+            Log::error($th->getMessage());
+            throw $th;
+        }
+    }
+
 
 }

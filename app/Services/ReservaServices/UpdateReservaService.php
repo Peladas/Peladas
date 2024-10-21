@@ -3,28 +3,26 @@
 namespace App\Services\QuadraServices;
 
 use App\Dao\QuadraDAO;
+use App\Dao\LocadorDAO;
+use App\Dao\ReservaDAO;
 use App\Helpers\Validator;
-use App\Traits\LocadorTrait;
+use App\Models\Locador;
+use App\Models\Quadra;
+use App\Traits\JogadorTrait;
 
-class UpdateQuadraService extends BaseQuadraService {
-    use LocadorTrait;
+class UpdateReservaService {
+    use JogadorTrait;
 
     public function __construct() {
-        $this->checkLocador();
+        $this->checkJogador();
     }
 
-    public function run(int $id, int $locadorId, ?array $data = null) {
-        if (!$data) {
-            $showQuadraService = new ShowQuadraService();
-            $quadra = $showQuadraService->run($id, $locadorId);
-            return $quadra;
-        }
-
+    public function run(int $id, array $data) {
         $errors = $this->validate(data: $data);
 
         if (count(value: $errors) === 0) {
             $quadraDAO = new QuadraDAO();
-            $this->updateQuadra(id: $id, data: $data);
+            $this->updateReserva(id: $id, data: $data);
         }
         return $errors;
     }
@@ -49,8 +47,16 @@ class UpdateQuadraService extends BaseQuadraService {
         return $errors;
     }
 
-    private function updateQuadra(int $id, array $data) {
-        $quadraDAO = new QuadraDAO();
-        $quadraDAO->update($id, $data);
+    private function updateReserva(int $id, array $data) {
+        $reservaDAO = new QuadraDAO();
+        $reservaDAO->update($id, $data);
+    }
+
+    public static function getReserva(int $id) {
+        $reservaDAO = new ReservaDAO();
+
+        $reserva = $reservaDAO->find($id);
+
+        return $reserva;
     }
 }

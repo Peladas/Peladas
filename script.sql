@@ -40,6 +40,9 @@ create TABLE quadras (
 );
 ALTER TABLE quadras ADD CONSTRAINT fk_quadras_locador FOREIGN KEY (locador_id) REFERENCES locadores (id);
 
+ALTER TABLE quadras ADD 'status' SMALLINT DEFAULT 1 NOT NULL COMMENT '1 - Ativa, 2 - Inativa, 3 - Eliminada';
+
+
 create TABLE reservas (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	jogador_id INT NOT NULL,

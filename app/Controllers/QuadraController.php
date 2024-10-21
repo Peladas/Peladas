@@ -3,8 +3,11 @@
 namespace App\Controllers;
 
 use App\Dao\QuadraDAO;
+use App\Exceptions\MethodNotAllowedException;
 use App\Exceptions\UnauthorizedException;
 use App\Services\QuadraServices\CreateQuadraService;
+use App\Services\QuadraServices\DeleteQuadraService;
+use App\Services\QuadraServices\ShowQuadraService;
 use App\Services\QuadraServices\UpdateQuadraService;
 
 class QuadraController extends Controller {
@@ -27,12 +30,8 @@ class QuadraController extends Controller {
 
     public function show(int $id) {
         $locador = $this->getLocador();
-        $quadraDAO = new QuadraDAO();
-        $quadra = $quadraDAO->find($id);
-
-        if ($quadra->getLocadorId() !== $locador->getId()) {
-            throw new UnauthorizedException('Você não pode visualizar as informações dessa quadra');
-        }
+        $showQuadraService = new ShowQuadraService();
+        $quadra = $showQuadraService->run($id, $locador->getId());
 
         return $this->render('show_quadra', compact('quadra'));
     }
@@ -60,15 +59,18 @@ class QuadraController extends Controller {
     }
 
     public function update($id) {
+        $locador = $this->getLocador();
+
         if ($this->getMethod() === 'get') {
-            $quadra = UpdateQuadraService::getQuadra($id);
+            $locador = $this->getLocador();
+            $showQuadraService = new ShowQuadraService();
+            $quadra = $showQuadraService->run($id, $locador->getId());
             return $this->render(view: 'edit_quadras', data: compact('quadra'));
         }
 
         $data = $this->getBody();
-
         $quadraService = new UpdateQuadraService();
-        $errors = $quadraService->run($id, data: $data);
+        $errors = $quadraService->run($id, $locador->getId(), data: $data);
 
         if (count(value: $errors) > 0) {
             return $this->render('quadra_register', compact('errors', 'data'));
@@ -76,4 +78,22 @@ class QuadraController extends Controller {
 
         header(header: 'Location: /minhas-quadras');
     }
+
+    public function delete(int $id) {
+        if ($this->getMethod() !== 'post') {
+            throw new MethodNotAllowedException();
+        }
+
+        header('Content-type: application/json');
+        $locador = $this->getLocador();
+        $deleteQuadraService = new DeleteQuadraService();
+        $deleteQuadraService->run($id, $locador->getId());
+
+        // echo json_encode([
+        //     'message' => 'Catch',
+        // ]);
+
+        // header('Location: /minhas-quadras');
+    }
+
 }

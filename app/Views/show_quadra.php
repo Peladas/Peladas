@@ -50,10 +50,28 @@
                     Editar
                 </a>
 
-                <a href="/editar-quadras/<?php echo $quadra->getId() ?>" class="shadow-lg px-4 py-2 rounded-full border border-purple-700 text-slate-100 bg-purple-700 hover:bg-purple-800 focus:bg-purple-400 dark:bg-yellow-400 dark:hover:bg-yellow-500 dark:focus:bg-yellow-500 transition-colors duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
+                <a href="#" onclick="confirmElimination()" class="px-4 py-2 rounded-full border border-slate-100 text-black bg-amber-300 hover:bg-yellow-500 focus:bg-yellow-500 dark:bg-yellow-300 dark:hover:bg-yellow-500 dark:focus:bg-yellow-500 transition-colors duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
                     Eliminar
                 </a>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function confirmElimination() {
+        const excluir = confirm("Deseja excluir a quadra selecionada?");
+
+        if (excluir) {
+            fetch('/remover-quadras/<?php echo $quadra->getId() ?>', {
+                method: 'POST'
+            })
+                .then(() => {
+                    alert("Quadra eliminada com sucesso")
+                })
+                .catch((error) => {
+                    alert(`Error: ${error.message}`)
+                })
+        }
+    }
+</script>
