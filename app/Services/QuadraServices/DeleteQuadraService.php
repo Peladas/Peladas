@@ -1,36 +1,27 @@
 <?php
-
 namespace App\Services\QuadraServices;
 
 use App\Dao\QuadraDAO;
-use App\Dao\LocadorDAO;
-use App\Helpers\Validator;
-use App\Models\Locador;
-use App\Models\Quadra;
+use App\Enums\QuadrasStatusEnum;
 use App\Traits\LocadorTrait;
 
-class DeleteQuadraService {
+class DeleteQuadraService extends BaseQuadraService {
     use LocadorTrait;
 
     public function __construct() {
         $this->checkLocador();
     }
 
-    public function run(int $id) {
-        $quadraDAO = new QuadraDAO();
-        $this->deleteQuadra(id: $id);
+    public function run(int $id, int $locadorId) {
+        $showQuadraService = new ShowQuadraService();
+        $showQuadraService->run($id, $locadorId);
+
+        $this->deleteQuadra($id);
     }
 
     private function deleteQuadra(int $id) {
         $quadraDAO = new QuadraDAO();
-        $quadraDAO->delete($id);
-    }
-
-    public static function getQuadra(int $id) {
-        $quadraDAO = new QuadraDAO();
-
-        $quadra = $quadraDAO->find($id);
-
-        return $quadra;
+        $data = ['status' => QuadrasStatusEnum::DELETED];
+        $quadraDAO->update($id, $data);  // Chama o método para deletar a quadra no banco de dados
     }
 }

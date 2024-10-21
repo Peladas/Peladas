@@ -10,8 +10,6 @@ use App\Controllers\LocadorController;
 use App\Controllers\JogadorController;
 use App\Controllers\ReservaController;
 use App\Controllers\UserController;
-use App\Models\Jogador;
-use App\Models\Locador;
 
 $router = new RouterBase();
 
@@ -35,7 +33,6 @@ $router->get(url: '/cadastro-quadras', controller: QuadraController::class, meth
 $router->post(url: '/cadastro-quadras', controller: QuadraController::class, method: 'create');
 $router->get(url: '/editar-quadras/:id', controller: QuadraController::class, method: 'update');
 $router->post(url: '/editar-quadras/:id', controller: QuadraController::class, method: 'update');
-$router->get(url: '/remover-quadras/:id', controller: QuadraController::class, method: 'delete');
 $router->post(url: '/remover-quadras/:id', controller: QuadraController::class, method: 'delete');
 
 //Viualização Reservas

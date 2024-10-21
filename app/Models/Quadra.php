@@ -12,6 +12,7 @@ class Quadra extends Model {
     protected ?String $identificador;
     protected ?String $modalidade;
     protected ?String $descricao;
+    protected ?int $status;
 
     protected ?int $locador_id;
 
@@ -108,6 +109,17 @@ class Quadra extends Model {
     public function setDescricao(?String $descricao): self
     {
         $this->descricao = $descricao;
+
+        return $this;
+    }
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?int $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }
