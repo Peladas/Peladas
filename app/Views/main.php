@@ -24,50 +24,44 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            background-color: #18181b;
+            color: #1e293b;
 
             h1 {
                 color: #fde047;
-                font-size: 80px;
                 /* 36px */
                 font-weight: 700;
             }
 
-            h2 {
-                font-size: 36px;
-                font-weight: 600;
+            h3 {
                 font-weight: bold;
+                color: #3b82f6;
             }
 
-            h3 {
-                color: #fde047;
+            h4 {
                 font-weight: bold;
+                color: #7e22ce;
             }
 
             legend {
 
-                color: #FFD700;
+                color: #6b21a8;
                 font-weight: bold;
                 font-size: 24px;
                 text-align: center;
             }
 
-            p {
-                color: #f1f5f9;
-            }
-
             input {
-
-                background-color: #18181b;
+                background-color: #f1f5f9;
                 border-radius: 8px;
-                border: solid 1px #fde047;
+                border: solid 1px;
+                border-color: #7e22ce;
                 padding: 10px 10px;
             }
 
             .section {
                 flex: 1;
                 padding: 20px;
-
-                box-sizing: border-box;
             }
 
             .container {
@@ -107,7 +101,6 @@
                 width: 180px;
                 height: 180px;
                 aspect-ratio: 16/9;
-                background-color: #020617;
                 border: 2px dashed #334155;
                 display: flex;
                 flex-direction: column;
@@ -122,42 +115,47 @@
                 text-align: center;
             }
 
-                .picture:hover {
-                    color: #f1f5f9;
-                    background: #0f172a;
-                    border-color: #f1f5f9;
-                }
+            .picture:hover {
+                color: #f1f5f9;
+                background: #bfdbfe;
+                border-color: #60a5fa;
+            }
 
-                .picture:active {
-                    border-color: #7c3aed;
-                    cursor: grabbing;
-                }
+            .picture:active {
+                border-color: #7c3aed;
+                cursor: grabbing;
+            }
 
-                .picture:focus {
-                    color: #777;
-                    background: #172554;
-                    border-color: #777;
-                    cursor: grabbing;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-                }
+            .picture:focus {
+                color: #f8fafc;
+                background: #a855f7;
+                border-color: #2e1065;
+                cursor: grabbing;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
 
             .picture__img {
                 max-width: 100%;
             }
 
+            .imagem_tema {
+
+                background-image: url('/imagens/fundo_branco.png');
+                background-position: center;
+                background-size: cover;
+                background-attachment: fixed;
+                width: 100%;
+                max-width: auto;
+
+            }
+
         }
 
-        @media (prefers-color-scheme: dark) {
-            .body {
-                background-color: #020617;
-                color: #f1f5f9;
-                background-color: aqua;
-            }
-        }
+
     </style>
 </head>
 
-<body class="bg-zinc-900 text-[#fafafa] break-words">
+<body class="bg-slate-100 dark:bg-zinc-900 dark:text-[#fafafa] break-words">
     <?php (isset($is_logged) && $is_logged) ? include_once __DIR__ . "/layout_logged.php" : include_once __DIR__ . "/layout_guest.php"; ?>
 </body>
 

@@ -77,9 +77,11 @@ function getButtonColors(color = null) {
 
     black: [
       "text-slate-100",
-      "bg-stone-900",
-      "hover:bg-stone-950",
-      "focus:bg-stone-950",
+      "bg-purple-700",
+      "border-purple-800",
+      "shadow-lg",
+      "hover:bg-purple-800",
+      "focus:bg-purple-400",
       "dark:bg-stone-900",
       "dark:hover:bg-zinc-950",
       "dark:focus:bg-stone-950",
@@ -92,10 +94,12 @@ function getButtonColors(color = null) {
   ],
 
     yellow: [
-      "text-black",
-      "bg-amber-300",
-      "hover:bg-yellow-500",
-      "focus:bg-yellow-500",
+      "text-slate-100",
+      "bg-purple-700",
+      "border-purple-700",
+      "shadow-lg",
+      "hover:bg-purple-800",
+      "focus:bg-purple-400",
       "dark:bg-yellow-400",
       "dark:hover:bg-yellow-500",
       "dark:focus:bg-yellow-500",

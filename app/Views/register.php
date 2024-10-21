@@ -1,12 +1,13 @@
-<div class="mt-[90px]">
-    <form action="#" method="post" class="flex flex-col gap-3 w-[600px] mx-auto" onload="cha">
+<div class="flex justify-center items-center h-screen md:m-auto">
 
-        <legend class="mb-4">Faça seu cadastro</legend>
+    <form action="#" method="post" class="flex flex-col gap-3 md:w-[600px] md:mx-auto" onload="cha">
+
+        <legend class="mb-4 dark:text-yellow-300">Faça seu cadastro</legend>
 
         <div class="relative">
-            <input type="text" id="email" name="email" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent " placeholder=" "
-                value="<?php echo $data['email'] ?? '' ?>"/>
-            <label for="email" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+            <input type="email" id="email" name="email" class="peer w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" "
+                value="<?php echo $data['email'] ?? '' ?>" />
+            <label for="email" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#18181b] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                 E-mail
             </label>
             <?php if (isset($errors['email'])) { ?>
@@ -16,9 +17,9 @@
 
         <div class="relative">
 
-            <input type="text" id="phone" name="phone" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "
-                value="<?php echo $data['phone'] ?? '' ?>"/>
-            <label for="phone" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+            <input type="text" id="phone" name="phone" class="peer w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" "
+                value="<?php echo $data['phone'] ?? '' ?>" />
+            <label for="phone" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                 Telefone
             </label>
             <?php if (isset($errors['phone'])) { ?>
@@ -26,38 +27,39 @@
             <?php } ?>
         </div>
 
-        <div class="flex flex-row w-full gap-4">
-            <div class="relative flex flex-col gap-2 flex-1">
+        <div class="md:flex flex-row flex-wrap w-full md:gap-4">
+            <div class="relative flex md:flex flex-row flex-col gap-2 flex-1">
 
-            <input type="password" id="password1" name="password1" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "
-                value="<?php echo $data['password1'] ?? '' ?>"/>
-            <label for="password1" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
-                Senha </label>
+                <input type="password" id="password1" name="password1" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" "
+                    value="<?php echo $data['password1'] ?? '' ?>" />
+                <label for="password1" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                    Senha </label>
                 <?php if (isset($errors['password1'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['password1'] ?></small>
                 <?php } ?>
             </div>
-            <div class="relative flex flex-col gap-2 mb-4 flex-1">
 
-            <input type="password" id="password2" name="password2" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" "/>
-            <label for="password2" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+            <div class="relative md:gap-2 md:mb-4 flex-1 mt-2 md:mt-0">
+
+                <input type="password" id="password2" name="password2" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" " />
+                <label for="password2" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                 Confirmar Senha </label>
                 <?php if (isset($errors['password2'])) { ?>
-                    <small class="helper-text text-red-600 font-sm"><?php echo $errors['password2'] ?></small>
+                    <small class=" helper-text text-red-600 font-sm"><?php echo $errors['password2'] ?></small>
                 <?php } ?>
 
             </div>
         </div>
 
-        <div class="flex items-center gap-6">
-            <label class="text-yellow-300 text-base font-semibold" user_type">Tipo de usuário</label>
+        <div class="flex items-center gap-6 mt-3 md:mt-0">
+            <label class="text-purple-600 dark:text-yellow-300 text-base font-semibold" user_type">Tipo de usuário</label>
             <div>
                 <input type="radio" name="user_type" value="jogador" class="accent-purple-950"
-                    onclick="changeUserType(this)" <?= isset($data['user_type']) && $data['user_type'] == 'jogador' ? 'checked' : '' ?> > Jogador
+                    onclick="changeUserType(this)" <?= isset($data['user_type']) && $data['user_type'] == 'jogador' ? 'checked' : '' ?>> Jogador
             </div>
             <div>
                 <input type="radio" name="user_type" value="locador" class="accent-purple-950"
-                    onclick="changeUserType(this)" <?= isset($data['user_type']) && $data['user_type'] == 'locador' ? 'checked' : '' ?> > Locador
+                    onclick="changeUserType(this)" <?= isset($data['user_type']) && $data['user_type'] == 'locador' ? 'checked' : '' ?>> Locador
             </div>
         </div>
         <div>
@@ -71,9 +73,9 @@
 
             <div class="relative flex flex-col gap-2 mb-4">
 
-                <input type="text" id="jogador-name" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" name="jogador-name" placeholder="Nome" value="<?php echo $data['jogador-name'] ?? '' ?>">
-                <label for="text" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
-                Nome </label>
+                <input type="text" id="jogador-name" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" name="jogador-name" placeholder="Nome" value="<?php echo $data['jogador-name'] ?? '' ?>">
+                <label for="text" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                    Nome </label>
 
                 <?php if (isset($errors['jogador-name'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['jogador-name'] ?></small>
@@ -81,9 +83,9 @@
             </div>
             <div class=" relative flex flex-col gap-2 mb-4">
 
-                <input type="text" id="jogador-alias" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" name="jogador-alias" placeholder="Apelido" value="<?php echo $data['jogador-alias'] ?? '' ?>">
-                <label for="text" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
-                Apelido</label>
+                <input type="text" id="jogador-alias" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" name="jogador-alias" placeholder="Apelido" value="<?php echo $data['jogador-alias'] ?? '' ?>">
+                <label for="text" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                    Apelido</label>
 
                 <?php if (isset($errors['jogador-alias'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['jogador-alias'] ?></small>
@@ -91,9 +93,9 @@
             </div>
             <div class="relative flex flex-col gap-2 mb-4">
 
-                <input type="text" id="cpf" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" name="cpf" placeholder="CPF" value="<?php echo $data['cpf'] ?? '' ?>">
-                <label for="text" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
-                CPF</label>
+                <input type="text" id="cpf" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" name="cpf" placeholder="CPF" value="<?php echo $data['cpf'] ?? '' ?>">
+                <label for="text" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                    CPF</label>
 
                 <?php if (isset($errors['cpf'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['cpf'] ?></small>
@@ -101,9 +103,9 @@
             </div>
             <div class="relative flex flex-col gap-2 mb-4">
 
-                <input type="date" id="birthday" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" name="birthday" placeholder="Data" value="<?php echo $data['birthday'] ?? '' ?>">
-                <label for="text" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
-                Data de Nascimento</label>
+                <input type="date" id="birthday" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" name="birthday" placeholder="Data" value="<?php echo $data['birthday'] ?? '' ?>">
+                <label for="text" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                    Data de Nascimento</label>
 
                 <?php if (isset($errors['birthday'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['birthday'] ?></small>
@@ -111,7 +113,7 @@
             </div>
 
         </div>
-        <div class="<?= ((! isset($data['user_type'])) or $data['user_type'] == 'jogador') ? 'hidden' : '' ?> w-full mt-6" id="cadastro-locador">
+        <div class="<?= ((! isset($data['user_type'])) or $data['user_type'] == 'jogador') ? 'hidden' : '' ?> w-80 md:w-full mt-6" id="cadastro-locador">
             <div class="flex flex-col gap-2 mb-4">
 
                 <input type="text" id="locador-name" name="locador-name" placeholder="Razão Social" value="<?php echo $data['locador-name'] ?? '' ?>">
@@ -136,11 +138,11 @@
 
         </div>
 
-        <div class="text-left">
-            <p class="signin">Já tem uma conta? <a href="#" class="text-amber-500" onclick="window.location.href='/login';">Faça Login</a> </p>
+        <div class="md:text-left text-center">
+            <p class="signin">Já tem uma conta? <a href="#" class="dark:text-amber-500 text-blue-800" onclick="window.location.href='/login';">Faça Login</a> </p>
         </div>
 
-        <div class="mt-4">
+        <div class="mt-4 flex justify-center md:justify-start">
             <button color="black" class="rounded-full border border-slate- mr-5 houver:bg-color focus:border-blue-400" type="submit">Enviar</button>
         </div>
 

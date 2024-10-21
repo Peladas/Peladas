@@ -1,73 +1,84 @@
         <!--///////// 1 ////-->
 
-<div class="content flex-grow">
-        <div class="section bg-right bg-fixed h-[650px] bg-cover bg-center" style="background-image:url('/imagens/fundo_locador.png')">
-            <div class="h-[550px] ml-16">
-                <div class="mt-36 text-xl">
-                    <h4 class="text-[45px] text-yellow-400 font-semibold mb-10">Seja Bem-Vindo Locador!</h4>
-                    <p class="w-[500px] text-left">Descubra a plataforma ideal para simplificar a administração das suas quadras esportivas e impulsionar o seu negócio!
-                        Oferecemos ferramentas eficientes para gerenciar reservas e agendamentos de forma intuitiva, permitindo que você aumente a visibilidade e a taxa de ocupação das suas quadras.
-                        Alcance novos públicos, otimize sua operação e concentre-se no mais importante: oferecer uma experiência excepcional aos seus clientes.
-                        Destaque-se no mercado esportivo e leve seu negócio a um novo patamar!</p>
-                </div>
-            </div>
-        </div>
+        <div class="content flex-grow">
 
-       <!--///////// 2 ////-->
-       <div class="section h-[700px] mt-[8px] text-xl bg-no-repeat relative" style="background-image:url('/imagens/fun2_locador.png'); background-size: cover; background-position: center;">
+            <div class="flex flex-col md:flex-row section bg-right bg-fixed h-full md:h-screen w-full bg-cover bg-center bg-[#f1f5f9] shadow-2xl dark:bg-zinc-900">
+                <div class="h-[550px] md:ml-16 md:w-1/2 w-auto flex justify-center md:justify-start">
+                    <div class="mt-36 text-xl">
+                        <div class="flex flex-col md:flex-row gap-0 md:gap-2">
+                            <h4 class="text-[45px] text-purple-700 dark:text-yellow-400 font-semibold mb-6 text-center md:text-left hyphens-auto">Seja Bem-Vindo</h4>
+                            <h4 class="text-[45px] text-purple-700 dark:text-yellow-400 font-semibold mb-10 text-center md:text-left hyphens-auto"> Locador!</h4>
+                        </div>
 
-<img src="/imagens/mini1_locator.png" class="absolute top-0 right-0 h-[300px] w-[300px] z-10">
-
-<div class="flex flex-row justify-center gap-[70px] h-full items-center mt-5 mb-10 relative z-20">
-
-    <div class="text-center">
-        <h4 class="text-center m-5 text-3xl text-yellow-400 font-semibold">Suas Quadras</h4>
-        <div class="border-solid border-2 p-4 mb-5 w-72  bg-zinc-950">
-            <p class="text-center">Acesse uma interface intuitiva para adicionar e editar suas quadras de forma rápida e prática.
-                Personalize horários, nomes, datas e outros detalhes essenciais.
-                Com essa funcionalidade, o gerenciamento se torna simples e eficiente, garantindo organização e otimização do seu espaço.
-                Maximize o potencial das suas quadras com facilidade!</p>
-        </div>
-        <div class="flex justify-center m-8">
-            <button color="yellow" class="rounded-full">Acessar Suas Quadras</button>
-        </div>
-    </div>
-
-    <!-- Bloco de Listas Públicas -->
-    <div class="text-center">
-        <h4 class="text-center m-5 text-3xl text-yellow-400 font-semibold">Sua Empresa</h4>
-        <div class="border-solid border-2 p-4 mb-5 w-72  bg-zinc-950">
-            <p class="text-center">Você terá uma página de perfil dedicada à sua empresa, onde poderá adicionar facilmente o nome, logo, endereço e outros detalhes essenciais.
-                Personalize-a para torná-la ainda mais atrativa para seus clientes, destacando sua marca e atraindo mais visitantes em potencial.
-                Transforme sua presença online e conquiste a atenção que sua empresa realmente merece!</p>
-        </div>
-        <div class="flex justify-center m-8">
-            <button color="yellow" class="rounded-full">Acessar as Listas Públicas</button>
-        </div>
-    </div>
-</div>
-</div>
-
-
-
-        <!--///////// 3 ////-->
-        <div class="section bg-zinc-950 mt-4 mb-2">
-            <div class="flex flex-row flex justify-center gap-64">
-                <div class="w-[400px] m-10 text-2xl mt-[70px]">
-                    <div>
-                        <h4 class="text-left text-4xl text-yellow-400 font-semibold mb-5">Nossos Objetivos</h4>
-                    </div>
-                    <div>
-                        <p>Nosso objetivo é incentivar e facilitar a vida tanto dos praticantes de esportes quanto dos pequenos e grandes empreendedores.
-                        Queremos que cada um consiga realizar o que busca, promovendo a prática esportiva e apoiando os pequenos negócios.
-                        Juntos, podemos criar uma comunidade vibrante e ativa, onde o esporte e o empreendedorismo andam de mãos dadas.
-                        Venha fazer parte dessa transformação!</p>
+                        <p class="w-auto md:w-[500px] md:mt-10 mb-2 md:mb-2 md:text-2xl text-center md:text-left">Simplifique a gestão das suas quadras esportivas com nossa plataforma!
+                            Gerencie reservas de forma intuitiva, aumente a visibilidade e a ocupação, e alcance novos públicos.
+                            Otimize operações e foque em oferecer uma experiência excepcional aos seus clientes. Leve seu negócio esportivo a outro nível!</p>
                     </div>
                 </div>
 
-                <div>
-                    <img src="/imagens/jogador.png">
+                <div class="md:w-1/2 flex items-center justify-center">
+                    <img src="imagens/locador_white.png" class="md:w-auto w-64">
                 </div>
             </div>
+
+            <!--///////// 2 //// -->
+
+            <div class="section h-auto md:h-screen text-xl bg-auto relative bg-[#FFFFFF] dark:bg-slate-700 shadow-md shadow-zinc-200">
+
+                <img src="imagens/mini1_locador.png" class="absolute bottom-0 left-20 z-0 w-96 invisible dark:visible">
+                <img src="imagens/mini2_branco.png" class="absolute bottom-0 left-20 z-0 w-96 invisible md:visible">
+
+                <div class="flex flex-col md:flex-row justify-center gap-5 md:gap-[70px] h-auto md:h-full items-center mt-5">
+
+                    <div class="text-center z-40">
+                        <h4 class="text-center m-5 md:text-3xl text-2xl text-purple-700 dark:text-yellow-400 font-bold md:font-semibold">Suas Quadras</h4>
+                        <div class="border-solid border-2 border-zinc-200 bg-gray-100 p-4 mb-5 w-72 rounded-lg z-40">
+                            <p class="text-center text-lg md:text-xl">Pratique seu esporte favorito encontrando ou criando partidas públicas e dividindo o
+                                custo da quadra com outros jogadores que compartilham a mesma paixão. Divirta-se, faça novas amizades e aproveite ao máximo
+                                cada momento enquanto joga!</p>
+                        </div>
+                        <div class="flex justify-center m-8">
+                            <button color="yellow" class="rounded-full">Acessar suas Quadras</button>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <h4 class="text-center m-5 md:text-3xl text-2xl text-purple-700 dark:text-yellow-400 md:font-semibold">Sua empresa</h4>
+                        <div class="border-solid border-2 border-zinc-200 bg-gray-100 p-4 mb-5 w-72 rounded-lg z-40">
+                            <p class="text-center text-lg md:text-xl">Encontre quadras esportivas próximas para alugar e aproveite para organizar partidas públicas
+                                ou reservar para uso exclusivo. Conecte-se com amigos, faça novos contatos e desfrute ao máximo de sua experiência esportiva em um
+                                ambiente divertido!</p>
+                        </div>
+                        <div class="flex justify-center m-8">
+                            <button color="yellow" class="rounded-full">Acessar suas Quadras</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!--///////// 3 ////-->
+            <div class="section bg-[#F1F5F9] dark:bg-zinc-900 h-auto dark:drop-shadow-2xl">
+                <div class="flex flex-col lg:flex-row flex justify-center gap-2 md:gap-64 flex items-center">
+                    <div class="w-auto md:w-[400px] m-10 text-2xl flex flex-col">
+                        <div>
+                            <h4 class="text-center md:text-left text-4xl text-purple-800 dark:text-yellow-400 font-bold md:mb-5">Nossos Objetivos</h4>
+                        </div>
+                        <div>
+                            <p class="text-xl md:text-2xl md:mt-10 mt-10 text-wrap text-left">Facilitar a vida de praticantes de esportes e empreendedores,
+                                promovendo a prática esportiva e apoiando pequenos negócios. Juntos, podemos criar uma comunidade vibrante,
+                                onde esporte e empreendedorismo se conectam. Venha fazer parte dessa transformação!</p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <img class="h-auto md:h-auto hidden dark:block" src="/imagens/jogador.png">
+                        <img class="h-auto md:h-auto block dark:hidden" src="/imagens/image_branco.png">
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-    </div>
