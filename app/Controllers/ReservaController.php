@@ -6,6 +6,7 @@ use App\Dao\ReservaDAO;
 use App\Exceptions\UnauthorizedException;
 use App\Exceptions\UnauthenticatedException;
 use App\Services\QuadraServices\CreateReservaService;
+use App\Services\QuadraServices\UpdateReservaService as QuadraServicesUpdateReservaService;
 use App\Services\ReservaServices\UpdateReservaService;
 
 class ReservaController extends Controller {

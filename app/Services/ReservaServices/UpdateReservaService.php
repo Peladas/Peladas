@@ -8,13 +8,13 @@ use App\Dao\ReservaDAO;
 use App\Helpers\Validator;
 use App\Models\Locador;
 use App\Models\Quadra;
-use App\Traits\LocadorTrait;
+use App\Traits\JogadorTrait;
 
 class UpdateReservaService {
-    use LocadorTrait;
+    use JogadorTrait;
 
     public function __construct() {
-        $this->checkLocador();
+        $this->checkJogador();
     }
 
     public function run(int $id, array $data) {
