@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center mt-14 md:mt-0 gap-5">
-    <h4 class="text-3xl font-semibold dark:text-amber-300 mb-5 md:mb-20 text-center">Dados da Quadra</h4>
+    <h4 class="text-3xl font-semibold dark:text-amber-300 mb-5 md:mb-10 text-center">Dados da Quadra</h4>
     <div class="flex flex-col md:flex-row gap-5 items-center justify-center m-10 mt-0 md:m-0">
         <div>
             <div class="border-2 border-gray-300 dark:border-slate-700 p-4 rounded-lg bg-gray-200 dark:bg-slate-950 w-56 md:w-72 h-64 flex items-center justify-center">
@@ -46,11 +46,11 @@
             </p>
 
             <div class="flex gap-8 items-center justify-center md:justify-start mt-4">
-                <a href="/editar-quadras/<?php echo $quadra->getId() ?>" class="shadow-lg px-4 py-2 rounded-full border border-purple-700 text-slate-100 bg-purple-700 hover:bg-purple-800 focus:bg-purple-400 dark:bg-yellow-400 dark:hover:bg-yellow-500 dark:focus:bg-yellow-500 transition-colors duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
+                <a href="/editar-quadras/<?php echo $quadra->getId() ?>" color="yellow">
                     Editar
                 </a>
 
-                <a href="#" onclick="confirmElimination()" class="px-4 py-2 rounded-full border border-slate-100 text-black bg-amber-300 hover:bg-yellow-500 focus:bg-yellow-500 dark:bg-yellow-300 dark:hover:bg-yellow-500 dark:focus:bg-yellow-500 transition-colors duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
+                <a href="#" onclick="confirmElimination()" color="yellow">
                     Eliminar
                 </a>
             </div>

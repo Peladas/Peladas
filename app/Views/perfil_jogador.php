@@ -1,6 +1,6 @@
 <div class="flex flex-col items-center justify-center justify-items-center justify-self-center min-h-screen dark:bg-zinc-900">
     <div class="text-purple-700 dark:text-amber-300 text-2xl font-bold capitalize text-center md:mt-5">
-        <h4>Perfil do Usuário</h4>
+        <h4 class="dark:text-amber-300">Perfil do Usuário</h4>
     </div>
 
     <div class="flex flex-col justify-items-center w-3/5 p-5">
@@ -10,7 +10,7 @@
         <!-- Image -->
             <div class="flex flex-col gap-2 mb-10 mt-5 md:mt-auto md:mb-5 items-center">
 
-                <label class="picture rounded-lg flex flex-col items-center justify-center w-32 h-32 bg-gray-200 dark:bg-gray-200 cursor-pointer" for="picture__input" tabIndex="0" id="picture__dropzone">
+                <label class="picture rounded-lg flex flex-col items-center justify-center w-32 h-32 bg-gray-200 dark:bg-zinc-900 dark:focus:bg-purple-950 cursor-pointer" for="picture__input" tabIndex="0" id="picture__dropzone">
                     <span class="picture__image"></span>
                 </label>
 
@@ -25,7 +25,6 @@
                     <label for="nome" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#18181b] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                         Nome
                     </label>
-                    <i class="fa-regular fa-pen-to-square absolute right-2 top-1/2 transform -translate-y-1/2" style="color: #1d4ed8"></i>
                     <?php if (isset($errors['nome'])) { ?>
                         <small class="helper-text text-red-600 font-sm"><?php echo $errors['nome'] ?></small>
                     <?php } ?>
@@ -38,7 +37,6 @@
                     <label for="usuario" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#18181b] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                         Nome de Usuário
                     </label>
-                    <i class="fa-regular fa-pen-to-square absolute right-2 top-1/2 transform -translate-y-1/2" style="color: #1d4ed8;"></i>
                     <?php if (isset($errors['usuario'])) { ?>
                         <small class="helper-text text-red-600 font-sm"><?php echo $errors['usuario'] ?></small>
                     <?php } ?>
@@ -63,7 +61,6 @@
                     <label for="cpf" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#18181b] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                         CPF
                     </label>
-                    <i class="fa-regular fa-pen-to-square absolute right-2 top-1/2 transform -translate-y-1/2" style="color: #1d4ed8;"></i>
                     <?php if (isset($errors['cpf'])) { ?>
                         <small class="helper-text text-red-600 font-sm"><?php echo $errors['cpf'] ?></small>
                     <?php } ?>
@@ -76,7 +73,6 @@
                     <label for="telefone" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#18181b] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                         Telefone
                     </label>
-                    <i class="fa-regular fa-pen-to-square absolute right-2 top-1/2 transform -translate-y-1/2" style="color: #1d4ed8;"></i>
                     <?php if (isset($errors['telefone'])) { ?>
                         <small class="helper-text text-red-600 font-sm"><?php echo $errors['telefone'] ?></small>
                     <?php } ?>
@@ -89,12 +85,16 @@
                     <label for="email" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#18181b] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                         E-mail
                     </label>
-                    <i class="fa-regular fa-pen-to-square absolute right-2 top-1/2 transform -translate-y-1/2" style="color: #1d4ed8;"></i>
                     <?php if (isset($errors['email'])) { ?>
                         <small class="helper-text text-red-600 font-sm"><?php echo $errors['email'] ?></small>
                     <?php } ?>
                 </div>
             </div>
+
+            <div class="flex justify-center items-center mt-10">
+                <button class="border-2 text-center" color="black">Editar Informações</button>
+            </div>
+
         </form>
     </div>
 </div>

@@ -6,7 +6,7 @@
 
         <form action="#" method="post" class="flex flex-col">
 
-            <legend class="font-bold mb-9">Edite sua quadra</legend>
+            <legend class="font-bold mb-9 dark:text-amber-300">Edite sua quadra</legend>
 
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <div class="relative w-80">
@@ -93,7 +93,7 @@
             </div>
 
             <div class="mt-4 flex justify-center">
-                <button class="shadow-lg px-4 py-3 rounded-full border border-purple-700 text-slate-100 bg-purple-800 hover:bg-purple-900 focus:bg-violet-600 dark:bg-stone-900 dark:hover:bg-zinc-950 dark:focus:bg-stone-950 transition-colors duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg" type="submit" onclick="">Enviar</button>
+                <button color="dark" type="submit" onclick="">Enviar</button>
             </div>
 
         </form>

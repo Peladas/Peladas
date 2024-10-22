@@ -3,11 +3,11 @@
 use App\Helpers\Formatter;
 ?>
 
-<div class="flex flex-col md:flex-row m-5 gap-8 h-auto w-auto mt-14">
+<div class="flex flex-col md:flex-row m-5 gap-8 h-auto w-auto mt-14 dark:bg-zinc-900">
 
     <div class="flex flex-col w-auto md:w-1/2 flex items-center">
 
-        <h2 class="text-center mb-6 md:mb-8 text-4xl text-purple-800 font-semibold">Seu Perfil</h2>
+        <h2 class="text-center mb-6 md:mb-8 text-4xl text-purple-800 dark:text-amber-300 font-semibold">Seu Perfil</h2>
 
         <div class="flex flex-col gap-8 h-auto items-center justify-center">
 
@@ -21,7 +21,7 @@ use App\Helpers\Formatter;
 
 
             <div class="mt-[1px] mb-2 flex flex-col items-center justify-center">
-                <h4 class="text-3xl mt-0 md:mb-2 font-semibold text-purple-800 text-center flex items-center">Quadra Nenezão</h4>
+                <h4 class="text-3xl mt-0 md:mb-2 font-semibold text-purple-800 dark:text-amber-300 text-center flex items-center">Quadra Nenezão</h4>
 
                 <div class="flex flex-col gap-5 p-10 md:pt-8 md:p-14 pt-0 mt-10 md:mt-0">
                     <div>
@@ -33,10 +33,10 @@ use App\Helpers\Formatter;
                         <p class="m-0 md:ml-3">(45) 3523-1672</p>
                     </div>
                     <div class="w-auto mt-5 flex items-center justify-center md:justify-start">
-                        <a href="/minhas-quadras" color="black" class="shadow-lg px-4 py-3 rounded-full border border-purple-700
-                        text-slate-100 bg-purple-800 hover:bg-purple-900 focus:bg-violet-600 dark:bg-stone-900 dark:hover:bg-zinc-950 dark:focus:bg-stone-950
+                        <a href="/minhas-quadras" color="black" class="shadow-lg px-5 py-3 rounded-full border border-purple-700 dark:border-slate-950
+                        text-slate-100 bg-purple-800 hover:bg-purple-900 focus:bg-violet-600 dark:bg-zinc-800 dark:hover:bg-zinc-950 dark:focus:bg-stone-950
                         transition-colors duration-300 ease-in-out
-                        transform hover:scale-105 hover:shadow-lg">
+                        transform hover:scale-105 hover:shadow-lg dark:shadow dark:shadow-zinc-800">
                             Minhas quadras
                         </a>
                     </div>
@@ -52,39 +52,39 @@ use App\Helpers\Formatter;
         <table class="table-auto border-collapse mt-14 w-auto md:w-full m">
             <thead>
                 <tr class="">
-                    <th class="text-left text-blue-800 py-3 pr-24 md:pr-0">Segunda</th>
+                    <th class="text-left text-blue-800 dark:text-amber-300 py-3 pr-24 md:pr-0">Segunda</th>
                     <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">00:00</td>
                     <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">00:00</td>
                 </tr>
             </thead>
             <tbody>
                 <tr class="border-t-2 border-slate-700">
-                    <td class="text-left text-blue-800 py-3 font-bold pr-24 md:pr-0">Terça</td>
+                    <td class="text-left text-blue-800 dark:text-amber-300 py-3 font-bold pr-24 md:pr-0">Terça</td>
                     <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">00:00</td>
                     <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">00:00</td>
                 </tr>
                 <tr class="border-t-2 border-slate-700">
-                    <td class="text-left text-blue-800 py-3 font-bold pr-24 md:pr-0">Quarta</td>
+                    <td class="text-left text-blue-800 dark:text-amber-300 py-3 font-bold pr-24 md:pr-0">Quarta</td>
                     <td class="text-center md:text-center md:text-right py-3 align-middle pr-8 md:pr-0 text-rose-700 dark:text-orange-500">Fechado</td>
                     <td class="text-center md:text-center md:text-right py-3 align-middle pr-8 md:pr-0 text-rose-700 dark:text-orange-500">Fechado</td>
                 </tr>
                 <tr class="border-t-2 border-slate-700">
-                    <td class="text-left text-blue-800 py-3 font-bold pr-24 md:pr-0">Quinta</td>
+                    <td class="text-left text-blue-800 dark:text-amber-300 py-3 font-bold pr-24 md:pr-0">Quinta</td>
                     <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0 text-rose-700 dark:text-orange-500">Fechado</td>
                     <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0 text-rose-700 dark:text-orange-500">Fechado</td>
                 </tr>
                 <tr class="border-t-2 border-slate-700">
-                    <td class="text-left text-blue-800 py-3 font-bold pr-24 md:pr-0">Sexta</td>
+                    <td class="text-left text-blue-800 dark:text-amber-300 py-3 font-bold pr-24 md:pr-0">Sexta</td>
                     <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">00:00</td>
                     <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">00:00</td>
                 </tr>
                 <tr class="border-t-2 border-slate-700">
-                    <td class="text-left text-blue-800 py-3 font-bold pr-24 md:pr-0">Sábado</td>
+                    <td class="text-left text-blue-800 dark:text-amber-300 py-3 font-bold pr-24 md:pr-0">Sábado</td>
                     <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0 text-rose-700 dark:text-orange-500">Fechado</td>
                     <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0 text-rose-700 dark:text-orange-500">Fechado</td>
                 </tr>
                 <tr class="border-t-2 border-slate-700">
-                    <td class="text-left text-blue-800 py-3 font-bold pr-24 md:pr-0">Domingo</td>
+                    <td class="text-left text-blue-800 dark:text-amber-300 py-3 font-bold pr-24 md:pr-0">Domingo</td>
                     <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">00:00</td>
                     <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">00:00</td>
                 </tr>

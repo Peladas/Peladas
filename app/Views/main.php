@@ -138,16 +138,42 @@
                 max-width: 100%;
             }
 
-            .imagem_tema {
+            /* styles.css */
 
-                background-image: url('/imagens/fundo_branco.png');
-                background-position: center;
-                background-size: cover;
-                background-attachment: fixed;
-                width: 100%;
-                max-width: auto;
+/* Modo Claro (por padrão) */
+body.light-mode {
+    background-color: white;
+    color: black;
+}
 
+/* Modo Escuro */
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+/* Estilização do botão */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #a74fff; /* Cor inicial do botão */
+    color: white;
+}
+
+button:hover {
+    background-color: #9158cc; /* Cor ao passar o mouse */
+}
+
+            svg{
+                color: white;
+                width: auto;
+                height: auto;
             }
+
+
 
         }
 
