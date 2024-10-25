@@ -53,6 +53,10 @@
                 <a href="#" onclick="confirmElimination()" color="yellow">
                     Eliminar
                 </a>
+
+                <a href="#" onclick="" color="yellow">
+                    Consultar Disponibilidade
+                </a>
             </div>
         </div>
     </div>

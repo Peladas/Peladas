@@ -44,11 +44,10 @@
                     <a class="nav-link hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 mr-[1px]" href="<?php echo $user_type === 'jogador' ? '/areas_desportivas' : '/minhas-quadras' ?>">Quadras</a>
                 </li>
                 <li class="nav-item relative">
-                    <i class="flex justify-center fa-solid fa-user p-2 w-10 h-9 mr-2 text-[#a74fff] dark:text-[#FFD700]"></i>
-
-                    <div id="userDropdown" class="hidden absolute right-0 top-full mt-2 w-44 bg-[#F1F5F9] dark:bg-zinc-800 border border-gray-300 rounded-lg shadow-lg">
-                        <a class="block px-4 py-2 text-slate-400 dark:hover:text-slate-100 hover:text-blue-600" href="<?php echo $user_type === 'jogador' ? '/perfil-jogador' : '/perfil-locador' ?>">Meu Perfil</a>
-                        <a href="/logout" class="block px-4 py-2 text-slate-400 dark:hover:text-slate-100 hover:text-blue-600">Logout</a>
+                    <i class="flex justify-center fa-solid fa-user p-2 pt-3 w-9 h-9 mr-2" id="button" style="color: #FFD43B;"></i>
+                    <div id="userDropdown" class="hidden absolute right-0 mt-2 w-44 bg-zinc-900 border border-gray-300 rounded-lg shadow-lg">
+                        <a class="block px-4 py-2 text-slate-400 hover:text-slate-100" href="<?php echo $user_type === 'jogador' ? '/perfil-jogador' : '/perfil-locador' ?>">Meu Perfil</a>
+                        <a href="/logout" class="block px-4 py-2 text-slate-400 hover:text-slate-100">Logout</a>
                     </div>
                 </li>
             </ul>

@@ -21,7 +21,7 @@
         </p><br>
 
         <div class="flex flex-row pb-10 justify-center md:justify-start">
-            <button color="black" class="rounded-full border border-slate-100 mr-5" onclick="window.location.href='/login';">Entrar</button>
+            <button color="black" class="rounded-full border dark:border-slate-100 mr-5" onclick="window.location.href='/login';">Entrar</button>
             <button color="black" class="rounded-full border border-slate-100" onclick="window.location.href='/cadastro';">Criar Conta</button>
         </div>
         </div>

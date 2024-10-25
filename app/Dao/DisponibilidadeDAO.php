@@ -2,21 +2,21 @@
 
 namespace App\Dao;
 
-use App\Models\Quadra;
+use App\Models\Disponibilidade;
 use App\Helpers\Log;
 
 
-class QuadraDAO extends BaseDAO
+class DisponibilidadeDAO extends BaseDAO
 {
     /**@var string */
-    protected $tableName = 'quadras';
+    protected $tableName = 'disponibilidades';
 
     /**@var string */
-    protected $modelName = Quadra::class;
+    protected $modelName = Disponibilidade::class;
 
-    public function create(Quadra $quadra): string {
-        $quadraData = $quadra->toArray();
-        return $this->persist($quadraData);
+    public function create(Disponibilidade $disponibilidade): string {
+        $dispoData = $disponibilidade->toArray();
+        return $this->persist($dispoData);
     }
 
     public function delete($id) {
@@ -29,7 +29,5 @@ class QuadraDAO extends BaseDAO
         }
     }
 
-    public function getByLocadorId(int $locadorId) {
-        return $this->first(['locador_id' => $locadorId]);
-    }
+
 }

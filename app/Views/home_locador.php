@@ -2,7 +2,7 @@
 
         <div class="content flex-grow">
 
-            <div class="section h-auto md:h-screen bg-fixed bg-cover bg-center md:bg-right dark:bg-[url('imagens/fundoLocador_md.png')] md:bg-[#f1f5f9] md:dark:bg-[url('imagens/fundo_locador.png')] shadow-2xl dark:bg-zinc-900">
+            <div class="section h-auto md:h-screen bg-fixed bg-cover bg-center md:bg-right bg-[url('imagens/fundBrancoLoc.png')] md:bg-[url('imagens/teste.png')] dark:bg-[url('imagens/fundoLocador_md.png')] md:dark:bg-[url('imagens/fundo_locador.png')] shadow-2xl dark:bg-zinc-900">
                 <div class="h-[550px] md:ml-16 md:w-1/2 w-auto flex justify-center md:justify-start">
                     <div class="mt-20 md:mt-36 text-xl">
                         <div class="flex flex-col md:flex-row gap-0 md:gap-2">
@@ -14,10 +14,6 @@
                             Gerencie reservas de forma intuitiva, aumente a visibilidade e a ocupação, e alcance novos públicos.
                             Otimize operações e foque em oferecer uma experiência excepcional aos seus clientes. Leve seu negócio esportivo a outro nível!</p>
                     </div>
-                </div>
-
-                <div class="md:w-1/2 flex items-center justify-center">
-                    <img src="imagens/locador_white.png" class="md:w-auto w-64 block dark:hidden">
                 </div>
             </div>
 

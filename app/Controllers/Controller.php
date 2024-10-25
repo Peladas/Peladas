@@ -3,8 +3,10 @@
 namespace App\Controllers;
 use App\Dao\JogadorDAO;
 use App\Dao\LocadorDAO;
+use App\Dao\QuadraDAO;
 use App\Models\Jogador;
 use App\Models\Locador;
+use App\Models\Quadra;
 
 class Controller {
     protected bool $is_logged;
@@ -59,7 +61,7 @@ class Controller {
         $locador->setUsuarioId($record->usuario_id);
         $locador->setRazaoSocial($record->razao_social);
         $locador->setCnpj($record->cnpj);
-        $locador->setNomeFantasia($record->nome_fantasia);;
+        $locador->setNomeFantasia($record->nome_fantasia);
 
         return $locador;
     }
@@ -81,6 +83,27 @@ class Controller {
         $jogador->setApelido($record->apelido);
 
         return $jogador;
+    }
+
+    protected function getQuadra(): Quadra {
+        $locadorId = $_SESSION['locador_id'];
+
+        $quadraDAO = new QuadraDAO();
+        $record = $quadraDAO->getByLocadorId($locadorId);
+
+        $quadra = new Quadra();
+        $quadra->setId($record->id);
+        $quadra->setLocadorId($record->locador_id);
+        $quadra->setValorAluguel($record->valor_aluguel);
+        $quadra->setQuantMinJogadores($record->quant_min_jogadores);
+        $quadra->setTamanhoQuadra($record->tamanho_quadra);
+        $quadra->setHorariosFuncionamento($record->horarios_funcionamento);
+        $quadra->setIdentificador($record->identificador);
+        $quadra->setModalidade($record->modalidade);
+        $quadra->setDescricao($record->descricao);
+        $quadra->setStatus($record->status);
+
+        return $quadra;
     }
 
     protected function getUserType(): void {
@@ -113,4 +136,5 @@ class Controller {
 
         return (bool)$locador;
     }
+
 }

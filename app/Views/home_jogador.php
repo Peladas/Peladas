@@ -19,10 +19,10 @@
 
         <!--Imagem de Cima-->
         <img src="/imagens/mini2Jogador_branco.png" class="absolute top-0 right-0 h-[300px] w-[300px] invisible md:visible block dark:hidden">
-        <img src="imagens/mini_img1.png" class="absolute top-o left-0 h-[300px] w-[300px] hidden dark:block">
+        <img src="imagens/mini_img1.png" class="absolute top-o left-0 h-[300px] w-[300px] invisible md:dark:visible hidden dark:block">
         <!--Imagem de Baixo-->
         <img src="/imagens/mini1_branco.png" class="absolute bottom-0 left-5 h-[270px] w-[300px] invisible md:visible block dark:hidden">
-        <img src="/imagens/mini_img2.png" class="absolute bottom-0 right-5 h-[270px] w-[300px] hidden dark:block">
+        <img src="/imagens/mini_img2.png" class="absolute bottom-0 right-5 h-[270px] w-[300px] invisible md:dark:visible hidden dark:block">
 
         <div class="flex flex-col md:flex-row flex-wrap justify-center gap-5 md:gap-[70px] h-full items-center mt-5">
 

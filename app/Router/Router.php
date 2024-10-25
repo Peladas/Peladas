@@ -3,6 +3,7 @@
 namespace App\Router;
 
 use App\Controllers\AreasDesportivasController;
+use App\Controllers\DisponibilidadeController;
 use App\Controllers\QuadraController;
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
@@ -34,6 +35,8 @@ $router->post(url: '/cadastro-quadras', controller: QuadraController::class, met
 $router->get(url: '/editar-quadras/:id', controller: QuadraController::class, method: 'update');
 $router->post(url: '/editar-quadras/:id', controller: QuadraController::class, method: 'update');
 $router->post(url: '/remover-quadras/:id', controller: QuadraController::class, method: 'delete');
+
+$router->get(url: '/minhas-quadras/:id/disponibilidade', controller: DisponibilidadeController::class, method: 'show');
 
 //Viualização Reservas
 $router->get(url: '/minhas-reservas', controller: ReservaController::class, method: 'index');
