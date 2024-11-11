@@ -2,9 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Dao\DisponibilidadeDAO;
-use App\Exceptions\MethodNotAllowedException;
 use App\Exceptions\UnauthorizedException;
+use App\Services\DisponibilidadeServices\CreateDisponibilidadeService;
 use App\Services\DisponibilidadeServices\ShowDisponibilidadeService;
 
 class DisponibilidadeController extends Controller {
@@ -17,12 +16,18 @@ class DisponibilidadeController extends Controller {
         }
     }
 
-    public function show(int $id) {
-        $quadra = $this->getQuadra();
-        $showDisponibilidadeService = new ShowDisponibilidadeService();
-        $disponibilidade = $showDisponibilidadeService->run($id, $quadra->getId());
+    public function create(int $id) {
+        $locador = $this->getLocador();
+        if ($this->getMethod() === 'get') {
+            if ()
 
-        return $this->render('disponibilidade', compact('disponibilidade'));
+            return $this->render(view: 'quadra_register');
+        }
+
+        $data = $this->getBody();
+        var_dump($data);die;
+
+        $createService = new CreateDisponibilidadeService();
+        $disponibilidade = $createService->run($id, $locador->getId(), $data);
     }
-
 }
