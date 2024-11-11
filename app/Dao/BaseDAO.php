@@ -69,16 +69,20 @@ class BaseDAO
 
     public function find(string|int $id): mixed
     {
-        try {
-            $statement = $this->prepareConsultation('SELECT * FROM ' . $this->getTableName() . ' WHERE id=' . $id);
-            $statement->setFetchMode(PDO::FETCH_CLASS, $this->getModelName());
-            return $statement->fetch();
-        } catch (\Throwable $th) {
+        $tableName = $this->getTableName();
+        $statement = $this->prepareConsultation('SELECT * FROM ' . $tableName . ' WHERE id=' . $id);
+        $statement->setFetchMode(PDO::FETCH_CLASS, $this->getModelName());
+        $record = $statement->fetch();
+
+        if (!$record) {
+            $message = 'Entidade ' . $tableName . ' com id ' . $id . ' não encontrada';
             // 1- Escrever no log
-            Log::error($th->getMessage());
+            Log::error($message);
             // 2- Lançar um erro personalizado (tipo um PDOException)
-            throw $th;
+            throw new \Exception($message);
         }
+
+        return $record;
     }
 
     public function first(array $filters = []) {

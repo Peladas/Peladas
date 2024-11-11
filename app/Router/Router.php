@@ -6,6 +6,7 @@ use App\Controllers\AreasDesportivasController;
 use App\Controllers\DisponibilidadeController;
 use App\Controllers\QuadraController;
 use App\Controllers\HomeController;
+use App\Controllers\HorarioLocadorController;
 use App\Controllers\LoginController;
 use App\Controllers\LocadorController;
 use App\Controllers\JogadorController;
@@ -36,7 +37,8 @@ $router->get(url: '/editar-quadras/:id', controller: QuadraController::class, me
 $router->post(url: '/editar-quadras/:id', controller: QuadraController::class, method: 'update');
 $router->post(url: '/remover-quadras/:id', controller: QuadraController::class, method: 'delete');
 
-$router->get(url: '/minhas-quadras/:id/disponibilidade', controller: DisponibilidadeController::class, method: 'show');
+$router->get(url: '/minhas-quadras/:id/disponibilidade', controller: DisponibilidadeController::class, method: 'create');
+$router->post(url: '/minhas-quadras/:id/disponibilidade', controller: DisponibilidadeController::class, method: 'create');
 
 //Viualização Reservas
 $router->get(url: '/minhas-reservas', controller: ReservaController::class, method: 'index');
@@ -58,6 +60,10 @@ $router->post(url: "/jogador/:jogadorId", controller: UserController::class , me
 //Perfil Locador
 $router->get(url: '/perfil-locador', controller: LocadorController::class, method: 'profile');
 $router->post(url: '/perfil-locador', controller: LocadorController::class, method: 'profile');
+$router->get(url: '/perfil-locador/cadastrar-horario', controller: HorarioLocadorController::class, method: 'create');
+$router->post(url: '/perfil-locador/cadastrar-horario', controller: HorarioLocadorController::class, method: 'create');
+$router->get(url: '/perfil-locador/editar-horario', controller: HorarioLocadorController::class, method: 'update');
+$router->post(url: '/perfil-locador/editar-horario', controller: HorarioLocadorController::class, method: 'update');
 
 //Perfil Jogador
 $router->get(url: '/perfil-jogador', controller: JogadorController::class, method: 'perfil');
