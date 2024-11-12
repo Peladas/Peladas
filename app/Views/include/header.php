@@ -1,4 +1,4 @@
-<nav class="bg-zinc-100 dark:bg-zinc-800 border-solid border-0 dark:border-b-zinc-900 dark:border-t-zinc-900 mt-0 md:pr-2 p-2 pr-5 flex items-center justify-between drop-shadow-md dark:drop-shadow-lg">
+<nav class="fixed z-50 w-full bg-zinc-100 dark:bg-zinc-800 border-solid border-0 dark:border-b-zinc-900 dark:border-t-zinc-900 mt-0 md:pr-2 p-2 pr-5 flex items-center justify-between drop-shadow-md dark:drop-shadow-lg">
     <a href="/">
         <img class="w-28 hidden dark:block" src="../imagens/pnh.png" alt="modo escuro">
         <img class="w-28 block dark:hidden" src="../imagens/pnh_branco.png" alt="modo claro">
@@ -35,10 +35,13 @@
 
             <ul id="menu" class="hidden md:flex space-4 md:space-x-4">
                 <li>
-                    <button id="toggleButton" class="style-mode">ok</button>
+                    <label class="relative inline-block w-16 h-8 mt-2">
+                        <input type="checkbox" class="sr-only peer" id="darkModeToggle">
+                        <span class="check absolute inset-0 rounded-full transition duration-500 cursor-pointer bg-purple-700 peer-checked:bg-white "></span>
+                    </label>
                 </li>
                 <li class="nav-item flex items-center">
-                    <a class="nav-link active hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700" aria-current="page" onclick="window.location.href='/';" href="#">Home</a>
+                    <a class="nav-link active hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 " aria-current="page" onclick="window.location.href='/';" href="#">Home</a>
                 </li>
                 <li class="nav-item flex items-center">
                     <a class="nav-link hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 mr-[1px]" href="<?php echo $user_type === 'jogador' ? '/areas_desportivas' : '/minhas-quadras' ?>">Quadras</a>
@@ -59,22 +62,7 @@
             const dropdownMenu = document.getElementById('dropdownMenu');
             const userDropdown = document.getElementById('userDropdown');
             const button = document.getElementById('button');
-            const toggleButton = document.getElementById('toggleButton');
             const body = document.body;
-
-            // Função para alternar os modos
-            toggleButton.addEventListener('click', function() {
-                // Alterna a classe entre 'light-mode' e 'dark-mode' no body
-                body.classList.toggle('dark-mode');
-                body.classList.toggle('light-mode');
-
-                // Altera o texto do botão com base no modo ativo
-                if (body.classList.contains('dark-mode')) {
-                    toggleButton.textContent = 'Modo Claro';
-                } else {
-                    toggleButton.textContent = 'Modo Escuro';
-                }
-            });
 
             menuBtn.addEventListener('click', () => {
                 dropdownMenu.classList.toggle('hidden');
@@ -92,6 +80,28 @@
                     userDropdown.classList.add('hidden');
                 }
             });
+
+            // Define a função applyDarkMode primeiro
+function applyDarkMode(enabled) {
+    console.log('Função applyDarkMode foi chamada:', enabled);
+    if (enabled) {
+        document.body.classList.add('dark');
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        document.body.classList.remove('dark');
+        localStorage.setItem('darkMode', 'disabled');
+    }
+}
+
+// Depois, selecione o checkbox e adicione o evento de mudança
+const checkbox = document.querySelector('input[type="checkbox"]');
+
+checkbox.addEventListener('change', () => {
+    console.log('Checkbox foi alterado:', checkbox.checked);
+    applyDarkMode(checkbox.checked);
+});
+
+
         </script>
     <?php else: ?>
         <!-- Exibir algo para usuários não logados, se necessário -->

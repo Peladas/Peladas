@@ -4,7 +4,7 @@
 
         <form action="#" method="post" class="text-center">
 
-            <legend class="font-bold mb-9">Cadastre sua quadra</legend>
+            <legend class="font-bold mb-9 dark:text-amber-300">Cadastre sua quadra</legend>
 
             <div class="flex flex-col gap-2 mb-5 items-center">
                 <div class="relative w-80 md:w-2/5">
@@ -20,7 +20,7 @@
 
             <div class="flex flex-col gap-2 mb-7 items-center">
                 <div class="w-80 md:w-2/5">
-                    <select class="p-2 peer w-full h-10 px-2 border-2 border-purple-700 rounded-lg placeholder-transparent w-2/5 dark:bg-zinc-900 text-gray-500" name="select" id="">
+                    <select class="p-2 peer w-full h-10 px-2 border-2 border-purple-700 dark:border-amber-300 rounded-lg placeholder-transparent w-2/5 dark:bg-zinc-900 text-gray-500" name="select" id="">
                         <option value="v1">Tipo de quadra</option>
                         <option value="v2">Areia</option>
                         <option value="v3">Ginásio</option>

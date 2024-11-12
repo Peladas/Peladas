@@ -138,13 +138,87 @@
                 max-width: 100%;
             }
 
-            @media (prefers-color-scheme: dark) {
-                body {
-                    color: whitesmoke;
-                    background-color: #18181b;
-                }
+
+            input[type="checkbox"] {
+                -webkit-appearance: none;
+                appearance: none;
+
+                visibility: hidden;
+
             }
 
+
+            .check {
+                position: relative;
+                display: block;
+                height: 30px;
+                width: 60px;
+                background-color: #6b21a8;
+                cursor: pointer;
+                border-radius: 20px;
+                overflow: hidden;
+                transition: background-color 0.5s ease-in, box-shadow 0.5s ease-in;
+                border: 1px solid #4b5563;
+                justify-items: center;
+                align-items: center;
+            }
+
+
+            input[type="checkbox"]:checked~.check {
+                background-color: #111827;
+            }
+
+
+            .check::before {
+                content: '';
+                position: absolute;
+                top: 3px;
+                left: 3px;
+                background-color: #a855f7;
+
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                transition: transform 0.5s;
+            }
+
+
+            input[type="checkbox"]:checked~.check::before {
+                transform: translateX(-50px);
+            }
+
+
+            .check::after {
+                content: '';
+                position: absolute;
+                top: 3px;
+                left: 3px;
+                background-color: #27272a;
+                /* Bola azul */
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                transition: transform 0.5s;
+                transform: translateX(50px);
+            }
+
+
+            input[type="checkbox"]:checked~.check::after {
+                transform: translateX(0px);
+
+            }
+
+            body {
+            transition: background-color 0.5s, color 0.5s;
+            }
+
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #18181b;
+                color: whitesmoke;
+            }
         }
     </style>
 </head>
@@ -153,4 +227,7 @@
     <?php (isset($is_logged) && $is_logged) ? include_once __DIR__ . "/layout_logged.php" : include_once __DIR__ . "/layout_guest.php"; ?>
 </body>
 
+
 </html>
+
+</style>
