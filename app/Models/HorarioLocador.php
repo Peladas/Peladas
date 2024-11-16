@@ -10,6 +10,9 @@ class HorarioLocador extends Model {
 
     protected ?int $locador_id;
 
+    protected string $criado_em;
+    protected string $atualizado_em;
+
     /**
      * Get the value of id
      */
@@ -97,6 +100,24 @@ class HorarioLocador extends Model {
     {
         $this->locador_id = $locador_id;
 
+        return $this;
+    }
+
+    public function getCriadoEm(): ?string {
+        return $this->criado_em;
+    }
+
+    public function setCriadoEm(string $data): self {
+        $this->criado_em = $data;
+        return $this;
+    }
+
+    public function getAtualizadoEm(): ?string {
+        return $this->atualizado_em;
+    }
+
+    public function setAtualizadoEm(string $data): self {
+        $this->atualizado_em = $data;
         return $this;
     }
 }

@@ -49,45 +49,30 @@ use App\Helpers\Formatter;
 
     <div class="mt-2 md:mt-5 w-auto md:w-[450px] mx-auto m-8 text-base">
         <h4 class="text-center text-2xl mb-5 font-semibold text-purple-800 dark:text-white">Horários para Locações</h4>
-        <table class="table-auto border-collapse mt-14 w-auto md:w-full m">
+
+        <table class="table-auto border-collapse mt-14 w-auto md:w-full">
             <thead>
-                <tr class="">
-                    <th class="text-left text-blue-800 dark:text-amber-300 py-3 pr-24 md:pr-0">Segunda</th>
-                    <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">00:00</td>
-                    <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">00:00</td>
+                <tr>
+                    <th class="text-left py-3 pr-24 md:pr-0">Dia</th>
+                    <th class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">Início</th>
+                    <th class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">Fim</th>
                 </tr>
             </thead>
             <tbody>
+                <?php
+                use App\Enums\DiaSemanaEnum;
+                for ($i = 1; $i <= 7; $i++) {
+                    $dia = array_filter($horarios, function ($horario) use ($i) {
+                        return $horario->getDiaSemana() == $i;
+                    });
+                    $dia = array_shift($dia);
+                ?>
                 <tr class="border-t-2 border-slate-700">
-                    <td class="text-left text-blue-800 dark:text-amber-300 py-3 font-bold pr-24 md:pr-0">Terça</td>
-                    <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">00:00</td>
-                    <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">00:00</td>
+                    <td class="text-left text-blue-800 dark:text-amber-300 py-3 font-bold pr-24 md:pr-0"><?= DiaSemanaEnum::getName($i) ?></td>
+                    <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0"><?= $dia->getHoraInicio() ?? '' ?></td>
+                    <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0"><?= $dia->getHoraFim() ?? '' ?></td>
                 </tr>
-                <tr class="border-t-2 border-slate-700">
-                    <td class="text-left text-blue-800 dark:text-amber-300 py-3 font-bold pr-24 md:pr-0">Quarta</td>
-                    <td class="text-center md:text-center md:text-right py-3 align-middle pr-8 md:pr-0 text-rose-700 dark:text-orange-500">Fechado</td>
-                    <td class="text-center md:text-center md:text-right py-3 align-middle pr-8 md:pr-0 text-rose-700 dark:text-orange-500">Fechado</td>
-                </tr>
-                <tr class="border-t-2 border-slate-700">
-                    <td class="text-left text-blue-800 dark:text-amber-300 py-3 font-bold pr-24 md:pr-0">Quinta</td>
-                    <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0 text-rose-700 dark:text-orange-500">Fechado</td>
-                    <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0 text-rose-700 dark:text-orange-500">Fechado</td>
-                </tr>
-                <tr class="border-t-2 border-slate-700">
-                    <td class="text-left text-blue-800 dark:text-amber-300 py-3 font-bold pr-24 md:pr-0">Sexta</td>
-                    <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">00:00</td>
-                    <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">00:00</td>
-                </tr>
-                <tr class="border-t-2 border-slate-700">
-                    <td class="text-left text-blue-800 dark:text-amber-300 py-3 font-bold pr-24 md:pr-0">Sábado</td>
-                    <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0 text-rose-700 dark:text-orange-500">Fechado</td>
-                    <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0 text-rose-700 dark:text-orange-500">Fechado</td>
-                </tr>
-                <tr class="border-t-2 border-slate-700">
-                    <td class="text-left text-blue-800 dark:text-amber-300 py-3 font-bold pr-24 md:pr-0">Domingo</td>
-                    <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">00:00</td>
-                    <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">00:00</td>
-                </tr>
+                <?php } ?>
             </tbody>
         </table>
 

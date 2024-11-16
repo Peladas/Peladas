@@ -7,7 +7,7 @@
             <legend class="font-bold mb-9">Cadastre seu horário de funcionamento</legend>
 
             <div class="mt-2 md:mt-5 w-auto md:w-[450px] mx-auto m-8 text-base">
-            <form class="max-w-[16rem] mx-auto grid grid-cols-2 gap-4">
+            <form action="perfil_locador" method="POST" class="max-w-[16rem] mx-auto grid grid-cols-2 gap-4">
                 <table class="table-auto border-separate border-spacing-4 mt-14 w-auto md:w-full">
                     <tbody>
                         <?php
