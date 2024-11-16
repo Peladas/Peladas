@@ -14,11 +14,11 @@ final class DiaSemanaEnum
 
     public static function getName(int $value): string {
         $dayName = match ($value) {
-            self::SEGUNDA => 'segunda',
-            self::TERCA => 'terça',
-            self::QUARTA => 'quarta',
-            self::QUINTA => 'quinta',
-            self::SEXTA => 'sexta',
+            self::SEGUNDA => 'Segunda-feira',
+            self::TERCA => 'Terça-feira',
+            self::QUARTA => 'Quarta-feira',
+            self::QUINTA => 'Quinta-feira',
+            self::SEXTA => 'Sexta-feira',
             self::SABADO => 'sábado',
             self::DOMINGO => 'domingo',
             default => null,

@@ -44,7 +44,6 @@
             }
 
             legend {
-
                 color: #6b21a8;
                 font-weight: bold;
                 font-size: 24px;
@@ -57,6 +56,12 @@
                 border: solid 1px;
                 border-color: #7e22ce;
                 padding: 10px 10px;
+            }
+
+            input:hover {
+                transform: scale(1.03);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                border-color: #334155;
             }
 
             .section {
@@ -138,13 +143,91 @@
                 max-width: 100%;
             }
 
-            @media (prefers-color-scheme: dark) {
-                body {
-                    color: whitesmoke;
-                    background-color: #18181b;
-                }
+            .switch {
+                font-size: 17px;
+                position: relative;
+                display: inline-block;
+                width: 55px;
+                height: 28px;
             }
 
+
+                .switch input {
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                }
+
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                inset: 0;
+                background: white;
+                border-radius: 50px;
+                overflow: hidden;
+                transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+            }
+
+                .slider:before {
+                    position: absolute;
+                    content: "";
+                    height: 20px;
+                    width: 20px;
+                    right: 0.3em;
+                    bottom: 0.3em;
+                    transform: translateX(150%);
+                    background-color: #59d102;
+                    border-radius: inherit;
+                    transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+                }
+
+                .slider:after {
+                    position: absolute;
+                    content: "";
+                    height: 20px;
+                    width: 20px;
+                    left: 0.3em;
+                    bottom: 0.3em;
+                    background-color: #cccccc;
+                    border-radius: inherit;
+                    transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+                }
+
+            .switch input:focus+.slider {
+                box-shadow: 0 0 1px #59d102;
+            }
+
+            .switch input:checked+.slider:before {
+                transform: translateY(0);
+            }
+
+            .switch input:checked+.slider::after {
+                transform: translateX(-150%);
+            }
+
+
+            .card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .card:hover {
+                transform: scale(1.05);
+                /* Aumenta o tamanho em 5% */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                /* Adiciona um leve sombreamento */
+            }
+
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #18181b;
+                color: whitesmoke;
+            }
+
+            legend {
+                color: #fcd34d;
+            }
         }
     </style>
 </head>
@@ -153,4 +236,7 @@
     <?php (isset($is_logged) && $is_logged) ? include_once __DIR__ . "/layout_logged.php" : include_once __DIR__ . "/layout_guest.php"; ?>
 </body>
 
+
 </html>
+
+</style>

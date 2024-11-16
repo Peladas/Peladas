@@ -57,24 +57,26 @@
 
     <!--///////// 3 ////-->
     <div class="section bg-[#F1F5F9] dark:bg-zinc-950 h-auto dark:drop-shadow-2xl">
-        <div class="flex flex-col lg:flex-row flex justify-center gap-2 md:gap-64">
-            <div class="w-auto md:w-[400px] m-10 text-2xl">
-                <div>
-                    <h4 class="text-left text-4xl text-purple-800 dark:text-yellow-400 font-bold md:mb-5">Nossos Objetivos</h4>
-                </div>
-                <div>
-                    <p class="text-xl md:text-2xl md:mt-10 mt-10 text-wrap">Facilitar a vida de praticantes de esportes e empreendedores,
-                        promovendo a prática esportiva e apoiando pequenos negócios. Juntos, podemos criar uma comunidade vibrante,
-                        onde esporte e empreendedorismo se conectam. Venha fazer parte dessa transformação!</p>
-                </div>
-            </div>
+                <div class="flex flex-col lg:flex-row flex justify-center gap-2 md:gap-64 flex items-center">
+                    <div class="w-auto md:w-1/2 m-10 text-2xl flex flex-col ">
+                        <div>
+                            <h4 class="text-center lg:text-left text-4xl text-purple-800 dark:text-yellow-400 font-bold md:mb-5 ml-auto md:ml-20">Nossos Objetivos</h4>
+                        </div>
+                        <div>
+                            <p class="text-xl md:text-2xl md:mt-10 mt-10 text-wrap text-left ml-auto md:ml-20">Facilitar a vida de praticantes de esportes e empreendedores,
+                                promovendo a prática esportiva e apoiando pequenos negócios. Juntos, podemos criar uma comunidade vibrante,
+                                onde esporte e empreendedorismo se conectam. Venha fazer parte dessa transformação!</p>
+                        </div>
+                    </div>
 
-            <div class="flex justify-center">
+                    <div class="flex justify-center h-auto md:h-[700px] w-auto md:w-auto">
                 <img class="h-auto md:h-auto hidden dark:block" src="/imagens/jogador.png">
                 <img class="h-auto md:h-auto block dark:hidden" src="/imagens/image_branco.png">
             </div>
 
-        </div>
+                </div>
 
-    </div>
+            </div>
+
+        </div>
 </div>

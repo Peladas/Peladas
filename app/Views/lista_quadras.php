@@ -2,7 +2,7 @@
 use App\Helpers\Formatter;
 ?>
 
-<div class="flex flex-col h-auto w-auto m-4 md:m-10 p-5 gap-10 md:gap-20 items-center justify-center">
+<div class="flex flex-col h-screen w-auto m-4 md:m-0 md:m-10 p-5 gap-10 md:gap-20 items-center justify-center">
 
         <p class="text-3xl text-purple-800 dark:text-amber-300 text-center font-semibold">Minhas Quadras</p>
 
