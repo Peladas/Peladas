@@ -44,7 +44,6 @@
             }
 
             legend {
-
                 color: #6b21a8;
                 font-weight: bold;
                 font-size: 24px;
@@ -57,6 +56,12 @@
                 border: solid 1px;
                 border-color: #7e22ce;
                 padding: 10px 10px;
+            }
+
+            input:hover {
+                transform: scale(1.03);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                border-color: #334155;
             }
 
             .section {
@@ -138,78 +143,78 @@
                 max-width: 100%;
             }
 
-
-            input[type="checkbox"] {
-                -webkit-appearance: none;
-                appearance: none;
-
-                visibility: hidden;
-
-            }
-
-
-            .check {
+            .switch {
+                font-size: 17px;
                 position: relative;
-                display: block;
-                height: 30px;
-                width: 60px;
-                background-color: #6b21a8;
+                display: inline-block;
+                width: 55px;
+                height: 28px;
+            }
+
+
+                .switch input {
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                }
+
+            .slider {
+                position: absolute;
                 cursor: pointer;
-                border-radius: 20px;
+                inset: 0;
+                background: white;
+                border-radius: 50px;
                 overflow: hidden;
-                transition: background-color 0.5s ease-in, box-shadow 0.5s ease-in;
-                border: 1px solid #4b5563;
-                justify-items: center;
-                align-items: center;
+                transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+            }
+
+                .slider:before {
+                    position: absolute;
+                    content: "";
+                    height: 20px;
+                    width: 20px;
+                    right: 0.3em;
+                    bottom: 0.3em;
+                    transform: translateX(150%);
+                    background-color: #59d102;
+                    border-radius: inherit;
+                    transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+                }
+
+                .slider:after {
+                    position: absolute;
+                    content: "";
+                    height: 20px;
+                    width: 20px;
+                    left: 0.3em;
+                    bottom: 0.3em;
+                    background-color: #cccccc;
+                    border-radius: inherit;
+                    transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+                }
+
+            .switch input:focus+.slider {
+                box-shadow: 0 0 1px #59d102;
+            }
+
+            .switch input:checked+.slider:before {
+                transform: translateY(0);
+            }
+
+            .switch input:checked+.slider::after {
+                transform: translateX(-150%);
             }
 
 
-            input[type="checkbox"]:checked~.check {
-                background-color: #111827;
+            .card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
             }
 
-
-            .check::before {
-                content: '';
-                position: absolute;
-                top: 3px;
-                left: 3px;
-                background-color: #a855f7;
-
-                width: 24px;
-                height: 24px;
-                border-radius: 50%;
-                transition: transform 0.5s;
-            }
-
-
-            input[type="checkbox"]:checked~.check::before {
-                transform: translateX(-50px);
-            }
-
-
-            .check::after {
-                content: '';
-                position: absolute;
-                top: 3px;
-                left: 3px;
-                background-color: #27272a;
-                /* Bola azul */
-                width: 24px;
-                height: 24px;
-                border-radius: 50%;
-                transition: transform 0.5s;
-                transform: translateX(50px);
-            }
-
-
-            input[type="checkbox"]:checked~.check::after {
-                transform: translateX(0px);
-
-            }
-
-            body {
-            transition: background-color 0.5s, color 0.5s;
+            .card:hover {
+                transform: scale(1.05);
+                /* Aumenta o tamanho em 5% */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                /* Adiciona um leve sombreamento */
             }
 
         }
@@ -218,6 +223,10 @@
             body {
                 background-color: #18181b;
                 color: whitesmoke;
+            }
+
+            legend {
+                color: #fcd34d;
             }
         }
     </style>

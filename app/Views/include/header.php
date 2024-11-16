@@ -35,9 +35,10 @@
 
             <ul id="menu" class="hidden md:flex space-4 md:space-x-4">
                 <li>
-                    <label class="relative inline-block w-16 h-8 mt-2">
-                        <input type="checkbox" class="sr-only peer" id="darkModeToggle">
-                        <span class="check absolute inset-0 rounded-full transition duration-500 cursor-pointer bg-purple-700 peer-checked:bg-white "></span>
+
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
                     </label>
                 </li>
                 <li class="nav-item flex items-center">
@@ -82,26 +83,24 @@
             });
 
             // Define a função applyDarkMode primeiro
-function applyDarkMode(enabled) {
-    console.log('Função applyDarkMode foi chamada:', enabled);
-    if (enabled) {
-        document.body.classList.add('dark');
-        localStorage.setItem('darkMode', 'enabled');
-    } else {
-        document.body.classList.remove('dark');
-        localStorage.setItem('darkMode', 'disabled');
-    }
-}
+            function applyDarkMode(enabled) {
+                console.log('Função applyDarkMode foi chamada:', enabled);
+                if (enabled) {
+                    document.body.classList.add('dark');
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    document.body.classList.remove('dark');
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            }
 
-// Depois, selecione o checkbox e adicione o evento de mudança
-const checkbox = document.querySelector('input[type="checkbox"]');
+            // Depois, selecione o checkbox e adicione o evento de mudança
+            const checkbox = document.querySelector('input[type="checkbox"]');
 
-checkbox.addEventListener('change', () => {
-    console.log('Checkbox foi alterado:', checkbox.checked);
-    applyDarkMode(checkbox.checked);
-});
-
-
+            checkbox.addEventListener('change', () => {
+                console.log('Checkbox foi alterado:', checkbox.checked);
+                applyDarkMode(checkbox.checked);
+            });
         </script>
     <?php else: ?>
         <!-- Exibir algo para usuários não logados, se necessário -->
