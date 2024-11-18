@@ -28,6 +28,4 @@ class DisponibilidadeDAO extends BaseDAO
             throw $th;
         }
     }
-
-
 }

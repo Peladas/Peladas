@@ -54,7 +54,7 @@
                     Eliminar
                 </a>
 
-                <a href="#" onclick="" color="yellow">
+                <a href="/minhas-quadras/<?php echo $quadra->getId() ?>/disponibilidade" onclick="" color="yellow">
                     Consultar Disponibilidade
                 </a>
             </div>

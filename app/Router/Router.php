@@ -37,8 +37,8 @@ $router->get(url: '/editar-quadras/:id', controller: QuadraController::class, me
 $router->post(url: '/editar-quadras/:id', controller: QuadraController::class, method: 'update');
 $router->post(url: '/remover-quadras/:id', controller: QuadraController::class, method: 'delete');
 
-$router->get(url: '/minhas-quadras/:id/disponibilidade', controller: DisponibilidadeController::class, method: 'create');
-$router->post(url: '/minhas-quadras/:id/disponibilidade', controller: DisponibilidadeController::class, method: 'create');
+$router->get(url: '/minhas-quadras/:quadraId/disponibilidade', controller: DisponibilidadeController::class, method: 'create');
+$router->post(url: '/minhas-quadras/:quadraId/disponibilidade', controller: DisponibilidadeController::class, method: 'create');
 
 //Viualização Reservas
 $router->get(url: '/minhas-reservas', controller: ReservaController::class, method: 'index');
