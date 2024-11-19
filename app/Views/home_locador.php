@@ -22,7 +22,7 @@
             <div class="section h-auto md:h-[600px] text-xl bg-auto relative bg-[#FFFFFF] dark:bg-zinc-800 shadow-md shadow-zinc-200">
 
                 <!--modo Dark-->
-                <img src="imagens/mini1_locador.png" class="absolute bottom-0 left-20 z-0 w-96 invisible md:visible hidden dark:block">
+                <img src="imagens/locador_dark.png" class="absolute bottom-0 left-8 z-0 w-4/12 invisible md:visible hidden dark:block">
 
                 <!--modo branco-->
                 <img src="imagens/mini2_branco.png" class="absolute bottom-0 left-100 z-0 w-80 invisible md:visible block dark:hidden">
