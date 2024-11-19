@@ -19,8 +19,8 @@ final class DiaSemanaEnum
             self::QUARTA => 'Quarta-feira',
             self::QUINTA => 'Quinta-feira',
             self::SEXTA => 'Sexta-feira',
-            self::SABADO => 'sábado',
-            self::DOMINGO => 'domingo',
+            self::SABADO => 'Sábado',
+            self::DOMINGO => 'Domingo',
             default => null,
         };
 

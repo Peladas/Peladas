@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Geo&family=Jersey+10&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
 
     <style>
+
         body {
             margin: 0;
             padding: 0;

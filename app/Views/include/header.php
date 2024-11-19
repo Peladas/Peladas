@@ -36,7 +36,7 @@
             <ul id="menu" class="hidden md:flex space-4 md:space-x-4">
                 <li>
 
-                    <label class="switch">
+                    <label class="switch mt-1.5">
                         <input type="checkbox">
                         <span class="slider"></span>
                     </label>
@@ -48,7 +48,8 @@
                     <a class="nav-link hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 mr-[1px]" href="<?php echo $user_type === 'jogador' ? '/areas_desportivas' : '/minhas-quadras' ?>">Quadras</a>
                 </li>
                 <li class="nav-item relative">
-                    <i class="flex justify-center fa-solid fa-user p-2 pt-3 w-9 h-9 mr-2" id="button" style="color: #FFD43B;"></i>
+                    <i class="flex justify-center fa-solid fa-user p-2 pt-3 w-9 h-9 mr-2 mb-1" id="button" style="color: #FFD43B;"></i>
+
                     <div id="userDropdown" class="hidden absolute right-0 mt-2 w-44 bg-zinc-900 border border-gray-300 rounded-lg shadow-lg">
                         <a class="block px-4 py-2 text-slate-400 hover:text-slate-100" href="<?php echo $user_type === 'jogador' ? '/perfil-jogador' : '/perfil-locador' ?>">Meu Perfil</a>
                         <a href="/logout" class="block px-4 py-2 text-slate-400 hover:text-slate-100">Logout</a>

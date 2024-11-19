@@ -1,8 +1,3 @@
-<?php
-
-use App\Helpers\Formatter;
-?>
-
 <div class="flex flex-col md:flex-row m-5 gap-8 h-auto md:h-screen w-auto mt-14 dark:bg-zinc-900 items-center">
 
     <div class="flex flex-col w-auto md:w-1/2 flex items-center">
