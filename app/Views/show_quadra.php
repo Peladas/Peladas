@@ -1,5 +1,5 @@
 <div class="h-screen flex flex-col items-center justify-center mt-14 md:mt-0 gap-5">
-    <h4 class="text-3xl font-semibold dark:text-amber-300 mb-5 md:mb-10 text-center">Dados da Quadra</h4>
+    <h4 class="text-3xl font-bold dark:text-amber-300 mb-5 md:mb-10 text-center">Dados da Quadra</h4>
     <div class="flex flex-col md:flex-row gap-5 items-center justify-center m-10 mt-0 md:m-0">
         <div>
             <div class="border-2 border-gray-300 dark:border-slate-700 p-4 rounded-lg bg-gray-200 dark:bg-slate-950 w-56 md:w-72 h-64 flex items-center justify-center">
@@ -46,17 +46,17 @@
             </p>
 
             <div class="flex gap-8 items-center justify-center md:justify-start mt-4">
-                <a href="/editar-quadras/<?php echo $quadra->getId() ?>" color="yellow">
+                <button href="/editar-quadras/<?php echo $quadra->getId() ?>" color="yellow" class="border-1 border-slate-100">
                     Editar
-                </a>
+                </button>
 
-                <a href="#" onclick="confirmElimination()" color="yellow">
+                <button href="#" onclick="confirmElimination()" color="yellow">
                     Eliminar
-                </a>
+                </button>
 
-                <a href="/minhas-quadras/<?php echo $quadra->getId() ?>/disponibilidade" onclick="" color="yellow">
+                <button href="/minhas-quadras/<?php echo $quadra->getId() ?>/disponibilidade" onclick="" color="yellow">
                     Disponibilidade
-                </a>
+                </button>
             </div>
         </div>
     </div>

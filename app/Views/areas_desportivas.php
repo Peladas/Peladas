@@ -1,4 +1,4 @@
-<div class="flex flex-col h-screen w-full items-center justify-center">
+<div class="flex flex-col h-auto w-full items-center justify-center mt-16">
     <div class="text-center mt-10">
         <legend class="capitalize text-wrap h-auto dark:text-amber-300">Áreas Disponíveis para Locação</legend>
     </div>

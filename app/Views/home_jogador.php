@@ -1,11 +1,11 @@
 <div class="content flex-grow">
 
-    <div class="section h-screen bg-fixed bg-cover bg-center md:bg-right dark:bg-[url('imagens/fundoJgd_md.png')] bg-[url('imagens/fundoJgd_md_branco.png')] md:bg-[url('imagens/fundo_branco.png')] md:dark:bg-[url('imagens/Fundo.png')]">
+    <div class="section h-auto md:h-screen bg-fixed bg-cover bg-center md:bg-right dark:bg-[url('imagens/fundoJgd_md.png')] bg-[url('imagens/fundoJgd_md_branco.png')] md:bg-[url('imagens/fundo_branco.png')] md:dark:bg-[url('imagens/Fundo.png')]">
         <div class="md:ml-16 md:w-1/2 w-auto flex justify-center md:justify-start">
             <div class="mt-36 text-2xl">
                 <div class="flex flex-col md:flex-row gap-0 md:gap-2">
-                    <h4 class="text-[45px] text-purple-700 dark:text-yellow-400 font-semibold mb-6 text-center md:text-left hyphens-auto">Seja Bem-Vindo</h4>
-                    <h4 class="text-[45px] text-purple-700 dark:text-yellow-400 font-semibold mb-10 text-center md:text-left hyphens-auto"> Jogador!</h4>
+                    <h4 class="text-[45px] text-purple-700 dark:text-yellow-400 font-bold mb-6 text-center md:text-left hyphens-auto">Seja Bem-Vindo</h4>
+                    <h4 class="text-[45px] text-purple-700 dark:text-yellow-400 font-bold mb-10 text-center md:text-left hyphens-auto"> Jogador!</h4>
                 </div>
                 <p class="w-auto md:w-[500px] md:mt-10 mb-2 md:mb-2 md:text-2xl text-center md:text-left">Encontre o lugar ideal para praticar esportes, seja para jogar com amigos ou conhecer novas pessoas.
                     Oferecemos tudo o que você precisa para aproveitar ao máximo seus esportes favoritos.
@@ -56,27 +56,27 @@
 
 
     <!--///////// 3 ////-->
-    <div class="section bg-[#F1F5F9] dark:bg-zinc-950 h-auto dark:drop-shadow-2xl">
-                <div class="flex flex-col lg:flex-row flex justify-center gap-2 md:gap-64 flex items-center">
-                    <div class="w-auto md:w-1/2 m-10 text-2xl flex flex-col ">
+    <div class="section bg-[#F1F5F9] dark:bg-zinc-950 h-auto dark:drop-shadow-2xl p-4">
+                <div class="flex flex-col lg:flex-row flex justify-center gap-10 items-center md:gap-64">
+
+                    <div class="w-full md:w-auto text-2xl flex flex-col justify-start flex-wrap">
                         <div>
-                            <h4 class="text-center lg:text-left text-4xl text-purple-800 dark:text-yellow-400 font-bold md:mb-5 ml-auto md:ml-20">Nossos Objetivos</h4>
+                            <h4 class="text-center lg:text-left text-4xl text-purple-700 dark:text-yellow-400 font-bold ml-auto md:ml-20">Nossos Objetivos</h4>
                         </div>
-                        <div>
-                            <p class="text-xl md:text-2xl md:mt-10 mt-10 text-wrap text-left ml-auto md:ml-20">Facilitar a vida de praticantes de esportes e empreendedores,
-                                promovendo a prática esportiva e apoiando pequenos negócios. Juntos, podemos criar uma comunidade vibrante,
-                                onde esporte e empreendedorismo se conectam. Venha fazer parte dessa transformação!</p>
+                        <div class="w-auto md:w-[600px] flex flex-wrap">
+                            <p class="text-xl md:text-2xl md:mt-8 mt-10 text-wrap text-center md:text-left ml-auto md:ml-20">Facilitar a vida de praticantes de esportes e empreendedores,
+                                promovendo a prática esportiva e apoiando pequenos negócios. Nosso objetivo é também dar mais visibilidade às quadras disponíveis,
+                                ampliando as oportunidades de locação e ajudando a aumentar o lucro dos locadores. Juntos, podemos criar uma comunidade vibrante,
+                                onde esporte e empreendedorismo se conectam de forma inovadora e acessível.</p>
                         </div>
                     </div>
 
-                    <div class="flex justify-center h-auto md:h-[700px] w-auto md:w-auto">
-                <img class="h-auto md:h-auto hidden dark:block" src="/imagens/jogador.png">
-                <img class="h-auto md:h-auto block dark:hidden" src="/imagens/image_branco.png">
-            </div>
+                    <div class="flex items-center justify-center">
+                        <img class="h-auto md:h-[500px] w-auto md:w-[500px] hidden dark:block" src="/imagens/jogador.png">
+                        <img class="h-auto md:h-[500px] w-auto md:w-[500px] block dark:hidden" src="/imagens/image_branco.png">
+                    </div>
 
                 </div>
 
             </div>
-
-        </div>
 </div>

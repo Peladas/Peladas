@@ -6,7 +6,7 @@
 
     <?php if (isset($_SESSION['usuario_id'])): ?>
         <div class="relative">
-            <div id="menu-btn" class="md:hidden cursor-pointer">
+            <div id="menu-btn" class="md:hidden cursor-pointer border-slate-950">
                 <i class="fa-solid fa-bars" id="menu-button"></i>
             </div>
 
@@ -36,10 +36,10 @@
             <ul id="menu" class="hidden md:flex space-4 md:space-x-4">
                 <li>
 
-                    <label class="switch mt-1.5">
+                    <!--<label class="switch mt-1.5">
                         <input type="checkbox">
                         <span class="slider"></span>
-                    </label>
+                    </label>-->
                 </li>
                 <li class="nav-item flex items-center">
                     <a class="nav-link active hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 " aria-current="page" onclick="window.location.href='/';" href="#">Home</a>
