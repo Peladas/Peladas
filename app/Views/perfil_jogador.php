@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center justify-items-center justify-self-center min-h-screen dark:bg-zinc-900">
-    <div class="text-purple-700 dark:text-amber-300 text-2xl font-bold capitalize text-center md:mt-5">
-        <h4 class="dark:text-amber-300">Perfil do Usuário</h4>
+<div class="flex flex-col items-center justify-center min-h-screen dark:bg-zinc-900 py-20 gap-5">
+    <div class="text-purple-700 dark:text-amber-300 text-3xl capitalize text-center md:mt-5">
+        <h1 class="dark:text-amber-300">Perfil do Usuário</h1>
     </div>
 
     <div class="flex flex-col justify-items-center w-3/5 p-5">
