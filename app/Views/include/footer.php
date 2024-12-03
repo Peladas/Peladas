@@ -1,4 +1,4 @@
-<footer class="border-0 drop-shadow-xl dark:border-gray-800 bg-gray-200 dark:bg-zinc-800">
+<footer class="border-0 drop-shadow-xl dark:border-gray-800 bg-gray-200 dark:bg-zinc-800 relative w-full botton-0">
     <div class="m-[12px]">
         <div class="flex flex-row justify-center gap-2">
             <i class="fa-brands fa-instagram mr-2"></i>

@@ -139,12 +139,11 @@
         </div>
 
         <div class="md:text-left text-center">
-            <p class="signin">Já tem uma conta? <a href="#" class="dark:text-amber-500 text-blue-800" onclick="window.location.href='/login';">Faça Login</a> </p>
+            <p class="signin">Já tem uma conta? <a href="#" class="dark:text-amber-500 text-blue-800 bg-transparent border-none py-0 px-2 no-underline shadow-none" onclick="window.location.href='/login';">Faça Login</a> </p>
         </div>
 
         <div class="mt-4 flex justify-center md:justify-start">
             <button color="black" class="rounded-full border border-slate- mr-5 houver:bg-color focus:border-blue-400" type="submit">Enviar</button>
-            <!--<button color="black" class="rounded-full border border-slate- mr-5 houver:bg-color focus:border-blue-400" href="home.php">Voltar</button>-->
         </div>
 
     </form>

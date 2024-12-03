@@ -1,6 +1,6 @@
 <div class="flex flex-col h-auto w-full items-center justify-center mt-16">
-    <div class="text-center mt-10">
-        <legend class="capitalize text-wrap h-auto dark:text-amber-300">Áreas Disponíveis para Locação</legend>
+    <div class="text-center mt-16 text-wrap px-10">
+        <h1 class="capitalize h-auto dark:text-amber-300 text-3xl">Áreas Disponíveis para Locação</h1>
     </div>
 
     <div class="flex flex-wrap items-center justify-center gap-5 m-8">

@@ -1,17 +1,17 @@
 <div class="content flex-grow">
 
-    <div class="section h-auto md:h-screen bg-fixed bg-cover bg-center md:bg-right dark:bg-[url('imagens/fundoJgd_md.png')] bg-[url('imagens/fundoJgd_md_branco.png')] md:bg-[url('imagens/fundo_branco.png')] md:dark:bg-[url('imagens/Fundo.png')]">
-        <div class="md:ml-16 md:w-1/2 w-auto flex justify-center md:justify-start">
-            <div class="mt-36 text-2xl">
-                <div class="flex flex-col md:flex-row gap-0 md:gap-2">
-                    <h4 class="text-[45px] text-purple-700 dark:text-yellow-400 font-bold mb-6 text-center md:text-left hyphens-auto">Seja Bem-Vindo</h4>
-                    <h4 class="text-[45px] text-purple-700 dark:text-yellow-400 font-bold mb-10 text-center md:text-left hyphens-auto"> Jogador!</h4>
+    <div class="section sm:h-full bg-fixed bg-cover bg-center md:bg-right dark:bg-[url('imagens/fundoJgd_md.png')] bg-[url('imagens/fundoJgd_md_branco.png')] md:bg-[url('imagens/fundo_branco.png')] md:dark:bg-[url('imagens/Fundo.png')]">
+    <div class="h-[600px] md:ml-16 md:w-1/2 flex justify-center md:justify-start">
+                    <div class="text-xl sm:text-2xl flex flex-col justify-center py-10 p-4 md:p-0">
+                        <div class="flex flex-col md:flex-row gap-0 md:gap-2 text-4xl text-left flex-wrap">
+                            <h1 class="dark:text-yellow-400 text-center md:text-left hyphens-auto py-4 md:py-auto">Seja Bem-Vindo Jogador!</h1>
+                        </div>
+
+                        <p class="w-auto md:w-[500px] mt-12 md:mt-8 mb-2 md:mb-2 md:text-2xl text-center md:text-left">Simplifique a gestão das suas quadras esportivas com nossa plataforma!
+                            Gerencie reservas de forma intuitiva, aumente a visibilidade e a ocupação, e alcance novos públicos.
+                            Otimize operações e foque em oferecer uma experiência excepcional aos seus clientes. Leve seu negócio esportivo a outro nível!</p>
+                    </div>
                 </div>
-                <p class="w-auto md:w-[500px] md:mt-10 mb-2 md:mb-2 md:text-2xl text-center md:text-left">Encontre o lugar ideal para praticar esportes, seja para jogar com amigos ou conhecer novas pessoas.
-                    Oferecemos tudo o que você precisa para aproveitar ao máximo seus esportes favoritos.
-                    Explore nossas opções e prepare-se para grandes partidas!</p>
-            </div>
-        </div>
     </div>
 
     <!--///////// 2 ////-->
@@ -27,20 +27,20 @@
         <div class="flex flex-col md:flex-row flex-wrap justify-center gap-5 md:gap-[70px] h-full items-center mt-5">
 
             <div class="text-center">
-                <h4 class="text-center m-5 md:text-3xl text-2xl text-purple-700 dark:text-yellow-400 font-bold md:font-semibold">Quadras</h4>
+                <h1 class="text-center m-5 md:text-3xl text-2xl dark:text-yellow-400 py-3">Quadras</h1>
                 <div class="border-solid border-2 p-4 mb-5 w-72">
                     <p class="text-center text-lg md:text-xl">Encontre facilmente lugares próximos, com uma grande variedade de quadras para diversas modalidades esportivas.
                         Alugue uma quadra para uso exclusivo ou crie uma lista para partidas públicas, convidando amigos ou conhecendo novas pessoas.
                         Aproveite sua experiência esportiva ao máximo e conecte-se com quem compartilha sua paixão!</p>
                 </div>
                 <div class="flex justify-center m-8">
-                    <button color="yellow" class="rounded-full">Acessar as Quadras</button>
+                    <a class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">Acessar as Quadras</a>
                 </div>
             </div>
 
             <!-- Bloco de Listas Públicas -->
             <div class="text-center">
-                <h4 class="text-center m-5 md:text-3xl text-2xl text-purple-700 dark:text-yellow-400 font-bold md:font-semibold">Listas Públicas</h4>
+                <h1 class="text-center m-5 md:text-3xl text-2xl dark:text-yellow-400 py-3">Listas Públicas</h1>
                 <div class="border-solid border-2 p-4 mb-5 w-72">
                     <p class="text-center text-lg md:text-xl">Se você quer praticar seu esporte favorito, mas não tem companhia suficiente,
                         não se preocupe! Aqui, você pode criar ou participar de uma partida pública, onde o valor da quadra
@@ -48,7 +48,7 @@
                         amizades enquanto joga o esporte de sua preferência. Participe e comece a jogar!</p>
                 </div>
                 <div class="flex justify-center m-8">
-                    <button color="yellow" class="rounded-full">Acessar as Listas Públicas</button>
+                    <a class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">Acessar as Listas Públicas</a>
                 </div>
             </div>
         </div>
@@ -59,15 +59,15 @@
     <div class="section bg-[#F1F5F9] dark:bg-zinc-950 h-auto dark:drop-shadow-2xl p-4">
                 <div class="flex flex-col lg:flex-row flex justify-center gap-10 items-center md:gap-64">
 
-                    <div class="w-full md:w-auto text-2xl flex flex-col justify-start flex-wrap">
+                    <div class="w-full md:w-auto flex flex-col justify-start flex-wrap">
                         <div>
-                            <h4 class="text-center lg:text-left text-4xl text-purple-700 dark:text-yellow-400 font-bold ml-auto md:ml-20">Nossos Objetivos</h4>
+                            <h1 class="text-center lg:text-left dark:text-yellow-400 ml-auto md:ml-20 text-3xl pt-4">Nossos Objetivos</h1>
                         </div>
                         <div class="w-auto md:w-[600px] flex flex-wrap">
-                            <p class="text-xl md:text-2xl md:mt-8 mt-10 text-wrap text-center md:text-left ml-auto md:ml-20">Facilitar a vida de praticantes de esportes e empreendedores,
-                                promovendo a prática esportiva e apoiando pequenos negócios. Nosso objetivo é também dar mais visibilidade às quadras disponíveis,
-                                ampliando as oportunidades de locação e ajudando a aumentar o lucro dos locadores. Juntos, podemos criar uma comunidade vibrante,
-                                onde esporte e empreendedorismo se conectam de forma inovadora e acessível.</p>
+                            <p class="text-xl md:text-2xl md:mt-8 mt-10 text-wrap text-center md:text-left ml-auto md:ml-20 py-6 md:py-0">Facilitamos a vida de praticantes de esportes
+                                e empreendedores, promovendo a prática esportiva e apoiando pequenos negócios. Buscamos dar mais visibilidade às quadras,
+                                ampliando oportunidades de locação e aumentando o lucro dos locadores.
+                                Assim, criamos uma comunidade onde esporte e empreendedorismo se conectam de forma acessível e inovadora.</p>
                         </div>
                     </div>
 
@@ -79,4 +79,5 @@
                 </div>
 
             </div>
+
 </div>
