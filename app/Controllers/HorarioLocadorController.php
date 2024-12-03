@@ -18,7 +18,7 @@ class HorarioLocadorController extends Controller{
 
         $data = $this->getBody();
 
-        //var_dump($data);die;
+        // var_dump($data);
 
         $createHorarioLocadorService = new CreateHorarioLocadorService();
         $errors = $createHorarioLocadorService->run(data: $data);
@@ -32,12 +32,18 @@ class HorarioLocadorController extends Controller{
     public function update($id) {
         $locador = $this->getLocador();
 
+        if ($this->getMethod() === 'get') {
+            $updateHorario = new UpdateHorarioLocadorService();
+            $horario = $updateHorario->run($id, $locador->getId());
+            return $this->render('horario_locador_edit', compact('horario'));
+        }
+
         $data = $this->getBody();
         $horarioService = new UpdateHorarioLocadorService();
         $errors = $horarioService->run($id, $locador->getId(), $data);
 
         if (count($errors) > 0) {
-            return $this->render('horario_locador', compact('errors', 'data'));
+            return $this->render('horario_locador_edit', compact('errors', 'data'));
         }
 
         header(header: 'Location: /perfil-locador');
