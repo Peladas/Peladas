@@ -9,8 +9,8 @@
     </div>
 
     <div class="w-full md:w-1/2 p-5">
-        <h2 class="pb-6 text-xl sm:text-3xl text-wrap w-[500px] font-bold">Sistema para Formação de Grupos de Prática de Esportes Coletivos</h2>
-        <h4 class="pb-7 text-lg md:text-xl dark:text-yellow-300">Encontre, Reserve e Jogue!</h4>
+        <h1 class="pb-6 text-xl sm:text-3xl text-wrap w-[500px] text-black dark:text-slate-200">Sistema para Formação de Grupos de Prática de Esportes Coletivos</h1>
+        <h4 class="pb-7 text-lg md:text-xl dark:text-yellow-300 text-purple-800">Encontre, Reserve e Jogue!</h4>
 
         <p class="md:text-xl font-semibold mb-6 sm:mr-8">
             Junte-se ao Peladas e descubra uma nova forma de<br>

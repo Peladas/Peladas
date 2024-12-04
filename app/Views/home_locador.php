@@ -6,7 +6,7 @@
                 <div class="h-[600px] md:ml-16 md:w-1/2 flex justify-center md:justify-start">
                     <div class="text-xl sm:text-2xl flex flex-col justify-center py-10 p-4 md:p-0">
                         <div class="flex flex-col md:flex-row gap-0 md:gap-2 text-4xl text-left flex-wrap">
-                            <h1 class="dark:text-yellow-400 text-center md:text-left hyphens-auto py-4 md:py-auto">Seja Bem-Vindo Locador!</h1>
+                            <h1 class="dark:text-yellow-400 text-center md:text-left hyphens-auto md:py-auto">Seja Bem-Vindo Locador!</h1>
                         </div>
 
                         <p class="w-auto md:w-[500px] mt-12 md:mt-8 mb-2 md:mb-2 md:text-2xl text-center md:text-left">Simplifique a gestão das suas quadras esportivas com nossa plataforma!
@@ -66,7 +66,7 @@
                             <h1 class="text-center lg:text-left dark:text-yellow-400 ml-auto md:ml-20 text-3xl pt-4">Nossos Objetivos</h1>
                         </div>
                         <div class="w-auto md:w-[600px] flex flex-wrap">
-                            <p class="text-xl md:text-2xl md:mt-8 mt-10 text-wrap text-center md:text-left ml-auto md:ml-20 py-6 md:py-0">Facilitamos a vida de praticantes de esportes
+                            <p class="text-xl md:text-2xl md:mt-8 mt-6 text-wrap text-center md:text-left ml-auto md:ml-20 py-6 md:py-0">Facilitamos a vida de praticantes de esportes
                                 e empreendedores, promovendo a prática esportiva e apoiando pequenos negócios. Buscamos dar mais visibilidade às quadras,
                                 ampliando oportunidades de locação e aumentando o lucro dos locadores.
                                 Assim, criamos uma comunidade onde esporte e empreendedorismo se conectam de forma acessível e inovadora.</p>

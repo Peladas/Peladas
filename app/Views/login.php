@@ -4,7 +4,7 @@
 
         <form action="#" method="post" class="text-center">
 
-            <legend class="dark:text-yellow-300 font-bold mb-4">Realize seu login</legend>
+            <h1 class="dark:text-yellow-300 pb-6 text-3xl">Realize seu login</h1>
             <p class="mb-8">Acesse para jogar ou gerenciar suas quadras!</p>
 
             <div class="flex flex-col gap-2 mb-5 items-center">

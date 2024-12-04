@@ -15,6 +15,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geo&family=Jersey+10&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Geo&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -34,6 +37,9 @@
             font-weight: 900;
             font-size: 30px;
             line-height: 40px;
+            font-family: "Anton SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
         }
 
         a {
@@ -222,7 +228,7 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             /* Adiciona um leve sombreamento */
         }
-        
+
     </style>
 </head>
 

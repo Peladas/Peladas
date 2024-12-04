@@ -2,7 +2,7 @@
 
     <form action="#" method="post" class="flex flex-col gap-3 md:w-[600px] md:mx-auto" onload="cha">
 
-        <legend class="mb-4 dark:text-yellow-300">Faça seu cadastro</legend>
+        <h1 class="pb-5 dark:text-yellow-300 text-3xl flex justify-center items-center">Faça seu cadastro</h1>
 
         <div class="relative">
             <input type="email" id="email" name="email" class="peer w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" "
@@ -52,7 +52,7 @@
         </div>
 
         <div class="flex items-center gap-6 mt-3 md:mt-0">
-            <label class="text-purple-600 dark:text-yellow-300 text-base font-semibold" user_type">Tipo de usuário</label>
+            <label class="text-purple-800 dark:text-yellow-300 text-base font-semibold" user_type">Tipo de usuário</label>
             <div>
                 <input type="radio" name="user_type" value="jogador" class="accent-purple-950"
                     onclick="changeUserType(this)" <?= isset($data['user_type']) && $data['user_type'] == 'jogador' ? 'checked' : '' ?>> Jogador

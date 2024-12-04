@@ -4,7 +4,7 @@
 
         <form action="#" method="post" class="text-center">
 
-            <legend class="font-bold md dark:text-amber-300 text-center m-14">Cadastre seu horário de funcionamento</legend>
+            <h1 class="dark:text-amber-300 text-center m-14 text-3xl">Cadastre seu horário de funcionamento</h1>
 
             <div class="mt-2 md:mt-5 w-auto md:w-auto md:gap-5 mx-auto m-8 text-base flex flex-wrap justify-center gap-4 flex-col md:flex-row items-center">
                 <?php
@@ -16,7 +16,7 @@
                     $endTimeName = "end-time_$i";
                 ?>
                     <div class="card border border-gray-300 rounded-lg p-6 mb-4 w-64 h-auto bg-gray-50 dark:bg-zinc-900 hover:">
-                        <h3 class="text-left text-blue-800 dark:text-amber-300 font-bold mb-4"><?= DiaSemanaEnum::getName($i) ?></h3>
+                        <h3 class="text-left text-blue-800 dark:text-amber-300 mb-4"><?= DiaSemanaEnum::getName($i) ?></h3>
 
                         <div class="mb-4">
                             <label for="<?= $startTimeName ?>" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start time:</label>
