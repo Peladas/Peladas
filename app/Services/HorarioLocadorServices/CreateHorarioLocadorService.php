@@ -41,14 +41,18 @@ class CreateHorarioLocadorService {
 
     private function createHorariosLocador(int $locadorId, array $data) {
         for($dia=1; $dia<=7; $dia++) {
-            $newHorario = new HorarioLocador();
-            $newHorario->setLocadorId($locadorId)
-                ->setDiaSemana($dia)
-                ->setHoraInicio($data["start-time_" . $dia])
-                ->setHoraFim($data["end-time_" . $dia]);
+            $horarioInicio = "start-time_$dia";
+            $horarioFim = "end-time_$dia";
+            if ($data[$horarioInicio] && $data[$horarioFim]) {
+                $newHorario = new HorarioLocador();
+                $newHorario->setLocadorId($locadorId)
+                    ->setDiaSemana($dia)
+                    ->setHoraInicio($data[$horarioInicio])
+                    ->setHoraFim($data[$horarioFim]);
 
-            $HorarioDAO = new HorarioLocadorDAO();
-            $HorarioDAO->create($newHorario);
+                $HorarioDAO = new HorarioLocadorDAO();
+                $HorarioDAO->create($newHorario);
+            }
         }
     }
 }
