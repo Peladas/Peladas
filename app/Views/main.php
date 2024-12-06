@@ -16,8 +16,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geo&family=Jersey+10&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Geo&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Geo&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -38,11 +38,24 @@
             font-size: 30px;
             line-height: 40px;
             font-family: "Anton SC", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+            font-weight: 400;
+            font-style: normal;
         }
 
         a {
+            color: #475569;
+            font-size: 16px;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid #CBD5E1;
+            background-color: #F8FAFC;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .botao-estilizado {
             color: #475569;
             font-size: 16px;
             padding: 0.5rem 1rem;
@@ -228,7 +241,6 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             /* Adiciona um leve sombreamento */
         }
-
     </style>
 </head>
 

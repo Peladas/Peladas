@@ -1,13 +1,14 @@
 <?php
+
 use App\Helpers\Formatter;
 ?>
 
-<div class="flex flex-col mt-16 md:mt-20 md:h-auto w-auto py-6 pt-5 md:p-5 dark:bg-zinc-900 gap-12 items-center justify-center">
+<div class="flex flex-col h-screen md:h-auto w-auto m-4 md:m-0 md:m-10 p-5 gap-10 md:gap-16 items-center justify-center">
     <div>
-        <h1 class="text-3xl text-purple-700 dark:text-amber-300 text-center">Minhas Quadras</h1>
+        <h1 class="text-3xl dark:text-amber-300 text-center mt-2 md:mt-10">Minhas Quadras</h1>
     </div>
 
-    <div class="flex flex-wrap flex-row gap-6 md:gap-10 w-auto h-auto items-center justify-center">
+    <div class="flex flex-wrap flex-row gap-6 md:gap-10 w-auto items-center justify-center">
 
         <?php
 
