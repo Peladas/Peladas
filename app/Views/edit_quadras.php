@@ -1,12 +1,14 @@
 <?php  //var_dump($quadra)
 ?>
-<div class="flex justify-center items-center mt-14 mb-10">
+<div class="flex justify-center items-center my-6">
 
-    <div class="container max-w-[900px]">
+    <div class="w-auto h-screen flex items-center jutify-center">
 
         <form action="#" method="post" class="flex flex-col">
 
-            <legend class="font-bold mb-9 dark:text-amber-300">Edite sua quadra</legend>
+        <div class="flex justify-center items-center text-3xl">
+            <h1 class="mb-9 dark:text-amber-300">Edite sua quadra</h1>
+        </div>
 
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <div class="relative w-80">
@@ -92,8 +94,8 @@
                 </div>
             </div>
 
-            <div class="mt-4 flex justify-center">
-                <button color="dark" type="submit" onclick="">Enviar</button>
+            <div class="flex justify-center">
+                <button type="submit" class="botao-estilizado">Enviar</button>
             </div>
 
         </form>
