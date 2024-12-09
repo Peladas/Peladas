@@ -4,7 +4,7 @@
 
         <form action="#" method="post" class="text-center">
 
-            <legend class="font-bold md dark:text-amber-300 text-center m-14">Altere seu horário de funcionamento</legend>
+            <h1 class="dark:text-amber-300 text-center m-14 text-3xl">Cadastre seu horário de funcionamento</h1>
 
             <div class="mt-2 md:mt-5 w-auto md:w-auto md:gap-5 mx-auto m-8 text-base flex flex-wrap justify-center gap-4 flex-col md:flex-row items-center">
                 <?php
@@ -14,9 +14,16 @@
                 for ($i = 1; $i <= 7; $i++) {
                     $startTimeName = "start-time_$i";
                     $endTimeName = "end-time_$i";
+                    $horario = null;
+
+                    foreach($horarios as $horarioLocador) {
+                        if($horarioLocador->getDiaSemana() === $i) {
+                            $horario = $horarioLocador;
+                        }
+                    }
                 ?>
                     <div class="card border border-gray-300 rounded-lg p-6 mb-4 w-64 h-auto bg-gray-50 dark:bg-zinc-900 hover:">
-                        <h3 class="text-left text-blue-800 dark:text-amber-300 font-bold mb-4"><?= DiaSemanaEnum::getName($i) ?></h3>
+                        <h3 class="text-left text-blue-800 dark:text-amber-300 mb-4"><?= DiaSemanaEnum::getName($i) ?></h3>
 
                         <div class="mb-4">
                             <label for="<?= $startTimeName ?>" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start time:</label>
@@ -52,7 +59,7 @@
                 <button color="black" class="shadow-lg px-5 py-3 rounded-full border border-purple-700 dark:border-slate-950
                         text-slate-100 bg-purple-800 hover:bg-purple-900 focus:bg-violet-600 dark:bg-zinc-800 dark:hover:bg-zinc-950 dark:focus:bg-stone-950
                         transition-colors duration-300 ease-in-out
-                        transform hover:scale-105 hover:shadow-lg dark:shadow dark:shadow-zinc-800" type="submit">Confirmar</button>
+                        transform hover:scale-105 hover:shadow-lg dark:shadow dark:shadow-zinc-800" type="submit">Enviar</button>
             </div>
 
         </form>

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Dao\HorarioLocadorDAO;
 use App\Services\HorarioLocadorServices\UpdateHorarioLocadorService;
 use App\Services\HorarioLocadorServices\CreateHorarioLocadorService;
 
@@ -13,12 +14,12 @@ class HorarioLocadorController extends Controller{
                 exit;
             }
 
-            return $this->render(view: 'horario_locador');
+            $horarios = [];
+
+            return $this->render('horario_locador', compact('horarios'));
         }
 
         $data = $this->getBody();
-
-        // var_dump($data);
 
         $createHorarioLocadorService = new CreateHorarioLocadorService();
         $errors = $createHorarioLocadorService->run(data: $data);
@@ -29,23 +30,35 @@ class HorarioLocadorController extends Controller{
 
         header(header: 'Location: /perfil-locador');
     }
-    public function update($id) {
+    public function update() {
+        if($this->userType != "locador") {
+            echo "Acesso negado!";
+            exit;
+        }
+
         $locador = $this->getLocador();
+        $id = $locador->getId();
 
         if ($this->getMethod() === 'get') {
-            $updateHorario = new UpdateHorarioLocadorService();
-            $horario = $updateHorario->run($id, $locador->getId());
-            return $this->render('horario_locador_edit', compact('horario'));
+            $horarioDAO = new HorarioLocadorDAO();
+            $horarios = $horarioDAO->getAll(['locador_id' => $id]);
+            return $this->render('horario_locador', compact('horarios'));
         }
 
-        $data = $this->getBody();
-        $horarioService = new UpdateHorarioLocadorService();
-        $errors = $horarioService->run($id, $locador->getId(), $data);
+        try {
+            $data = $this->getBody();
+            $horarioService = new UpdateHorarioLocadorService();
+            $errors = $horarioService->run($id, $data);
 
-        if (count($errors) > 0) {
-            return $this->render('horario_locador_edit', compact('errors', 'data'));
+            if (count($errors) > 0) {
+                return $this->render('horario_locador_edit', compact('errors', 'data'));
+            }
+
+            header(header: 'Location: /perfil-locador');
+        } catch (\Throwable $th) {
+            var_dump($th->getMessage());die;
+            throw $th;
         }
-
-        header(header: 'Location: /perfil-locador');
     }
+
 }

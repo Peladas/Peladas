@@ -60,8 +60,8 @@ $router->post(url: "/jogador/:jogadorId", controller: UserController::class , me
 //Perfil Locador
 $router->get(url: '/perfil-locador', controller: LocadorController::class, method: 'profile');
 $router->post(url: '/perfil-locador', controller: LocadorController::class, method: 'profile');
-$router->get(url: '/perfil-locador/cadastrar-horario', controller: HorarioLocadorController::class, method: 'create');
-$router->post(url: '/perfil-locador/cadastrar-horario', controller: HorarioLocadorController::class, method: 'create');
+
+//Horario Locador
 $router->get(url: '/perfil-locador/editar-horario', controller: HorarioLocadorController::class, method: 'update');
 $router->post(url: '/perfil-locador/editar-horario', controller: HorarioLocadorController::class, method: 'update');
 

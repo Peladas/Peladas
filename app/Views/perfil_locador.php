@@ -1,3 +1,7 @@
+<?php
+use App\Enums\DiaSemanaEnum;
+?>
+
 <div class="flex flex-col md:flex-row gap-8 h-full w-auto mt-16 dark:bg-zinc-900 items-center">
 
     <div class="flex flex-col w-auto md:w-1/2 flex items-center">
@@ -42,34 +46,47 @@
     <div class="mt-2 md:mt-5 w-auto md:w-[450px] mx-auto m-8 text-base">
         <h1 class="text-center text-2xl mb-5 text-purple-800 dark:text-white">Horários para Locações</h1>
 
-        <table class="table-auto border-collapse mt-14 w-auto md:w-full">
-            <thead>
-                <tr>
-                    <th class="text-left py-3 pr-24 md:pr-0">Dia</th>
-                    <th class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">Início</th>
-                    <th class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">Fim</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                use App\Enums\DiaSemanaEnum;
-                for ($i = 1; $i <= 7; $i++) {
-                    $dia = array_filter($horarios, function ($horario) use ($i) {
-                        return $horario->getDiaSemana() == $i;
-                    });
-                    $dia = array_shift($dia);
-                ?>
-                <tr class="border-t-2 border-slate-700">
-                    <td class="text-left text-blue-800 dark:text-amber-300 py-3 pr-12 md:pr-24"><?= DiaSemanaEnum::getName($i) ?></td>
-                    <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0"><?= $dia->getHoraInicio() ?? '' ?></td>
-                    <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0"><?= $dia->getHoraFim() ?? '' ?></td>
-                </tr>
-                <?php } ?>
-            </tbody>
-        </table>
+        <?php
+            if (count($horarios)) {
+        ?>
+            <table class="table-auto border-collapse mt-14 w-auto md:w-full">
+                <thead>
+                    <tr>
+                        <th class="text-left py-3 pr-24 md:pr-0">Dia</th>
+                        <th class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">Início</th>
+                        <th class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">Fim</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+
+                    for ($i = 1; $i <= 7; $i++) {
+                        $dia = array_filter($horarios, function ($horario) use ($i) {
+                            return $horario->getDiaSemana() == $i;
+                        });
+                        $dia = array_shift($dia);
+                        $startTime = $dia ? $dia->getHoraInicio() : '-';
+                        $endTime = $dia ? $dia->getHoraFim() : '-';
+                    ?>
+                    <tr class="border-t-2 border-slate-700">
+                        <td class="text-left text-blue-800 dark:text-amber-300 py-3 pr-12 md:pr-24"><?= DiaSemanaEnum::getName($i) ?></td>
+                        <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0"><?= $startTime ?></td>
+                        <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0"><?= $endTime ?></td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        <?php
+            } else {
+        ?>
+            <div><p>Sem horários definidos</p></div>
+        <?php
+            }
+        ?>
+
 
         <div class="flex justify-center mt-8">
-            <i class="fa-regular fa-pen-to-square" style="color: #be123c;"></i>
+            <a class="bg-none rounded" href="perfil-locador/editar-horario"><i class="fa-regular fa-pen-to-square" style="color: #be123c;"></i></a>
         </div>
     </div>
 
