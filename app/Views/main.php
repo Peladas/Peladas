@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -18,6 +18,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Geo&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+
+    <script type="text/javascript">
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
 
     <style>
         body {
@@ -245,7 +251,14 @@
 </head>
 
 <body class="bg-slate-100 dark:bg-zinc-900 dark:text-[#fafafa] break-words">
+    <button id="switchBtn" type="button" style="z-index:100">trocar tema</button>
     <?php (isset($is_logged) && $is_logged) ? include_once __DIR__ . "/layout_logged.php" : include_once __DIR__ . "/layout_guest.php"; ?>
+
+    <script type="text/javascript">
+        document.getElementById('switchBtn').addEventListener('click', () => {
+            document.getElementsByTagName('html').item(0).classList.toggle('dark');
+        });
+    </script>
 </body>
 
 
