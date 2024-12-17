@@ -37,10 +37,10 @@
 
             <ul id="menu" class="hidden md:flex space-4 md:space-x-4">
                 <li>
-                    <!--<label class="switch mt-1.5">
-                    <input type="checkbox">
-                    <span class="slider"></span>
-                </label>-->
+                    <a id="switchBtn" type="button" class="">
+                        <i class="fas fa-sun hidden dark:block text-white"></i>
+                        <i class="fas fa-moon block dark:hidden"></i>
+                    </a>
                 </li>
                 <li class="nav-item flex items-center">
                     <a class="hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 border-0 shadow-none bg-transparent pr-[1px]" aria-current="page" onclick="window.location.href='/';" href="#">Home</a>

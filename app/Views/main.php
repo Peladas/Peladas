@@ -174,89 +174,138 @@
             max-width: 100%;
         }
 
-        .switch {
-            font-size: 17px;
-            position: relative;
-            display: inline-block;
-            width: 55px;
-            height: 28px;
-        }
-
-
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            inset: 0;
-            background: white;
-            border-radius: 50px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 20px;
-            width: 20px;
-            right: 0.3em;
-            bottom: 0.3em;
-            transform: translateX(150%);
-            background-color: #59d102;
-            border-radius: inherit;
-            transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
-        }
-
-        .slider:after {
-            position: absolute;
-            content: "";
-            height: 20px;
-            width: 20px;
-            left: 0.3em;
-            bottom: 0.3em;
-            background-color: #cccccc;
-            border-radius: inherit;
-            transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
-        }
-
-        .switch input:focus+.slider {
-            box-shadow: 0 0 1px #59d102;
-        }
-
-        .switch input:checked+.slider:before {
-            transform: translateY(0);
-        }
-
-        .switch input:checked+.slider::after {
-            transform: translateX(-150%);
-        }
-
-
         .card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
             transform: scale(1.05);
-            /* Aumenta o tamanho em 5% */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            /* Adiciona um leve sombreamento */
+        }
+
+        a#switchBtn {
+            border: 1px solid #cbd5e1;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 9999px;
+            padding: 6px 10px;
+            font-size: 16px;
+            color: #334155;
+            transition: all 0.3s ease, transform 0.2s ease;
+            filter: drop-shadow(0 4px 6px rgb(0 0 0 / 0.1));
+            margin-top: 4px;
+        }
+
+        a#switchBtn:hover {
+            border-color: #94a3b8;
+            background: rgba(148, 163, 184, 0.1);
+            color: #1e293b;
+            transform: translateY(-2px);
+            filter: drop-shadow(0 8px 10px rgb(0 0 0 / 0.15));
+        }
+
+        a#switchBtn:active {
+            transform: translateY(0);
+            filter: drop-shadow(0 4px 6px rgb(0 0 0 / 0.1));
+        }
+
+        a#switchBtn i {
+            font-size: 18px;
+            margin: 2px;
+        }
+
+        a#botaoLink {
+            padding: 0.5rem 1rem;
+            background-color: transparent;
+            color: #374151;
+            border: 1px solid #d1d5db;
+            transition: all 0.3s;
+            transform: scale(1);
+        }
+
+        a#botaoLink:hover {
+            transform: scale(1.05);
+            background-color: #e5e7eb;
+            color: #1f2937;
+            border-color: #d1d5db;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        a#dispBtn {
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            transition: all 0.3s;
+            transform: scale(1);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        a#dispBtn:hover {
+            transform: scale(1.05);
+            background-color: #e5e7eb;
+            color: #1f2937;
+            border-color: #d1d5db;
+        }
+
+        a#dispBtn:focus {
+            outline: none;
+        }
+
+        /* Dark Mode* */
+
+        html.dark a#botaoLink {
+            color: #e2e8f0;
+        }
+
+        html.dark a#botaoLink:hover {
+            border: none;
+            background-color: #0f0f0f;
+        }
+
+        html.dark h1 {
+            color: #fcd34d;
+        }
+
+        html.dark a#dispBtn {
+            background-color: #18181b;
+            border-color: #4b5563;
+            color: #d1d5db;
+        }
+
+        html.dark a#dispBtn:hover {
+            background-color: #2a2a33;
         }
     </style>
 </head>
 
 <body class="bg-slate-100 dark:bg-zinc-900 dark:text-[#fafafa] break-words">
-    <button id="switchBtn" type="button" style="z-index:100">trocar tema</button>
+
     <?php (isset($is_logged) && $is_logged) ? include_once __DIR__ . "/layout_logged.php" : include_once __DIR__ . "/layout_guest.php"; ?>
 
     <script type="text/javascript">
         document.getElementById('switchBtn').addEventListener('click', () => {
-            document.getElementsByTagName('html').item(0).classList.toggle('dark');
+            const html = document.getElementsByTagName('html').item(0);
+            const body = document.body;
+            const darkModeToggle = document.getElementById('switchBtn');
+            const texto = document.getElementById('texto-alterado');
+            const sunIcon = darkModeToggle.querySelector('.fas.fa-sun');
+            const moonIcon = darkModeToggle.querySelector('.fas.fa-moon');
+
+            html.classList.toggle('dark');
+            body.classList.toggle('dark-mode');
+
+
+            if (body.classList.contains('dark-mode')) {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'inline';
+                moonIcon.style.color = '#6b21a8';
+                texto.textContent = 'Clique na Lua para desativar o Dark-Mode';
+            } else {
+                sunIcon.style.display = 'inline';
+                moonIcon.style.display = 'none';
+                texto.textContent = 'Clique no Sol para ativar o Dark-Mode';
+            }
         });
     </script>
 </body>

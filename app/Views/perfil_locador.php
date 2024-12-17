@@ -32,7 +32,7 @@ use App\Enums\DiaSemanaEnum;
                         <p class="m-0 md:ml-3">(45) 3523-1672</p>
                     </div>
                     <div class="w-auto mt-5 flex items-center justify-center md:justify-start">
-                        <a href="/minhas-quadras" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
+                        <a id="botaoLink" href="/minhas-quadras">
                             Minhas quadras
                         </a>
                     </div>
@@ -44,7 +44,7 @@ use App\Enums\DiaSemanaEnum;
     </div>
 
     <div class="mt-2 md:mt-5 w-auto md:w-[450px] mx-auto m-8 text-base">
-        <h1 class="text-center text-2xl mb-5 text-purple-800 dark:text-white">Horários para Locações</h1>
+        <h1 class="text-center text-2xl mb-5 dark:text-amber-300">Horários para Locações</h1>
 
         <?php
             if (count($horarios)) {
@@ -53,8 +53,8 @@ use App\Enums\DiaSemanaEnum;
                 <thead>
                     <tr>
                         <th class="text-left py-3 pr-24 md:pr-0">Dia</th>
-                        <th class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">Início</th>
-                        <th class="text-center md:text-right py-3 align-middle pr-8 md:pr-0">Fim</th>
+                        <th class="text-center py-3 align-middle pr-8 md:pr-0">Início</th>
+                        <th class="text-center py-3 align-middle pr-8 md:pr-0">Fim</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,8 +70,8 @@ use App\Enums\DiaSemanaEnum;
                     ?>
                     <tr class="border-t-2 border-slate-700">
                         <td class="text-left text-blue-800 dark:text-amber-300 py-3 pr-12 md:pr-24"><?= DiaSemanaEnum::getName($i) ?></td>
-                        <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0"><?= $startTime ?></td>
-                        <td class="text-center md:text-right py-3 align-middle pr-8 md:pr-0"><?= $endTime ?></td>
+                        <td class="text-center py-3 align-middle pr-8 md:pr-0"><?= $startTime ?></td>
+                        <td class="text-center py-3 align-middle pr-8 md:pr-0"><?= $endTime ?></td>
                     </tr>
                     <?php } ?>
                 </tbody>
@@ -79,14 +79,17 @@ use App\Enums\DiaSemanaEnum;
         <?php
             } else {
         ?>
-            <div><p>Sem horários definidos</p></div>
+            <div class="flex items-center justify-center">
+                <p>Sem horários definidos</p>
+            </div>
         <?php
             }
         ?>
 
 
         <div class="flex justify-center mt-8">
-            <a class="bg-none rounded" href="perfil-locador/editar-horario"><i class="fa-regular fa-pen-to-square" style="color: #be123c;"></i></a>
+            <!--<a class="bg-none rounded" href="perfil-locador/editar-horario"><i class="fa-regular fa-pen-to-square" style="color: #be123c;"></i></a>-->
+            <a id="botaoLink" href="perfil-locador/editar-horario">Incluir Horários</a>
         </div>
     </div>
 

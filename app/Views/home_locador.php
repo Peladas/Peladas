@@ -36,8 +36,7 @@
                                 cada momento enquanto joga!</p>
                         </div>
                         <div class="flex justify-center m-8">
-                            <a color="yellow" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2
-                             hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300" href="<?php echo $user_type === 'jogador' ? '/areas_desportivas' : '/minhas-quadras' ?>">Acessar suas Quadras</a>
+                            <a id="botaoLink" href="<?php echo $user_type === 'jogador' ? '/areas_desportivas' : '/minhas-quadras' ?>">Acessar suas Quadras</a>
                         </div>
                     </div>
 
@@ -49,7 +48,7 @@
                                 ambiente divertido!</p>
                         </div>
                         <div class="flex justify-center m-8">
-                            <a class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">Acessar suas Quadras</a>
+                            <a id="botaoLink">Acessar suas Quadras</a>
                         </div>
 
                     </div>

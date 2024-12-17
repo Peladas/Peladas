@@ -46,15 +46,15 @@
             </p>
 
             <div class="flex gap-8 items-center justify-center md:justify-start mt-4">
-                <a href="/editar-quadras/<?php echo $quadra->getId() ?>" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
+                <a id="botaoLink" href="/editar-quadras/<?php echo $quadra->getId() ?>" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
                     Editar
                 </a>
 
-                <a href="#" onclick="confirmElimination()" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
+                <a id="botaoLink" href="#" onclick="confirmElimination()" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
                     Eliminar
                 </a>
 
-                <a href="/minhas-quadras/<?php echo $quadra->getId() ?>/disponibilidade" onclick="" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
+                <a id="botaoLink" href="/minhas-quadras/<?php echo $quadra->getId() ?>/disponibilidade" onclick="" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
                     Disponibilidade
                 </a>
             </div>

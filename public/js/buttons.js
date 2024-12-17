@@ -91,8 +91,8 @@ function getButtonColors(color = null) {
       "ease-in-out",
       "transform",
       "hover:scale-105",
-      "hover:shadow-lg",
-  ],
+      "hover:shadow-lg"
+    ],
 
     yellow: [
       "text-slate-100",
