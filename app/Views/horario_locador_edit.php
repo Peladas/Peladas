@@ -56,10 +56,7 @@
             </div>
 
             <div class="mt-8 flex justify-center items-center">
-                <button color="black" class="shadow-lg px-5 py-3 rounded-full border border-purple-700 dark:border-slate-950
-                        text-slate-100 bg-purple-800 hover:bg-purple-900 focus:bg-violet-600 dark:bg-zinc-800 dark:hover:bg-zinc-950 dark:focus:bg-stone-950
-                        transition-colors duration-300 ease-in-out
-                        transform hover:scale-105 hover:shadow-lg dark:shadow dark:shadow-zinc-800" type="submit">Enviar</button>
+                <button color="black" type="submit">Enviar</button>
             </div>
 
         </form>

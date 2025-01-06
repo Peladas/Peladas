@@ -43,7 +43,7 @@
 
                 <input type="password" id="password2" name="password2" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" " />
                 <label for="password2" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
-                Confirmar Senha </label>
+                    Confirmar Senha </label>
                 <?php if (isset($errors['password2'])) { ?>
                     <small class=" helper-text text-red-600 font-sm"><?php echo $errors['password2'] ?></small>
                 <?php } ?>
@@ -113,24 +113,31 @@
             </div>
 
         </div>
-        <div class="<?= ((! isset($data['user_type'])) or $data['user_type'] == 'jogador') ? 'hidden' : '' ?> w-80 md:w-full mt-6" id="cadastro-locador">
-            <div class="flex flex-col gap-2 mb-4">
 
-                <input type="text" id="locador-name" name="locador-name" placeholder="Razão Social" value="<?php echo $data['locador-name'] ?? '' ?>">
+        <div class="<?= ((! isset($data['user_type'])) or $data['user_type'] == 'jogador') ? 'hidden' : '' ?> w-80 md:w-full mt-6" id="cadastro-locador">
+            <div class="relative flex flex-col gap-2 mb-4">
+                <input type="text" id="locador-name" name="locador-name" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder="Razão Social" value="<?php echo $data['locador-name'] ?? '' ?>">
+
+                <label for="text" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                    Razão Social </label>
                 <?php if (isset($errors['locador-name'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['locador-name'] ?></small>
                 <?php } ?>
             </div>
-            <div class="flex flex-col gap-2 mb-4">
+            <div class="relative flex flex-col gap-2 mb-4">
 
-                <input type="text" id="locador-alias" name="locador-alias" placeholder="Nome Fantasia" value="<?php echo $data['locador-alias'] ?? '' ?>">
+                <input type="text" id="locador-alias" name="locador-alias" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder="Nome Fantasia" value="<?php echo $data['locador-alias'] ?? '' ?>">
+                <label for="text" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                    Nome Fantasia </label>
                 <?php if (isset($errors['locador-alias'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['locador-alias'] ?></small>
                 <?php } ?>
             </div>
-            <div class="flex flex-col gap-2 mb-4">
+            <div class="relative flex flex-col gap-2 mb-4">
 
-                <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" value="<?php echo $data['cnpj'] ?? '' ?>">
+                <input type="text" id="cnpj" name="cnpj" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder="CNPJ" value="<?php echo $data['cnpj'] ?? '' ?>">
+                <label for="text" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                    CNPJ </label>
                 <?php if (isset($errors['cnpj'])) { ?>
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['cnpj'] ?></small>
                 <?php } ?>
