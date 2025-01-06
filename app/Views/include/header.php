@@ -99,12 +99,14 @@
             }
 
             // Depois, selecione o checkbox e adicione o evento de mudança
-            const checkbox = document.querySelector('input[type="checkbox"]');
 
-            checkbox.addEventListener('change', () => {
-                console.log('Checkbox foi alterado:', checkbox.checked);
-                applyDarkMode(checkbox.checked);
-            });
+            const checkbox = document.querySelector('input[type="checkbox"]');
+            if (checkbox) {
+                checkbox.addEventListener('change', () => {
+                    console.log('Checkbox foi alterado:', checkbox.checked);
+                    applyDarkMode(checkbox.checked);
+                });
+            }
         </script>
     <?php else: ?>
         <!-- Exibir algo para usuários não logados, se necessário -->

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peladas</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="/js/tailwind.es"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="js/buttons.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -251,14 +252,13 @@
 </head>
 
 <body class="bg-slate-100 dark:bg-zinc-900 dark:text-[#fafafa] break-words">
-    <button id="switchBtn" type="button" style="z-index:100">trocar tema</button>
     <?php (isset($is_logged) && $is_logged) ? include_once __DIR__ . "/layout_logged.php" : include_once __DIR__ . "/layout_guest.php"; ?>
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         document.getElementById('switchBtn').addEventListener('click', () => {
             document.getElementsByTagName('html').item(0).classList.toggle('dark');
         });
-    </script>
+    </script> -->
 </body>
 
 

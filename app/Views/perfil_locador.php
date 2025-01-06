@@ -1,5 +1,7 @@
 <?php
 use App\Enums\DiaSemanaEnum;
+use App\Helpers\Formatter;
+
 ?>
 
 <div class="flex flex-col md:flex-row gap-8 h-full w-auto mt-16 dark:bg-zinc-900 items-center">
@@ -22,15 +24,34 @@ use App\Enums\DiaSemanaEnum;
             <div class="mt-[1px] mb-2 flex flex-col items-center justify-center">
                 <h1 class="text-2xl mt-0 md:mb-2 text-purple-800 dark:text-amber-300 text-center flex items-center">Quadra Nenezão</h1>
 
-                <div class="flex flex-col gap-5 p-10 md:pt-8 md:p-14 pt-0 mt-10 md:mt-0">
-                    <div>
-                        <h4 class="text-blue-800 dark:text-amber-300 mb-3">Endereço</h4>
-                        <p class="w-auto text-wrap">Parte Norte Do Patrimonio Muni - Rua Casemiro Kusbick, 1382 - Parte Norte Do Patrimonio, Foz do Iguaçu - PR, 85856-535</p>
+                <!-- criar condição, se ainda não tiver endereço cadastrado, deve aparecer um botão para o cadastro dele,
+                se não, deve apenas buscar no banco. -->
+
+                <?php if ($endereco): ?>
+                    <div class="flex flex-col gap-5 p-10 md:pt-8 md:p-14 pt-0 mt-10 md:mt-0">
+                        <div>
+                            <h4 class="text-blue-800 dark:text-amber-300 mb-3">Endereço</h4>
+                            <p class="w-auto text-wrap">
+                                <?= htmlspecialchars($endereco->bairro) ?>,
+                                <?= htmlspecialchars($endereco->rua) ?> -
+                                <?= htmlspecialchars($endereco->numero) ?>
+                            </p>
+                        </div>
+                        <div class="flex flex-col md:flex-row text-left">
+                            <h4 class="text-blue-800 dark:text-amber-300 mb-3">Telefone</h4>
+                            <p class="m-0 md:ml-3"><?= Formatter::formatPhoneNumber(htmlspecialchars($telefone ?? '-')) ?></p>
+                        </div>
                     </div>
-                    <div class="flex flex-col md:flex-row text-left">
-                        <h4 class="text-blue-800 dark:text-amber-300 mb-3">Telefone</h4>
-                        <p class="m-0 md:ml-3">(45) 3523-1672</p>
+                <?php else: ?>
+                    <div class="mt-5">
+                        <p class="text-center text-red-500">Você ainda não cadastrou um endereço.</p>
+                        <div class="w-auto mt-5 flex items-center justify-center md:justify-start">
+                            <a href="/perfil-locador/editar-endereco" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
+                                Cadastrar Endereço
+                            </a>
+                        </div>
                     </div>
+                <?php endif; ?>
                     <div class="w-auto mt-5 flex items-center justify-center md:justify-start">
                         <a href="/minhas-quadras" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
                             Minhas quadras

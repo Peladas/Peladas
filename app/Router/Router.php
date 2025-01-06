@@ -4,6 +4,7 @@ namespace App\Router;
 
 use App\Controllers\AreasDesportivasController;
 use App\Controllers\DisponibilidadeController;
+use App\Controllers\EnderecoController;
 use App\Controllers\QuadraController;
 use App\Controllers\HomeController;
 use App\Controllers\HorarioLocadorController;
@@ -64,6 +65,11 @@ $router->post(url: '/perfil-locador', controller: LocadorController::class, meth
 //Horario Locador
 $router->get(url: '/perfil-locador/editar-horario', controller: HorarioLocadorController::class, method: 'update');
 $router->post(url: '/perfil-locador/editar-horario', controller: HorarioLocadorController::class, method: 'update');
+
+//Endereço Locador
+
+$router->get(url: '/perfil-locador/editar-endereco', controller: EnderecoController::class, method: 'update');
+$router->post(url: '/perfil-locador/editar-endereco', controller: EnderecoController::class, method: 'update');
 
 //Perfil Jogador
 $router->get(url: '/perfil-jogador', controller: JogadorController::class, method: 'perfil');

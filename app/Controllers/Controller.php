@@ -4,6 +4,9 @@ namespace App\Controllers;
 use App\Dao\JogadorDAO;
 use App\Dao\LocadorDAO;
 use App\Dao\QuadraDAO;
+use App\Dao\UserDAO;
+use App\Exceptions\NotFoundException;
+use App\Exceptions\UnauthenticatedException;
 use App\Models\Jogador;
 use App\Models\Locador;
 use App\Models\Quadra;
@@ -135,6 +138,23 @@ class Controller {
         $locador = $locadorDAO->getByUsuarioId($usuarioId);
 
         return (bool)$locador;
+    }
+
+    protected function getLoggedUser() {
+        $usuarioId = $_SESSION['usuario_id'] ?? null;
+
+        if (!$usuarioId) {
+            throw new UnauthenticatedException();
+        }
+
+        $userDAO = new UserDAO();
+        $user = $userDAO->find($usuarioId);
+
+        if (!$user) {
+            throw new NotFoundException('Usuário não encontrado');
+        }
+
+        return $user;
     }
 
 }

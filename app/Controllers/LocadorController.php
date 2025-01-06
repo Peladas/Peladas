@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Dao\HorarioLocadorDAO;
 use App\Dao\QuadraDAO;
+use App\Dao\EnderecoDAO;
 
 class LocadorController extends Controller {
 
@@ -17,7 +18,9 @@ class LocadorController extends Controller {
         if ($this->getMethod() === 'get') {
             $quadras = $this->getQuadras();
             $horarios = $this->getHorarios();
-            return $this->render('perfil_locador', compact('quadras', 'horarios'));
+            $endereco = $this->getEndereco();
+            $telefone = $this->getTelefone();
+            return $this->render('perfil_locador', compact('quadras', 'horarios', 'endereco', 'telefone'));
         }
     }
 
@@ -36,5 +39,16 @@ class LocadorController extends Controller {
         $horarioLocadorDAO = new HorarioLocadorDAO();
         $horarios = $horarioLocadorDAO->getAll(['locador_id' => $locador->getId()]);
         return $horarios;
+    }
+
+    private function getEndereco() {
+        $locador = $this->getLocador();
+        $enderecoDAO = new EnderecoDAO();
+        return $enderecoDAO->first(['locador_id' => $locador->getId()]); // Substitua $locadorId pelo ID do locador autenticado
+    }
+
+    private function getTelefone() {
+        $user = $this->getLoggedUser();
+        return $user->getTelefone();
     }
 }

@@ -6,7 +6,6 @@ use App\Dao\HorarioLocadorDAO;
 use App\Dao\QuadraDAO;
 use App\Exceptions\UnauthorizedException;
 use App\Services\DisponibilidadeServices\CreateDisponibilidadeService;
-use App\Services\DisponibilidadeServices\ShowDisponibilidadeService;
 use DateTime;
 use stdClass;
 
