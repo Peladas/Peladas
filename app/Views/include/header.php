@@ -24,7 +24,7 @@
                 </ul>
                 <ul>
                     <li>
-                        <a href="<?php echo $user_type === 'jogador' ? '/areas_desportivas' : '/minhas-quadras' ?>"
+                        <a href="<?php echo $user_type === 'jogador' ? '/areas-desportivas' : '/minhas-quadras' ?>"
                             class="bg-transparent border-0 shadow-none block px-4 py-2 hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700">Quadras</a>
                     </li>
                 </ul>
@@ -46,7 +46,7 @@
                     <a class="hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 border-0 shadow-none bg-transparent pr-[1px]" aria-current="page" onclick="window.location.href='/';" href="#">Home</a>
                 </li>
                 <li class="nav-item flex items-center">
-                    <a class="hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 pr-2 border-0 shadow-none bg-transparent" href="<?php echo $user_type === 'jogador' ? '/areas_desportivas' : '/minhas-quadras' ?>">Quadras</a>
+                    <a class="hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 pr-2 border-0 shadow-none bg-transparent" href="<?php echo $user_type === 'jogador' ? '/areas-desportivas' : '/minhas-quadras' ?>">Quadras</a>
                 </li>
                 <li class="nav-item relative bg-transparent">
                     <i class="flex justify-center fa-solid fa-user p-2 pt-3 w-9 h-9 mr-2 mb-1 text-purple-700 dark:text-amber-300" id="button"></i>

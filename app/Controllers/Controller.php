@@ -60,11 +60,11 @@ class Controller {
         $record = $locadorDAO->getByUsuarioId($usuarioId);
 
         $locador = new Locador();
-        $locador->setId($record->id);
-        $locador->setUsuarioId($record->usuario_id);
-        $locador->setRazaoSocial($record->razao_social);
-        $locador->setCnpj($record->cnpj);
-        $locador->setNomeFantasia($record->nome_fantasia);
+        $locador->setId($record->getId());
+        $locador->setUsuarioId($record->getUsuarioId());
+        $locador->setRazaoSocial($record->getRazaoSocial());
+        $locador->setCnpj($record->getCnpj());
+        $locador->setNomeFantasia($record->getNomeFantasia());
 
         return $locador;
     }
@@ -78,12 +78,12 @@ class Controller {
         $record = $jogadorDAO->getByUsuarioId($usuarioId);
 
         $jogador = new Jogador();
-        $jogador->setId($record->id);
-        $jogador->setUsuarioId($record->usuario_id);
-        $jogador->setNomeJogador($record->nome_jogador);
-        $jogador->setCpf($record->cpf);
-        $jogador->setDataNascimento($record->data_nascimento);
-        $jogador->setApelido($record->apelido);
+        $jogador->setId($record->getId());
+        $jogador->setUsuarioId($record->getUsuarioId());
+        $jogador->setNomeJogador($record->getNomeJogador());
+        $jogador->setCpf($record->getCpf());
+        $jogador->setDataNascimento($record->getDataNascimento());
+        $jogador->setApelido($record->getApelido());
 
         return $jogador;
     }

@@ -27,9 +27,21 @@ $router->get(url: '/login', controller: LoginController::class, method: 'login')
 $router->post(url: '/login', controller: LoginController::class, method: 'login');
 $router->get(url: '/logout', controller: LoginController::class, method: 'logout');
 
+//Rotas Jogador
+$router->get(url: '/areas-desportivas', controller: AreasDesportivasController::class, method: 'index');
+$router->get(url: '/areas-desportivas/:id', controller: AreasDesportivasController::class, method: 'show');
+
+//Viualização Reservas
+$router->get(url: '/minhas-reservas', controller: ReservaController::class, method: 'index');
+$router->get(url: '/minhas-reservas/:id', controller: ReservaController::class, method: 'show');
+$router->get(url: '/cadastro-reserva', controller: ReservaController::class, method: 'create');
+$router->post(url: '/cadastro-reserva', controller: ReservaController::class, method: 'create');
+$router->get(url: '/editar-reserva/:id', controller: ReservaController::class, method: 'update');
+$router->post(url: '/editar-reserva/:id', controller: ReservaController::class, method: 'update');
+$router->get(url: '/remover-reserva/:id', controller: ReservaController::class, method: 'delete');
+$router->post(url: '/remover-reserva/:id', controller: ReservaController::class, method: 'delete');
+
 //Viualização Quadras
-$router->get(url: '/areas_desportivas', controller: AreasDesportivasController::class, method: 'index');
-//$router->post(url: '/areas_desportivas', controller: QuadraController::class, method: 'areas_desportivas');
 $router->get(url: '/minhas-quadras', controller: QuadraController::class, method: 'index');
 $router->get(url: '/minhas-quadras/:id', controller: QuadraController::class, method: 'show');
 $router->get(url: '/cadastro-quadras', controller: QuadraController::class, method: 'create');
@@ -41,15 +53,6 @@ $router->post(url: '/remover-quadras/:id', controller: QuadraController::class, 
 $router->get(url: '/minhas-quadras/:quadraId/disponibilidade', controller: DisponibilidadeController::class, method: 'create');
 $router->post(url: '/minhas-quadras/:quadraId/disponibilidade', controller: DisponibilidadeController::class, method: 'create');
 
-//Viualização Reservas
-$router->get(url: '/minhas-reservas', controller: ReservaController::class, method: 'index');
-$router->get(url: '/minhas-reservas/:id', controller: ReservaController::class, method: 'show');
-$router->get(url: '/cadastro-reserva', controller: ReservaController::class, method: 'create');
-$router->post(url: '/cadastro-reserva', controller: ReservaController::class, method: 'create');
-$router->get(url: '/editar-reserva/:id', controller: ReservaController::class, method: 'update');
-$router->post(url: '/editar-reserva/:id', controller: ReservaController::class, method: 'update');
-$router->get(url: '/remover-reserva/:id', controller: ReservaController::class, method: 'delete');
-$router->post(url: '/remover-reserva/:id', controller: ReservaController::class, method: 'delete');
 
 
 //Rotas Usuário
