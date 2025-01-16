@@ -281,10 +281,6 @@
 </head>
 
 <body class="bg-slate-100 dark:bg-zinc-900 dark:text-[#fafafa] break-words">
-<<<<<<< HEAD
-=======
-
->>>>>>> 634261cb53e08cd793a69dd6704144012c6660cc
     <?php (isset($is_logged) && $is_logged) ? include_once __DIR__ . "/layout_logged.php" : include_once __DIR__ . "/layout_guest.php"; ?>
 
     <!-- <script type="text/javascript">

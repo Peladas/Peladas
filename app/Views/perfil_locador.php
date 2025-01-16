@@ -4,11 +4,11 @@ use App\Helpers\Formatter;
 
 ?>
 
-<div class="flex flex-col md:flex-row gap-8 h-full w-auto mt-16 dark:bg-zinc-900 items-center">
+<div class="flex flex-col md:flex-row gap-8 md:h-screen w-auto mt-16 dark:bg-zinc-900 items-center">
 
     <div class="flex flex-col w-auto md:w-1/2 flex items-center">
 
-        <h1 class="text-center my-6 md:mb-8 dark:text-amber-300 text-3xl">Seu Perfil</h1>
+        <h1 class="text-center my-6 md:mb-8 text-2xl">Seu Perfil</h1>
 
         <div class="flex flex-col gap-8 h-auto items-center justify-center">
 
@@ -22,14 +22,14 @@ use App\Helpers\Formatter;
 
 
             <div class="mt-[1px] mb-2 flex flex-col items-center justify-center">
-                <h1 class="text-2xl mt-0 md:mb-2 text-purple-800 dark:text-amber-300 text-center flex items-center">Quadra Nenezão</h1>
+                <h1 class="text-2xl mt-0 md:mb-2 text-purple-800 text-center flex items-center">Quadra Nenezão</h1>
 
                 <!-- criar condição, se ainda não tiver endereço cadastrado, deve aparecer um botão para o cadastro dele,
                 se não, deve apenas buscar no banco. -->
 
                 <?php if ($endereco): ?>
-                    <div class="flex flex-col gap-5 p-10 md:pt-8 md:p-14 pt-0 mt-10 md:mt-0">
-                        <div>
+                    <div class="flex flex-col gap-5 p-10 md:pt-8 md:p-14 pt-0 mt-5 md:mt-0 text-center md:text-left">
+                        <div class="flex flex-col md:flex-row gap-5">
                             <h4 class="text-blue-800 dark:text-amber-300 mb-3">Endereço</h4>
                             <p class="w-auto text-wrap">
                                 <?= htmlspecialchars($endereco->bairro) ?>,
@@ -37,7 +37,11 @@ use App\Helpers\Formatter;
                                 <?= htmlspecialchars($endereco->numero) ?>
                             </p>
                         </div>
-                        <div class="flex flex-col md:flex-row text-left">
+                        <div class="flex items-center justify-center">
+                            <a href="#" id="botaoLink"> <i class="fa-regular fa-pen-to-square bg-transparent" style="color: #ffffff; padding-top: 2px; padding-bottom: 2px; border-radius: 9999px;"></i></a>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row md:text-left">
                             <h4 class="text-blue-800 dark:text-amber-300 mb-3">Telefone</h4>
                             <p class="m-0 md:ml-3"><?= Formatter::formatPhoneNumber(htmlspecialchars($telefone ?? '-')) ?></p>
                         </div>
@@ -52,7 +56,7 @@ use App\Helpers\Formatter;
                         </div>
                     </div>
                 <?php endif; ?>
-                    <div class="w-auto mt-5 flex items-center justify-center md:justify-start">
+                    <div class="w-auto flex items-center justify-center md:justify-start flex-col">
                         <a id="botaoLink" href="/minhas-quadras">
                             Minhas quadras
                         </a>
@@ -62,15 +66,13 @@ use App\Helpers\Formatter;
 
         </div>
 
-    </div>
-
-    <div class="mt-2 md:mt-5 w-auto md:w-[450px] mx-auto m-8 text-base">
-        <h1 class="text-center text-2xl mb-5 dark:text-amber-300">Horários para Locações</h1>
-
-        <?php
+        <div class="flex flex items-center justify-center text-center flex-col w-1/2 mt-16 md:mt-0">
+            <h1 class="flex flex itemns-center text-center text-2xl mb-5 dark:text-amber-300">Horários para Locações</h1>
+            <?php
             if (count($horarios)) {
         ?>
-            <table class="table-auto border-collapse mt-14 w-auto md:w-full">
+
+            <table class="table-auto border-collapse mt-14 w-auto md:w-96">
                 <thead>
                     <tr>
                         <th class="text-left py-3 pr-24 md:pr-0">Dia</th>
@@ -107,12 +109,17 @@ use App\Helpers\Formatter;
             }
         ?>
 
-
-        <div class="flex justify-center mt-8">
+        <div class="flex justify-center mt-8 mb-10">
             <!--<a class="bg-none rounded" href="perfil-locador/editar-horario"><i class="fa-regular fa-pen-to-square" style="color: #be123c;"></i></a>-->
             <a id="botaoLink" href="perfil-locador/editar-horario">Incluir Horários</a>
         </div>
+
+        </div>
+
+
     </div>
+
+
 
 
 </div>

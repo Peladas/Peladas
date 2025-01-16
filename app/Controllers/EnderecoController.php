@@ -7,30 +7,6 @@ use App\Services\EnderecoService\UpdateEnderecoService;
 
 class EnderecoController extends Controller {
 
-    // public function create() {
-    //     if ($this->getMethod() === 'get') {
-    //         if($this->userType != "locador") {
-    //             echo "Acesso negado!";
-    //             exit;
-    //         }
-
-    //         $endereco = [];
-
-    //         return $this->render('endereco', compact('endereco'));
-    //     }
-
-    //     $data = $this->getBody();
-
-    //     $createEnderecoService = new CreateEnderecoService();
-    //     $errors = $createEnderecoService->run(data: $data);
-
-    //     if (count(value: $errors) > 0) {
-    //         return $this->render('horario_locador', compact('errors', 'data'));
-    //     }
-
-    //     header(header: 'Location: /perfil-locador');
-    // }
-
     public function update() {
         if($this->userType != "locador") {
             echo "Acesso negado!";
