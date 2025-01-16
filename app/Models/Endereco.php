@@ -156,6 +156,19 @@ class Endereco extends Model {
 
         return $this;
     }
+
+    public function getFullAddress(): string {
+        $addressParts = [
+            $this->rua,
+            $this->numero,
+            $this->bairro,
+            $this->cidade,
+            $this->estado,
+            $this->cep,
+        ];
+
+        return implode(', ', $addressParts);
+    }
 }
 
 ?>

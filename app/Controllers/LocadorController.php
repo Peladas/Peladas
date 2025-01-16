@@ -24,6 +24,13 @@ class LocadorController extends Controller {
         }
     }
 
+    public function location() {
+        if ($this->getMethod() === 'get') {
+            $endereco = $this->getEndereco();
+            return $this->render('areas_desportivas', compact('endereco'));
+        }
+    }
+
     private function getQuadras() {
         $locador = $this->getLocador();
         $quadraDAO = new QuadraDAO();
@@ -51,4 +58,5 @@ class LocadorController extends Controller {
         $user = $this->getLoggedUser();
         return $user->getTelefone();
     }
+
 }

@@ -24,9 +24,6 @@ use App\Helpers\Formatter;
             <div class="mt-[1px] mb-2 flex flex-col items-center justify-center">
                 <h1 class="text-2xl mt-0 md:mb-2 text-purple-800 dark:text-amber-300 text-center flex items-center">Quadra Nenezão</h1>
 
-                <!-- criar condição, se ainda não tiver endereço cadastrado, deve aparecer um botão para o cadastro dele,
-                se não, deve apenas buscar no banco. -->
-
                 <?php if ($endereco): ?>
                     <div class="flex flex-col gap-5 p-10 md:pt-8 md:p-14 pt-0 mt-10 md:mt-0">
                         <div>

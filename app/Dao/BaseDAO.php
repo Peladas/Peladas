@@ -106,7 +106,8 @@ class BaseDAO
                 $query .= ' ' . implode(' AND ', $wheres);
             }
             $statement = $this->prepareConsultation($query);
-            return $statement->fetch(PDO::FETCH_OBJ);
+            $statement->setFetchMode(PDO::FETCH_CLASS, $this->getModelName());
+            return $statement->fetch();
         } catch (\Throwable $th) {
             //throw $th;
         }

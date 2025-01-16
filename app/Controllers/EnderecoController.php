@@ -57,10 +57,10 @@ class EnderecoController extends Controller {
 
             header(header: 'Location: /perfil-locador');
         } catch (\Throwable $th) {
-            var_dump($th->getMessage());die;
+            var_dump($th->getMessage());
             throw $th;
         }
     }
 }
 
-?>
+
