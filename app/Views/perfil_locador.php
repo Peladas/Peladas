@@ -28,12 +28,12 @@ use App\Helpers\Formatter;
                         <div class="flex flex-col md:flex-row gap-5">
                             <h4 class="text-blue-800 dark:text-amber-300 mb-3">Endereço</h4>
                             <p class="w-auto text-wrap">
-                                <?= htmlspecialchars($endereco->getRua()) ?> ,
+                                <?= htmlspecialchars($endereco->getRua()) ?>,
                                 <?= htmlspecialchars($endereco->getNumero()) ?> -
-                                <?= htmlspecialchars($endereco->getBairro()) ?> ,
+                                <?= htmlspecialchars($endereco->getBairro()) ?>,
                                 <?= htmlspecialchars($endereco->getCidade()) ?> -
-                                <?= htmlspecialchars($endereco->getEstado()) ?> ,
-                                <?= htmlspecialchars($endereco->getCep()) ?>
+                                <?= htmlspecialchars($endereco->getEstado()) ?>,
+                                <?= Formatter::formatCEP(htmlspecialchars($endereco->getCep() ?? '-')) ?>
                             </p>
                         </div>
                         <div class="flex items-center justify-center">

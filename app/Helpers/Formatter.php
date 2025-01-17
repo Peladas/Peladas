@@ -32,4 +32,8 @@ final class Formatter {
 
         return $formattedNumber;
     }
+
+    public static function valueReais(float $reais): string {
+        return 'R$ ' . number_format($reais, 2, ',', '.');
+    }
 }

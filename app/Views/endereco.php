@@ -41,9 +41,9 @@
 
             <div class="relative md:gap-2 md:mb-4 flex-1 mt-2 md:mt-0">
 
-                <input type="text" id="bairro" name="bairro" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" " />
-                <label for="bairro" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
-                Bairro </label>
+                <input type="text" id="bairro" name="bairro" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" "
+                    value="<?php echo $data['bairro'] ?? '' ?>" />
+                <label for="bairro" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">Bairro </label>
                 <?php if (isset($errors['bairro'])) { ?>
                     <small class=" helper-text text-red-600 font-sm"><?php echo $errors['bairro'] ?></small>
                 <?php } ?>
@@ -65,7 +65,8 @@
 
             <div class="relative md:gap-2 md:mb-4 flex-1 mt-2 md:mt-0">
 
-                <input type="text" id="numero" name="numero" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" " />
+                <input type="text" id="numero" name="numero" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" "
+                    value="<?php echo $data['numero'] ?? '' ?>"/>
                 <label for="numero" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                 Número </label>
                 <?php if (isset($errors['numero'])) { ?>

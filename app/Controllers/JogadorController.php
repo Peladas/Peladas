@@ -10,9 +10,18 @@ class JogadorController extends Controller {
         }
     }
 
-    public function perfil () {
+    public function profile () {
         if ($this->getMethod() === 'get') {
-            return $this->render(view: 'perfil_jogador');
+            $user = $this->getLoggedUser();
+            $jogador = $this->getJogador();
+            $telefone = $this->getTelefone();
+
+            return $this->render('perfil_jogador', compact('user', 'jogador', 'telefone'));
         }
+    }
+
+    private function getTelefone() {
+        $user = $this->getLoggedUser();
+        return $user->getTelefone();
     }
 }

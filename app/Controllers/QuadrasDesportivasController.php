@@ -20,4 +20,3 @@ class QuadrasDesportivasController extends Controller {
     }
 }
 
-?>

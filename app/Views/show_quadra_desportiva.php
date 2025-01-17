@@ -1,3 +1,7 @@
+<?php
+use App\Helpers\Formatter;
+?>
+
 <div class="h-screen flex flex-col items-center justify-center mt-14 md:mt-0 gap-5">
     <h1 class="dark:text-amber-300 mb-5 md:mb-10 text-center text-3xl">Dados da Quadra</h1>
     <div class="flex flex-col md:flex-row gap-5 items-center justify-center m-10 mt-0 md:m-0">
@@ -13,7 +17,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 w-full md:w-96">
                 <p>
                     <span class="text-blue-800 dark:text-amber-300">Tipo:</span>
-                    <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getIdentificador() ?></span>
+                    <span class="text-slate-800 dark:text-slate-100"><?= $quadra->getIdentificador() ?></span>
                 </p>
                 <p class="text-left md:text-right">
                     <span class="text-blue-800 dark:text-amber-300">Modalidade:</span>
@@ -27,7 +31,7 @@
                 </p>
                 <p class="text-left md:text-right">
                     <span class="text-blue-800 dark:text-amber-300">Valor:</span>
-                    <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getValorAluguel() ?></span>
+                    <span class="text-slate-800 dark:text-slate-100"><?php echo Formatter::valueReais($quadra->getValorAluguel()) ?></span>
                 </p>
             </div>
             <div class="grid grid-cols-1 gap-3 w-full md:w-96">

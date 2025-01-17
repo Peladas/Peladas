@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Dao\HorarioLocadorDAO;
 use App\Dao\QuadraDAO;
 use App\Exceptions\UnauthorizedException;
-use App\Services\DisponibilidadeServices\CreateDisponibilidadeService;
 use DateTime;
 use stdClass;
 
@@ -41,8 +40,6 @@ class DisponibilidadeController extends Controller {
         $data = $this->getBody();
         var_dump($data);die;
 
-        $createService = new CreateDisponibilidadeService();
-        $disponibilidade = $createService->run($id, $locador->getId(), $data);
     }
 
     private function getDisponibilidade(int $quadra_id) {

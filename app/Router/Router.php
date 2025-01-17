@@ -76,7 +76,7 @@ $router->get(url: '/perfil-locador/editar-endereco', controller: EnderecoControl
 $router->post(url: '/perfil-locador/editar-endereco', controller: EnderecoController::class, method: 'update');
 
 //Perfil Jogador
-$router->get(url: '/perfil-jogador', controller: JogadorController::class, method: 'perfil');
-$router->post(url: '/perfil-jogador', controller: JogadorController::class, method: 'perfil');
+$router->get(url: '/perfil-jogador', controller: JogadorController::class, method: 'profile');
+$router->post(url: '/perfil-jogador', controller: JogadorController::class, method: 'profile');
 
 $router->matchRoute();
