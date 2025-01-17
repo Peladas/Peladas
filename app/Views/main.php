@@ -281,6 +281,12 @@
         html.dark a#dispBtn:hover {
             background-color: #2a2a33;
         }
+
+        #cards {
+            background-color: transparent;
+            margin: 2px;
+        }
+
     </style>
 </head>
 
