@@ -20,22 +20,24 @@ use App\Helpers\Formatter;
 
             <input type="file" name="picture__input" id="picture__input">
 
-
             <div class="mt-[1px] mb-2 flex flex-col items-center justify-center">
-                <h1 class="text-2xl mt-0 md:mb-2 text-purple-800 text-center flex items-center">Quadra Nenezão</h1>
+                <h1 class="text-2xl mt-0 md:mb-2 text-purple-800 text-center flex items-center"><?= $locador->getNomeFantasia()?></h1>
 
                 <?php if ($endereco): ?>
                     <div class="flex flex-col gap-5 p-10 md:pt-8 md:p-14 pt-0 mt-5 md:mt-0 text-center md:text-left">
                         <div class="flex flex-col md:flex-row gap-5">
                             <h4 class="text-blue-800 dark:text-amber-300 mb-3">Endereço</h4>
                             <p class="w-auto text-wrap">
-                                <?= htmlspecialchars($endereco->bairro) ?>,
-                                <?= htmlspecialchars($endereco->rua) ?> -
-                                <?= htmlspecialchars($endereco->numero) ?>
+                                <?= htmlspecialchars($endereco->getRua()) ?> ,
+                                <?= htmlspecialchars($endereco->getNumero()) ?> -
+                                <?= htmlspecialchars($endereco->getBairro()) ?> ,
+                                <?= htmlspecialchars($endereco->getCidade()) ?> -
+                                <?= htmlspecialchars($endereco->getEstado()) ?> ,
+                                <?= htmlspecialchars($endereco->getCep()) ?>
                             </p>
                         </div>
                         <div class="flex items-center justify-center">
-                            <a href="#" id="botaoLink"> <i class="fa-regular fa-pen-to-square bg-transparent" style="color: #ffffff; padding-top: 2px; padding-bottom: 2px; border-radius: 9999px;"></i></a>
+                            <a href="perfil-locador/editar-endereco" id="botaoLink"> <i class="fa-regular fa-pen-to-square bg-transparent" style="color: #ffffff; padding-top: 2px; padding-bottom: 2px; border-radius: 9999px;"></i></a>
                         </div>
 
                         <div class="flex flex-col md:flex-row md:text-left">
@@ -112,13 +114,7 @@ use App\Helpers\Formatter;
         </div>
 
         </div>
-
-
     </div>
-
-
-
-
 </div>
 
 <script>

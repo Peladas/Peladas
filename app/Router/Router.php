@@ -11,6 +11,7 @@ use App\Controllers\HorarioLocadorController;
 use App\Controllers\LoginController;
 use App\Controllers\LocadorController;
 use App\Controllers\JogadorController;
+use App\Controllers\QuadrasDesportivasController;
 use App\Controllers\ReservaController;
 use App\Controllers\UserController;
 
@@ -30,6 +31,8 @@ $router->get(url: '/logout', controller: LoginController::class, method: 'logout
 //Rotas Jogador
 $router->get(url: '/areas-desportivas', controller: AreasDesportivasController::class, method: 'index');
 $router->get(url: '/areas-desportivas/:id', controller: AreasDesportivasController::class, method: 'show');
+
+$router->get(url: '/areas-desportivas/:locadorId/quadra/:id', controller: QuadrasDesportivasController::class, method: 'show');
 
 //Viualização Reservas
 $router->get(url: '/minhas-reservas', controller: ReservaController::class, method: 'index');
@@ -52,8 +55,6 @@ $router->post(url: '/remover-quadras/:id', controller: QuadraController::class, 
 
 $router->get(url: '/minhas-quadras/:quadraId/disponibilidade', controller: DisponibilidadeController::class, method: 'create');
 $router->post(url: '/minhas-quadras/:quadraId/disponibilidade', controller: DisponibilidadeController::class, method: 'create');
-
-
 
 //Rotas Usuário
 $router->get(url: "/jogador", controller: UserController::class , method: "index");

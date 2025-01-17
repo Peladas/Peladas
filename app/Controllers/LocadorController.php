@@ -16,11 +16,12 @@ class LocadorController extends Controller {
 
     public function profile () {
         if ($this->getMethod() === 'get') {
+            $locador = $this->getLocador();
             $quadras = $this->getQuadras();
             $horarios = $this->getHorarios();
             $endereco = $this->getEndereco();
             $telefone = $this->getTelefone();
-            return $this->render('perfil_locador', compact('quadras', 'horarios', 'endereco', 'telefone'));
+            return $this->render('perfil_locador', compact('locador', 'quadras', 'horarios', 'endereco', 'telefone'));
         }
     }
 

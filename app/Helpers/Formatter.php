@@ -20,4 +20,16 @@ final class Formatter {
 
         return $formattedNumber;
     }
+
+    public static function formatCEP($cep) {
+        $cepNumber = preg_replace('/\D+/', '', $cep);
+
+        if (strlen($cepNumber) == 8) {
+            $formattedNumber = preg_replace("/^(\d{5})(\d{3})$/", "$1-$2", $cepNumber);
+        } else {
+            $formattedNumber = $cep;
+        }
+
+        return $formattedNumber;
+    }
 }

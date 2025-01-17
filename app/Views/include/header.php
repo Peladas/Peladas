@@ -1,7 +1,7 @@
 <nav class="fixed z-50 w-full bg-zinc-100 dark:bg-zinc-800 border-solid border-0 dark:border-b-zinc-900 dark:border-t-zinc-900 py-2 md:px-2 px-4 flex items-center justify-between drop-shadow-md dark:drop-shadow-lg">
     <a href="/" class="nav-text p-0 border-0 shadow-none bg-transparent">
-        <img class="w-28 hidden dark:block" src="../imagens/pnh.png" alt="modo escuro">
-        <img class="w-28 block dark:hidden" src="../imagens/pnh_branco.png" alt="modo claro">
+        <img class="w-28 hidden dark:block" src="/imagens/pnh.png" alt="logo">
+        <img class="w-28 block dark:hidden" src="/imagens/pnh_branco.png" alt="logo">
     </a>
 
     <?php if (isset($_SESSION['usuario_id'])): ?>
