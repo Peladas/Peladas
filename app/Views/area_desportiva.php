@@ -27,11 +27,11 @@ use App\Helpers\Formatter;
 
                 <!-- Colocar foto padrão enquanto não temos sistema de cadastro de imagem -->
 
-                <div class="mt-[1px] mb-2 flex flex-col items-center justify-center">
-                    <div class="flex flex-col gap-5 p-10 md:pt-8 md:p-14 pt-0 mt-10 md:mt-0">
-                        <div>
+                <div class="mt-[1px] flex flex-col items-center justify-center">
+                    <div class="flex flex-col gap-5 md:pt-8 md:p-14 pt-0 mt-10 md:mt-0">
+                        <div class="flex flex-col md:flex-row text-center md:text-left">
                             <h4 class="text-blue-800 dark:text-amber-300 mb-3">Endereço</h4>
-                            <p class="w-auto text-wrap">
+                            <p class="w-auto text-wrap ml-10 text-right">
                                 <?= htmlspecialchars($endereco->getRua()) ?>,
                                 <?= htmlspecialchars($endereco->getNumero()) ?> -
                                 <?= htmlspecialchars($endereco->getBairro()) ?>,
@@ -40,9 +40,9 @@ use App\Helpers\Formatter;
                                 <?= Formatter::formatCEP(htmlspecialchars($endereco->getCep() ?? '-')) ?>
                             </p>
                         </div>
-                        <div class="flex flex-col md:flex-row text-left">
+                        <div class="flex flex-col md:flex-row text-center md:text-left">
                             <h4 class="text-blue-800 dark:text-amber-300 mb-3">Telefone</h4>
-                            <p class="m-0 md:ml-3"><?= Formatter::formatPhoneNumber(htmlspecialchars($telefone ?? '-')) ?></p>
+                            <p class="m-0 md:ml-12 txt-center md:text-right"><?= Formatter::formatPhoneNumber(htmlspecialchars($telefone ?? '-')) ?></p>
                         </div>
                     </div>
                 </div>
@@ -52,11 +52,11 @@ use App\Helpers\Formatter;
 
         <!--////////////////////////////-->
 
-        <div class="w-1/2">
+        <div class="w-1/2 mt-20 md:mt-0">
 
-            <div class="flex flex-col w-[500px] ml-20">
+            <div class="flex flex-col w-96 md:w-[500px] ml-9 md:ml-20 justify-center items-center">
 
-                <h1 class="text-center text-2xl mb-5 md:mb-2">Horários para Locações</h1>
+                <h1 class="text-center text-2xl mb-3 md:mb-2">Horários para Locações</h1>
 
                 <?php
                 if (count($horarios)) {
@@ -104,7 +104,7 @@ use App\Helpers\Formatter;
     </div>
 
     <!-- ////////////////////////// -->
-    <div class="flex flex-col items-center justify-center">
+    <div class="flex flex-col items-center justify-center mt-8">
 
         <h1 class="flex items-center m-2 mb-8 text-2xl">Quadras Disponíveis</h1>
 
@@ -130,7 +130,7 @@ use App\Helpers\Formatter;
                             <p class="text-xs md:text-sm absolute bottom-0 right-0"><?php echo $quadra->getTamanhoQuadra() ?></p>
                         </div>
                         <div class="flex flex-row relative mt-5">
-                            <p class="text-xs md:text-sm absolute bottom-0 right-0"><?php echo Formatter::formatCurrency($quadra->getValorAluguel()) ?></p>
+                            <p class="text-xs md:text-sm absolute bottom-0 right-0 text-orange-400"><?php echo Formatter::formatCurrency($quadra->getValorAluguel()) ?></p>
                         </div>
                     </div>
                 </a>
