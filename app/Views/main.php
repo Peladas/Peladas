@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -11,14 +11,9 @@
     <script src="js/buttons.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geo&family=Jersey+10&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Geo&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300..800&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -26,7 +21,7 @@
 
     <script type="text/javascript">
         tailwind.config = {
-            darkMode: 'class'
+            darkMode: 'selector'
         }
     </script>
 
@@ -41,6 +36,7 @@
             background-color: #18181b;
             line-height: 2;
             text-wrap: wrap;
+            font-family: "Roboto", serif,
         }
 
         h1 {
@@ -293,34 +289,27 @@
 <body class="bg-slate-100 dark:bg-zinc-900 dark:text-[#fafafa] break-words">
     <?php (isset($is_logged) && $is_logged) ? include_once __DIR__ . "/layout_logged.php" : include_once __DIR__ . "/layout_guest.php"; ?>
 
-    <!-- <script type="text/javascript">
-        document.getElementById('switchBtn').addEventListener('click', () => {
-            const html = document.getElementsByTagName('html').item(0);
-            const body = document.body;
-            const darkModeToggle = document.getElementById('switchBtn');
-            const texto = document.getElementById('texto-alterado');
-            const sunIcon = darkModeToggle.querySelector('.fas.fa-sun');
-            const moonIcon = darkModeToggle.querySelector('.fas.fa-moon');
+    <?php if(isset($errors['global'])) { ?>
+        <div id="error-wrapper" class="absolute bottom-10 w-full flex justify-center">
+            <div class="bg-red-500 text-white px-4 py-2 rounded flex gap-4">
+                <?php echo $errors['global'] ?>
+                <div id="error-msg-close-btn" class="relative border-0 bg-transparent -top-2 text-sm cursor-pointer">X</div>
+            </div>
+        </div>
+    <?php } ?>
 
-            html.classList.toggle('dark');
-            body.classList.toggle('dark-mode');
+    <script type="text/javascript">
 
 
-            if (body.classList.contains('dark-mode')) {
-                sunIcon.style.display = 'none';
-                moonIcon.style.display = 'inline';
-                moonIcon.style.color = '#6b21a8';
-                texto.textContent = 'Clique na Lua para desativar o Dark-Mode';
-            } else {
-                sunIcon.style.display = 'inline';
-                moonIcon.style.display = 'none';
-                texto.textContent = 'Clique no Sol para ativar o Dark-Mode';
-            }
-        });
-    </script> -->
+        const errorCloseBtn = document.getElementById('error-msg-close-btn');
+        if (errorCloseBtn) {
+            errorCloseBtn.addEventListener('click', () => {
+                const errorWrapper = document.getElementById('error-wrapper');
+                errorWrapper.remove();
+            });
+        }
+
+    </script>
 </body>
-
-
 </html>
-
 </style>

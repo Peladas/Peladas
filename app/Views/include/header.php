@@ -61,54 +61,100 @@
 
         </div>
 
-        <script>
-            const menuBtn = document.getElementById('menu-btn');
-            const menu = document.getElementById('menu');
-            const dropdownMenu = document.getElementById('dropdownMenu');
-            const userDropdown = document.getElementById('userDropdown');
-            const button = document.getElementById('button');
-            const body = document.body;
-
-            menuBtn.addEventListener('click', () => {
-                dropdownMenu.classList.toggle('hidden');
-            });
-
-            button.addEventListener('click', () => {
-                userDropdown.classList.toggle('hidden');
-            });
-
-            window.addEventListener('click', (e) => {
-                if (!menuBtn.contains(e.target)) {
-                    dropdownMenu.classList.add('hidden');
-                }
-                if (!button.contains(e.target)) {
-                    userDropdown.classList.add('hidden');
-                }
-            });
-
-            // Define a função applyDarkMode primeiro
-            function applyDarkMode(enabled) {
-                console.log('Função applyDarkMode foi chamada:', enabled);
-                if (enabled) {
-                    document.body.classList.add('dark');
-                    localStorage.setItem('darkMode', 'enabled');
-                } else {
-                    document.body.classList.remove('dark');
-                    localStorage.setItem('darkMode', 'disabled');
-                }
-            }
-
-            // Depois, selecione o checkbox e adicione o evento de mudança
-
-            const checkbox = document.querySelector('input[type="checkbox"]');
-            if (checkbox) {
-                checkbox.addEventListener('change', () => {
-                    console.log('Checkbox foi alterado:', checkbox.checked);
-                    applyDarkMode(checkbox.checked);
-                });
-            }
-        </script>
     <?php else: ?>
         <!-- Exibir algo para usuários não logados, se necessário -->
     <?php endif; ?>
 </nav>
+
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const userDropdown = document.getElementById('userDropdown');
+    const button = document.getElementById('button');
+    const body = document.body;
+
+    menuBtn.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('hidden');
+    });
+
+    button.addEventListener('click', () => {
+        userDropdown.classList.toggle('hidden');
+    });
+
+    window.addEventListener('click', (e) => {
+        if (!menuBtn.contains(e.target)) {
+            dropdownMenu.classList.add('hidden');
+        }
+        if (!button.contains(e.target)) {
+            userDropdown.classList.add('hidden');
+        }
+    });
+
+
+    document.getElementById('switchBtn').addEventListener('click', () => {
+        // const html = document.getElementsByTagName('html').item(0);
+        const body = document.body;
+        const darkModeToggle = document.getElementById('switchBtn');
+        const texto = document.getElementById('texto-alterado');
+        const sunIcon = darkModeToggle.querySelector('.fas.fa-sun');
+        const moonIcon = darkModeToggle.querySelector('.fas.fa-moon');
+
+        body.classList.toggle('dark');
+        // body.classList.toggle('dark-mode');
+
+
+        if (body.classList.contains('dark')) {
+            localStorage.setItem('@peladas:mode', 'dark');
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'inline';
+            moonIcon.style.color = '#6b21a8';
+            texto.textContent = 'Clique na Lua para desativar o Dark-Mode';
+        } else {
+            localStorage.setItem('@peladas:mode', 'light')
+            sunIcon.style.display = 'inline';
+            moonIcon.style.display = 'none';
+            texto.textContent = 'Clique no Sol para ativar o Dark-Mode';
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const storedMode = localStorage.getItem('@peladas:mode') ?? 'dark';
+        console.log('mode', storedMode);
+
+        if (storedMode === 'dark') {
+            body.classList.add('dark');
+            console.log('adicionando modo dark')
+            // body.classList.add('dark-mode');
+        } else {
+            body.classList.remove('dark');
+            console.log('removendo modo dark')
+            // body.classList.remove('dark-mode');
+
+        }
+    });
+
+
+
+    // Define a função applyDarkMode primeiro
+    // function applyDarkMode(enabled) {
+    //     console.log('Função applyDarkMode foi chamada:', enabled);
+    //     if (enabled) {
+    //         document.body.classList.add('dark');
+    //         localStorage.setItem('darkMode', 'enabled');
+    //     } else {
+    //         document.body.classList.remove('dark');
+    //         localStorage.setItem('darkMode', 'disabled');
+    //     }
+    // }
+
+    // Depois, selecione o checkbox e adicione o evento de mudança
+
+    // const checkbox = document.querySelector('input[type="checkbox"]');
+    // if (checkbox) {
+    //     checkbox.addEventListener('change', () => {
+    //         console.log('Checkbox foi alterado:', checkbox.checked);
+    //         applyDarkMode(checkbox.checked);
+    //     });
+    // }
+</script>
