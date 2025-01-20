@@ -28,7 +28,7 @@ class LoginService {
                 // Login bem-sucedido
                 $_SESSION['usuario_id'] = $usuario['id'];
             } else {
-                $errors['login'] = 'Usuário ou senha incorretos';
+                $errors['global'] = 'E-mail ou senha incorretos';
             }
         }
 

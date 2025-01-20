@@ -11,6 +11,27 @@ final class Validator {
         return filter_var($email, FILTER_VALIDATE_EMAIL);
     }
 
+    public static function password(string $password): bool {
+        // A senha deve conter:
+        // - Pelo menos uma letra maiúscula (A-Z)
+        // - Pelo menos uma letra minúscula (a-z)
+        // - Pelo menos um número (0-9)
+        // - Pelo menos um caractere especial (!@#$%^&*() etc.)
+        // - Pelo menos 8 caracteres de comprimento
+
+        $hasUpperCase = preg_match('/[A-Z]/', $password);     // Letra maiúscula
+        $hasLowerCase = preg_match('/[a-z]/', $password);     // Letra minúscula
+        $hasNumber = preg_match('/\d/', $password);           // Número
+        $hasSpecialChar = preg_match('/[\W_]/', $password);   // Caractere especial
+
+        return $hasUpperCase && $hasLowerCase && $hasNumber && $hasSpecialChar;
+    }
+
+    public static function passwordMatch(string $inputPassword, string $hashedPassword): bool {
+        return password_verify($inputPassword, $hashedPassword);
+    }
+
+
     public static function stringMin(string $value, int $length): bool {
          return mb_strlen($value) >= $length;
     }

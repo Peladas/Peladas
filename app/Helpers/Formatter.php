@@ -36,4 +36,32 @@ final class Formatter {
     public static function valueReais(float $reais): string {
         return 'R$ ' . number_format($reais, 2, ',', '.');
     }
+
+    public static function formatCPF($cpf): string {
+        // Remove qualquer caractere não numérico
+        $cpfNumber = preg_replace('/\D+/', '', $cpf);
+
+        // Verifica se o CPF tem 11 dígitos
+        if (strlen($cpfNumber) == 11) {
+            // Aplica o formato ###.###.###-##
+            return preg_replace("/^(\d{3})(\d{3})(\d{3})(\d{2})$/", "$1.$2.$3-$4", $cpfNumber);
+        }
+
+        // Retorna o CPF original caso não tenha 11 dígitos
+        return $cpf;
+    }
+
+    public static function formatBirthDate(string $date): string {
+        // Verifica se a data está no formato esperado (YYYY-MM-DD)
+        if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+            // Converte a data para o formato DD/MM/YYYY
+            $dateParts = explode('-', $date);
+            return "{$dateParts[2]}/{$dateParts[1]}/{$dateParts[0]}";
+        }
+
+        // Retorna a data original caso não esteja no formato esperado
+        return $date;
+    }
+
+
 }

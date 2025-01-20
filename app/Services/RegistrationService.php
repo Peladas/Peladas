@@ -45,21 +45,22 @@ class RegistrationService {
         $errors = [];
         if (!Validator::notEmpty($data['email'])) {
             $errors['email'] = 'E-mail obrigatório';
-        }
-        if (!Validator::email($data['email'])) {
+        } elseif (!Validator::email($data['email'])) {
             $errors['email'] = 'E-mail inválido';
         }
+
         if (!Validator::notEmpty($data['phone'])) {
             $errors['phone'] = 'Telefone obrigatório';
-        }
-        if (!Validator::phone($data['phone'])) {
+        } elseif (!Validator::phone($data['phone'])) {
             $errors['phone'] = 'Telefone inválido';
         }
+
         if (!Validator::notEmpty($data['password1'])) {
-            $errors['password1'] = 'Senha obrigatória';
-        }
-        if (!Validator::same($data['password1'], $data['password2'])) {
-            $errors['password2'] = 'Senhas não coincidem';
+            $errors['password'] = 'Senha obrigatória';
+        } else if (!Validator::password($data['password1'])) {
+            $errors['password'] = 'A senha não cumpre os requerimentos mínimos';
+        } else if (!Validator::same($data['password1'], $data['password2'])) {
+            $errors['password'] = 'Senhas não coincidem';
         }
 
         if(! isset($data['user_type']))
@@ -67,30 +68,31 @@ class RegistrationService {
         else if ($data['user_type'] === 'jogador') {
             if (!Validator::notEmpty($data['jogador-name'])) {
                 $errors['jogador-name'] = 'Nome obrigatório';
-            }
-            if (!Validator::stringMin($data['jogador-name'], 3)) {
+            } elseif (!Validator::stringMin($data['jogador-name'], 3)) {
                 $errors['jogador-name'] = 'Nome muito curto';
             }
+
             if (!Validator::notEmpty($data['cpf'])) {
                 $errors['cpf'] = 'CPF obrigatório';
-            }
-            if (!Validator::cpf($data['cpf'])) {
+            } elseif (!Validator::cpf($data['cpf'])) {
                 $errors['cpf'] = 'CPF inválido';
             }
-            if (!Validator::minAge($data['birthday'])) {
+
+            if (!Validator::notEmpty($data['birthday'])) {
+                $errors['birthday'] = 'Data de nascimento obrigatória';
+            } elseif (!Validator::minAge($data['birthday'])) {
                 $errors['birthday'] = 'Não possui idade mínima necessária de 16 anos';
             }
         } else {
             if (!Validator::notEmpty($data['locador-name'])) {
                 $errors['locador-name'] = 'Nome obrigatório';
-            }
-            if (!Validator::stringMin($data['locador-name'], 3)) {
+            } elseif (!Validator::stringMin($data['locador-name'], 3)) {
                 $errors['locador-name'] = 'Nome muito curto';
             }
+
             if (!Validator::notEmpty($data['cnpj'])) {
                 $errors['cnpj'] = 'CNPJ obrigatório';
-            }
-            if (!Validator::cnpj($data['cnpj'])) {
+            } elseif (!Validator::cnpj($data['cnpj'])) {
                 $errors['cnpj'] = 'CNPJ inválido';
             }
         }

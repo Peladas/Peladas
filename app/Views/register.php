@@ -16,7 +16,6 @@
         </div>
 
         <div class="relative">
-
             <input type="text" id="phone" name="phone" class="peer w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" "
                 value="<?php echo $data['phone'] ?? '' ?>" />
             <label for="phone" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
@@ -27,27 +26,30 @@
             <?php } ?>
         </div>
 
-        <div class="md:flex flex-row flex-wrap w-full md:gap-4">
+        <div class="md:flex flex-row flex-wrap w-full md:gap-x-4 md:mb-4">
             <div class="relative flex md:flex flex-row flex-col gap-2 flex-1">
-
                 <input type="password" id="password1" name="password1" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" "
                     value="<?php echo $data['password1'] ?? '' ?>" />
                 <label for="password1" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
-                    Senha </label>
-                <?php if (isset($errors['password1'])) { ?>
-                    <small class="helper-text text-red-600 font-sm"><?php echo $errors['password1'] ?></small>
+                    Senha
+                </label>
+            </div>
+
+            <div class="relative md:gap-2 flex-1 mt-2 md:mt-0">
+                <input type="password" id="password2" name="password2" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" " />
+                <label for="password2" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                    Confirmar Senha
+                </label>
+            </div>
+
+            <div class="w-full">
+                <?php if (isset($errors['password'])) { ?>
+                    <small class="helper-text text-red-600 font-sm"><?php echo $errors['password'] ?></small>
                 <?php } ?>
             </div>
 
-            <div class="relative md:gap-2 md:mb-4 flex-1 mt-2 md:mt-0">
-
-                <input type="password" id="password2" name="password2" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" " />
-                <label for="password2" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
-                    Confirmar Senha </label>
-                <?php if (isset($errors['password2'])) { ?>
-                    <small class=" helper-text text-red-600 font-sm"><?php echo $errors['password2'] ?></small>
-                <?php } ?>
-
+            <div class="w-full">
+                <small class="helper-text font-sm">A senha deve conter pelo menos uma letra maiúscula, uma minúscula, um número e um caractere especial.</small>
             </div>
         </div>
 
