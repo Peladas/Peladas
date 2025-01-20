@@ -23,7 +23,7 @@ class Controller {
         }
     }
 
-    protected function getSearchParam(string $param): mixed {
+    protected function getSearchParam(string $param): ?string {
         $param = $_REQUEST[$param] ?? null;
         return $param;
     }

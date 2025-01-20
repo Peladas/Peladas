@@ -33,6 +33,8 @@ $router->get(url: '/areas-desportivas', controller: AreasDesportivasController::
 $router->get(url: '/areas-desportivas/:id', controller: AreasDesportivasController::class, method: 'show');
 
 $router->get(url: '/areas-desportivas/:locadorId/quadra/:id', controller: QuadrasDesportivasController::class, method: 'show');
+// $router->get(url: "/api/quadra/quadra", controller: HomeController::class, method: "index");
+$router->get(url: '/api/quadra/:quadraId/disponibilidade', controller: QuadrasDesportivasController::class, method: 'getDisponibilidade');
 
 //Viualização Reservas
 $router->get(url: '/minhas-reservas', controller: ReservaController::class, method: 'index');

@@ -73,6 +73,7 @@ class DisponibilidadeController extends Controller {
             $disponibilidadeObj->disponibilidade = $disponibilidadeDia;
             $disponibilidades[] = $disponibilidadeObj;
         }
+
         return $disponibilidades;
     }
 }

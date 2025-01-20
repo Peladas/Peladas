@@ -2,6 +2,8 @@
 
 namespace App\Router;
 
+use App\Exceptions\NotFoundException;
+
 class RouterBase {
     public $routes = [];
 
@@ -29,6 +31,8 @@ class RouterBase {
                     return;
                 }
             }
+        } else {
+            throw new NotFoundException('Rota não encontrada');
         }
     }
 

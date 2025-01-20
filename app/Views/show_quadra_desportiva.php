@@ -96,7 +96,11 @@ use App\Helpers\Formatter;
                         </div>
                     </div>
 
-                    <p class="text-amber-300 mt-10">Data selecionada: <span id="selected-date" class="text-white text-center md:text-left">-</span></p>
+                    <div>
+                        <p class="text-amber-300 mt-10">Data selecionada: <span id="selected-date" class="text-white text-center md:text-left">-</span></p>
+                        <input type="hidden" id="selected-date-iso">
+                        <div id="disponibilidades"></div>
+                    </div>
                 </div>
         </div>
 
@@ -171,6 +175,9 @@ use App\Helpers\Formatter;
             dateStyle: 'long'
         }).format(selectedDate);
         dateField.innerHTML = dateString;
+        const dateIsoField = document.getElementById('selected-date-iso');
+        dateIsoField.value = selectedDate.toISOString();
+        dateIsoField.dispatchEvent(new Event('change'));
         console.log(dateString);
     };
 
@@ -254,4 +261,38 @@ use App\Helpers\Formatter;
             manipulate();
         });
     });
+</script>
+
+<script>
+    const quadraId = <?php echo $quadra->getId() ?>;
+    console.log('quadraId', quadraId);
+    const selectedDateElement = document.getElementById('selected-date-iso');
+    console.log(selectedDateElement)
+    selectedDateElement.addEventListener('change', async (ev) => {
+        try {
+            const selectedDate = ev.target.value;
+            console.log('selected date', selectedDate);
+            const url = `/api/quadra/${quadraId}/disponibilidade?date=${selectedDate}`;
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Response status: ${response.status}`);
+            }
+            const json = await response.json();
+            renderDisponibilidade(json);
+            console.log('json', json);
+        } catch (error) {
+            console.error(error.message);
+        }
+    });
+
+    function renderDisponibilidade(horarios) {
+        const renderElement = document.getElementById('disponibilidades');
+        renderElement.innerHTML = null;
+        horarios.forEach(horario => {
+            const element = document.createElement('div');
+            // element.classList =
+            element.innerText = horario;
+            renderElement.appendChild(element);
+        });
+    }
 </script>
