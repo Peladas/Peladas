@@ -49,6 +49,10 @@
             font-style: normal;
         }
 
+        html.dark h1 {
+            color: #fcd34d;
+        }
+
         a {
             color: #475569;
             font-size: 16px;
@@ -262,10 +266,6 @@
         html.dark a#botaoLink:hover {
             border: none;
             background-color: #0f0f0f;
-        }
-
-        html.dark h1 {
-            color: #fcd34d;
         }
 
         html.dark a#dispBtn {

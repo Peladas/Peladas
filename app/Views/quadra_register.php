@@ -1,11 +1,11 @@
 <div class="flex justify-center items-center mt-14 mb-10">
 
-    <div class="container max-w-[900px]">
+    <div class="container max-w-[900px] min-h-px my-10">
 
         <form action="#" method="post" class="text-center">
 
             <legend class="font-bold mb-9 dark:text-amber-300">Cadastre sua quadra</legend>
-
+            <!--
             <div class="flex flex-col gap-2 mb-5 items-center">
                 <div class="relative w-80 md:w-2/5">
                     <input type="text" id="identificador" name="identificador" class="peer w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" " value="<?php echo $data['identificador'] ?? '' ?>"/>
@@ -17,10 +17,11 @@
                     <?php } ?>
                 </div>
             </div>
+            -->
 
             <div class="flex flex-col gap-2 mb-7 items-center">
-                <div class="w-80 md:w-2/5">
-                    <select class="p-2 peer w-full h-10 px-2 border-2 border-purple-700 dark:border-amber-300 rounded-lg placeholder-transparent w-2/5 dark:bg-zinc-900 text-gray-500" name="select" id="">
+                <div class="w-80 md:w-full">
+                    <select class="px-10 peer w-2/5 h-10 px-2 border-2 border-purple-700 dark:border-amber-300 rounded-lg placeholder-transparent dark:bg-zinc-900 bg-transparent text-gray-500" name="select" id="">
                         <option value="v1">Tipo de quadra</option>
                         <option value="v2">Areia</option>
                         <option value="v3">Ginásio</option>
@@ -56,8 +57,8 @@
 
             <div class="flex flex-col gap-2 mb-8 items-center">
                 <div class="relative w-80 md:w-2/5">
-                    <input type="text" id="quant_min_jogadores" name="quant_min_jogadores" class="peer w-full h-10 md:h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" " value="<?php echo $data['quant_min_jogadores'] ?? '' ?>"/>
-                    <label for="quant_min_jogadores" class="absolute text-left left-2 top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#18181b] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
+                    <input type="text" id="quant_min_jogadores" name="quant_min_jogadores" class="peer w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" " value="<?php echo $data['quant_min_jogadores'] ?? '' ?>"/>
+                    <label for="quant_min_jogadores" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#18181b] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                         Quantidade mínima de jogadores
                     </label>
                     <?php if (isset($errors['quant_min_jogadores'])) { ?>
@@ -103,7 +104,7 @@
             </div>
 
             <div class="mt-4 flex justify-center">
-                <button color="black" class="shadow-lg rounded-full border border-purple-700 px-4 py-2 hover:bg-purple-950" type="submit" onclick="">Enviar</button>
+                <a id="botaoLink" type="submit">Enviar</a>
             </div>
 
         </form>

@@ -8,7 +8,7 @@ use App\Helpers\Formatter;
 
     <div class="flex flex-col w-auto md:w-1/2 flex items-center">
 
-        <h1 class="text-center my-6 md:mb-8 text-2xl">Seu Perfil</h1>
+        <h1 class="text-center my-6 md:mb-8 text-2xl dark:text-amber-300">Seu Perfil</h1>
 
         <div class="flex flex-col gap-8 h-auto items-center justify-center">
 
@@ -21,7 +21,7 @@ use App\Helpers\Formatter;
             <input type="file" name="picture__input" id="picture__input">
 
             <div class="mt-[1px] mb-2 flex flex-col items-center justify-center">
-                <h1 class="text-2xl mt-0 md:mb-2 text-purple-800 text-center flex items-center"><?= $locador->getNomeFantasia()?></h1>
+                <h1 class="text-2xl mt-0 md:mb-2 dark:text-amber-300 text-center flex items-center"><?= $locador->getNomeFantasia()?></h1>
 
                 <?php if ($endereco): ?>
                     <div class="flex flex-col gap-5 p-10 md:pt-8 md:p-14 pt-0 mt-5 md:mt-0 text-center md:text-left">
@@ -46,20 +46,26 @@ use App\Helpers\Formatter;
                         </div>
                     </div>
                 <?php else: ?>
+                    <div class="flex flex-col items-center justify-center gap-5">
+
                     <div class="mt-5">
                         <p class="text-center text-red-500">Você ainda não cadastrou um endereço.</p>
-                        <div class="w-auto mt-5 flex items-center justify-center md:justify-start">
-                            <a href="/perfil-locador/editar-endereco" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
+                        <div class="w-auto mt-5 text-center">
+                            <a href="/perfil-locador/editar-endereco" id="botaoLink">
                                 Cadastrar Endereço
                             </a>
                         </div>
                     </div>
                 <?php endif; ?>
-                    <div class="w-auto flex items-center justify-center md:justify-start flex-col">
+                    <div class="w-auto flex items-center justify-center flex-col">
                         <a id="botaoLink" href="/minhas-quadras">
                             Minhas quadras
                         </a>
                     </div>
+
+                    </div>
+
+
                 </div>
             </div>
 

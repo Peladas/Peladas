@@ -9,7 +9,7 @@ use App\Helpers\Formatter;
         <div class="flex flex-col w-1/2 ">
 
             <div class="flex items-center justify-center justify-items-center text-center">
-                <h1 class="mb-10 text-xl text-center">Dados da Quadra</h1>
+                <h1 class="mb-10 text-xl text-center dark:text-amber-300">Dados da Quadra</h1>
             </div>
 
             <div class="flex flex-col md:flex-row itemns-center justify-center">
@@ -62,20 +62,20 @@ use App\Helpers\Formatter;
         </div>
             <div class="w-1/2 flex justify-center items-center mt-20 md:mt-0 ml-20 m:ml-0">
                 <div class="flex flex-col">
-                    <h1 class="text-xl text-white mb-8 align-center text-center">Calendário</h1>
+                    <h1 class="text-xl dark:text-white mb-8 align-center text-center text-[#6b21a8]">Calendário</h1>
                     <div id="calendar-container"></div>
                     <div class="w-[420px] md:max-w-[500px]">
                         <div class="flex items-center justify-between text-amber-300 mb-3 ">
-                            <p id="calendar-current-date"></p>
+                            <p class="text-purple-800 font-semibold dark:text-amber-300 text-lg" id="calendar-current-date"></p>
                             <div id="calendar-navigation">
                                 <span
                                     id="calendar-prev"
-                                    class="material-symbols-rounded rounded-full hover:bg-zinc-800 cursor-pointer">
+                                    class="material-symbols-rounded rounded-full hover:bg-zinc-800 cursor-pointer text-purple-800 dark:text-amber-300">
                                     chevron_left
                                 </span>
                                 <span
                                     id="calendar-next"
-                                    class="material-symbols-rounded rounded-full hover:bg-zinc-800 cursor-pointer">
+                                    class="material-symbols-rounded rounded-full hover:bg-zinc-800 cursor-pointer text-purple-800 dark:text-amber-300">
                                     chevron_right
                                 </span>
                             </div>
@@ -83,23 +83,21 @@ use App\Helpers\Formatter;
 
                         <div id="calendar-body" class="text-stone-200">
                             <div id="calendar-weekdays" class="grid grid-cols-7 text-start gap-7">
-                                <span class="text-center text-orange-400">Dom</span>
-                                <span class="text-center text-orange-400">Seg</span>
-                                <span class="text-center text-orange-400">Ter</span>
-                                <span class="text-center text-orange-400">Qua</span>
-                                <span class="text-center text-orange-400">Qui</span>
-                                <span class="text-center text-orange-400">Sex</span>
-                                <span class="text-center text-orange-400">Sab</span>
+                                <span class="text-center text-blue-800 dark:text-orange-400">Dom</span>
+                                <span class="text-center text-blue-800 dark:text-orange-400">Seg</span>
+                                <span class="text-center text-blue-800 dark:text-orange-400">Ter</span>
+                                <span class="text-center text-blue-800 dark:text-orange-400">Qua</span>
+                                <span class="text-center text-blue-800 dark:text-orange-400">Qui</span>
+                                <span class="text-center text-blue-800 dark:text-orange-400">Sex</span>
+                                <span class="text-center text-blue-800 dark:text-orange-400">Sab</span>
                             </div>
 
-                            <div id="calendar-dates" class="grid grid-cols-7"></div>
+                            <div id="calendar-dates" class="grid grid-cols-7 text-black dark:text-white"></div>
                         </div>
                     </div>
 
                     <div>
-                        <p class="text-amber-300 mt-10">Data selecionada: <span id="selected-date" class="text-white text-center md:text-left">-</span></p>
-                        <input type="hidden" id="selected-date-iso">
-                        <div id="disponibilidades"></div>
+                        <p class="mt-10 text-purple-800 dark:text-amber-300 text-base font-medium">Data selecionada: <span id="selected-date" class="dark:text-white text-center md:text-left text-blue-800">-</span></p>
                     </div>
                 </div>
         </div>
@@ -109,9 +107,14 @@ use App\Helpers\Formatter;
 
 </div>
 
-<div class="flex itmens-center justify-center my-10">
+<div class="flex flex-col items-center justify-center my-16">
 
-        <p>AQUI PARA COLOCAR AS DISPONIBILIDADES</p>
+    <h1 class="m-5 text-lg">Disponibilidades</h1>
+
+    <div class="mt-3">
+            <input type="hidden" id="selected-date-iso">
+            <div id="disponibilidades" class="flex flex-row gap-10"></div>
+    </div>
 
 </div>
 

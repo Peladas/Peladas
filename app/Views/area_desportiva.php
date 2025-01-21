@@ -4,7 +4,7 @@ use App\Enums\DiaSemanaEnum;
 use App\Helpers\Formatter;
 ?>
 
-<div class="flex flex-col gap-8 h-full w-auto mt-16 dark:bg-zinc-900 mb-14">
+<div class="flex flex-col gap-8 h-full w-auto mt-16 dark:bg-zinc-900 mb-14 mt-24">
 
     <div class="flex flex-col md:flex-row">
 
@@ -14,8 +14,8 @@ use App\Helpers\Formatter;
 
                 <div class="flex flex-col gap-2 mb-10 mt-5 md:mt-auto md:mb-5 items-center w-40 h-40 border rounded-lg">
 
-                    <svg xmlns="http://www.w3.org/2000/svg" height="160px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" style="width: 160px;">
-                        <path d="M120-120v-560h160v-160h400v320h160v400H520v-160h-80v160H120Zm80-80h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 320h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 480h80v-80h-80v80Zm0-160h80v-80h-80v80Z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" height="160px" viewBox="0 -960 960 960" width="24px" style="width: 160px;">
+                        <path class="dark:text-white" d="M120-120v-560h160v-160h400v320h160v400H520v-160h-80v160H120Zm80-80h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 320h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 480h80v-80h-80v80Zm0-160h80v-80h-80v80Z" />
                     </svg>
 
                 </div>
@@ -56,7 +56,7 @@ use App\Helpers\Formatter;
 
             <div class="flex flex-col w-96 md:w-[500px] ml-9 md:ml-20 justify-center items-center">
 
-                <h1 class="text-center text-2xl mb-3 md:mb-2">Horários para Locações</h1>
+                <h1 class="text-center text-2xl mb-3 md:mb-2 dark:text-amber-300">Horários para Locações</h1>
 
                 <?php
                 if (count($horarios)) {

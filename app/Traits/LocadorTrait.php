@@ -31,6 +31,6 @@ trait LocadorTrait {
             throw new UnauthorizedException();
         }
 
-        return $locador->id;
+        return $locador->getId();
     }
 }

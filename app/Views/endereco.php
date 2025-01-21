@@ -77,7 +77,7 @@
         </div>
 
         <div class="mt-4 flex justify-center md:justify-start">
-            <button color="black" class="rounded-full border border-slate- mr-5 houver:bg-color focus:border-blue-400" type="submit">Enviar</button>
+            <a id="botaoLink" type="submit">Enviar</a>
         </div>
 
     </form>
