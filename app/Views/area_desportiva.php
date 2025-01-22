@@ -4,7 +4,7 @@ use App\Enums\DiaSemanaEnum;
 use App\Helpers\Formatter;
 ?>
 
-<div class="flex flex-col gap-8 h-full w-auto mt-16 dark:bg-zinc-900 mb-14 mt-24">
+<div class="flex flex-col gap-8 h-screen w-full dark:bg-zinc-900 justify-center">
 
     <div class="flex flex-col md:flex-row">
 
@@ -40,6 +40,7 @@ use App\Helpers\Formatter;
                                 <?= Formatter::formatCEP(htmlspecialchars($endereco->getCep() ?? '-')) ?>
                             </p>
                         </div>
+
                         <div class="flex flex-col md:flex-row text-center md:text-left">
                             <h4 class="text-blue-800 dark:text-amber-300 mb-3">Telefone</h4>
                             <p class="m-0 md:ml-12 txt-center md:text-right"><?= Formatter::formatPhoneNumber(htmlspecialchars($telefone ?? '-')) ?></p>

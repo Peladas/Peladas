@@ -3,12 +3,12 @@
 use App\Helpers\Formatter;
 ?>
 
-<div class="flex flex-col h-screen md:h-auto w-auto m-4 md:m-0 md:m-10 p-5 gap-10 md:gap-16 items-center justify-center">
+<div class="flex flex-col h-screen w-full p-5 gap-10 md:gap-16 items-center justify-center">
     <div>
-        <h1 class="text-3xl dark:text-amber-300 text-center mt-2 md:mt-10">Minhas Quadras</h1>
+        <h1 class="text-3xl dark:text-amber-300 text-center">Minhas Quadras</h1>
     </div>
 
-    <div class="flex flex-wrap flex-row gap-6 md:gap-10 w-auto items-center justify-center">
+    <div class="flex flex-wrap flex-row gap-6 md:gap-10 h-auto w-full items-center justify-center">
 
         <?php
 
