@@ -2,7 +2,7 @@
 
     <div class="container max-w-[900px] min-h-px my-10">
 
-        <form action="#" method="post" class="text-center">
+        <form action="#" id="quadra-form" method="post" class="text-center">
 
             <legend class="font-bold mb-9 dark:text-amber-300">Cadastre sua quadra</legend>
             <!--
@@ -21,13 +21,16 @@
 
             <div class="flex flex-col gap-2 mb-7 items-center">
                 <div class="w-80 md:w-full">
-                    <select class="px-10 peer w-2/5 h-10 px-2 border-2 border-purple-700 dark:border-amber-300 rounded-lg placeholder-transparent dark:bg-zinc-900 bg-transparent text-gray-500" name="select" id="">
-                        <option value="v1">Tipo de quadra</option>
+                    <select id="identificador" name="identificador" class="px-10 peer w-2/5 h-10 px-2 border-2 border-purple-700 dark:border-amber-300 rounded-lg placeholder-transparent dark:bg-zinc-900 bg-transparent text-gray-500" name="select" id="">
+                        <option>Tipo de quadra</option>
                         <option value="v2">Areia</option>
                         <option value="v3">Ginásio</option>
                         <option value="v4">Grama Natural</option>
                         <option value="v5">Grama Sintética</option>
                     </select>
+                    <?php if (isset($errors['identificador'])) { ?>
+                        <small class="helper-text text-red-600 font-sm"><?php echo $errors['identificador'] ?></small>
+                    <?php } ?>
                 </div>
             </div>
 
@@ -104,10 +107,19 @@
             </div>
 
             <div class="mt-4 flex justify-center">
-                <a id="botaoLink" type="submit">Enviar</a>
+                <a id="submit-quadra-form" href="#" onclick="submitAddressForm">Enviar</a>
             </div>
 
         </form>
 
     </div>
 </div>
+
+<script>
+    const submitBtn = document.getElementById('submit-quadra-form');
+    submitBtn.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        const formElement = document.getElementById('quadra-form');
+        formElement.submit();
+    });
+</script>
