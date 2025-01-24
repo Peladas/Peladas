@@ -1,6 +1,6 @@
 <div class="flex justify-center items-center h-screen md:m-auto">
 
-    <form action="#" method="post" class="flex flex-col gap-3 md:w-[600px] md:mx-auto" onload="cha">
+    <form id="address-form" action="#" method="post" class="flex flex-col gap-3 md:w-[600px] md:mx-auto">
 
         <h1 class="pb-5 dark:text-yellow-300 text-3xl flex justify-center items-center">Cadastre seu Endereço</h1>
 
@@ -77,9 +77,17 @@
         </div>
 
         <div class="mt-4 flex justify-center md:justify-start">
-            <a id="botaoLink" type="submit">Enviar</a>
+            <a id="submit-address-form" href="#" onclick="submitAddressForm">Enviar</a>
         </div>
 
     </form>
 </div>
 
+<script>
+    const submitBtn = document.getElementById('submit-address-form');
+    submitBtn.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        const formElement = document.getElementById('address-form');
+        formElement.submit();
+    });
+</script>
