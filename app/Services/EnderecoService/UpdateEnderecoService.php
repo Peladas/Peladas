@@ -23,6 +23,8 @@ class UpdateEnderecoService {
     }
 
     private function validate (array $data) {
+        $errors = [];
+
         if (!Validator::notEmpty($data['rua'])) {
             $errors['rua'] = 'Obrigatório espicificar a Rua/Avenida';
         }

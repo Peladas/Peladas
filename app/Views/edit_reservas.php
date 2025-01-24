@@ -57,18 +57,6 @@
 
             <div class="flex flex-col gap-2 mb-8 items-center">
                 <div class="relative w-2/5">
-                    <input type="text" id="horarios_funcionamento" name="horarios_funcionamento" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" " value="<?php echo $quadra->getHorariosFuncionamento() ?>"/>
-                    <label for="horarios_funcionamento" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
-                        Horários de funcionamento
-                    </label>
-                    <?php if (isset($errors['horarios_funcionamento'])) { ?>
-                        <small class="helper-text text-red-600 font-sm"><?php echo $errors['horarios_funcionamento'] ?></small>
-                    <?php } ?>
-                </div>
-            </div>
-
-            <div class="flex flex-col gap-2 mb-8 items-center">
-                <div class="relative w-2/5">
                     <input type="text" id="descricao" name="descricao" class="peer w-full h-10 px-2 border-b-2 border-amber-300 placeholder-transparent" placeholder=" " value="<?php echo $quadra->getDescricao() ?>"/>
                     <label for="descricao" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                         Descrição da quadra
