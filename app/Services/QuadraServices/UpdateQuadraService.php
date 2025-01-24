@@ -40,9 +40,6 @@ class UpdateQuadraService extends BaseQuadraService {
         if (!Validator::notEmpty(value: $data['quant_min_jogadores'])) {
             $errors['quant_min_jogadores'] = 'Obrigatório espicificar a quantidade mínima de jogadores';
         }
-        if (!Validator::notEmpty(value: $data['horarios_funcionamento'])) {
-            $errors['horarios_funcionamento'] = 'Obrigatório espicificar o horário de funcionamento';
-        }
         if (!Validator::notEmpty(value: $data['valor_aluguel'])) {
             $errors['valor_aluguel'] = 'Obrigatório espicificar o valor da quadra';
         }
