@@ -8,7 +8,6 @@ class Quadra extends Model {
     protected ?Float $valor_aluguel;
     protected ?int $quant_min_jogadores;
     protected ?String $tamanho_quadra;
-    protected ?String $horarios_funcionamento;
     protected ?String $identificador;
     protected ?String $modalidade;
     protected ?String $descricao;
@@ -60,18 +59,6 @@ class Quadra extends Model {
     public function setTamanhoQuadra(?String $tamanho_quadra): self
     {
         $this->tamanho_quadra = $tamanho_quadra;
-
-        return $this;
-    }
-
-    public function getHorariosFuncionamento(): ?String
-    {
-        return $this->horarios_funcionamento;
-    }
-
-    public function setHorariosFuncionamento(?String $horarios_funcionamento): self
-    {
-        $this->horarios_funcionamento = $horarios_funcionamento;
 
         return $this;
     }

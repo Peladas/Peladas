@@ -30,14 +30,14 @@ class CreateQuadraService {
         if (!Validator::notEmpty(value: $data['identificador'])) {
             $errors['identificador'] = 'Obrigatório espicificar o tipo de quadra';
         }
+        if (!Validator::notEmpty(value: $data['modalidade'])) {
+            $errors['modalidade'] = 'Obrigatório espicificar a modalidade ';
+        }
         if (!Validator::notEmpty(value: $data['tamanho_quadra'])) {
             $errors['tamanho_quadra'] = 'Obrigatório espicificar o tamanho da quadra';
         }
         if (!Validator::notEmpty(value: $data['quant_min_jogadores'])) {
             $errors['quant_min_jogadores'] = 'Obrigatório espicificar a quantidade mínima de jogadores';
-        }
-        if (!Validator::notEmpty(value: $data['horarios_funcionamento'])) {
-            $errors['horarios_funcionamento'] = 'Obrigatório espicificar o horário de funcionamento';
         }
         if (!Validator::notEmpty(value: $data['valor_aluguel'])) {
             $errors['valor_aluguel'] = 'Obrigatório espicificar o valor da quadra';
@@ -52,7 +52,6 @@ class CreateQuadraService {
             ->setModalidade(modalidade: $data["modalidade"])
             ->setTamanhoQuadra(tamanho_quadra: $data["tamanho_quadra"])
             ->setQuantMinJogadores(quant_min_jogadores: $data["quant_min_jogadores"])
-            ->setHorariosFuncionamento(horarios_funcionamento: $data["horarios_funcionamento"])
             ->setValorAluguel(valor_aluguel: $data["valor_aluguel"])
             ->setDescricao(descricao: $data["descricao"]);
 

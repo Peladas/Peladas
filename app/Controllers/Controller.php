@@ -100,7 +100,6 @@ class Controller {
         $quadra->setValorAluguel($record->valor_aluguel);
         $quadra->setQuantMinJogadores($record->quant_min_jogadores);
         $quadra->setTamanhoQuadra($record->tamanho_quadra);
-        $quadra->setHorariosFuncionamento($record->horarios_funcionamento);
         $quadra->setIdentificador($record->identificador);
         $quadra->setModalidade($record->modalidade);
         $quadra->setDescricao($record->descricao);
