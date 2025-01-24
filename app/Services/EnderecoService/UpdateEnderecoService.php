@@ -3,6 +3,7 @@
 namespace App\Services\EnderecoService;
 
 use App\Dao\EnderecoDAO;
+use App\Helpers\Validator;
 use App\Models\Endereco;
 
 class UpdateEnderecoService {
@@ -22,16 +23,24 @@ class UpdateEnderecoService {
     }
 
     private function validate (array $data) {
-        $errors = [];
-        // if (!Validator::notEmpty($data['dia_semana'])) {
-        //     $errors['dia_semana'] = 'Obrigatório espicificar o dia da semana';
-        // }
-        // if (!Validator::notEmpty($data['hora_inicio'])) {
-        //     $errors['hora_inicio'] = 'Obrigatório espicificar a hora de início';
-        // }
-        // if (!Validator::notEmpty($data['hora_fim'])) {
-        //     $errors['hora_fim'] = 'Obrigatório espicificar o horario de fim';
-        // }
+        if (!Validator::notEmpty($data['rua'])) {
+            $errors['rua'] = 'Obrigatório espicificar a Rua/Avenida';
+        }
+        if (!Validator::notEmpty($data['numero'])) {
+            $errors['numero'] = 'Obrigatório espicificar o número do estabelecimento';
+        }
+        if (!Validator::notEmpty($data['cep'])) {
+            $errors['cep'] = 'Obrigatório espicificar o CEP';
+        }
+        if (!Validator::notEmpty($data['estado'])) {
+            $errors['estado'] = 'Obrigatório espicificar o estado';
+        }
+        if (!Validator::notEmpty($data['cidade'])) {
+            $errors['cidade'] = 'Obrigatório espicificar o cidade';
+        }
+        if (!Validator::notEmpty($data['bairro'])) {
+            $errors['bairro'] = 'Obrigatório espicificar o bairro';
+        }
         return $errors;
     }
 
