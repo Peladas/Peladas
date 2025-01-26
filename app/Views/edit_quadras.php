@@ -27,7 +27,7 @@
             </div>
             <div class="flex flex-col gap-2 mb-8 items-center">
                 <div class="relative w-80">
-                    <input type="text" id="modalidade" name="modalidade" class="peer w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]"" placeholder=" " value="<?php echo $quadra->getModalidade() ?>" />
+                    <input type="text" id="modalidade" name="modalidade" class="peer w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" " value="<?php echo $quadra->getModalidade() ?>" />
                     <label for="modalidades" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#18181b] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100"">
                         Modalidade(es)
                     </label>

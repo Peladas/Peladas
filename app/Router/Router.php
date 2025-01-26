@@ -54,6 +54,8 @@ $router->post(url: '/cadastro-quadras', controller: QuadraController::class, met
 $router->get(url: '/editar-quadras/:id', controller: QuadraController::class, method: 'update');
 $router->post(url: '/editar-quadras/:id', controller: QuadraController::class, method: 'update');
 $router->post(url: '/remover-quadras/:id', controller: QuadraController::class, method: 'delete');
+$router->post(url: '/inativar-quadras/:id', controller: QuadraController::class, method: 'inactivate');
+$router->post(url: '/ativar-quadras/:id', controller: QuadraController::class, method: 'activate');
 
 $router->get(url: '/minhas-quadras/:quadraId/disponibilidade', controller: DisponibilidadeController::class, method: 'create');
 $router->post(url: '/minhas-quadras/:quadraId/disponibilidade', controller: DisponibilidadeController::class, method: 'create');
@@ -80,5 +82,7 @@ $router->post(url: '/perfil-locador/editar-endereco', controller: EnderecoContro
 //Perfil Jogador
 $router->get(url: '/perfil-jogador', controller: JogadorController::class, method: 'profile');
 $router->post(url: '/perfil-jogador', controller: JogadorController::class, method: 'profile');
+$router->get(url: '/perfil-jogador/editar-perfil', controller: JogadorController::class, method: 'updateProfile');
+$router->post(url: '/perfil-jogador/editar-perfil', controller: JogadorController::class, method: 'updateProfile');
 
 $router->matchRoute();

@@ -63,5 +63,20 @@ final class Formatter {
         return $date;
     }
 
+    public static function camelToSnake(string $value)
+    {
+        return strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $value));
+    }
+
+    public static function snakeToCamel(string $value)
+    {
+        return lcfirst(str_replace(' ', '', ucwords(str_replace('_', ' ', $value))));
+    }
+
+    public static function snakeToPascal(string $value)
+    {
+        return str_replace(' ', '', ucwords(str_replace('_', ' ', $value)));
+    }
+
 
 }
