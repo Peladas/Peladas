@@ -28,7 +28,7 @@
     <style>
 
         :root{
-            --header_heigth: 62px;
+            --header_heigth: 70px;
         }
 
         body {

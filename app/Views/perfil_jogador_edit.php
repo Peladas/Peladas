@@ -1,6 +1,6 @@
 <?php  //var_dump($quadra)
 ?>
-<div class="flex justify-center items-center my-6">
+<div class="flex justify-center items-center">
 
     <div class="w-auto h-screen flex items-center jutify-center">
 
@@ -72,8 +72,8 @@
                 <?php } ?>
             </div>
 
-            <div class="mx-auto">
-                <button color="black" class="rounded-full border border-slate- mr-5 houver:bg-color focus:border-blue-400" type="submit">Enviar</button>
+            <div class="my-4 flex items-center justify-center">
+                <button color="black" class="rounded-full border border-slate-800 mr-5 houver:bg-color focus:border-blue-400 py-2 px-3" type="submit">Enviar</button>
             </div>
         </form>
     </div>

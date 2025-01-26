@@ -3,7 +3,7 @@
 use App\Helpers\Formatter;
 ?>
 
-<div class="flex flex-col items-center justify-center min-h-screen dark:bg-zinc-900 py-20 gap-5">
+<div class="flex flex-col items-center justify-center min-h-screen dark:bg-zinc-900 gap-5">
 
     <div class="text-purple-700 dark:text-amber-300 text-3xl capitalize text-center md:mt-5">
 

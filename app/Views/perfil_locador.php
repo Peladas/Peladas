@@ -8,7 +8,7 @@ use App\Helpers\Formatter;
 
     <div class="flex flex-col w-auto md:w-1/2 flex items-center">
 
-        <h1 class="text-center my-6 md:mb-8 text-2xl dark:text-amber-300">Seu Perfil</h1>
+        <h1 class="text-center md:mb-8 text-2xl dark:text-amber-300">Seu Perfil</h1>
 
         <div class="flex flex-col gap-8 h-auto items-center justify-center">
 
@@ -20,7 +20,7 @@ use App\Helpers\Formatter;
 
             <input type="file" name="picture__input" id="picture__input">
 
-            <div class="mt-[1px] mb-2 flex flex-col items-center justify-center">
+            <div class="mt-[1px] mb-2 flex flex-col items-center justify-center w-3/4">
                 <h1 class="text-2xl mt-0 md:mb-2 dark:text-amber-300 text-center flex items-center"><?= $locador->getNomeFantasia()?></h1>
 
                 <?php if ($endereco): ?>
@@ -42,7 +42,7 @@ use App\Helpers\Formatter;
 
                         <div class="flex flex-col md:flex-row md:text-left">
                             <h4 class="text-blue-800 dark:text-amber-300 mb-3">Telefone</h4>
-                            <p class="m-0 md:ml-3"><?= Formatter::formatPhoneNumber(htmlspecialchars($telefone ?? '-')) ?></p>
+                            <p class="m-0 md:ml-6"><?= Formatter::formatPhoneNumber(htmlspecialchars($telefone ?? '-')) ?></p>
                         </div>
                     </div>
                 <?php else: ?>
@@ -68,10 +68,7 @@ use App\Helpers\Formatter;
 
                 </div>
             </div>
-
-        </div>
-
-        <div class="flex flex items-center justify-center text-center flex-col w-1/2 mt-16 md:mt-0">
+            <div class="flex flex items-center justify-center text-center flex-col w-1/2 mt-16 md:mt-0">
             <h1 class="flex flex itemns-center text-center text-2xl mb-5 dark:text-amber-300">Horários para Locações</h1>
             <?php
             if (count($horarios)) {
@@ -120,6 +117,9 @@ use App\Helpers\Formatter;
         </div>
 
         </div>
+        </div>
+
+
     </div>
 </div>
 

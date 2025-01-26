@@ -4,7 +4,7 @@ use App\Enums\DiaSemanaEnum;
 use App\Helpers\Formatter;
 ?>
 
-<div class="flex flex-col gap-8 h-screen w-full dark:bg-zinc-900 justify-center">
+<div class="flex flex-col gap-8 size-full dark:bg-zinc-900 justify-center items-center mt-20 mb-5">
 
     <div class="flex flex-col md:flex-row">
 
@@ -12,18 +12,20 @@ use App\Helpers\Formatter;
 
             <div class="flex flex-col ml-18 items-center text-center justify-center">
 
-                <div class="flex flex-col gap-2 mb-10 mt-5 md:mt-auto md:mb-5 items-center w-40 h-40 border rounded-lg">
+                <div class="flex flex-col gap-2 mb-10 mt-5 md:mt-auto md:mb-5 items-center w-40 h-40 border rounded-lg dark:border-white border-slate-900 shadow-sm shadow-gray-600">
 
-                    <svg xmlns="http://www.w3.org/2000/svg" height="160px" viewBox="0 -960 960 960" width="24px" style="width: 160px;">
-                        <path class="dark:text-white" d="M120-120v-560h160v-160h400v320h160v400H520v-160h-80v160H120Zm80-80h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 320h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 480h80v-80h-80v80Zm0-160h80v-80h-80v80Z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" height="160px" viewBox="0 -960 960 960" style="width: 160px;" id="dynamic-icon">
+                        <path d="M120-120v-560h160v-160h400v320h160v400H520v-160h-80v160H120Zm80-80h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 320h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 480h80v-80h-80v80Zm0-160h80v-80h-80v80Z"
+                            class="fill-black dark:fill-white" />
                     </svg>
 
                 </div>
 
+
                 <h1 class="text-center my-6 md:mb-8 dark:text-amber-300 text-3xl"><?= $locador->getNomeFantasia() ?></h1>
 
             </div>
-            <div class="flex flex-col gap-8 h-auto items-center justify-center">
+            <div class="flex flex-col gap-8 h-auto items-center justify-center w-3/4">
 
                 <!-- Colocar foto padrão enquanto não temos sistema de cadastro de imagem -->
 

@@ -1,8 +1,8 @@
 <div class="content flex-grow">
 
-    <div class="section sm:h-full bg-fixed bg-cover bg-center md:bg-right dark:bg-[url('imagens/fundoJgd_md.png')] bg-[url('imagens/fundoJgd_md_branco.png')] md:bg-[url('imagens/fundo_branco.png')] md:dark:bg-[url('imagens/Fundo.png')]">
-    <div class="h-screen md:ml-16 md:w-1/2 flex justify-center md:justify-start">
-                    <div class="text-xl sm:text-2xl flex flex-col justify-center py-10 p-4 md:p-0">
+    <div class="section h-full bg-fixed bg-cover bg-center md:bg-right dark:bg-[url('imagens/fundoJgd_md.png')] bg-[url('imagens/fundoJgd_md_branco.png')] md:bg-[url('imagens/fundo_branco.png')] md:dark:bg-[url('imagens/Fundo.png')]">
+        <div class="md:ml-16 md:w-1/2 h-screen flex justify-center md:justify-start">
+                    <div class="text-xl sm:text-2xl flex flex-col justify-center md:p-0">
                         <div class="flex flex-col md:flex-row gap-0 md:gap-2 text-4xl text-left flex-wrap">
                             <h1 class="dark:text-yellow-400 text-center md:text-left hyphens-auto py-4 md:py-auto">Seja Bem-Vindo Jogador!</h1>
                         </div>
@@ -12,7 +12,7 @@
                             Otimize operações e foque em oferecer uma experiência excepcional aos seus clientes. Leve seu negócio esportivo a outro nível!</p>
                     </div>
                 </div>
-    </div>
+        </div>
 
     <!--///////// 2 ////-->
     <div class="section h-auto text-xl bg-auto bg-no-repeat relative bg-[#FFFFFF] dark:bg-zinc-800 shadow-sm shadow-zinc-200">
