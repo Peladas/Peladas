@@ -51,7 +51,7 @@ use App\Helpers\Formatter;
 
 
             <div class="flex justify-center items-center mt-10">
-                <a id="botaoLink">Editar Informações</a>
+                <a href="/perfil-jogador/editar-perfil" id="botaoLink">Editar Informações</a>
             </div>
         </form>
     </div>

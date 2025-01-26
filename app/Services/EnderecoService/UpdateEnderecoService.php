@@ -50,15 +50,6 @@ class UpdateEnderecoService {
         $enderecoDAO = new EnderecoDAO();
         $endereco = $enderecoDAO->first(['locador_id' => $this->locadorId]);
 
-        // - Checar se existe endereco no BD
-
-        //   - Se existir, checar se existe endereco nos dados para o locador
-        //     - Se existir, atualizar endereco no BD
-        //     - Se não existir, eliminar endereco do BD
-        //   - Se não existir, checar se existe endereco nos dados para o locador
-        //     - Se existir, criar endereco
-        //     - Se não existir, ignorar
-
         if ($endereco) {
             if (isset($data['endereco'])) {
                 // Atualizar o endereço no BD
@@ -68,7 +59,7 @@ class UpdateEnderecoService {
                     'cep' => $data['cep'] ?? $endereco->cep,
                     'estado' => $data['estado'] ?? $endereco->estado,
                     'cidade' => $data['cidade'] ?? $endereco->cidade,
-                    'bairro' => $data['bairro'] ?? $endereco->cidade,
+                    'bairro' => $data['bairro'] ?? $endereco->bairro,
                 ]);
             } else {
                 // Eliminar o endereço do BD
