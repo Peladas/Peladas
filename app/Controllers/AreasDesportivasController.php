@@ -7,6 +7,7 @@ use App\Dao\HorarioLocadorDAO;
 use App\Dao\LocadorDAO;
 use App\Dao\QuadraDAO;
 use App\Dao\UserDAO;
+use App\Enums\QuadrasStatusEnum;
 
 class AreasDesportivasController extends Controller {
 
@@ -44,7 +45,7 @@ class AreasDesportivasController extends Controller {
         $endereco = $enderecoDAO->first(['locador_id'=>$id]);
 
         $quadrasDAO = new QuadraDAO;
-        $quadras = $quadrasDAO->getAll(['locador_id'=>$id]);
+        $quadras = $quadrasDAO->getAll(['locador_id'=>$id, 'status' => '' . QuadrasStatusEnum::ACTIVE]);
 
         $telefone = $this->getTelefone($id);
 

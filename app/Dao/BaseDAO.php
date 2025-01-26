@@ -45,18 +45,21 @@ class BaseDAO
                 foreach ($filters as $key => $value) {
                     switch ($value) {
                         case 'NULL':
-                            $wheres[] = "WHERE $key IS NULL";
+                            $wheres[] = "$key IS NULL";
                             break;
                         case 'NOT NULL':
-                            $wheres[] = "WHERE $key IS NOT NULL";
+                            $wheres[] = "$key IS NOT NULL";
                             break;
                         default:
-                            $wheres[] = "WHERE $key='$value'";
+                            $operator = (str_starts_with($value, '!')) ? '!=' : '=';
+                            if (str_starts_with($value, '!')) $value = ltrim($value, '!');
+                            $wheres[] = "$key $operator $value";
                             break;
                     }
                 }
-                $query .= ' ' . implode(' AND ', $wheres);
+                $query .= ' WHERE ' . implode(' AND ', $wheres);
             }
+            Log::info($query);
             $statement = $this->prepareConsultation($query);
             return $statement->fetchAll(PDO::FETCH_CLASS, $this->getModelName());
         } catch (PDOException $th) {
@@ -141,9 +144,13 @@ class BaseDAO
             foreach ($data as $key => $value) {
                 $values[] = "$key='$value'";
             }
-            $strValues = implode(', ', $values);
-            $query = 'UPDATE ' . $this->getTableName() . ' SET ' . $strValues . ' WHERE id=' . $id;
-            return $this->prepareConsultation($query);
+            if (empty($data)) {
+                throw new \InvalidArgumentException('Nenhum dado fornecido para atualização.');
+            } else {
+                $strValues = implode(', ', $values);
+                $query = 'UPDATE ' . $this->getTableName() . ' SET ' . $strValues . ' WHERE id=' . $id;
+                return $this->prepareConsultation($query);
+            }
         } catch (\Throwable $th) {
             // 1- Escrever no log
             Log::error($th->getMessage());

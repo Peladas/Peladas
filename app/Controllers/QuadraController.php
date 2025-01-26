@@ -3,10 +3,13 @@
 namespace App\Controllers;
 
 use App\Dao\QuadraDAO;
+use App\Enums\QuadrasStatusEnum;
 use App\Exceptions\MethodNotAllowedException;
 use App\Exceptions\UnauthorizedException;
+use App\Services\QuadraServices\ActivateQuadraService;
 use App\Services\QuadraServices\CreateQuadraService;
 use App\Services\QuadraServices\DeleteQuadraService;
+use App\Services\QuadraServices\InactivateQuadraService;
 use App\Services\QuadraServices\ShowQuadraService;
 use App\Services\QuadraServices\UpdateQuadraService;
 
@@ -23,7 +26,7 @@ class QuadraController extends Controller {
     public function index() {
         $locador = $this->getLocador();
         $quadraDAO = new QuadraDAO();
-        $quadras = $quadraDAO->getAll(filters: ['locador_id' => $locador->getId()]);
+        $quadras = $quadraDAO->getAll(filters: ['locador_id' => $locador->getId(), 'status' => '!' . QuadrasStatusEnum::DELETED]);
 
         return $this->render(view: 'lista_quadras', data: compact('quadras'));
     }
@@ -93,7 +96,28 @@ class QuadraController extends Controller {
         //     'message' => 'Catch',
         // ]);
 
-        // header('Location: /minhas-quadras');
+        header('Location: /minhas-quadras');
     }
 
+    public function inactivate(int $id) {
+        if ($this->getMethod() !== 'post') {
+            throw new MethodNotAllowedException();
+        }
+
+        header('Content-type: application/json');
+        $locador = $this->getLocador();
+        $inactivateQuadraService = new InactivateQuadraService();
+        $inactivateQuadraService->run($id, $locador->getId());
+    }
+
+    public function activate(int $id) {
+        if ($this->getMethod() !== 'post') {
+            throw new MethodNotAllowedException();
+        }
+
+        header('Content-type: application/json');
+        $locador = $this->getLocador();
+        $activateQuadraService = new ActivateQuadraService();
+        $activateQuadraService->run($id, $locador->getId());
+    }
 }
