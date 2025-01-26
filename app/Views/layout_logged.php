@@ -2,7 +2,7 @@
 
 <!-- Layout_logged -->
 <div>
-    <main>
+    <main style="margin-top: var(--header_heigth)">
         <!-- <h1>logado</h1> -->
         <?php include __DIR__ . "/$view.php"; ?>
     </main>
