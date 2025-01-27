@@ -14,15 +14,15 @@ use App\Helpers\Formatter;
         <form action="#" method="post" class="items-center">
 
             <div class="flex flex-col gap-2 mb-10 mt-5 md:mt-auto md:mb-5 items-center">
-                <label class="picture rounded-lg flex flex-col items-center justify-center w-32 h-32 bg-gray-200 dark:bg-zinc-900 dark:focus:bg-purple-950 cursor-pointer" for="picture__input" tabIndex="0" id="picture__dropzone">
+                <label class="text-wrap picture rounded-lg flex flex-col items-center justify-center bg-gray-200 dark:bg-zinc-900 dark:focus:bg-purple-950 cursor-pointer" for="picture__input" tabIndex="0" id="picture__dropzone">
                     <span class="picture__image"></span>
                 </label>
                 <input type="file" name="picture__input" id="picture__input">
             </div>
 
-            <div class="my-16">
+            <div class="my-20">
 
-            <table class="table-auto border-collapse border-none dark:border-none w-[500px] mx-6">
+            <table class="table-auto border-collapse border-none dark:border-none w-96 mx-full">
                 <tbody>
                     <tr>
                         <th class="border border-gray-300 dark:border-none px-4 py-2 text-blue-800 dark:text-amber-300 text-left">Nome</th>

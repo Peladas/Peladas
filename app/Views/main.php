@@ -26,6 +26,11 @@
     </script>
 
     <style>
+
+        :root{
+            --header_heigth: 62px;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -260,7 +265,7 @@
         /* Dark Mode* */
 
         html.dark a#botaoLink {
-            color: #e2e8f0;
+            color: #fff;
         }
 
         html.dark a#botaoLink:hover {
@@ -286,7 +291,7 @@
     </style>
 </head>
 
-<body class="bg-slate-100 dark:bg-zinc-900 dark:text-[#fafafa] break-words">
+<body class="bg-slate-100 dark:bg-zinc-900 dark:text-[#fafafa] break-words max-h-min">
     <?php (isset($is_logged) && $is_logged) ? include_once __DIR__ . "/layout_logged.php" : include_once __DIR__ . "/layout_guest.php"; ?>
 
     <?php if(isset($errors['global'])) { ?>

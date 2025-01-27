@@ -37,8 +37,8 @@
 
             <ul id="menu" class="hidden md:flex space-4 md:space-x-4">
                 <li>
-                    <a id="switchBtn" type="button" class="">
-                        <svg class="hidden dark:block" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
+                    <a id="switchBtn" type="button" class="w-11">
+                        <svg class="hidden dark:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#FFFFFF">
                             <path d="M440-800v-120h80v120h-80Zm0 760v-120h80v120h-80Zm360-400v-80h120v80H800Zm-760 0v-80h120v80H40Zm708-252-56-56 70-72 58 58-72 70ZM198-140l-58-58 72-70 56 56-70 72Zm564 0-70-72 56-56 72 70-58 58ZM212-692l-72-70 58-58 70 72-56 56Zm268 452q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm0-80q67 0 113.5-46.5T640-480q0-67-46.5-113.5T480-640q-67 0-113.5 46.5T320-480q0 67 46.5 113.5T480-320Zm0-160Z"/>
                         </svg>
                         <i class="fas fa-moon block dark:hidden"></i>
@@ -58,6 +58,7 @@
                         <a class="rounded-none border-0 block shadow-none px-4 py-2 text-slate-400 hover:text-slate-100 dark:bg-zinc-900" href="<?php echo $user_type === 'jogador' ? '/perfil-jogador' : '/perfil-locador' ?>">Meu Perfil</a>
                         <a href="/logout" class="rounded-none border-0 block shadow-none px-4 py-2 text-slate-400 hover:text-slate-100 dark:bg-zinc-900">Logout</a>
                     </div>
+                    
                 </li>
             </ul>
 
