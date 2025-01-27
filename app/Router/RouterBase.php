@@ -24,13 +24,17 @@ class RouterBase {
         if (isset($this->routes[$method])) {
             foreach ($this->routes[$method] as $routeUrl => $target) {
                 $pattern = preg_replace('/\/:([^\/]+)/', '/(?P<$1>[^/]+)', $routeUrl);
+                $routeMatched = false;
                 if (preg_match('#^' . $pattern . '$#', $url, $matches)) {
                     // Pass the captured parameter values as named arguments to the target function
                     $params = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY); // Only keep named subpattern matches
+                    $routeMatched = true;
                     $this->invokeController($target, $params);
                     return;
                 }
             }
+
+            if (!$routeMatched) throw new NotFoundException('Rota não encontrada');
         } else {
             throw new NotFoundException('Rota não encontrada');
         }

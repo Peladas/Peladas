@@ -31,7 +31,7 @@ create TABLE quadras (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	locador_id INT NOT NULL,
 	valor_aluguel FLOAT NOT NULL,
-	quant_min_jogadores INT NOT NULL,
+	quant_max_jogadores INT NOT NULL,
 	tamanho_quadra VARCHAR(45) NOT NULL,
 	horarios_funcionamento VARCHAR(45) NOT NULL,
 	identificador VARCHAR(45) NOT NULL,

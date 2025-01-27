@@ -98,7 +98,7 @@ class Controller {
         $quadra->setId($record->id);
         $quadra->setLocadorId($record->locador_id);
         $quadra->setValorAluguel($record->valor_aluguel);
-        $quadra->setQuantMinJogadores($record->quant_min_jogadores);
+        $quadra->setQuantMaxJogadores($record->quant_max_jogadores);
         $quadra->setTamanhoQuadra($record->tamanho_quadra);
         $quadra->setIdentificador($record->identificador);
         $quadra->setModalidade($record->modalidade);

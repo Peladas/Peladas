@@ -54,7 +54,7 @@
         </div>
 
         <div class="flex items-center gap-6 mt-3 md:mt-0">
-            <label class="text-purple-800 dark:text-yellow-300 text-base font-semibold" user_type">Tipo de usuário</label>
+            <label class="text-purple-800 dark:text-yellow-300 text-base font-semibold" user_type>Tipo de usuário</label>
             <div>
                 <input type="radio" name="user_type" value="jogador" class="accent-purple-950"
                     onclick="changeUserType(this)" <?= isset($data['user_type']) && $data['user_type'] == 'jogador' ? 'checked' : '' ?>> Jogador

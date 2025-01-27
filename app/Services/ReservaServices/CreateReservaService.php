@@ -1,62 +1,48 @@
 <?php
 
-namespace App\Services\QuadraServices;
+namespace App\Services\ReservaServices;
 
-use App\Dao\QuadraDAO;
+use App\Dao\ReservaDAO;
 use App\Helpers\Validator;
-use App\Models\Quadra;
-use App\Traits\LocadorTrait;
+use App\Models\Reserva;
 
 class CreateReservaService {
-    use LocadorTrait;
 
-    public function __construct() {
-        $this->checkLocador();
-    }
-
-    public function run(array $data) {
-        $errors = $this->validate(data: $data);
-        //var_dump($data);
+    public function run(int $jogadorId, array $data) {
+        $errors = $this->validate($data);
 
         if (count(value: $errors) === 0) {
-            $locadorId = $this->getLocadorId();
-            $this->createQuadra(locadorId: $locadorId, data: $data);
+            $this->createReserva($jogadorId,$data);
         }
         return $errors;
     }
 
     private function validate (array $data) {
         $errors = [];
-        if (!Validator::notEmpty(value: $data['identificador'])) {
-            $errors['identificador'] = 'Obrigatório espicificar o tipo de quadra';
+
+        if (!Validator::notEmpty(value: $data['quadra_id'])) {
+            $errors['quadra_id'] = 'Obrigatório selecionar a quadra';
         }
-        if (!Validator::notEmpty(value: $data['tamanho_quadra'])) {
-            $errors['tamanho_quadra'] = 'Obrigatório espicificar o tamanho da quadra';
+        if (!Validator::notEmpty(value: $data['data_reserva'])) {
+            $errors['data_reserva'] = 'Obrigatório selecionar o dia da partida';
         }
-        if (!Validator::notEmpty(value: $data['quant_min_jogadores'])) {
-            $errors['quant_min_jogadores'] = 'Obrigatório espicificar a quantidade mínima de jogadores';
+        if (!Validator::notEmpty(value: $data['horario_reservado'])) {
+            $errors['horario_reservado'] = 'Obrigatório selecionar um horário para realizar reserva';
         }
-        if (!Validator::notEmpty(value: $data['horarios_funcionamento'])) {
-            $errors['horarios_funcionamento'] = 'Obrigatório espicificar o horário de funcionamento';
-        }
-        if (!Validator::notEmpty(value: $data['valor_aluguel'])) {
-            $errors['valor_aluguel'] = 'Obrigatório espicificar o valor da quadra';
-        }
+
         return $errors;
     }
 
-    private function createQuadra(int $locadorId, array $data) {
-        $newQuadra = new Quadra();
-        $newQuadra->setLocadorId(locador_id: $locadorId)
-            ->setIdentificador(identificador: $data["identificador"])
-            ->setModalidade(modalidade: $data["modalidade"])
-            ->setTamanhoQuadra(tamanho_quadra: $data["tamanho_quadra"])
-            ->setQuantMinJogadores(quant_min_jogadores: $data["quant_min_jogadores"])
-            ->setHorariosFuncionamento(horarios_funcionamento: $data["horarios_funcionamento"])
-            ->setValorAluguel(valor_aluguel: $data["valor_aluguel"])
-            ->setDescricao(descricao: $data["descricao"]);
+    private function createReserva(int $jogadorId, array $data) {
+        $formattedDate = date('Y-m-d H:i:s', strtotime($data["data_reserva"]));
+        $newReserva = new Reserva;
+        $newReserva->setJogadorId($jogadorId)
+            ->setQuadraId($data['quadra_id'])
+            ->setTipoReserva($data["tipo_reserva"])
+            ->setDataReserva($formattedDate)
+            ->setHorarioReservado($data["horario_reservado"]);
 
-        $quadraDAO = new QuadraDAO();
-        $quadraDAO->create(quadra: $newQuadra);
+        $reservaDAO = new ReservaDAO();
+        $reservaDAO->create($newReserva);
     }
 }

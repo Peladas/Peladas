@@ -33,7 +33,7 @@
             <div class="grid grid-cols-1 gap-3 w-full md:w-96">
                 <p>
                     <span class="text-blue-800 dark:text-amber-300">Quantidade mínima de jogadores:</span>
-                    <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getQuantMinJogadores() ?></span>
+                    <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getQuantMaxJogadores() ?></span>
                 </p>
             </div>
             <p>

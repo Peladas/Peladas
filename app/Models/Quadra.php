@@ -6,7 +6,7 @@ class Quadra extends Model {
 
     protected ?int $id;
     protected ?Float $valor_aluguel;
-    protected ?int $quant_min_jogadores;
+    protected ?int $quant_max_jogadores;
     protected ?String $tamanho_quadra;
     protected ?String $identificador;
     protected ?String $modalidade;
@@ -39,14 +39,14 @@ class Quadra extends Model {
         return $this;
     }
 
-    public function getQuantMinJogadores(): ?int
+    public function getQuantMaxJogadores(): ?int
     {
-        return $this->quant_min_jogadores;
+        return $this->quant_max_jogadores;
     }
 
-    public function setQuantMinJogadores(?int $quant_min_jogadores): self
+    public function setQuantMaxJogadores(?int $quant_max_jogadores): self
     {
-        $this->quant_min_jogadores = $quant_min_jogadores;
+        $this->quant_max_jogadores = $quant_max_jogadores;
 
         return $this;
     }
