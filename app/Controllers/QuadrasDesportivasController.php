@@ -5,8 +5,9 @@ namespace App\Controllers;
 use App\Dao\HorarioLocadorDAO;
 use App\Dao\LocadorDAO;
 use App\Dao\QuadraDAO;
+use App\Services\ReservaServices\CreateReservaService;
+
 use DateTime;
-use stdClass;
 
 class QuadrasDesportivasController extends Controller {
     private $locadorDAO;

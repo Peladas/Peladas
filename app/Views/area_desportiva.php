@@ -32,12 +32,7 @@ use App\Helpers\Formatter;
                         <div class="flex flex-col md:flex-row text-center md:text-left">
                             <h4 class="text-blue-800 dark:text-amber-300 mb-3">Endereço</h4>
                             <p class="w-auto text-wrap ml-10 text-right">
-                                <?= htmlspecialchars($endereco->getRua()) ?>,
-                                <?= htmlspecialchars($endereco->getNumero()) ?> -
-                                <?= htmlspecialchars($endereco->getBairro()) ?>,
-                                <?= htmlspecialchars($endereco->getCidade()) ?> -
-                                <?= htmlspecialchars($endereco->getEstado()) ?>,
-                                <?= Formatter::formatCEP(htmlspecialchars($endereco->getCep() ?? '-')) ?>
+                                <?= htmlspecialchars($endereco->getFullAddress()) ?>
                             </p>
                         </div>
                         <div class="flex flex-col md:flex-row text-center md:text-left">

@@ -3,6 +3,9 @@
 namespace App\Controllers;
 
 use App\Dao\ReservaDAO;
+use App\Exceptions\MethodNotAllowedException;
+use App\Services\ReservaServices\CreateReservaService;
+use Exception;
 
 class ReservaController extends Controller {
     private ReservaDAO $reservaDAO;
@@ -12,40 +15,40 @@ class ReservaController extends Controller {
         $this->reservaDAO = new ReservaDAO();
     }
 
-    /**
-     * Exibe todas as reservas do jogador logado.
-     */
-    public function listarReservasJogador() {
+    public function create() {
+        if ($this->getMethod() != 'post') {
+            throw new MethodNotAllowedException;
+        }
+        $data = $this->getBody();
+
         $jogador = $this->getJogador();
-        $reservas = $this->reservaDAO->getByJogadorId($jogador->getId());
+        $jogadorId = $jogador->getId();
 
-        $this->render('reservas/listar', ['reservas' => $reservas]);
-    }
+        $reservaExistente = $this->reservaDAO->first([
+            'quadra_id' => $data['quadra_id'],
+            'data_reserva' => $data['data_reserva'],
+            'horario_reservado' => $data['horario_reservado']
+        ]);
 
-    /**
-     * Cria uma nova reserva.
-     */
-    public function criarReserva() {
-        $body = $this->getBody();
-
-        // Validação básica dos dados
-        if (!isset($body['quadra_id'], $body['data_reserva'], $body['hora_inicio'], $body['hora_fim'])) {
-            throw new \InvalidArgumentException('Dados inválidos para criar reserva.');
+        if ($reservaExistente) {
+            throw new Exception('Já existe uma reserva para essa quadra no dia e horário selecionados');
         }
 
+        $reservaService = new CreateReservaService();
+        $errors = $reservaService->run($jogadorId, $data);
+
+        if (count($errors) > 0) {
+            return $this->render('show_quadra_desportiva', compact('errors', 'data'));
+        }
+
+        header("location: /lista-reservas");
+    }
+
+    public function index() {
         $jogador = $this->getJogador();
 
-        $data = [
-            'jogador_id' => $jogador->getId(),
-            'quadra_id' => $body['quadra_id'],
-            'tipo_reserva' => $body['tipo_reserva'],
-            'horario_reservado' => $body['horario_reservado'],
-            'quantidade_jogadores' => $body['quantidade_jogadores'],
-            'status' => 'pendente',
-        ];
+        $reservas = $this->reservaDAO->getAll(['jogador_id' => $jogador->getId()]);
 
-        $reservaId = $this->reservaDAO->criarReserva($data);
-
-        $this->render('reservas/listar', ['reservaId' => $reservaId]);
+        return $this->render('lista_reservas', compact('reservas'));
     }
 }

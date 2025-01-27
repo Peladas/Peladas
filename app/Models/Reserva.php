@@ -6,10 +6,12 @@ class Reserva extends Model {
 
     protected ?int $id;
     protected ?string $tipo_reserva;
+    protected ?string $data_reserva;
     protected ?string $horario_reservado;
     protected ?string $quantidade_jogadores;
 
     protected ?int $jogador_id;
+    protected ?int $quadra_id;
 
     /**
      * Get the value of id
@@ -47,9 +49,20 @@ class Reserva extends Model {
         return $this;
     }
 
+    public function getDataReserva(): ?string
+    {
+        return $this->data_reserva;
+    }
+
     /**
-     * Get the value of horario_reservado
+     * Set the value of horario_reservado
      */
+    public function setDataReserva(?string $data_reserva): self
+    {
+        $this->data_reserva = $data_reserva;
+
+        return $this;
+    }
     public function getHorarioReservado(): ?string
     {
         return $this->horario_reservado;
@@ -61,24 +74,6 @@ class Reserva extends Model {
     public function setHorarioReservado(?string $horario_reservado): self
     {
         $this->horario_reservado = $horario_reservado;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of quantidade_jogadores
-     */
-    public function getQuantidadeJogadores(): ?string
-    {
-        return $this->quantidade_jogadores;
-    }
-
-    /**
-     * Set the value of quantidade_jogadores
-     */
-    public function setQuantidadeJogadores(?string $quantidade_jogadores): self
-    {
-        $this->quantidade_jogadores = $quantidade_jogadores;
 
         return $this;
     }
@@ -97,6 +92,24 @@ class Reserva extends Model {
     public function setJogadorId(?int $jogador_id): self
     {
         $this->jogador_id = $jogador_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of quadra_id
+     */
+    public function getQuadraId(): ?int
+    {
+        return $this->quadra_id;
+    }
+
+    /**
+     * Set the value of quadra_id
+     */
+    public function setQuadraId(?int $quadra_id): self
+    {
+        $this->quadra_id = $quadra_id;
 
         return $this;
     }
