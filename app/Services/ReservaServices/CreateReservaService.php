@@ -29,6 +29,9 @@ class CreateReservaService {
         if (!Validator::notEmpty(value: $data['horario_reservado'])) {
             $errors['horario_reservado'] = 'Obrigatório selecionar um horário para realizar reserva';
         }
+        if (!isset($data['tipo_reserva']) || !Validator::notEmpty(value: $data['tipo_reserva'])) {
+            $errors['tipo_reserva'] = 'Obrigatório selecionar o tipo da partida!';
+        }
 
         return $errors;
     }
