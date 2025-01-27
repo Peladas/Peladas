@@ -71,6 +71,8 @@ use App\Helpers\Formatter;
                         <input type="radio" name="tipo_reserva" value="<?php echo PartidaTypeEnum::PUBLICA ?>" class="accent-purple-950"
                             onclick="selectTypePartida()" <?= isset($data['tipo_reserva']) && $data['tipo_reserva'] == 'publica' ? 'checked' : '' ?>> Pública
                     </div>
+
+                    <small class="helper-text text-red-600 font-sm"><?php echo $errors['tipo_reserva'] ?></small>
                 </div>
 
             </div>
@@ -109,6 +111,7 @@ use App\Helpers\Formatter;
                                 <div id="calendar-dates" class="grid grid-cols-7 text-black dark:text-white"></div>
                             </div>
                         </div>
+                        <small class="helper-text text-red-600 font-sm"><?php echo $errors['data_reserva'] ?></small>
 
                         <div>
                             <p class="mt-10 text-purple-800 dark:text-amber-300 text-base font-medium">Data selecionada: <span id="selected-date" class="dark:text-white text-center md:text-left text-blue-800">-</span></p>

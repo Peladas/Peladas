@@ -13,7 +13,8 @@ use App\Enums\PartidaTypeEnum;
         <?php
 
         foreach ($reservas as $reserva) { ?>
-            <div class="w-[220px] border-2 border-slate-700 p-3 rounded-md h-64 hover:scale-110 transition-all">
+
+            <a href="/lista-reservas/reserva/<?= $reserva->getId() ?>" class="w-[220px] border-2 border-slate-700 p-3 rounded-md h-64 hover:scale-110 transition-all">
                 <div>
                 <h4 class="text-amber-300 text-xl"><?php echo PartidaTypeEnum::getName($reserva->getTipoReserva()) ?></h4>
                 <div class="flex flex-col gap-2">
@@ -27,7 +28,7 @@ use App\Enums\PartidaTypeEnum;
                         </div>
                     </div>
                 </div>
-            </div>
+            </di>
         <?php } ?>
 
     </div>
