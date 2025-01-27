@@ -37,8 +37,8 @@ class UpdateQuadraService extends BaseQuadraService {
         if (!Validator::notEmpty(value: $data['tamanho_quadra'])) {
             $errors['tamanho_quadra'] = 'Obrigatório espicificar o tamanho da quadra';
         }
-        if (!Validator::notEmpty(value: $data['quant_min_jogadores'])) {
-            $errors['quant_min_jogadores'] = 'Obrigatório espicificar a quantidade mínima de jogadores';
+        if (!Validator::notEmpty(value: $data['quant_max_jogadores'])) {
+            $errors['quant_max_jogadores'] = 'Obrigatório espicificar a quantidade mínima de jogadores';
         }
         if (!Validator::notEmpty(value: $data['valor_aluguel'])) {
             $errors['valor_aluguel'] = 'Obrigatório espicificar o valor da quadra';

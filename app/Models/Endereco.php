@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Helpers\Formatter;
+
 class Endereco extends Model {
     protected ?int $id;
     protected ?String $rua;
@@ -158,16 +160,7 @@ class Endereco extends Model {
     }
 
     public function getFullAddress(): string {
-        $addressParts = [
-            $this->rua,
-            $this->numero,
-            $this->bairro,
-            $this->cidade,
-            $this->estado,
-            $this->cep,
-        ];
-
-        return implode(', ', $addressParts);
+        return $this->rua . ', ' . $this->numero . ' - ' . $this->bairro . ', ' .$this->cidade . ' - ' . $this->estado . ', ' . Formatter::formatCEP($this->cep);
     }
 }
 
