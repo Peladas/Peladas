@@ -4,12 +4,12 @@ use App\Enums\PartidaTypeEnum;
 use App\Helpers\Formatter;
 ?>
 
-<div class="h-auto flex flex-col justify-center m-12 md:m-10 mr-5 md:mt-40 gap-5">
+<div class="h-auto flex flex-col justify-center items-center p-5 gap-10">
 
     <form action="/cadastro-reserva" method="post">
         <input type="hidden" name="quadra_id" value="<?= $quadra->getId() ?>">
 
-        <h1 class="mb-10 text-2xl text-center dark:text-amber-300">Criar Partida</h1>
+        <h1 class="text-2xl text-center dark:text-amber-300 my-10">Criar Partida</h1>
 
         <div class="flex flex-col md:flex-row">
 
@@ -62,7 +62,7 @@ use App\Helpers\Formatter;
                 </div>
 
                 <div class="flex items-center gap-6 mt-3 md:mt-0">
-                <label class="text-purple-800 dark:text-yellow-300 text-base font-semibold">Tipo de Partida</label>
+                    <label class="text-purple-800 dark:text-yellow-300 text-base font-semibold">Tipo de Partida</label>
                     <div>
                         <input type="radio" name="tipo_reserva" value="<?php echo PartidaTypeEnum::PRIVADA ?>" class="accent-purple-950"
                             onclick="selectTypePartida()" <?= isset($data['tipo_reserva']) && $data['tipo_reserva'] == 'privada' ? 'checked' : '' ?>> Privada
@@ -76,62 +76,65 @@ use App\Helpers\Formatter;
                 </div>
 
             </div>
-                <div class="w-1/2 flex justify-center items-center mt-20 md:mt-0 ml-20 m:ml-0">
-                    <div class="flex flex-col">
-                        <p class="text-xl dark:text-white mb-8 align-center text-center text-[#6b21a8]">Selecione uma data</p>
-                        <div id="calendar-container"></div>
-                        <div class="w-[420px] md:max-w-[500px]">
-                            <div class="flex items-center justify-between text-amber-300 mb-3 ">
-                                <p class="text-purple-800 font-semibold dark:text-amber-300 text-lg" id="calendar-current-date"></p>
-                                <div id="calendar-navigation">
-                                    <span
-                                        id="calendar-prev"
-                                        class="material-symbols-rounded rounded-full hover:bg-zinc-800 cursor-pointer text-purple-800 dark:text-amber-300">
-                                        chevron_left
-                                    </span>
-                                    <span
-                                        id="calendar-next"
-                                        class="material-symbols-rounded rounded-full hover:bg-zinc-800 cursor-pointer text-purple-800 dark:text-amber-300">
-                                        chevron_right
-                                    </span>
-                                </div>
-                            </div>
+            <div class="w-1/2 flex justify-center items-center">
+                <div class="flex flex-col justify-center items-center">
+                    <h1 class="text-xl dark:text-white mb-8 align-center text-center">Selecione uma data</h1>
+                    <div id="calendar-container"></div>
 
-                            <div id="calendar-body" class="text-stone-200">
-                                <div id="calendar-weekdays" class="grid grid-cols-7 text-start gap-7">
-                                    <span class="text-center text-blue-800 dark:text-orange-400">Dom</span>
-                                    <span class="text-center text-blue-800 dark:text-orange-400">Seg</span>
-                                    <span class="text-center text-blue-800 dark:text-orange-400">Ter</span>
-                                    <span class="text-center text-blue-800 dark:text-orange-400">Qua</span>
-                                    <span class="text-center text-blue-800 dark:text-orange-400">Qui</span>
-                                    <span class="text-center text-blue-800 dark:text-orange-400">Sex</span>
-                                    <span class="text-center text-blue-800 dark:text-orange-400">Sab</span>
-                                </div>
-
-                                <div id="calendar-dates" class="grid grid-cols-7 text-black dark:text-white"></div>
+                    <div class="w-80 md:w-4/5">
+                        <div class="flex items-center justify-between text-amber-300 mb-3 ">
+                            <p class="text-purple-800 font-semibold dark:text-amber-300 text-lg" id="calendar-current-date"></p>
+                            <div id="calendar-navigation">
+                                <span
+                                    id="calendar-prev"
+                                    class="material-symbols-rounded rounded-full hover:bg-zinc-800 cursor-pointer text-purple-800 dark:text-amber-300">
+                                    chevron_left
+                                </span>
+                                <span
+                                    id="calendar-next"
+                                    class="material-symbols-rounded rounded-full hover:bg-zinc-800 cursor-pointer text-purple-800 dark:text-amber-300">
+                                    chevron_right
+                                </span>
                             </div>
                         </div>
-                        <small class="helper-text text-red-600 font-sm"><?php echo $errors['data_reserva'] ?></small>
 
-                        <div>
-                            <p class="mt-10 text-purple-800 dark:text-amber-300 text-base font-medium">Data selecionada: <span id="selected-date" class="dark:text-white text-center md:text-left text-blue-800">-</span></p>
+                        <div id="calendar-body" class="text-stone-200">
+                            <div id="calendar-weekdays" class="grid grid-cols-7 text-start gap-7">
+                                <span class="text-center text-blue-800 dark:text-orange-400">Dom</span>
+                                <span class="text-center text-blue-800 dark:text-orange-400">Seg</span>
+                                <span class="text-center text-blue-800 dark:text-orange-400">Ter</span>
+                                <span class="text-center text-blue-800 dark:text-orange-400">Qua</span>
+                                <span class="text-center text-blue-800 dark:text-orange-400">Qui</span>
+                                <span class="text-center text-blue-800 dark:text-orange-400">Sex</span>
+                                <span class="text-center text-blue-800 dark:text-orange-400">Sab</span>
+                            </div>
+
+                            <div id="calendar-dates" class="grid grid-cols-7 text-black dark:text-white"></div>
                         </div>
+                    </div>
+                    <small class="helper-text text-red-600 font-sm"><?php echo $errors['data_reserva'] ?></small>
+
+                    <div>
+                        <p class="mt-10 text-purple-800 dark:text-amber-300 text-base font-medium">Data selecionada: <span id="selected-date" class="dark:text-white text-center md:text-left text-blue-800">-</span></p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="flex flex-col items-center justify-center my-16">
-        <h1 class="m-5 text-lg">Disponibilidade</h1>
-        <div class="mt-3">
-            <input type="hidden" id="selected-date-iso" name="data_reserva">
-            <input type="hidden" id="selected-time" name="horario_reservado">
-            <div id="disponibilidades" class="flex flex-row gap-10">Selecione uma data para vizualizar a disponibilidade</div>
-        </div>
-        </div>
+</div>
 
-        <div class="mt-4 flex justify-center md:justify-start">
-            <button color="black" class="rounded-full border border-slate- mr-5 houver:bg-color focus:border-blue-400" type="submit">Reservar Quadra</button>
+<div class="flex flex-col items-center justify-center gap-10">
+    <h1 class="text-xl dark:text-amber-300">Disponibilidade</h1>
+    <div class="gap-10 mb-10">
+        <input type="hidden" id="selected-date-iso" name="data_reserva">
+        <input type="hidden" id="selected-time" name="horario_reservado">
+        <p id="disponibilidades" class="text-wrap mb-5">Selecione uma data para vizualizar a disponibilidade</p>
+
+        <div class="flex md:justify-center justify-start">
+            <button color="black" class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300"
+                type="submit">Reservar Quadra</button>
         </div>
+    </div>
+
     </form>
 </div>
 
@@ -303,7 +306,7 @@ use App\Helpers\Formatter;
         horarios.forEach(horario => {
             const element = document.createElement('button');
             // element.classList =
-            element.type ='button';
+            element.type = 'button';
             element.innerText = horario;
             element.addEventListener('click', () => {
                 const timeElement = document.getElementById('selected-time');
@@ -332,4 +335,3 @@ use App\Helpers\Formatter;
         });
     }
 </script>
-

@@ -18,7 +18,7 @@
     <div class="section h-auto text-xl bg-auto bg-no-repeat relative bg-[#FFFFFF] dark:bg-zinc-800 shadow-sm shadow-zinc-200">
 
         <!--Imagem de Cima-->
-        <img src="/imagens/mini2Jogador_branco.png" class="absolute top-0 right-0 h-80 w-80invisible md:visible block dark:hidden">
+        <img src="/imagens/mini2Jogador_branco.png" class="absolute top-0 right-0 h-80 w-80 invisible md:visible block dark:hidden">
         <img src="imagens/mini_img1.png" class="absolute top-o left-0 h-80 w-80 invisible md:dark:visible hidden dark:block">
         <!--Imagem de Baixo-->
         <img src="/imagens/mini1_branco.png" class="absolute bottom-0 left-5 h-72 w-80 invisible md:visible block dark:hidden">

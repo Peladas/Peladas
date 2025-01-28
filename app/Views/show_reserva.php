@@ -2,18 +2,16 @@
 
 use App\Enums\PartidaTypeEnum;
 use App\Helpers\Formatter;
+
 ?>
 
-<div class="h-auto flex flex-col justify-center m-12 md:m-10 mr-5 md:mt-40 gap-5">
+<div class="h-full flex flex-col justify-center gap-5">
 
-    <h1 class="mb-10 text-2xl text-center dark:text-amber-300">Reserva</h1>
+    <h1 class="my-8 text-2xl text-center dark:text-amber-300" style="font-family: 'Anton SC', sans-serif;">Reserva</h1>
 
-    <div class="flex flex-col md:flex-row">
+    <div class="flex flex-col md:flex-row justify-center items-center justify-items-center">
 
-        <div class="flex flex-col w-1/2 ">
-
-            <div class="flex items-center justify-center justify-items-center text-center">
-            </div>
+        <div class="flex flex-col gap-6 justify-center items-center">
 
             <div class="flex flex-col md:flex-row itemns-center justify-center">
                 <div class="border-[1px] border-gray-300 p-4 rounded-lg bg-gray-200 dark:bg-zinc-900 w-56 md:w-48 h-48 flex items-center justify-center">
@@ -23,20 +21,20 @@ use App\Helpers\Formatter;
                 </div>
             </div>
 
-            <div class="flex flex-col gap-4 w-full md:w-auto md:ml-12 mt-5 md:mt-0">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 w-full md:w-96">
+            <div class="flex flex-col gap-6 w-80 m-3 text-wrap">
+                <div class="gap-3 w-full md:w-96">
                     <p>
                         <span class="text-blue-800 dark:text-amber-300">Tipo de partida:</span>
                         <span class="text-slate-800 dark:text-slate-100"><?= PartidaTypeEnum::getName($reserva->getTipoReserva()) ?></span>
                     </p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 w-full md:w-96">
+                <div class="gap-3 text-wrap">
                     <p>
                         <span class="text-blue-800 dark:text-amber-300">Data da partida:</span>
                         <span class="text-slate-800 dark:text-slate-100"><?php echo $reserva->getDataReserva() ?></span>
                     </p>
                 </div>
-                <div class="grid grid-cols-1 gap-3 w-full md:w-96">
+                <div class="w-full md:w-96">
                     <p>
                         <span class="text-blue-800 dark:text-amber-300">Horário da partida:</span>
                         <span class="text-slate-800 dark:text-slate-100"><?php echo $reserva->getHorarioReservado() ?></span>
