@@ -1,15 +1,13 @@
         <!--///////// 1 ////-->
 
-        <div class="content flex-grow">
+        <div class="size-full">
 
-            <div class="section sm:h-full bg-fixed bg-cover bg-center md:bg-right bg-[url('imagens/fundBrancoLoc.png')] md:bg-[url('imagens/teste.png')] dark:bg-[url('imagens/fundoLocador_md.png')] md:dark:bg-[url('imagens/fundo_locador.png')] shadow-2xl dark:bg-zinc-900">
-                <div class="h-screen md:ml-16 md:w-1/2 flex justify-center md:justify-start">
-                    <div class="text-xl sm:text-2xl flex flex-col justify-center py-10 p-4 md:p-0">
-                        <div class="flex flex-col md:flex-row gap-0 md:gap-2 text-4xl text-left flex-wrap">
-                            <h1 class="dark:text-yellow-400 text-center md:text-left hyphens-auto md:py-auto">Seja Bem-Vindo Locador!</h1>
-                        </div>
+            <div class="h-screen section bg-fixed bg-cover bg-center md:bg-right bg-[url('imagens/fundBrancoLoc.png')] md:bg-[url('imagens/teste.png')] dark:bg-[url('imagens/fundoLocador_md.png')] md:dark:bg-[url('imagens/fundo_locador.png')] shadow-2xl dark:bg-zinc-900">
+                <div class="md:ml-16 md:w-1/2 flex justify-center items-center md:justify-start">
+                    <div class="flex flex-col justify-center items-center md:justify-start md:items-start pt-20">
+                            <h1 class="dark:text-yellow-400 text-4xl md:text-left">Seja Bem-Vindo Locador!</h1>
 
-                        <p class="w-auto md:w-4/6 mt-12 md:mt-8 mb-2 md:mb-2 md:text-2xl text-center md:text-left">Simplifique a gestão das suas quadras esportivas com nossa plataforma!
+                            <p class="w-auto md:w-4/6 mt-12 md:mt-8 mb-2 md:mb-2 md:text-2xl text-xl text-center md:text-left">Simplifique a gestão das suas quadras esportivas com nossa plataforma!
                             Gerencie reservas de forma intuitiva, aumente a visibilidade e a ocupação, e alcance novos públicos.
                             Otimize operações e foque em oferecer uma experiência excepcional aos seus clientes. Leve seu negócio esportivo a outro nível!</p>
                     </div>
