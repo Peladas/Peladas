@@ -5,7 +5,7 @@ use App\Enums\PartidaTypeEnum;
 
 <div class="flex flex-col size-full p-5 items-center justify-center gap-10">
 
-    <h1 class="text-2xl dark:text-amber-300 text-center">Minhas Reservas</h1>
+    <h1 class="text-2xl dark:text-amber-300 text-center">Minhas Locações</h1>
 
     <div class="flex flex-wrap gap-16">
 
@@ -14,7 +14,7 @@ use App\Enums\PartidaTypeEnum;
         foreach ($reservas as $reservaDado) {
             $reserva = $reservaDado['reserva'];
             $quadra = $reservaDado['quadra'];
-            $locador = $reservaDado['locador'];
+            $jogador = $reservaDado['jogador'];
         ?>
 
             <a href="/lista-reservas/reserva/<?= $reserva->getId() ?>" class="border bg-transparent rounded-lg py-3 px-5">
@@ -23,8 +23,8 @@ use App\Enums\PartidaTypeEnum;
 
                 <div class="flex flex-col gap-4">
                     <div class="flex flex-row text-wrap h-auto">
-                        <p class="text-blue-800 dark:text-slate-100 text-xs md:text-sm font-medium md:font-semibold w-1/2">Locador</p>
-                        <p class="text-xs md:text-sm w-1/2 text-wrap text-right"><?php echo $locador->getNomeFantasia() ?></p>
+                        <p class="text-blue-800 dark:text-slate-100 text-xs md:text-sm font-medium md:font-semibold w-1/2">Jogador</p>
+                        <p class="text-xs md:text-sm w-1/2 text-wrap text-right"><?php echo $jogador->getNomeJogador() ?></p>
                     </div>
 
                     <div class="flex flex-row text-wrap h-auto">

@@ -38,6 +38,7 @@ $router->get(url: '/api/quadra/:quadraId/disponibilidade', controller: QuadrasDe
 
 //Viualização Reservas
 $router->get(url: '/lista-reservas', controller: ReservaController::class, method: 'index');
+$router->get(url: '/lista-reservas-locador', controller: ReservaController::class, method: 'indexLocador');
 $router->get(url: '/lista-reservas/reserva/:id', controller: ReservaController::class, method: 'show');
 $router->post(url: '/cadastro-reserva', controller: ReservaController::class, method: 'create');
 $router->get(url: '/editar-reserva/:id', controller: ReservaController::class, method: 'update');

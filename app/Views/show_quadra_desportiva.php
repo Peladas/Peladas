@@ -16,7 +16,7 @@ use App\Helpers\Formatter;
             <div class="flex flex-col w-1/2 ">
 
                 <div class="flex items-center justify-center justify-items-center text-center">
-                <h1 class="text-2xl text-center dark:text-amber-300 my-10">Dados da Quadra</h1>
+                <h1 class="text-xl text-center dark:text-amber-300 my-10">Dados da Quadra</h1>
                 </div>
 
                 <div class="flex flex-col md:flex-row itemns-center justify-center">
@@ -31,6 +31,10 @@ use App\Helpers\Formatter;
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 w-full md:w-96">
 
+                            <p>
+                                <span class="text-blue-800 dark:text-amber-300">Locador:</span>
+                                <span class="text-slate-800 dark:text-slate-100"><?= $locador->getNomeFantasia() ?></span>
+                            </p>
                             <p>
                                 <span class="text-blue-800 dark:text-amber-300">Tipo:</span>
                                 <span class="text-slate-800 dark:text-slate-100"><?= $quadra->getIdentificador() ?></span>
@@ -68,11 +72,11 @@ use App\Helpers\Formatter;
                     <label class="text-purple-800 dark:text-yellow-300 text-base font-semibold">Tipo de Partida</label>
                     <div>
                         <input type="radio" name="tipo_reserva" value="<?php echo PartidaTypeEnum::PRIVADA ?>" class="accent-purple-950"
-                            onclick="selectTypePartida()" <?= isset($data['tipo_reserva']) && $data['tipo_reserva'] == 'privada' ? 'checked' : '' ?>> Privada
+                            onclick="selectTypePartida()" <?= isset($data['tipo_reserva']) && $data['tipo_reserva'] == PartidaTypeEnum::PRIVADA ? 'checked' : '' ?>> Privada
                     </div>
                     <div>
                         <input type="radio" name="tipo_reserva" value="<?php echo PartidaTypeEnum::PUBLICA ?>" class="accent-purple-950"
-                            onclick="selectTypePartida()" <?= isset($data['tipo_reserva']) && $data['tipo_reserva'] == 'publica' ? 'checked' : '' ?>> Pública
+                            onclick="selectTypePartida()" <?= isset($data['tipo_reserva']) && $data['tipo_reserva'] == PartidaTypeEnum::PUBLICA ? 'checked' : '' ?>> Pública
                     </div>
 
                     <small class="helper-text text-red-600 font-sm"><?php echo $errors['tipo_reserva'] ?? '' ?></small>

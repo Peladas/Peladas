@@ -70,6 +70,40 @@ class BaseDAO
         }
     }
 
+    public function getSQL(string $sql, array $filters = []): array
+    {
+        try {
+            $query = $sql;
+            if (count($filters) > 0) {
+                $wheres = [];
+                foreach ($filters as $key => $value) {
+                    switch ($value) {
+                        case 'NULL':
+                            $wheres[] = "$key IS NULL";
+                            break;
+                        case 'NOT NULL':
+                            $wheres[] = "$key IS NOT NULL";
+                            break;
+                        default:
+                            $operator = (str_starts_with($value, '!')) ? '!=' : '=';
+                            if (str_starts_with($value, '!')) $value = ltrim($value, '!');
+                            $wheres[] = "$key $operator $value";
+                            break;
+                    }
+                }
+                $query .= ' WHERE ' . implode(' AND ', $wheres);
+            }
+            Log::info($query);
+            $statement = $this->prepareConsultation($query);
+            return $statement->fetchAll(PDO::FETCH_CLASS, $this->getModelName());
+        } catch (PDOException $th) {
+            // 1- Escrever no log
+            Log::error($th->getMessage());
+            // 2- Lançar um erro personalizado (tipo um PDOException)
+            throw $th;
+        }
+    }
+
     public function find(string|int $id): mixed
     {
         $tableName = $this->getTableName();
