@@ -20,7 +20,10 @@ class QuadrasDesportivasController extends Controller {
         $quadraDAO = new QuadraDAO();
         $quadra = $quadraDAO->find($id);
 
-        return $this->render('show_quadra_desportiva', compact('quadra'));
+        $locadorDAO = new LocadorDAO();
+        $locador = $locadorDAO->find($quadra->getLocadorId());
+
+        return $this->render('show_quadra_desportiva', compact('quadra', 'locador'));
     }
 
     public function getDisponibilidade(int $quadraId) {

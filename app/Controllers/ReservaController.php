@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Dao\JogadorDAO;
+use App\Dao\LocadorDAO;
 use App\Dao\QuadraDAO;
 use App\Dao\ReservaDAO;
 use App\Exceptions\MethodNotAllowedException;
@@ -17,11 +19,50 @@ class ReservaController extends Controller {
     }
 
     public function index() {
+        //Lista as reservas do Jogador
         $jogador = $this->getJogador();
 
-        $reservas = $this->reservaDAO->getAll(['jogador_id' => $jogador->getId()]);
+        $reservas = array();
+        /*$reservaDado = array("reserva" => ,
+                           "quadra" => ,
+                                    "locador" => );
+        */
+        $quadraDAO = new QuadraDAO();
+        $locadorDAO = new LocadorDAO();
+
+        $reservasAux = $this->reservaDAO->getAll(['jogador_id' => $jogador->getId()]);
+        foreach($reservasAux as $r) {
+            $reservaDado['reserva'] = $r;
+            $reservaDado['quadra'] = $quadraDAO->find($r->getQuadraId());
+            $reservaDado['locador'] = $locadorDAO->find($reservaDado['quadra']->getLocadorId());
+            array_push($reservas, $reservaDado);
+        }
 
         return $this->render('lista_reservas', compact('reservas'));
+    }
+
+    public function indexLocador() {
+        //Lista as reservas do Locador
+        $locador = $this->getLocador();
+
+        $sql = "SELECT r.* FROM reservas r
+                WHERE r.quadra_id IN (SELECT sub.id FROM quadras sub WHERE sub.locador_id = " . $locador->getId() . ")";
+
+        $reservasAux = $this->reservaDAO->getSQL($sql);
+
+        $reservas = array();
+
+        $quadraDAO = new QuadraDAO();
+        $jogadorDAO = new JogadorDAO();
+
+        foreach($reservasAux as $r) {
+            $reservaDado['reserva'] = $r;
+            $reservaDado['quadra'] = $quadraDAO->find($r->getQuadraId());
+            $reservaDado['jogador'] = $jogadorDAO->find($r->getJogadorId());
+            array_push($reservas, $reservaDado);
+        }
+
+        return $this->render('lista_reservas_locador', compact('reservas'));
     }
 
     public function create() {
@@ -51,7 +92,10 @@ class ReservaController extends Controller {
             $quadraDAO = new QuadraDAO();
             $quadra = $quadraDAO->find($data['quadra_id']);
 
-            return $this->render('show_quadra_desportiva', compact('errors', 'data', 'quadra'));
+            $locadorDAO = new LocadorDAO();
+            $locador = $locadorDAO->find($quadra->getLocadorId());
+
+            return $this->render('show_quadra_desportiva', compact('errors', 'data', 'quadra', 'locador'));
         }
 
         header("location: /lista-reservas");
