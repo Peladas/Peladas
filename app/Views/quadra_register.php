@@ -10,11 +10,11 @@
                 <div class="w-80 md:w-full">
                     <select id="identificador" name="identificador" class="px-10 peer w-2/5 h-10 px-2 border-2 border-purple-700 dark:border-amber-300 rounded-lg placeholder-transparent dark:bg-zinc-900 bg-transparent text-gray-500" name="select" id="">
                         <option>Tipo de quadra</option>
-                        <option value="Areia" <?php echo (isset($data['identificador']) && $data['identificador'] == "Areia" ? 'selected' : '' ) ?>>Areia</option>
-                        <option value="Madeira">Madeira</option>
-                        <option value="Concreto">Concreto</option>
-                        <option value="Grama Natural">Grama Natural</option>
-                        <option value="Grama Sintética">Grama Sintética</option>
+                        <option value="Areia" <?php echo isset($data['identificador']) && $data['identificador'] == "Areia" ? 'selected' : ''  ?>>Areia</option>
+                        <option value="Madeira <?php echo isset($data['identificador']) && $data['identificador'] == "Madeira" ? 'selected' : ''  ?>">Madeira</option>
+                        <option value="Concreto <?php echo isset($data['identificador']) && $data['identificador'] == "Concreto" ? 'selected' : ''  ?>">Concreto</option>
+                        <option value="Grama Natural <?php echo isset($data['identificador']) && $data['identificador'] == "Grama Natural" ? 'selected' : ''  ?>">Grama Natural</option>
+                        <option value="Grama Sintética <?php echo isset($data['identificador']) && $data['identificador'] == "Grama Sintética" ? 'selected' : ''  ?>">Grama Sintética</option>
                     </select>
                     <?php if (isset($errors['identificador'])) { ?>
                         <small class="helper-text text-red-600 font-sm"><?php echo $errors['identificador'] ?></small>
