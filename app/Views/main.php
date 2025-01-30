@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Geo&family=Jersey+10&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Geo&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300..800&display=swap" rel="stylesheet">
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300..700&display=swap" rel="stylesheet">
+
 
     <script type="text/javascript">
         tailwind.config = {
@@ -26,8 +26,7 @@
     </script>
 
     <style>
-
-        :root{
+        :root {
             --header_heigth: 70px;
         }
 
@@ -52,6 +51,10 @@
             font-family: "Anton SC", sans-serif;
             font-weight: 400;
             font-style: normal;
+        }
+
+        h4 {
+            font-family:'Oswald', sans-serif;;
         }
 
         html.dark h1 {
@@ -287,14 +290,13 @@
             background-color: transparent;
             margin: 2px;
         }
-
     </style>
 </head>
 
 <body class="bg-slate-100 dark:bg-zinc-900 dark:text-[#fafafa] break-words max-h-min">
     <?php (isset($is_logged) && $is_logged) ? include_once __DIR__ . "/layout_logged.php" : include_once __DIR__ . "/layout_guest.php"; ?>
 
-    <?php if(isset($errors['global'])) { ?>
+    <?php if (isset($errors['global'])) { ?>
         <div id="error-wrapper" class="absolute bottom-10 w-full flex justify-center">
             <div class="bg-red-500 text-white px-4 py-2 rounded flex gap-4">
                 <?php echo $errors['global'] ?>
@@ -304,8 +306,6 @@
     <?php } ?>
 
     <script type="text/javascript">
-
-
         const errorCloseBtn = document.getElementById('error-msg-close-btn');
         if (errorCloseBtn) {
             errorCloseBtn.addEventListener('click', () => {
@@ -313,8 +313,8 @@
                 errorWrapper.remove();
             });
         }
-
     </script>
 </body>
+
 </html>
 </style>

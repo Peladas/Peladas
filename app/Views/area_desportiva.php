@@ -128,7 +128,7 @@ use App\Helpers\Formatter;
                             <p class="text-xs md:text-sm absolute bottom-0 right-0"><?php echo $quadra->getTamanhoQuadra() ?></p>
                         </div>
                         <div class="flex flex-row relative mt-5">
-                            <p class="text-xs md:text-sm absolute bottom-0 right-0 text-orange-400"><?php echo Formatter::formatCurrency($quadra->getValorAluguel()) ?></p>
+                            <p class="text-xs md:text-sm absolute bottom-0 right-0 text-orange-600 font-semibold"><?php echo Formatter::formatCurrency($quadra->getValorAluguel()) ?></p>
                         </div>
                     </div>
                 </a>

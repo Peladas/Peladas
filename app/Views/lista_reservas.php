@@ -19,7 +19,7 @@ use App\Enums\PartidaTypeEnum;
 
             <a href="/lista-reservas/reserva/<?= $reserva->getId() ?>" class="border bg-transparent rounded-lg py-3 px-5">
 
-                <h4 class="text-amber-300 text-xl flex static mb-6"><?php echo PartidaTypeEnum::getName($reserva->getTipoReserva()) ?></h4>
+                <h4 class="dark:text-amber-300 text-xl flex static font-semibold mb-6"><?php echo PartidaTypeEnum::getName($reserva->getTipoReserva()) ?></h4>
 
                 <div class="flex flex-col gap-4">
                     <div class="flex flex-row text-wrap h-auto">

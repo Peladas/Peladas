@@ -6,7 +6,7 @@ use App\Enums\PartidaTypeEnum;
 
 <div class="h-full flex flex-col justify-center gap-5">
 
-    <h1 class="my-8 text-2xl text-center dark:text-amber-300" style="font-family: 'Anton SC', sans-serif;">Reserva</h1>
+    <h1 class="my-8 text-2xl text-center dark:text-amber-300">Reserva</h1>
 
     <div class="flex flex-col md:flex-row justify-center items-center justify-items-center">
 
