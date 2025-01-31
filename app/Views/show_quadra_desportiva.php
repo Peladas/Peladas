@@ -17,7 +17,7 @@ use App\Helpers\Formatter;
 
             <div class="flex flex-col gap-10 w-1/2">
 
-                <h1 class="text-xl text-center dark:text-amber-300 text-black">Dados da Quadra</h1>
+                <h1 class="text-xl text-center dark:text-white text-black">Dados da Quadra</h1>
 
                 <div class="flex flex-col md:flex-row items-center justify-center gap-6 w-auto">
 
@@ -312,37 +312,36 @@ use App\Helpers\Formatter;
     const renderElement = document.getElementById('disponibilidades');
     renderElement.innerHTML = null;
 
-    // Criação do contêiner para os horários, com grid e espaçamento
+
     const gridContainer = document.createElement('div');
-    gridContainer.classList.add('grid', 'grid-cols-2', 'gap-4');  // 2 colunas com espaçamento de 4px entre os itens
+    gridContainer.classList.add('grid', 'grid-cols-4', 'gap-4');
 
     horarios.forEach(horario => {
         const element = document.createElement('button');
-        // Adiciona a classe de cor vermelha e estiliza os botões
+
         element.classList.add('text-black', 'border-[1px]', 'border-slate-800', 'p-2', 'hover:bg-cyan-300', 'rounded-full', 'transform',
-            'hover:scale-105', // Aumenta o tamanho do botão
-            'hover:translate-y-2', // Move o botão para baixo
-            'transition-all', // Aplica transições em todos os efeitos
+            'hover:scale-105',
+            'hover:translate-y-2',
+            'transition-all',
             'duration-300',
             'dark:focus:bg-slate-900',
             'focus:bg-cyan-500',
             'dark:text-white',
-            'dark:border-slate-600') // Duração suave de 300ms);
+            'dark:border-slate-600')
         element.type = 'button';
         element.innerText = horario;
 
-        // Adiciona o evento de clique
+
         element.addEventListener('click', () => {
             const timeElement = document.getElementById('selected-time');
             timeElement.value = horario;
             console.log(horario);
         });
 
-        // Adiciona o botão ao contêiner
+
         gridContainer.appendChild(element);
     });
 
-    // Adiciona o contêiner com os horários ao elemento principal
     renderElement.appendChild(gridContainer);
 }
 </script>

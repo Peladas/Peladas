@@ -8,9 +8,9 @@ use App\Helpers\Formatter;
 
     <div class="flex flex-col md:flex-row">
 
-        <div class="flex flex-col w-auto md:w-1/2">
+        <div class="flex flex-col w-auto md:w-1/2 items-center justify-center">
 
-            <div class="flex flex-col ml-18 items-center text-center justify-center">
+            <div class="flex flex-col ml-3 md:ml-18 items-center text-center justify-center">
 
                 <div class="flex flex-col gap-2 mb-10 mt-5 md:mt-auto md:mb-5 items-center w-40 h-40 border rounded-lg dark:border-white border-slate-900 shadow-sm shadow-gray-600">
 
@@ -25,22 +25,22 @@ use App\Helpers\Formatter;
                 <h1 class="text-center my-6 md:mb-8 dark:text-amber-300 text-3xl"><?= $locador->getNomeFantasia() ?></h1>
 
             </div>
-            <div class="flex flex-col gap-8 h-auto items-center justify-center w-3/4">
+            <div class="flex flex-col gap-8 w-full h-auto items-center justify-center w-96 md:w-3/4">
 
                 <!-- Colocar foto padrão enquanto não temos sistema de cadastro de imagem -->
 
                 <div class="mt-[1px] flex flex-col items-center justify-center">
-                    <div class="flex flex-col gap-5 md:pt-8 md:p-14 pt-0 mt-10 md:mt-0">
+                    <div class="flex flex-col gap-7 pt-0 mt-10 md:mt-0">
                         <div class="flex flex-col md:flex-row text-center md:text-left">
                             <h4 class="text-blue-800 dark:text-amber-300 mb-3">Endereço</h4>
-                            <p class="w-auto text-wrap ml-10 text-right">
+                            <p class="w-auto text-wrap md:ml-10 text-center md:text-right">
                                 <?= htmlspecialchars($endereco->getFullAddress()) ?>
                             </p>
                         </div>
 
                         <div class="flex flex-col md:flex-row text-center md:text-left">
                             <h4 class="text-blue-800 dark:text-amber-300 mb-3">Telefone</h4>
-                            <p class="m-0 md:ml-12 txt-center md:text-right"><?= Formatter::formatPhoneNumber(htmlspecialchars($telefone ?? '-')) ?></p>
+                            <p class="m-0 md:ml-12 text-center md:text-right"><?= Formatter::formatPhoneNumber(htmlspecialchars($telefone ?? '-')) ?></p>
                         </div>
                     </div>
                 </div>
@@ -50,16 +50,16 @@ use App\Helpers\Formatter;
 
         <!--////////////////////////////-->
 
-        <div class="w-1/2 mt-20 md:mt-0">
+        <div class="w-1/2 mt-20 md:mt-0 items-center justify-center">
 
-            <div class="flex flex-col w-96 md:w-[500px] ml-9 md:ml-20 justify-center items-center">
+            <div class="flex flex-col w-96 md:w-4/5 ml-0 md:ml-20 justify-center items-center">
 
                 <h1 class="text-center text-xl mb-3 md:mb-2 dark:text-white">Horários para Locações</h1>
 
                 <?php
                 if (count($horarios)) {
                 ?>
-                    <table class="table-auto border-collapse mt-14 w-auto md:w-full">
+                    <table class="table-auto border-collapse mt-14 w-full md:w-full">
                         <thead>
                             <tr>
                                 <th class="text-left py-3 pr-24 md:pr-0">Dia</th>
