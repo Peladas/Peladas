@@ -45,8 +45,6 @@ class ReservaController extends Controller {
             $condicoes['tipo_reserva'] = $partidaFiltro;
         }
 
-
-
         $reservasAux = $this->reservaDAO->getAll($condicoes);
         foreach ($reservasAux as $r) {
             $reservaDado['reserva'] = $r;
@@ -60,32 +58,43 @@ class ReservaController extends Controller {
     }
 
     public function indexLocador() {
+        $this->atualizarStatusReservasConcluidas();
         $locador = $this->getLocador();
 
+        $statusFiltro = isset($_GET['status']) ? $_GET['status'] : null;
+        $partidaFiltro = isset($_GET['tipo_reserva']) ? $_GET['tipo_reserva'] : null;
+        $reservas = [];
+        $quadraDAO = new QuadraDAO();
+        $jogadorDAO = new JogadorDAO();
+        $dataAtual = date('Y-m-d');
+
+        // Construção da consulta SQL dinâmica com os filtros
         $sql = "SELECT r.* FROM reservas r
                 WHERE r.quadra_id IN (SELECT sub.id FROM quadras sub WHERE sub.locador_id = " . $locador->getId() . ")";
 
+        if ($statusFiltro) {
+            $sql .= " AND r.status = '$statusFiltro'";
+        } else {
+            $sql .= " AND r.status != '" . ReservaStatusEnum::CANCELED . "'";
+        }
+
+        if ($partidaFiltro) {
+            $sql .= " AND r.tipo_reserva = '$partidaFiltro'";
+        }
+
         $reservasAux = $this->reservaDAO->getSQL($sql);
-        $reservasFeitas = [];
-        $reservasConcluidas = [];
-        $quadraDAO = new QuadraDAO();
-        $jogadorDAO = new JogadorDAO();
-        $dataAtual = date('Y-m-d'); // Obtém a data atual
 
         foreach ($reservasAux as $r) {
             $reservaDado['reserva'] = $r;
             $reservaDado['quadra'] = $quadraDAO->find($r->getQuadraId());
             $reservaDado['jogador'] = $jogadorDAO->find($r->getJogadorId());
 
-            if ($r->getDataReserva() < $dataAtual) {
-                $reservasConcluidas[] = $reservaDado;
-            } else {
-                $reservasFeitas[] = $reservaDado;
-            }
+            array_push($reservas, $reservaDado);
         }
 
-        return $this->render('lista_reservas_locador', compact('reservasFeitas', 'reservasConcluidas'));
+        return $this->render('lista_reservas_locador', compact('reservas'));
     }
+
 
     public function create() {
         if ($this->getMethod() != 'post') {
