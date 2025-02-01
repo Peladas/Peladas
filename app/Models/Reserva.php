@@ -9,6 +9,7 @@ class Reserva extends Model {
     protected ?string $data_reserva;
     protected ?string $horario_reservado;
     protected ?string $quantidade_jogadores;
+    protected ?int $status;
 
     protected ?int $jogador_id;
     protected ?int $quadra_id;
@@ -110,6 +111,24 @@ class Reserva extends Model {
     public function setQuadraId(?int $quadra_id): self
     {
         $this->quadra_id = $quadra_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of status
+     */
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set the value of status
+     */
+    public function setStatus(?int $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }

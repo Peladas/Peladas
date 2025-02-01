@@ -43,8 +43,7 @@ $router->get(url: '/lista-reservas/reserva/:id', controller: ReservaController::
 $router->post(url: '/cadastro-reserva', controller: ReservaController::class, method: 'create');
 $router->get(url: '/editar-reserva/:id', controller: ReservaController::class, method: 'update');
 $router->post(url: '/editar-reserva/:id', controller: ReservaController::class, method: 'update');
-$router->get(url: '/remover-reserva/:id', controller: ReservaController::class, method: 'delete');
-$router->post(url: '/remover-reserva/:id', controller: ReservaController::class, method: 'delete');
+$router->post(url: '/cancelar-reserva/:id', controller: ReservaController::class, method: 'cancel');
 
 //Viualização Quadras
 $router->get(url: '/minhas-quadras', controller: QuadraController::class, method: 'index');

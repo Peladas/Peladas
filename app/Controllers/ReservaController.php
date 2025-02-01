@@ -6,7 +6,10 @@ use App\Dao\JogadorDAO;
 use App\Dao\LocadorDAO;
 use App\Dao\QuadraDAO;
 use App\Dao\ReservaDAO;
+use App\Enums\PartidaTypeEnum;
+use App\Enums\ReservaStatusEnum;
 use App\Exceptions\MethodNotAllowedException;
+use App\Services\ReservaServices\CancelReservaService;
 use App\Services\ReservaServices\CreateReservaService;
 use Exception;
 
@@ -19,22 +22,37 @@ class ReservaController extends Controller {
     }
 
     public function index() {
-        //Lista as reservas do Jogador
+        $this->atualizarStatusReservasConcluidas();
         $jogador = $this->getJogador();
 
-        $reservas = array();
-        /*$reservaDado = array("reserva" => ,
-                           "quadra" => ,
-                                    "locador" => );
-        */
+        $statusFiltro = isset($_GET['status']) ? $_GET['status'] : null; // Pega o status do filtro, se houver
+        $partidaFiltro = isset($_GET['tipo_reserva']) ? $_GET['tipo_reserva'] : null;
+        $reservas = [];
         $quadraDAO = new QuadraDAO();
         $locadorDAO = new LocadorDAO();
+        $dataAtual = date('Y-m-d'); // Obtém a data atual
 
-        $reservasAux = $this->reservaDAO->getAll(['jogador_id' => $jogador->getId()]);
-        foreach($reservasAux as $r) {
+        // Cria as condições de busca para a consulta
+        $condicoes = [
+            'jogador_id' => $jogador->getId(),
+            'status' => $statusFiltro ?? '!' . ReservaStatusEnum::CANCELED
+        ];
+        // Se um status foi filtrado, adicione à condição
+        if ($statusFiltro) {
+            $condicoes['status'] = $statusFiltro;
+        }
+        if ($partidaFiltro) {
+            $condicoes['tipo_reserva'] = $partidaFiltro;
+        }
+
+
+
+        $reservasAux = $this->reservaDAO->getAll($condicoes);
+        foreach ($reservasAux as $r) {
             $reservaDado['reserva'] = $r;
             $reservaDado['quadra'] = $quadraDAO->find($r->getQuadraId());
             $reservaDado['locador'] = $locadorDAO->find($reservaDado['quadra']->getLocadorId());
+
             array_push($reservas, $reservaDado);
         }
 
@@ -42,27 +60,31 @@ class ReservaController extends Controller {
     }
 
     public function indexLocador() {
-        //Lista as reservas do Locador
         $locador = $this->getLocador();
 
         $sql = "SELECT r.* FROM reservas r
                 WHERE r.quadra_id IN (SELECT sub.id FROM quadras sub WHERE sub.locador_id = " . $locador->getId() . ")";
 
         $reservasAux = $this->reservaDAO->getSQL($sql);
-
-        $reservas = array();
-
+        $reservasFeitas = [];
+        $reservasConcluidas = [];
         $quadraDAO = new QuadraDAO();
         $jogadorDAO = new JogadorDAO();
+        $dataAtual = date('Y-m-d'); // Obtém a data atual
 
-        foreach($reservasAux as $r) {
+        foreach ($reservasAux as $r) {
             $reservaDado['reserva'] = $r;
             $reservaDado['quadra'] = $quadraDAO->find($r->getQuadraId());
             $reservaDado['jogador'] = $jogadorDAO->find($r->getJogadorId());
-            array_push($reservas, $reservaDado);
+
+            if ($r->getDataReserva() < $dataAtual) {
+                $reservasConcluidas[] = $reservaDado;
+            } else {
+                $reservasFeitas[] = $reservaDado;
+            }
         }
 
-        return $this->render('lista_reservas_locador', compact('reservas'));
+        return $this->render('lista_reservas_locador', compact('reservasFeitas', 'reservasConcluidas'));
     }
 
     public function create() {
@@ -105,6 +127,47 @@ class ReservaController extends Controller {
         $reservaDAO = new ReservaDAO();
         $reserva = $reservaDAO->find($id);
 
-        return $this->render('show_reserva', compact('reserva'));
+        $usuario = null;
+
+        if ($this->userType !== 'jogador') {
+            $usuario = 'locador';
+        } else {
+            $usuario = 'jogador';
+        }
+
+        $quadraDAO = new QuadraDAO();
+        $quadra = $quadraDAO->find($reserva->getQuadraId());
+
+        return $this->render('show_reserva', compact('reserva', 'quadra', 'usuario'));
+    }
+
+    public function cancel(int $id) {
+        if ($this->getMethod() !== 'post') {
+            throw new MethodNotAllowedException();
+        }
+
+        header('Content-type: application/json');
+        $jogador = $this->getJogador();
+        $cancelReservaService = new CancelReservaService();
+        $cancelReservaService->run($id);
+
+        header('Location: /lista-reservas');
+    }
+
+    private function atualizarStatusReservasConcluidas() {
+        $dataAtual = date('Y-m-d');
+
+        // Obtém todas as reservas que ainda não estão concluídas
+        $reservas = $this->reservaDAO->getAll([
+            'status' => ReservaStatusEnum::PENDING // Ou outro status válido
+        ]);
+
+        foreach ($reservas as $reserva) {
+            if ($reserva->getDataReserva() < $dataAtual) {
+                $this->reservaDAO->update($reserva->getId(), [
+                    'status' => ReservaStatusEnum::COMPLETED
+                ]);
+            }
+        }
     }
 }

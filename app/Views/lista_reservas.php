@@ -1,11 +1,34 @@
 <?php
 
 use App\Enums\PartidaTypeEnum;
+use App\Enums\ReservaStatusEnum;
+
 ?>
 
 <div class="flex flex-col size-full p-5 items-center justify-center gap-10">
 
-    <h1 class="text-2xl dark:text-amber-300 text-center">Minhas Reservas</h1>
+    <h1 class="text-2xl dark:text-amber-300 text-center">Reservas</h1>
+
+     <!-- Filtro de status -->
+     <div class="mb-4">
+        <label for="filtro-status" class="mr-2 dark:text-amber-300">Filtrar por status da reserva:</label>
+        <select id="filtro-status" class="border rounded-lg py-2 px-3 bg-transparent text-white" onchange="window.location.href = '?status=' + this.value;">
+            <option value="">Todos</option>
+            <option value="<?= ReservaStatusEnum::PENDING ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::PENDING ? 'selected' : '' ?>>Pendente</option>
+            <option value="<?= ReservaStatusEnum::COMPLETED ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::COMPLETED ? 'selected' : '' ?>>Concluída</option>
+            <option value="<?= ReservaStatusEnum::CANCELED ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::CANCELED ? 'selected' : '' ?>>Cancelada</option>
+        </select>
+    </div>
+
+     <!-- Filtro de tipo de partida -->
+     <div class="mb-4">
+        <label for="filtro-partida" class="mr-2 dark:text-amber-300">Filtrar por tipo de partida:</label>
+        <select id="filtro-partida" class="border rounded-lg py-2 px-3 bg-transparent text-white" onchange="window.location.href = '?tipo_reserva=' + this.value;">
+            <option value="">Todos</option>
+            <option value="<?= PartidaTypeEnum::PRIVADA ?>" <?= isset($_GET['tipo_reserva']) && $_GET['tipo_reserva'] == PartidaTypeEnum::PRIVADA ? 'selected' : '' ?>>Privada</option>
+            <option value="<?= PartidaTypeEnum::PUBLICA ?>" <?= isset($_GET['tipo_reserva']) && $_GET['tipo_reserva'] == PartidaTypeEnum::PUBLICA ? 'selected' : '' ?>>Pública</option>
+        </select>
+    </div>
 
     <div class="flex flex-wrap gap-16">
 
@@ -41,7 +64,15 @@ use App\Enums\PartidaTypeEnum;
                         <p class="text-xs md:text-sm absolute bottom-0 right-0"><?php echo $reserva->getHorarioReservado() ?></p>
                     </div>
                 </div>
-
             </a>
+        <?php } ?>
+    </div>
+</div>
 
-<?php } ?>
+<script>
+    document.getElementById("filtro-partida").addEventListener("change", function() {
+        const url = new URL(window.location.href);
+        url.searchParams.set("tipo_reserva", this.value);
+        window.location.href = url.toString();
+    });
+</script>

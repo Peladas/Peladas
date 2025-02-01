@@ -31,7 +31,7 @@ use App\Helpers\Formatter;
                     </div>
                     <div class="flex flex-row relative">
                         <i class="fa-regular fa-pen-to-square mt-2 ml-[1px]" style="color: #be123c;"></i>
-                        <p class="text-xs md:text-sm absolute bottom-0 right-0"><?php echo Formatter::formatCurrency($quadra->getValorAluguel()) ?></p>
+                        <p class="text-xs md:text-sm absolute bottom-0 right-0"><?php echo Formatter::valueReais($quadra->getValorAluguel()) ?></p>
                     </div>
                 </div>
             </a>

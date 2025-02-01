@@ -1,26 +1,26 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const buttonElements = document.getElementsByTagName("button");
-  Array.from(buttonElements).forEach((buttonElement) => {
-    const color = buttonElement.getAttribute("color");
-    const size = buttonElement.getAttribute("size");
+// document.addEventListener("DOMContentLoaded", () => {
+//   const buttonElements = document.getElementsByTagName("button");
+//   Array.from(buttonElements).forEach((buttonElement) => {
+//     const color = buttonElement.getAttribute("color");
+//     const size = buttonElement.getAttribute("size");
 
-    const colorClass = getButtonColors(color);
-    const sizeClass = getButtonSize(size);
+//     const colorClass = getButtonColors(color);
+//     const sizeClass = getButtonSize(size);
 
-    const defaultClasses = [
-      "flex",
-      "items-center",
-      "gap-2",
-      "focus:ring-4",
-      "font-medium",
-      "text-center",
-      "rounded-lg",
-      "focus:outline-none",
-    ];
+//     const defaultClasses = [
+//       "flex",
+//       "items-center",
+//       "gap-2",
+//       "focus:ring-4",
+//       "font-medium",
+//       "text-center",
+//       "rounded-lg",
+//       "focus:outline-none",
+//     ];
 
-    buttonElement.classList.add(...defaultClasses, ...colorClass, ...sizeClass);
-  });
-});
+//     buttonElement.classList.add(...defaultClasses, ...colorClass, ...sizeClass);
+//   });
+// });
 
 /**
  *
