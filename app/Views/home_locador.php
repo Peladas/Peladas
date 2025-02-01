@@ -46,7 +46,7 @@
                                 ambiente divertido!</p>
                         </div>
                         <div class="flex justify-center m-8">
-                            <a id="botaoLink">Acessar suas Quadras</a>
+                            <a id="botaoLink" class="">Acessar suas Quadras</a>
                         </div>
 
                     </div>
