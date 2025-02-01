@@ -1,18 +1,19 @@
 <div class="content flex-grow">
 
-    <div class="section h-full bg-fixed bg-cover bg-center md:bg-right dark:bg-[url('imagens/fundoJgd_md.png')] bg-[url('imagens/fundoJgd_md_branco.png')] md:bg-[url('imagens/fundo_branco.png')] md:dark:bg-[url('imagens/Fundo.png')]">
-        <div class="md:ml-16 md:w-1/2 h-screen flex justify-center md:justify-start">
-                    <div class="text-xl sm:text-2xl flex flex-col justify-center md:p-0">
-                        <div class="flex flex-col md:flex-row gap-0 md:gap-2 text-4xl text-left flex-wrap">
-                            <h1 class="dark:text-yellow-400 text-center md:text-left hyphens-auto py-4 md:py-auto">Seja Bem-Vindo Jogador!</h1>
-                        </div>
+<div class="section h-screen bg-fixed bg-cover bg-center md:bg-right dark:bg-[url('imagens/fundoJgd_md.png')] bg-[url('imagens/fundoJgd_md_branco.png')] md:bg-[url('imagens/fundo_branco.png')] md:dark:bg-[url('imagens/Fundo.png')] flex items-center">
+    <div class="md:w-full flex justify-center md:justify-start">
+        <div class="h-full text-xl sm:text-2xl flex flex-col justify-center md:pl-8 items-center md:items-start max-w-xl">
+            <div class="flex flex-col md:flex-row gap-0 md:gap-2 text-4xl text-left flex-wrap">
+                <h1 class="dark:text-yellow-400 text-center md:text-left hyphens-auto py-4 md:py-auto font-bold text-purple-700">Seja Bem-Vindo Jogador!</h1>
+            </div>
 
-                        <p class="w-auto md:w-3/4 mt-12 md:mt-8 mb-2 md:mb-2 md:text-2xl text-center md:text-left">Simplifique a gestão das suas quadras esportivas com nossa plataforma!
-                            Gerencie reservas de forma intuitiva, aumente a visibilidade e a ocupação, e alcance novos públicos.
-                            Otimize operações e foque em oferecer uma experiência excepcional aos seus clientes. Leve seu negócio esportivo a outro nível!</p>
-                    </div>
-                </div>
+            <p class="w-auto md:w-full mb-2 md:mb-2 md:text-2xl text-center md:text-left">
+                Simplifique a gestão das suas quadras esportivas com nossa plataforma! Gerencie reservas de forma intuitiva, aumente a visibilidade e a ocupação, e alcance novos públicos. Otimize operações e foque em oferecer uma experiência excepcional aos seus clientes. Leve seu negócio esportivo a outro nível!
+            </p>
         </div>
+    </div>
+</div>
+
 
     <!--///////// 2 ////-->
     <div class="section h-auto text-xl bg-auto bg-no-repeat relative bg-[#FFFFFF] dark:bg-zinc-800 shadow-sm shadow-zinc-200">
