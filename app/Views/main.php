@@ -32,7 +32,7 @@
 
         body {
             margin: 0;
-            padding: 0;
+            padding: 4px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
