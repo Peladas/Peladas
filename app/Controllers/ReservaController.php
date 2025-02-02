@@ -6,7 +6,6 @@ use App\Dao\JogadorDAO;
 use App\Dao\LocadorDAO;
 use App\Dao\QuadraDAO;
 use App\Dao\ReservaDAO;
-use App\Enums\PartidaTypeEnum;
 use App\Enums\ReservaStatusEnum;
 use App\Exceptions\MethodNotAllowedException;
 use App\Services\ReservaServices\CancelReservaService;
@@ -161,6 +160,7 @@ class ReservaController extends Controller {
         $cancelReservaService->run($id);
 
         header('Location: /lista-reservas');
+        return;
     }
 
     private function atualizarStatusReservasConcluidas() {

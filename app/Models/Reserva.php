@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Dao\PartidaPublicaDAO;
+use App\Dao\QuadraDAO;
+
 class Reserva extends Model {
 
     protected ?int $id;
@@ -131,5 +134,17 @@ class Reserva extends Model {
         $this->status = $status;
 
         return $this;
+    }
+
+    public function getQuadra(): mixed {
+        $quadraDAO = new QuadraDAO();
+        $quadra = $quadraDAO->find($this->quadra_id);
+        return $quadra;
+    }
+
+    public function getJogadoresInscritos(): array {
+        $partidaPublicaDAO = new PartidaPublicaDAO();
+        $partidaPublica = $partidaPublicaDAO->getAll(['reserva_id' => $this->id]);
+        return $partidaPublica;
     }
 }

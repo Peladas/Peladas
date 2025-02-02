@@ -50,9 +50,14 @@
                 <li class="nav-item flex items-center">
                     <a class="hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 pr-2 border-0 shadow-none bg-transparent" href="<?php echo $user_type === 'jogador' ? '/areas-desportivas' : '/minhas-quadras' ?>">Quadras</a>
                 </li>
+                <li class="nav-item flex items-center">
+                    <a class="hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 pr-2 border-0 shadow-none bg-transparent" href="<?php echo $user_type === 'jogador' ? '/lista-reservas' : '/lista-reservas-locador' ?>">Reservas</a>
+                </li>
+                <?php if ($user_type === 'jogador') {?>
                     <li class="nav-item flex items-center">
-                        <a class="hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 pr-2 border-0 shadow-none bg-transparent" href="<?php echo $user_type === 'jogador' ? '/lista-reservas' : '/lista-reservas-locador' ?>">Reservas</a>
+                        <a class="hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 pr-2 border-0 shadow-none bg-transparent" href="<?php echo $user_type === 'jogador' ? '/partidas-publicas' : '' ?>">Partidas Públicas</a>
                     </li>
+                <?php }?>
                 <li class="nav-item relative bg-transparent">
                     <i class="flex justify-center fa-solid fa-user p-2 pt-3 w-9 h-9 mr-2 mb-1 text-purple-700 dark:text-amber-300" id="button"></i>
 
