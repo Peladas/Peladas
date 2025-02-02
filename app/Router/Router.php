@@ -11,6 +11,7 @@ use App\Controllers\HorarioLocadorController;
 use App\Controllers\LoginController;
 use App\Controllers\LocadorController;
 use App\Controllers\JogadorController;
+use App\Controllers\PartidaPublicaController;
 use App\Controllers\QuadrasDesportivasController;
 use App\Controllers\ReservaController;
 use App\Controllers\UserController;
@@ -44,6 +45,12 @@ $router->post(url: '/cadastro-reserva', controller: ReservaController::class, me
 $router->get(url: '/editar-reserva/:id', controller: ReservaController::class, method: 'update');
 $router->post(url: '/editar-reserva/:id', controller: ReservaController::class, method: 'update');
 $router->post(url: '/cancelar-reserva/:id', controller: ReservaController::class, method: 'cancel');
+
+//Partidas Públicas
+$router->get(url: '/partidas-publicas', controller: PartidaPublicaController::class, method: 'index');
+$router->get(url: '/partida-publica/:id/inscrever', controller: PartidaPublicaController::class, method: 'show');
+$router->post(url: '/partida-publica/:id/inscrever', controller: PartidaPublicaController::class, method: 'inscrever');
+
 
 //Viualização Quadras
 $router->get(url: '/minhas-quadras', controller: QuadraController::class, method: 'index');
