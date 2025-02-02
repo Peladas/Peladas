@@ -35,7 +35,7 @@
                         Aproveite sua experiência esportiva ao máximo e conecte-se com quem compartilha sua paixão!</p>
                 </div>
                 <div class="flex justify-center m-8">
-                    <a id="botaoLink" href="<?php echo $user_type === 'jogador' ? '/areas-desportivas' : '/minhas-quadras' ?>">Acessar as Quadras</a>
+                    <a class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300" href="<?php echo $user_type === 'jogador' ? '/areas-desportivas' : '/minhas-quadras' ?>">Acessar as Quadras</a>
                 </div>
             </div>
 
@@ -49,7 +49,7 @@
                         amizades enquanto joga o esporte de sua preferência. Participe e comece a jogar!</p>
                 </div>
                 <div class="flex justify-center m-8">
-                    <a id="botaoLink">Acessar as Listas Públicas</a>
+                    <a class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300"s>Acessar as Listas Públicas</a>
                 </div>
             </div>
         </div>

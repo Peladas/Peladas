@@ -28,6 +28,8 @@
  * @returns {string}
  */
 function getButtonColors(color = null) {
+
+
   const colors = {
     primary: [
       "text-white",
@@ -129,3 +131,29 @@ function getButtonSize(size = "normal") {
 
   return sizes[size] ?? sizes.normal;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const botaoLink = document.getElementById("botaoLink");
+
+  if (botaoLink) {
+    botaoLink.classList.add(
+      "text-slate-100",
+      "bg-purple-700",
+      "border-purple-800",
+      "dark:border-slate-100",
+      "shadow-lg",
+      "hover:bg-purple-800",
+      "focus:bg-purple-400",
+      "dark:bg-stone-900",
+      "dark:hover:bg-zinc-950",
+      "dark:focus:bg-stone-950",
+      "transition-colors",
+      "duration-300",
+      "ease-in-out",
+      "transform",
+      "hover:scale-105",
+      "hover:shadow-lg"
+    );
+  }
+});
+
