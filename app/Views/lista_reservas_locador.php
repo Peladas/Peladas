@@ -10,25 +10,30 @@ use App\Enums\ReservaStatusEnum;
     <h1 class="text-2xl dark:text-amber-300 text-center">Locações</h1>
 
     <!-- Filtro de status -->
-    <div class="mb-4">
-        <label for="filtro-status" class="mr-2 dark:text-amber-300">Filtrar por status da reserva:</label>
-        <select id="filtro-status" class="border rounded-lg py-2 px-3 bg-transparent text-white" onchange="window.location.href = '?status=' + this.value;">
-            <option value="">Todos</option>
-            <option value="<?= ReservaStatusEnum::PENDING ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::PENDING ? 'selected' : '' ?>>Pendente</option>
-            <option value="<?= ReservaStatusEnum::COMPLETED ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::COMPLETED ? 'selected' : '' ?>>Concluída</option>
-            <option value="<?= ReservaStatusEnum::CANCELED ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::CANCELED ? 'selected' : '' ?>>Cancelada</option>
-        </select>
+    <div class="flex flex-col md:flex-row justify-start items-start w-full gap-7 my-3 mb-4">
+
+        <div class="mb-4">
+            <label for="filtro-status" class="mr-2 dark:text-amber-300">Filtrar por status da reserva:</label>
+            <select id="filtro-status" class="border-[1px] border-ehite border-slate-400 rounded-lg py-2 px-4 bg-transparent text-slate-800 dark:text-white" onchange="window.location.href = '?status=' + this.value;">
+                <option class="dark:bg-zinc-900" value="">Todos</option class="dark:bg-zinc-900">
+                <option class="dark:bg-zinc-900" value="<?= ReservaStatusEnum::PENDING ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::PENDING ? 'selected' : '' ?>>Pendente</option class="dark:bg-zinc-900">
+                <option class="dark:bg-zinc-900" value="<?= ReservaStatusEnum::COMPLETED ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::COMPLETED ? 'selected' : '' ?>>Concluída</option class="dark:bg-zinc-900">
+                <option class="dark:bg-zinc-900" value="<?= ReservaStatusEnum::CANCELED ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::CANCELED ? 'selected' : '' ?>>Cancelada</option class="dark:bg-zinc-900">
+            </select>
+        </div>
+
+        <!-- Filtro de tipo de partida -->
+        <div class="mb-4">
+            <label for="filtro-partida" class="mr-2 dark:text-amber-300">Filtrar por tipo de partida:</label>
+            <select id="filtro-partida" class="border-[1px] border-ehite border-slate-400 rounded-lg py-2 px-4 bg-transparent text-slate-800 dark:text-white" onchange="window.location.href = '?tipo_reserva=' + this.value;">
+                <option class="dark:bg-zinc-900" value="">Todos</option class="dark:bg-zinc-900">
+                <option class="dark:bg-zinc-900" value="<?= PartidaTypeEnum::PRIVADA ?>" <?= isset($_GET['tipo_reserva']) && $_GET['tipo_reserva'] == PartidaTypeEnum::PRIVADA ? 'selected' : '' ?>>Privada</option class="dark:bg-zinc-900">
+                <option class="dark:bg-zinc-900" value="<?= PartidaTypeEnum::PUBLICA ?>" <?= isset($_GET['tipo_reserva']) && $_GET['tipo_reserva'] == PartidaTypeEnum::PUBLICA ? 'selected' : '' ?>>Pública</option class="dark:bg-zinc-900">
+            </select>
+        </div>
+
     </div>
 
-     <!-- Filtro de tipo de partida -->
-     <div class="mb-4">
-        <label for="filtro-partida" class="mr-2 dark:text-amber-300">Filtrar por tipo de partida:</label>
-        <select id="filtro-partida" class="border rounded-lg py-2 px-3 bg-transparent text-white" onchange="window.location.href = '?tipo_reserva=' + this.value;">
-            <option value="">Todos</option>
-            <option value="<?= PartidaTypeEnum::PRIVADA ?>" <?= isset($_GET['tipo_reserva']) && $_GET['tipo_reserva'] == PartidaTypeEnum::PRIVADA ? 'selected' : '' ?>>Privada</option>
-            <option value="<?= PartidaTypeEnum::PUBLICA ?>" <?= isset($_GET['tipo_reserva']) && $_GET['tipo_reserva'] == PartidaTypeEnum::PUBLICA ? 'selected' : '' ?>>Pública</option>
-        </select>
-    </div>
 
     <div class="flex flex-wrap gap-16">
 
@@ -41,7 +46,7 @@ use App\Enums\ReservaStatusEnum;
         ?>
 
             <a href="/lista-reservas/reserva/<?= $reserva->getId() ?>" class="border bg-transparent rounded-lg py-3 px-5">
-                <h4 class="text-amber-300 text-xl flex static mb-6"><?php echo PartidaTypeEnum::getName($reserva->getTipoReserva()) ?></h4>
+                <h4 class="dark:text-amber-300 text-xl flex static font-semibold mb-6"><?php echo PartidaTypeEnum::getName($reserva->getTipoReserva()) ?></h4>
                 <div class="flex flex-col gap-4">
                     <div class="flex flex-row text-wrap h-auto">
                         <p class="text-blue-800 dark:text-slate-100 text-xs md:text-sm font-medium md:font-semibold w-1/2">Jogador</p>

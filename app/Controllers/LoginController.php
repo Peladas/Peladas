@@ -17,10 +17,9 @@ class LoginController extends Controller {
 
         $registrationService = new RegistrationService();
         $errors = $registrationService->run($data);
-        //var_dump([$data, $errors]);
 
         if (count($errors) > 0) {
-            $this->render('register', compact('errors', 'data'));
+            return $this->render('register', compact('errors', 'data'));
         }
 
         header('Location: /login');

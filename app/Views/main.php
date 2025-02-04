@@ -32,7 +32,7 @@
 
         body {
             margin: 0;
-            padding: 4px;
+            padding: 0px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -226,6 +226,26 @@
             font-size: 18px;
             margin: 2px;
         }
+        /* //////// */
+
+        a#switchBtn2 {
+            background: transparent;
+            cursor: pointer;
+            font-size: 16px;
+            color: #334155;
+        }
+
+        a#switchBtn2:hover {
+            border-color: #94a3b8;
+            background: rgba(148, 163, 184, 0.1);
+            color: #1e293b;
+
+        }
+
+        a#switchBtn2 i {
+            font-size: 18px;
+            margin: 2px;
+        }
 
         a#botaoLink {
             padding: 0.5rem 1rem;
@@ -243,7 +263,7 @@
             border-color: #d1d5db;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        
+
 
         a#dispBtn {
             border: 1px solid #d1d5db;

@@ -51,7 +51,7 @@ use App\Helpers\Formatter;
 
 
             <div class="flex justify-center items-center mt-10">
-                <a href="/perfil-jogador/editar-perfil" id="botaoLink">Editar Informações</a>
+                <a href="/perfil-jogador/editar-perfil" class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">Editar Informações</a>
             </div>
         </form>
     </div>

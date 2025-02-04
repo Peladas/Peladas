@@ -6,12 +6,12 @@ use App\Helpers\Formatter;
 
 <div class="size-full flex flex-col justify-center items-center p-4">
 
-    <form action="/cadastro-reserva" method="post" class="gap-y-20">
+    <form action="/cadastro-reserva" method="post" class="gap-y-20 items-center justify-center">
         <input type="hidden" name="quadra_id" value="<?= $quadra->getId() ?>">
 
         <h1 class="text-2xl text-center dark:text-amber-300 my-4">Criar Partida</h1>
 
-        <div class="flex flex-col md:flex-row gap-x-20 my-10">
+        <div class="flex flex-col md:flex-row gap-x-20 my-10 items-center justify-center">
 
         <!--Dados-->
 
@@ -19,15 +19,15 @@ use App\Helpers\Formatter;
 
                 <h1 class="text-xl text-center dark:text-white text-black">Dados da Quadra</h1>
 
-                <div class="flex flex-col md:flex-row items-center justify-center gap-6 w-auto">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-6 w-auto">
 
                     <div class="relative border-[1px] border-gray-300 p-4 rounded-lg bg-gray-200 dark:bg-zinc-900 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="size-56" viewBox="0 0 576 512">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-36 md:size-56" viewBox="0 0 576 512">
                             <path fill="#ffffff" style="width: auto; height:auto" d="M160 32c-35.3 0-64 28.7-64 64l0 224c0 35.3 28.7 64 64 64l352 0c35.3 0 64-28.7 64-64l0-224c0-35.3-28.7-64-64-64L160 32zM396 138.7l96 144c4.9 7.4 5.4 16.8 1.2 24.6S480.9 320 472 320l-144 0-48 0-80 0c-9.2 0-17.6-5.3-21.6-13.6s-2.9-18.2 2.9-25.4l64-80c4.6-5.7 11.4-9 18.7-9s14.2 3.3 18.7 9l17.3 21.6 56-84C360.5 132 368 128 376 128s15.5 4 20 10.7zM192 128a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM48 120c0-13.3-10.7-24-24-24S0 106.7 0 120L0 344c0 75.1 60.9 136 136 136l320 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-320 0c-48.6 0-88-39.4-88-88l0-224z" />
                         </svg>
                     </div>
 
-                    <div class="flex flex-col gap-4 w-auto">
+                    <div class="flex flex-col gap-4 w-96 md:w-auto">
 
                             <p>
                                 <span class="text-blue-800 dark:text-amber-300">Locador:</span>
@@ -64,28 +64,32 @@ use App\Helpers\Formatter;
                             <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getDescricao() ?></span>
                         </p>
 
-                        <div class="flex items-center gap-6">
-                    <label class="text-purple-800 dark:text-yellow-300 text-base font-semibold">Tipo de Partida</label>
-                    <div>
-                        <input type="radio" name="tipo_reserva" value="<?php echo PartidaTypeEnum::PRIVADA ?>" class="accent-purple-950"
-                            onclick="selectTypePartida()" <?= isset($data['tipo_reserva']) && $data['tipo_reserva'] == PartidaTypeEnum::PRIVADA ? 'checked' : '' ?>> Privada
-                    </div>
-                    <div>
-                        <input type="radio" name="tipo_reserva" value="<?php echo PartidaTypeEnum::PUBLICA ?>" class="accent-purple-950"
-                            onclick="selectTypePartida()" <?= isset($data['tipo_reserva']) && $data['tipo_reserva'] == PartidaTypeEnum::PUBLICA ? 'checked' : '' ?>> Pública
                     </div>
 
-                    <small class="helper-text text-red-600 font-sm"><?php echo $errors['tipo_reserva'] ?? '' ?></small>
                 </div>
 
+                <div class="flex flex-col items-start justify-start md:items-start">
+                    <div class="flex flex-row gap-8 md:w-auto w-96">
+                        <div class="justify-start items-start">
+                            <label class="text-purple-800 dark:text-yellow-300 text-base font-semibold">Tipo de Partida</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" name="tipo_reserva" value="<?php echo PartidaTypeEnum::PRIVADA ?>" class="accent-purple-950"
+                                onclick="selectTypePartida()" <?= isset($data['tipo_reserva']) && $data['tipo_reserva'] == PartidaTypeEnum::PRIVADA ? 'checked' : '' ?>> Privada
+                        </div>
+                        <div>
+                            <input type="radio" name="tipo_reserva" value="<?php echo PartidaTypeEnum::PUBLICA ?>" class="accent-purple-950"
+                                onclick="selectTypePartida()" <?= isset($data['tipo_reserva']) && $data['tipo_reserva'] == PartidaTypeEnum::PUBLICA ? 'checked' : '' ?>> Pública
+                        </div>
                     </div>
                 </div>
-
+                <small class="helper-text text-red-600 font-sm"><?php echo $errors['tipo_reserva'] ?? '' ?></small>
             </div>
 
 
 
-            <div class="w-1/2 flex justify-center items-center">
+            <div class="w-1/2 flex justify-center items-center pt-8 md:pt-0">
                 <div class="flex flex-col justify-center items-center">
                     <h1 class="text-xl dark:text-white mb-8 align-center text-center text-black">Selecione uma data</h1>
                     <div id="calendar-container" class="w-full"></div>
@@ -121,10 +125,10 @@ use App\Helpers\Formatter;
                             <div id="calendar-dates" class="grid grid-cols-7 text-black dark:text-white"></div>
                         </div>
                     </div>
-                    <small class="helper-text text-red-600 font-sm"><?php echo $errors['data_reserva'] ?? '' ?></small>
+                    <small class="helper-text text-red-600 font-sm mt-3"><?php echo $errors['data_reserva'] ?? '' ?></small>
 
-                    <div>
-                        <p class="mt-10 text-purple-800 dark:text-amber-300 text-base font-medium">Data selecionada: <span id="selected-date" class="dark:text-white text-center md:text-left text-blue-800">-</span></p>
+                    <div class="flex items-start">
+                        <p class="mt-4 text-purple-800 dark:text-amber-300 text-base font-medium">Data selecionada: <span id="selected-date" class="dark:text-white text-center md:text-left text-blue-800">-</span></p>
                     </div>
                 </div>
             </div>
@@ -133,14 +137,14 @@ use App\Helpers\Formatter;
 
 <div class="flex flex-col items-center justify-center gap-10 mt-6">
     <h1 class="text-xl dark:text-amber-300">Disponibilidade</h1>
-    <div class="gap-10 mb-10">
+    <div class="gap-10 mb-10 md:justify-center justify-start items-start md:items-center">
         <input type="hidden" id="selected-date-iso" name="data_reserva">
         <input type="hidden" id="selected-time" name="horario_reservado">
         <p id="disponibilidades" class="text-wrap mb-5">Selecione uma data para vizualizar a disponibilidade</p>
 
-        <small class="helper-text text-red-600 font-sm"><?php echo $errors['horario_reservado'] ?? '' ?></small>
+        <small class="helper-text text-red-600 font-sm text-center"><?php echo $errors['horario_reservado'] ?? '' ?></small>
 
-        <div class="flex md:justify-center justify-start">
+        <div class="flex md:justify-center justify-start items-start md:items-center">
             <button color="black" class="mt-6 rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300"
                 type="submit">Reservar Quadra</button>
         </div>
@@ -319,15 +323,18 @@ use App\Helpers\Formatter;
     horarios.forEach(horario => {
         const element = document.createElement('button');
 
-        element.classList.add('text-black', 'border-[1px]', 'border-slate-800', 'p-2', 'hover:bg-cyan-300', 'rounded-full', 'transform',
+        element.classList.add('text-black', "dark:text-white",'border-[1px]', 'border-slate-800', 'p-2', 'hover:bg-cyan-300', 'rounded-full', 'transform',
             'hover:scale-105',
             'hover:translate-y-2',
             'transition-all',
             'duration-300',
-            'dark:focus:bg-slate-900',
-            'focus:bg-cyan-500',
-            'dark:text-white',
-            'dark:border-slate-600')
+            'dark:focus:bg-cyan-300', // Fica vermelho no dark mode ao ser selecionado
+            'focus:bg-cyan-400',
+            'dark:focus:text-black', // Mantém o texto branco quando selecionado
+            'dark:border-slate-600',
+            'focus:outline-none',
+            'dark:focus:ring',
+            'dark:focus:ring-slate-900')
         element.type = 'button';
         element.innerText = horario;
 

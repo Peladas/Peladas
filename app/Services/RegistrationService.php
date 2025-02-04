@@ -15,7 +15,6 @@ class RegistrationService {
 
 
         $errors = $this->validate($data);
-        //var_dump($data);
 
         if (count(value: $errors) === 0) {
             $newUser = new User();

@@ -5,77 +5,92 @@ use App\Enums\ReservaStatusEnum;
 
 ?>
 
-<div class="flex flex-col size-full p-5 gap-10">
+<div class="flex flex-col size-full p-5 items-center justify-center gap-10">
 
     <h1 class="text-2xl dark:text-amber-300 text-center">Reservas</h1>
-    <div class="flex flex-col md:flex-row justify-start items-start w-full gap-7 my-3">
+    <div class="flex flex-col md:flex-row justify-start items-start w-full gap-7 my-3 mb-4">
 
-         <!-- Filtro de status -->
-         <div class="mb-4">
+        <!-- Filtro de status -->
+        <div class="">
             <label for="filtro-status" class="mr-2 text-blue-800 font-medium dark:text-amber-300">Filtrar por status:</label>
-            <select id="filtro-status" class="border border-ehite  dark:border-slate-800 rounded-lg py-2 px-4 bg-transparent text-slate-800 dark:text-white" onchange="window.location.href = '?status=' + this.value;">
-                <option value="">Todos</option>
-                <option value="<?= ReservaStatusEnum::PENDING ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::PENDING ? 'selected' : '' ?>>Pendente</option>
-                <option value="<?= ReservaStatusEnum::COMPLETED ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::COMPLETED ? 'selected' : '' ?>>Concluída</option>
-                <option value="<?= ReservaStatusEnum::CANCELED ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::CANCELED ? 'selected' : '' ?>>Cancelada</option>
+            <select id="filtro-status" class="border-[1px] border-ehite border-slate-400 rounded-lg py-2 px-4 bg-transparent text-slate-800 dark:text-white
+            dark:hover:bg-zinc-900" onchange="window.location.href = '?status=' + this.value;">
+                <option class="dark:bg-zinc-900" value="">Todos</option>
+                <option class="dark:bg-zinc-900" value="<?= ReservaStatusEnum::PENDING ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::PENDING ? 'selected' : '' ?>>Pendente</option>
+                <option class="dark:bg-zinc-900" value="<?= ReservaStatusEnum::COMPLETED ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::COMPLETED ? 'selected' : '' ?>>Concluída</option>
+                <option class="dark:bg-zinc-900" value="<?= ReservaStatusEnum::CANCELED ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::CANCELED ? 'selected' : '' ?>>Cancelada</option>
             </select>
         </div>
 
-         <!-- Filtro de tipo de partida -->
-         <div class="mb-4">
+        <!-- Filtro de tipo de partida -->
+        <div class="">
             <label for="filtro-partida" class="mr-2 text-blue-800 font-medium dark:text-amber-300">Filtrar por partida:</label>
-            <select id="filtro-partida" class="border rounded-lg py-2 px-4 bg-transparent text-slate-800 dark:text-white" onchange="window.location.href = '?tipo_reserva=' + this.value;">
-                <option value="">Todos</option>
-                <option value="<?= PartidaTypeEnum::PRIVADA ?>" <?= isset($_GET['tipo_reserva']) && $_GET['tipo_reserva'] == PartidaTypeEnum::PRIVADA ? 'selected' : '' ?>>Privada</option>
-                <option value="<?= PartidaTypeEnum::PUBLICA ?>" <?= isset($_GET['tipo_reserva']) && $_GET['tipo_reserva'] == PartidaTypeEnum::PUBLICA ? 'selected' : '' ?>>Pública</option>
+            <select id="filtro-partida" class="border-[1px] border-slate-400 rounded-lg py-2 px-4 bg-transparent text-slate-800 dark:text-white" onchange="window.location.href = '?tipo_reserva=' + this.value;">
+                <option class="dark:bg-zinc-900" value="">Todos</option>
+                <option class="dark:bg-zinc-900" value="<?= PartidaTypeEnum::PRIVADA ?>" <?= isset($_GET['tipo_reserva']) && $_GET['tipo_reserva'] == PartidaTypeEnum::PRIVADA ? 'selected' : '' ?>>Privada</option>
+                <option class="dark:bg-zinc-900" value="<?= PartidaTypeEnum::PUBLICA ?>" <?= isset($_GET['tipo_reserva']) && $_GET['tipo_reserva'] == PartidaTypeEnum::PUBLICA ? 'selected' : '' ?>>Pública</option>
             </select>
         </div>
     </div>
 
 
-    <div class="flex flex-wrap gap-16 items-center justify-center">
+    <?php if (!empty($reservas)) { ?>
+        <div class="flex flex-wrap gap-16 items-center justify-center">
+            <?php
+            foreach ($reservas as $reservaDado) {
+                $reserva = $reservaDado['reserva'];
+                $quadra = $reservaDado['quadra'];
+                $locador = $reservaDado['locador'];
+            ?>
+                <a href="/lista-reservas/reserva/<?= $reserva->getId() ?>" class="border bg-transparent rounded-lg py-3 px-5">
+                    <h4 class="dark:text-amber-300 text-xl flex static font-semibold mb-6">
+                        <?php echo PartidaTypeEnum::getName($reserva->getTipoReserva()) ?>
+                    </h4>
 
-        <?php
+                    <div class="flex flex-col gap-4">
+                        <div class="flex flex-row text-wrap h-auto">
+                            <p class="text-blue-800 dark:text-slate-100 text-xs md:text-sm font-medium md:font-semibold w-1/2">Locador</p>
+                            <p class="text-xs md:text-sm w-1/2 text-wrap text-right"><?php echo $locador->getNomeFantasia() ?></p>
+                        </div>
 
-        foreach ($reservas as $reservaDado) {
-            $reserva = $reservaDado['reserva'];
-            $quadra = $reservaDado['quadra'];
-            $locador = $reservaDado['locador'];
-        ?>
+                        <div class="flex flex-row text-wrap h-auto">
+                            <p class="text-blue-800 dark:text-slate-100 text-xs md:text-sm font-medium md:font-semibold w-1/2">Quadra</p>
+                            <p class="text-xs md:text-sm w-1/2 text-wrap text-right">
+                                <?php echo $quadra->getIdentificador() . ' - ' . $quadra->getModalidade() ?>
+                            </p>
+                        </div>
 
-            <a href="/lista-reservas/reserva/<?= $reserva->getId() ?>" class="border bg-transparent rounded-lg py-3 px-5">
+                        <div class="flex flex-row text-wrap h-auto">
+                            <p class="text-blue-800 dark:text-slate-100 text-xs md:text-sm font-medium md:font-semibold w-1/2">Data</p>
+                            <p class="text-xs md:text-sm w-1/2 text-wrap text-right"><?php echo $reserva->getDataReserva() ?></p>
+                        </div>
 
-                <h4 class="dark:text-amber-300 text-xl flex static font-semibold mb-6"><?php echo PartidaTypeEnum::getName($reserva->getTipoReserva()) ?></h4>
-
-                <div class="flex flex-col gap-4">
-                    <div class="flex flex-row text-wrap h-auto">
-                        <p class="text-blue-800 dark:text-slate-100 text-xs md:text-sm font-medium md:font-semibold w-1/2">Locador</p>
-                        <p class="text-xs md:text-sm w-1/2 text-wrap text-right"><?php echo $locador->getNomeFantasia() ?></p>
+                        <div class="flex flex-row relative">
+                            <p class="text-blue-800 dark:text-slate-100 text-xs md:text-sm font-medium md:font-semibold">Horário</p>
+                            <p class="text-xs md:text-sm absolute bottom-0 right-0"><?php echo $reserva->getHorarioReservado() ?></p>
+                        </div>
                     </div>
+                </a>
+            <?php } ?>
+        </div>
 
-                    <div class="flex flex-row text-wrap h-auto">
-                        <p class="text-blue-800 dark:text-slate-100 text-xs md:text-sm font-medium md:font-semibold w-1/2">Quadra</p>
-                        <p class="text-xs md:text-sm w-1/2 text-wrap text-right"><?php echo $quadra->getIdentificador() . ' - ' . $quadra->getModalidade() ?></p>
-                    </div>
+    <?php } else { ?>
 
-                    <div class="flex flex-row text-wrap h-auto">
-                        <p class="text-blue-800 dark:text-slate-100 text-xs md:text-sm font-medium md:font-semibold w-1/2">Data</p>
-                        <p class="text-xs md:text-sm w-1/2 text-wrap text-right"><?php echo $reserva->getDataReserva() ?></p>
-                    </div>
-                    <div class="flex flex-row relative">
-                        <p class="text-blue-800 dark:text-slate-100 text-xs md:text-sm font-medium md:font-semibold">Horário</p>
-                        <p class="text-xs md:text-sm absolute bottom-0 right-0"><?php echo $reserva->getHorarioReservado() ?></p>
-                    </div>
-                </div>
-            </a>
-        <?php } ?>
-    </div>
-</div>
+        <div class="flex items-center justify-center flex-col md:flex-row gap-10 justify-items-center h-full md:h-96">
+            <div class="w-auto">
+                <img class="size-auto" src="/imagens/icon.png">
+            </div>
+            <div class="text-wrap text-center justify-center items-center md:w-auto w-72">
+                <p class="jersey text-5xl md:text-8xl text-purple-800 dark:text-amber-300 flex items-center text-center">Falta de Reservas</p>
+            </div>
+        </div>
 
-<script>
-    document.getElementById("filtro-partida").addEventListener("change", function() {
-        const url = new URL(window.location.href);
-        url.searchParams.set("tipo_reserva", this.value);
-        window.location.href = url.toString();
-    });
-</script>
+    <?php } ?>
+
+    <script>
+        document.getElementById("filtro-partida").addEventListener("change", function() {
+            const url = new URL(window.location.href);
+            url.searchParams.set("tipo_reserva", this.value);
+            window.location.href = url.toString();
+        });
+    </script>

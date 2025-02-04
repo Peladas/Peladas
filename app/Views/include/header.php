@@ -13,6 +13,25 @@
             <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-40 bg-gray-100 dark:bg-zinc-950 text-slate-600 rounded-lg shadow-lg z-50 md:flex-col space-4 md:space-x-4">
                 <ul>
                     <li>
+                        <a id="switchBtn2" type="button" class="w-11 border-none shadow-none">
+                            <svg class="hidden dark:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#FFFFFF">
+                                <path d="M440-800v-120h80v120h-80Zm0 760v-120h80v120h-80Zm360-400v-80h120v80H800Zm-760 0v-80h120v80H40Zm708-252-56-56 70-72 58 58-72 70ZM198-140l-58-58 72-70 56 56-70 72Zm564 0-70-72 56-56 72 70-58 58ZM212-692l-72-70 58-58 70 72-56 56Zm268 452q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm0-80q67 0 113.5-46.5T640-480q0-67-46.5-113.5T480-640q-67 0-113.5 46.5T320-480q0 67 46.5 113.5T480-320Zm0-160Z" />
+                            </svg>
+                            <i class="fas fa-moon block dark:hidden"></i>
+                        </a>
+                            <?php
+                            $modo = $_GET['modo'] ?? 'branco';
+
+                            if ($modo === 'branco') {
+                                echo "Modo escuro";
+                            } else {
+                                echo "Modo claro";
+                            }
+                            ?>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
                         <a href="#" class="bg-transparent border-0 shadow-none block px-4 py-2 hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700" onclick="window.location.href='/';">Home</a>
                     </li>
                 </ul>
@@ -29,6 +48,16 @@
                     </li>
                 </ul>
                 <ul>
+                    <li class="nav-item flex items-center">
+                        <a class="hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 pr-2 border-0 shadow-none bg-transparent" href="<?php echo $user_type === 'jogador' ? '/lista-reservas' : '/lista-reservas-locador' ?>">Reservas</a>
+                    </li>
+                    <?php if ($user_type === 'jogador') { ?>
+                        <li class="nav-item flex items-center">
+                            <a class="hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 pr-2 border-0 shadow-none bg-transparent" href="<?php echo $user_type === 'jogador' ? '/partidas-publicas' : '' ?>">Partidas Públicas</a>
+                        </li>
+                    <?php } ?>
+                </ul>
+                <ul>
                     <li>
                         <a href="/logout" class="bg-transparent border-0 shadow-none block px-4 py-2 hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700">Logout</a>
                     </li>
@@ -39,7 +68,7 @@
                 <li>
                     <a id="switchBtn" type="button" class="w-11">
                         <svg class="hidden dark:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#FFFFFF">
-                            <path d="M440-800v-120h80v120h-80Zm0 760v-120h80v120h-80Zm360-400v-80h120v80H800Zm-760 0v-80h120v80H40Zm708-252-56-56 70-72 58 58-72 70ZM198-140l-58-58 72-70 56 56-70 72Zm564 0-70-72 56-56 72 70-58 58ZM212-692l-72-70 58-58 70 72-56 56Zm268 452q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm0-80q67 0 113.5-46.5T640-480q0-67-46.5-113.5T480-640q-67 0-113.5 46.5T320-480q0 67 46.5 113.5T480-320Zm0-160Z"/>
+                            <path d="M440-800v-120h80v120h-80Zm0 760v-120h80v120h-80Zm360-400v-80h120v80H800Zm-760 0v-80h120v80H40Zm708-252-56-56 70-72 58 58-72 70ZM198-140l-58-58 72-70 56 56-70 72Zm564 0-70-72 56-56 72 70-58 58ZM212-692l-72-70 58-58 70 72-56 56Zm268 452q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm0-80q67 0 113.5-46.5T640-480q0-67-46.5-113.5T480-640q-67 0-113.5 46.5T320-480q0 67 46.5 113.5T480-320Zm0-160Z" />
                         </svg>
                         <i class="fas fa-moon block dark:hidden"></i>
                     </a>
@@ -53,11 +82,11 @@
                 <li class="nav-item flex items-center">
                     <a class="hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 pr-2 border-0 shadow-none bg-transparent" href="<?php echo $user_type === 'jogador' ? '/lista-reservas' : '/lista-reservas-locador' ?>">Reservas</a>
                 </li>
-                <?php if ($user_type === 'jogador') {?>
+                <?php if ($user_type === 'jogador') { ?>
                     <li class="nav-item flex items-center">
                         <a class="hover:text-blue-600 dark:hover:text-yellow-400 active:text-blue-700 pr-2 border-0 shadow-none bg-transparent" href="<?php echo $user_type === 'jogador' ? '/partidas-publicas' : '' ?>">Partidas Públicas</a>
                     </li>
-                <?php }?>
+                <?php } ?>
                 <li class="nav-item relative bg-transparent">
                     <i class="flex justify-center fa-solid fa-user p-2 pt-3 w-9 h-9 mr-2 mb-1 text-purple-700 dark:text-amber-300" id="button"></i>
 
@@ -107,6 +136,32 @@
         // const html = document.getElementsByTagName('html').item(0);
         const body = document.body;
         const darkModeToggle = document.getElementById('switchBtn');
+        const texto = document.getElementById('texto-alterado');
+        const sunIcon = darkModeToggle.querySelector('.fas.fa-sun');
+        const moonIcon = darkModeToggle.querySelector('.fas.fa-moon');
+
+        body.classList.toggle('dark');
+        // body.classList.toggle('dark-mode');
+
+
+        if (body.classList.contains('dark')) {
+            localStorage.setItem('@peladas:mode', 'dark');
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'inline';
+            moonIcon.style.color = '#6b21a8';
+            texto.textContent = 'Clique na Lua para desativar o Dark-Mode';
+        } else {
+            localStorage.setItem('@peladas:mode', 'light')
+            sunIcon.style.display = 'inline';
+            moonIcon.style.display = 'none';
+            texto.textContent = 'Clique no Sol para ativar o Dark-Mode';
+        }
+    });
+
+    document.getElementById('switchBtn2').addEventListener('click', () => {
+        // const html = document.getElementsByTagName('html').item(0);
+        const body = document.body;
+        const darkModeToggle = document.getElementById('switchBtn2');
         const texto = document.getElementById('texto-alterado');
         const sunIcon = darkModeToggle.querySelector('.fas.fa-sun');
         const moonIcon = darkModeToggle.querySelector('.fas.fa-moon');

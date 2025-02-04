@@ -1,11 +1,13 @@
 <div class="flex justify-center items-center h-screen md:m-auto">
 
-    <form action="#" method="post" class="flex flex-col gap-3 md:w-[600px] md:mx-auto" onload="cha">
+<div class="flex justify-center items-center">
+
+    <form action="#" method="post" class="flex flex-col gap-3 md:w-[600px] md:mx-auto justify-center" onload="cha">
 
         <h1 class="pb-5 dark:text-yellow-300 text-3xl flex justify-center items-center">Faça seu cadastro</h1>
 
         <div class="relative">
-            <input type="email" id="email" name="email" class="peer w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" "
+            <input type="email" id="email" name="email" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" "
                 value="<?php echo $data['email'] ?? '' ?>" />
             <label for="email" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#18181b] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                 E-mail
@@ -16,7 +18,7 @@
         </div>
 
         <div class="relative">
-            <input type="text" id="phone" name="phone" class="peer w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" "
+            <input type="text" id="phone" name="phone" class="peer w-80 md:w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" "
                 value="<?php echo $data['phone'] ?? '' ?>" />
             <label for="phone" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#1c1917] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
                 Telefone
@@ -48,7 +50,7 @@
                 <?php } ?>
             </div>
 
-            <div class="w-full">
+            <div class="w-96 md:w-full text-wrap mt-4">
                 <small class="helper-text font-sm">A senha deve conter pelo menos uma letra maiúscula, uma minúscula, um número e um caractere especial.</small>
             </div>
         </div>
@@ -156,6 +158,7 @@
         </div>
 
     </form>
+</div>
 </div>
 
 <script>
