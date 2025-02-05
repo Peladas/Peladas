@@ -3,7 +3,7 @@
 use App\Enums\DiaSemanaEnum;
 ?>
 
-<div class="mt-28 text-center min-h-screen flex flex-col justify-between">
+<div class="text-center min-h-screen flex flex-col justify-between items-center justify-center">
     <div class="flex-grow"> <!-- Esse contêiner vai ocupar o espaço restante da tela -->
         <div class="m-2 py-2 md:py-4 flex flex-wrap text-center items-center justify-center">
             <h1 class="text-2xl md:text-3xl dark:text-amber-300">Disponibilidades Registradas</h1>

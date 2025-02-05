@@ -3,7 +3,7 @@
 use App\Helpers\Formatter;
 ?>
 
-<div class="flex flex-col h-screen w-full p-5 gap-10 md:gap-16 items-center justify-center">
+<div class="flex flex-col size-full p-5 gap-10 md:gap-16 items-center justify-center flex-wrap">
     <div>
         <h1 class="text-3xl dark:text-amber-300 text-center">Minhas Quadras</h1>
     </div>

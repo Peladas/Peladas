@@ -29,24 +29,23 @@
                     <div class="text-center z-40">
                         <h1 class="text-center m-5 md:text-3xl text-2xl dark:text-yellow-400 py-3">Suas Quadras</h1>
                         <div class="border-solid border-2 border-zinc-200 dark:bg-zinc-800 bg-gray-50 p-4 mb-5 w-72 rounded-lg z-40">
-                            <p class="text-center text-lg md:text-xl">Pratique seu esporte favorito encontrando ou criando partidas públicas e dividindo o
-                                custo da quadra com outros jogadores que compartilham a mesma paixão. Divirta-se, faça novas amizades e aproveite ao máximo
-                                cada momento enquanto joga!</p>
+                            <p class="text-center text-lg md:text-xl">Gerencie suas quadras com facilidade! Acompanhe suas reservas, tenha controle total do seu negócio e maximize seus ganhos com o Peladas. Acesse agora suas quadras.</p>
                         </div>
                         <div class="flex justify-center m-8">
-                            <a id="botaoLink" href="<?php echo $user_type === 'jogador' ? '/areas-desportivas' : '/minhas-quadras' ?>">Acessar suas Quadras</a>
+                            <a class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300"
+                            href="<?php echo $user_type === 'jogador' ? '/areas-desportivas' : '/minhas-quadras' ?>">Suas Quadras</a>
                         </div>
                     </div>
 
                     <div class="text-center">
                         <h1 class="text-center m-5 md:text-3xl text-2xl dark:text-yellow-400 py-3">Sua Empresa</h1>
                         <div class="border-solid border-2 border-zinc-200 dark:bg-zinc-800 bg-gray-50 p-4 mb-5 w-72 rounded-lg z-40">
-                            <p class="text-center text-lg md:text-xl">Encontre quadras esportivas próximas para alugar e aproveite para organizar partidas públicas
-                                ou reservar para uso exclusivo. Conecte-se com amigos, faça novos contatos e desfrute ao máximo de sua experiência esportiva em um
-                                ambiente divertido!</p>
+                            <p class="text-center text-lg md:text-xl">Acesse aqui os dados da sua empresa e personalize tudo como quiser! Mantenha suas informações sempre atualizadas. Faça sua gestão de forma simples e eficiente com o Peladas!</p>
                         </div>
                         <div class="flex justify-center m-8">
-                            <a id="botaoLink" class="">Acessar suas Quadras</a>
+                            <a class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300"
+                            href="<?php echo $user_type === 'jogador' ? '/perfil-jogador' : '/perfil-locador' ?>">
+                                Meu Perfil</a>
                         </div>
 
                     </div>

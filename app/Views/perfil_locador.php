@@ -80,7 +80,7 @@ use App\Helpers\Formatter;
             if (count($horarios)) {
             ?>
 
-                <table class="table-auto border-collapse mt-14 w-auto md:w-96">
+                <table class="table-auto border-collapse mt-14 w-96">
                     <thead>
                         <tr>
                             <th class="text-left py-3 pr-24 md:pr-0">Dia</th>
