@@ -50,6 +50,7 @@ $router->post(url: '/cancelar-reserva/:id', controller: ReservaController::class
 $router->get(url: '/partidas-publicas', controller: PartidaPublicaController::class, method: 'index');
 $router->get(url: '/partida-publica/:id/inscrever', controller: PartidaPublicaController::class, method: 'show');
 $router->post(url: '/partida-publica/:id/inscrever', controller: PartidaPublicaController::class, method: 'inscrever');
+$router->post(url: '/partida-publica/:id/cancelar', controller: PartidaPublicaController::class, method: 'cancelar');
 
 
 //Viualização Quadras
