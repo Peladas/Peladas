@@ -1,6 +1,6 @@
-<div class="flex justify-center items-center h-screen md:m-auto">
+<div class="flex justify-center items-center md:m-auto">
 
-    <form action="#" method="post" class="flex flex-col gap-3 md:w-[600px] md:mx-auto" onload="cha">
+    <form action="#" method="post" class="flex flex-col gap-3 md:w-3/4 md:mx-auto" onload="cha">
 
         <h1 class="pb-5 dark:text-yellow-300 text-3xl flex justify-center items-center">Cadastre seu Endereço</h1>
 
@@ -76,7 +76,8 @@
         </div>
 
         <div class="mt-4 flex justify-center md:justify-start">
-            <button color="black" class="rounded-full border border-slate- mr-5 houver:bg-color focus:border-blue-400" type="submit">Enviar</button>
+            <button class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300"
+             type="submit">Enviar</button>
         </div>
 
     </form>

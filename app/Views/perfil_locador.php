@@ -7,9 +7,11 @@ use App\Helpers\Formatter;
 
 <div class="flex flex-col md:flex-row gap-8 md:h-screen w-auto mt-16 dark:bg-zinc-900 items-center">
 
-    <div class="flex flex-col w-auto md:w-1/2 flex items-center">
+    <div class="flex flex-col w-auto md:w-1/2 flex items-center justify-center">
+        <div class="my-3">
 
-        <h1 class="text-center md:mb-8 text-2xl dark:text-amber-300">Seu Perfil</h1>
+            <h1 class="text-center md:mb-8 text-2xl dark:text-amber-300">Seu Perfil</h1>
+        </div>
 
         <div class="flex flex-col gap-8 h-auto items-center justify-center">
 
@@ -21,11 +23,11 @@ use App\Helpers\Formatter;
 
             <input type="file" name="picture__input" id="picture__input">
 
-            <div class="mt-[1px] mb-2 flex flex-col items-center justify-center w-3/4">
+            <div class="flex flex-col items-center justify-center w-3/4">
                 <h1 class="text-2xl mt-0 md:mb-2 dark:text-amber-300 text-center flex items-center"><?= $locador->getNomeFantasia() ?></h1>
 
                 <?php if ($endereco): ?>
-                    <div class="flex flex-col gap-5 p-10 md:pt-8 md:p-14 pt-0 mt-5 md:mt-0 text-center md:text-left">
+                    <div class="flex flex-col gap-5 text-center md:text-left p-8 md:p-4">
                         <div class="flex flex-col md:flex-row gap-5">
                             <h4 class="text-blue-800 dark:text-amber-300 mb-3">Endereço</h4>
                             <p class="w-auto text-wrap">
@@ -64,7 +66,7 @@ use App\Helpers\Formatter;
                         </div>
                     <?php endif; ?>
                     <div class="w-auto flex items-center justify-center flex-col">
-                        <a href="/minhas-quadras" class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
+                        <a href="/minhas-quadras" class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
                             Minhas quadras
                         </a>
                     </div>
@@ -74,13 +76,13 @@ use App\Helpers\Formatter;
 
             </div>
         </div>
-        <div class="flex flex items-center justify-center text-center flex-col w-1/2 mt-16 md:mt-0">
+        <div class="flex flex items-center justify-center text-center flex-col w-1/2">
             <h1 class="flex flex itemns-center text-center text-2xl mb-5 dark:text-amber-300">Horários para Locações</h1>
             <?php
             if (count($horarios)) {
             ?>
 
-                <table class="table-auto border-collapse mt-14 w-96">
+                <table class="table-auto border-collapse w-96">
                     <thead>
                         <tr>
                             <th class="text-left py-3 pr-24 md:pr-0">Dia</th>
