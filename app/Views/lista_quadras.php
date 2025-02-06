@@ -9,7 +9,7 @@ use App\Enums\QuadrasStatusEnum; // Certifique-se de importar o enum correto
         <h1 class="text-3xl dark:text-amber-300 text-center">Minhas Quadras</h1>
     </div>
 
-    <div class="flex flex-wrap flex-row gap-6 md:gap-10 h-auto w-full items-center justify-center">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-16 md:gap-8">
 
         <?php foreach ($quadras as $quadra) { ?>
             <!-- Adiciona a classe 'opacity-50' se o status for INACTIVE, mas mantém o link clicável -->

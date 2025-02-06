@@ -133,6 +133,29 @@ class PartidaPublicaController extends Controller {
         // return $this->render('show_partida_publica', compact('reserva', 'quadra', 'jogador'));
     }
 
+    public function cancelar(int $id) {
+        $jogador = $this->getJogador();
+
+        // Verifica se o jogador está inscrito na partida
+        $inscricao = $this->partidaPublicaDAO->getAll([
+            'reserva_id' => $id,
+            'jogador_id' => $jogador->getId(),
+        ]);
+
+        if (!empty($inscricao)) {
+            // Remove a inscrição do jogador
+            $this->partidaPublicaDAO->delete($inscricao[0]->getId());
+
+            // Redireciona de volta para a página da partida
+            header('Location: /partida-publica/' . $id . '/inscrever');
+            return;
+        }
+
+        // Se o jogador não estiver inscrito, redireciona com uma mensagem de erro
+        $_SESSION['errors']['global'] = 'Você não está inscrito nesta partida.';
+        header('Location: /partida-publica/' . $id . '/inscrever');
+    }
+
     private function estaInscritoNaPartida (int $reservaId, int $jogadorId): bool {
         return !empty($this->partidaPublicaDAO->getAll([
             'reserva_id' => $reservaId,
