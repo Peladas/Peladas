@@ -122,16 +122,20 @@ use App\Enums\PartidaTypeEnum;
                 </ul>
             </div>
 
-            <!-- Botão de inscrição -->
-            <?php if ($vagasRestantes > 0): ?>
-                <form action="/partida-publica/<?= $reserva->getId() ?>/inscrever" method="POST" class="my-8 md:my-6">
-                    <button type="submit" class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
-                        Inscrever-se na Partida
-                    </button>
-                </form>
-            <?php else: ?>
-                <p class="mt-6 text-slate-600 dark:text-slate-400 text-center">Todas as vagas foram preenchidas.</p>
-            <?php endif; ?>
+            <!-- Botão de inscrição/cancelamento -->
+            <?php if ($estaInscritoNaPartida) { ?>
+                <button>Cancelar</button>
+            <?php } else { ?>
+                <?php if ($vagasRestantes > 0): ?>
+                    <form action="/partida-publica/<?= $reserva->getId() ?>/inscrever" method="POST" class="my-8 md:my-6">
+                        <button type="submit" class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
+                            Inscrever-se na Partida
+                        </button>
+                    </form>
+                <?php else: ?>
+                    <p class="mt-6 text-slate-600 dark:text-slate-400 text-center">Todas as vagas foram preenchidas.</p>
+                <?php endif; ?>
+            <?php } ?>
         </div>
     </div>
 </div>

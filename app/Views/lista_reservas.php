@@ -14,7 +14,7 @@ use App\Enums\ReservaStatusEnum;
         <div class="">
             <label for="filtro-status" class="mr-2 text-blue-800 font-medium dark:text-amber-300">Filtrar por status:</label>
             <select id="filtro-status" class="border-[1px] border-ehite border-slate-400 rounded-lg py-2 px-4 bg-transparent text-slate-800 dark:text-white
-            dark:hover:bg-zinc-900" onchange="window.location.href = '?status=' + this.value;">
+            dark:hover:bg-zinc-900">
                 <option class="dark:bg-zinc-900" value="">Todos</option>
                 <option class="dark:bg-zinc-900" value="<?= ReservaStatusEnum::PENDING ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::PENDING ? 'selected' : '' ?>>Pendente</option>
                 <option class="dark:bg-zinc-900" value="<?= ReservaStatusEnum::COMPLETED ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::COMPLETED ? 'selected' : '' ?>>Concluída</option>
@@ -33,7 +33,6 @@ use App\Enums\ReservaStatusEnum;
         </div>
     </div>
 
-
     <?php if (!empty($reservas)) { ?>
         <div class="flex flex-wrap gap-16 items-center justify-center">
             <?php
@@ -41,10 +40,28 @@ use App\Enums\ReservaStatusEnum;
                 $reserva = $reservaDado['reserva'];
                 $quadra = $reservaDado['quadra'];
                 $locador = $reservaDado['locador'];
+
+                // Verifica se a reserva está concluída e a data já passou
+                $dataReserva = new DateTime($reserva->getDataReserva());
+                $hoje = new DateTime();
+                $isCompletedAndPast = $reserva->getStatus() === ReservaStatusEnum::COMPLETED && $dataReserva < $hoje;
             ?>
-                <a href="/lista-reservas/reserva/<?= $reserva->getId() ?>" class="border bg-transparent rounded-lg py-3 px-5">
-                    <h4 class="dark:text-amber-300 text-xl flex static font-semibold mb-6">
+                <!-- Aplica a classe 'opacity-50' se a reserva estiver concluída e a data já tiver passado -->
+                <a href="/lista-reservas/reserva/<?= $reserva->getId() ?>" class="border bg-transparent rounded-lg py-3 px-5 <?= $isCompletedAndPast ? 'opacity-50' : '' ?>">
+                    <?php
+                        $reservaStatus = $reserva->getStatus();
+                        $statusClassesList = [
+                            ReservaStatusEnum::PENDING => 'text-blue-500',
+                            ReservaStatusEnum::COMPLETED => 'text-green-500',
+                            ReservaStatusEnum::CANCELED => 'text-red-500',
+                        ];
+                        $statusClass = $statusClassesList[$reservaStatus];
+                    ?>
+                    <h4 class="flex items-center justify-between dark:text-amber-300 text-xl flex static font-semibold mb-6">
                         <?php echo PartidaTypeEnum::getName($reserva->getTipoReserva()) ?>
+                        <span class="<?= $statusClass ?>">
+                            (<?= ReservaStatusEnum::getName($reservaStatus) ?>)
+                        </span>
                     </h4>
 
                     <div class="flex flex-col gap-4">
@@ -62,7 +79,7 @@ use App\Enums\ReservaStatusEnum;
 
                         <div class="flex flex-row text-wrap h-auto">
                             <p class="text-blue-800 dark:text-slate-100 text-xs md:text-sm font-medium md:font-semibold w-1/2">Data</p>
-                            <p class="text-xs md:text-sm w-1/2 text-wrap text-right"><?php echo $reserva->getDataReserva() ?></p>
+                            <p class="text-xs md:text-sm w-1/2 text-wrap text-right"><?php echo $reserva->getDataReservaFormatado() ?></p>
                         </div>
 
                         <div class="flex flex-row relative">
@@ -90,7 +107,21 @@ use App\Enums\ReservaStatusEnum;
     <script>
         document.getElementById("filtro-partida").addEventListener("change", function() {
             const url = new URL(window.location.href);
-            url.searchParams.set("tipo_reserva", this.value);
+            if (this.value) {
+                url.searchParams.set('tipo_reserva', this.value);
+            } else {
+                url.searchParams.delete('tipo_reserva');
+            }
+            window.location.href = url.toString();
+        });
+
+        document.getElementById("filtro-status").addEventListener("change", function () {
+            const url = new URL(window.location.href);
+            if (this.value) {
+                url.searchParams.set('status', this.value);
+            } else {
+                url.searchParams.delete('status');
+            }
             window.location.href = url.toString();
         });
     </script>

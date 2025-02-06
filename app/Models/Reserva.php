@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Dao\PartidaPublicaDAO;
 use App\Dao\QuadraDAO;
 
+use \DateTimeImmutable;
+
 class Reserva extends Model {
 
     protected ?int $id;
@@ -56,6 +58,16 @@ class Reserva extends Model {
     public function getDataReserva(): ?string
     {
         return $this->data_reserva;
+    }
+
+    public function getDataReservaFormatado(): ?string
+    {
+        if($this->data_reserva) {
+            $date = new DateTimeImmutable($this->data_reserva);
+            return $date->format('d/m/Y');
+        }
+
+        return "";
     }
 
     /**

@@ -7,10 +7,10 @@ final class ReservaStatusEnum {
     const COMPLETED = 2;
     const CANCELED = 3;
 
-    public static function getName(string $value): string {
+    public static function getName(int $value): string {
         $status = match ($value) {
             self::PENDING => 'Pendente',
-            self::COMPLETED => 'Completa',
+            self::COMPLETED => 'Finalizada',
             self::CANCELED => 'Cancelada',
             default => NULL,
         };

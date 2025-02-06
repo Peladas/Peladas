@@ -16,8 +16,11 @@ class Controller {
 
     protected ?string $userType = null;
 
+    protected ?array $errors;
+
     public function __construct() {
         $this->setIsLogged();
+        $this->getErrors();
         if ($this->is_logged) {
             $this->getUserType();
         }
@@ -156,4 +159,8 @@ class Controller {
         return $user;
     }
 
+    protected function getErrors(): void {
+        $this->errors = $_SESSION['errors'] ?? null;
+        unset($_SESSION['errors']);
+    }
 }

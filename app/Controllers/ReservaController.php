@@ -135,6 +135,9 @@ class ReservaController extends Controller {
         $reservaDAO = new ReservaDAO();
         $reserva = $reservaDAO->find($id);
 
+        $jogadorDAO = new JogadorDAO();
+        $jogador = $jogadorDAO->find($reserva->getJogadorId());
+
         $usuario = null;
 
         if ($this->userType !== 'jogador') {
@@ -146,7 +149,7 @@ class ReservaController extends Controller {
         $quadraDAO = new QuadraDAO();
         $quadra = $quadraDAO->find($reserva->getQuadraId());
 
-        return $this->render('show_reserva', compact('reserva', 'quadra', 'usuario'));
+        return $this->render('show_reserva', compact('reserva', 'quadra', 'usuario', 'jogador'));
     }
 
     public function cancel(int $id) {
