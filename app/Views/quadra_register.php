@@ -8,7 +8,7 @@
 
             <div class="flex flex-col gap-2 mb-7 items-center">
                 <div class="w-80 md:w-full">
-                    <select id="identificador" name="identificador" class="px-10 peer w-2/5 h-10 px-2 border-2 border-purple-700 dark:border-amber-300 rounded-lg placeholder-transparent dark:bg-zinc-900 bg-transparent text-gray-500" name="select" id="">
+                    <select id="identificador" name="identificador" class="px-10 peer w-80 md:w-2/5 h-10 px-2 border-2 border-purple-700 dark:border-amber-300 rounded-lg placeholder-transparent dark:bg-zinc-900 bg-transparent text-gray-500" name="select" id="">
                         <option>Tipo de quadra</option>
                         <option value="Areia" <?php echo isset($data['identificador']) && $data['identificador'] == "Areia" ? 'selected' : ''  ?>>Areia</option>
                         <option value="Madeira <?php echo isset($data['identificador']) && $data['identificador'] == "Madeira" ? 'selected' : ''  ?>">Madeira</option>

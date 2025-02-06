@@ -53,7 +53,7 @@
                     <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getDescricao() ?></span>
                 </p>
 
-                <div class="flex gap-8 items-center justify-center md:justify-start mt-4">
+                <div class="flex gap-8 items-center justify-center md:justify-start my-6 md:my-4">
                     <a href="/editar-quadras/<?php echo $quadra->getId() ?>" class="transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
                         Editar
                     </a>
