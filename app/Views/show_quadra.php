@@ -1,3 +1,7 @@
+<?php
+Use App\Helpers\Formatter;
+?>
+
 <div class="h-screen flex flex-col items-center justify-center mt-14 md:mt-0 gap-5">
     <h1 class="dark:text-amber-300 mb-5 md:mb-10 text-center text-3xl">Dados da Quadra</h1>
     <div class="flex flex-col md:flex-row gap-5 items-center justify-center m-10 mt-0 md:m-0">
@@ -13,11 +17,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 w-full md:w-96">
                 <p>
                     <span class="text-blue-800 dark:text-amber-300">Tipo:</span>
-                    <span class="text-slate-800 dark:text-slate-100"><?php
-
-use App\Helpers\Formatter;
-
- echo $quadra->getIdentificador() ?></span>
+                    <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getIdentificador() ?></span>
                 </p>
                 <p class="text-left md:text-right">
                     <span class="text-blue-800 dark:text-amber-300">Modalidade:</span>
@@ -54,7 +54,7 @@ use App\Helpers\Formatter;
                     Eliminar
                 </a>
                 <a id="botaoInativarAtivar" href="#" onclick="toggleQuadraStatus()" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
-                    inativar
+                    <?php echo $quadra->getStatus() === 'INACTIVE' ? 'Ativar' : 'Inativar'; ?>
                 </a>
 
                 <a id="botaoLink" href="/minhas-quadras/<?php echo $quadra->getId() ?>/disponibilidade" onclick="" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
@@ -66,6 +66,10 @@ use App\Helpers\Formatter;
 </div>
 
 <script>
+    // Passa o status da quadra para o JavaScript
+    const quadraStatus = "<?php echo $quadra->getStatus(); ?>"; // Supondo que getStatus() retorne 'ACTIVE' ou 'INACTIVE'
+    let isInactive = quadraStatus === "INACTIVE"; // Define o estado inicial do botão
+
     function confirmElimination() {
         const excluir = confirm("Deseja excluir a quadra selecionada?");
 
@@ -82,35 +86,33 @@ use App\Helpers\Formatter;
         }
     }
 
-    let isInactive = false; // Define se a quadra está inativa (false = ativa, true = inativa)
-
     function toggleQuadraStatus() {
-    const confirmationMessage = isInactive
-        ? "Deseja ativar a quadra selecionada?"
-        : "A quadra inativada não aparecerá para o jogador. Deseja inativar a quadra selecionada?";
+        const confirmationMessage = isInactive
+            ? "Deseja ativar a quadra selecionada?"
+            : "A quadra inativada não aparecerá para o jogador. Deseja inativar a quadra selecionada?";
 
-    const confirmed = confirm(confirmationMessage);
+        const confirmed = confirm(confirmationMessage);
 
-    if (confirmed) {
-        const endpoint = isInactive
-            ? '/ativar-quadras/<?php echo $quadra->getId() ?>'
-            : '/inativar-quadras/<?php echo $quadra->getId() ?>';
+        if (confirmed) {
+            const endpoint = isInactive
+                ? '/ativar-quadras/<?php echo $quadra->getId() ?>'
+                : '/inativar-quadras/<?php echo $quadra->getId() ?>';
 
-        const successMessage = isInactive
-            ? "Quadra ativada com sucesso"
-            : "Quadra inativada com sucesso";
+            const successMessage = isInactive
+                ? "Quadra ativada com sucesso"
+                : "Quadra inativada com sucesso";
 
-        fetch(endpoint, { method: 'POST' })
-            .then(() => {
-                alert(successMessage);
-                // Alterna o estado da quadra
-                isInactive = !isInactive;
-                // Atualiza o texto do botão
-                document.getElementById('botaoInativarAtivar').textContent = isInactive ? "Ativar" : "Inativar";
-            })
-            .catch((error) => {
-                alert(`Erro: ${error.message}`);
-            });
+            fetch(endpoint, { method: 'POST' })
+                .then(() => {
+                    alert(successMessage);
+                    // Alterna o estado da quadra
+                    isInactive = !isInactive;
+                    // Atualiza o texto do botão
+                    document.getElementById('botaoInativarAtivar').textContent = isInactive ? "Ativar" : "Inativar";
+                })
+                .catch((error) => {
+                    alert(`Erro: ${error.message}`);
+                });
+        }
     }
-}
 </script>

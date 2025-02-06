@@ -68,6 +68,18 @@ use App\Helpers\Formatter;
                 <div class="flex flex-col gap-6 justify-center items-center justify-self-center">
 
                     <div class="flex flex-col gap-6 w-80 m-3 text-wrap">
+                        <?php
+                        if ($usuario === 'locador') {
+                        ?>
+                            <div class="gap-3 w-full md:w-96">
+                                <p>
+                                    <span class="text-blue-800 dark:text-amber-300">Jogador:</span>
+                                    <span class="text-slate-800 dark:text-slate-100"><?= $jogador->getNomeJogador() ?></span>
+                                </p>
+                            </div>
+                        <?php
+                        }
+                        ?>
                         <div class="gap-3 w-full md:w-96">
                             <p>
                                 <span class="text-blue-800 dark:text-amber-300">Tipo de partida:</span>
@@ -77,7 +89,7 @@ use App\Helpers\Formatter;
                         <div class="gap-3 text-wrap">
                             <p>
                                 <span class="text-blue-800 dark:text-amber-300">Data da partida:</span>
-                                <span class="text-slate-800 dark:text-slate-100"><?php echo $reserva->getDataReserva() ?></span>
+                                <span class="text-slate-800 dark:text-slate-100"><?php echo $reserva->getDataReservaFormatado() ?></span>
                             </p>
                         </div>
                         <div class="w-full md:w-96">

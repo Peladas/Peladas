@@ -317,9 +317,9 @@
 <body class="bg-slate-100 dark:bg-zinc-900 dark:text-[#fafafa] break-words max-h-min">
     <?php (isset($is_logged) && $is_logged) ? include_once __DIR__ . "/layout_logged.php" : include_once __DIR__ . "/layout_guest.php"; ?>
 
-    <?php if (isset($errors['global'])) { ?>
+    <?php if (isset($errors['global']) && $errors['global']) { ?>
         <div id="error-wrapper" class="absolute bottom-10 w-full flex justify-center">
-            <div class="bg-red-500 text-white px-4 py-2 rounded flex gap-4">
+            <div class="bg-red-500 text-white px-4 py-2 rounded flex gap-4 box-shadow">
                 <?php echo $errors['global'] ?>
                 <div id="error-msg-close-btn" class="relative border-0 bg-transparent -top-2 text-sm cursor-pointer">X</div>
             </div>
