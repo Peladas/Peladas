@@ -34,7 +34,7 @@ use App\Enums\ReservaStatusEnum;
     </div>
 
     <?php if (!empty($reservas)) { ?>
-        <div class="flex flex-wrap gap-16 items-center justify-center">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-16 md:gap-8">
             <?php
             foreach ($reservas as $reservaDado) {
                 $reserva = $reservaDado['reserva'];
