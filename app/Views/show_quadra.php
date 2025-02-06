@@ -14,52 +14,55 @@ Use App\Helpers\Formatter;
         </div>
 
         <div class="flex flex-col gap-4 w-full md:w-auto md:ml-12 mt-5 md:mt-0">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 w-full md:w-96">
-                <p>
-                    <span class="text-blue-800 dark:text-amber-300">Tipo:</span>
-                    <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getIdentificador() ?></span>
-                </p>
-                <p class="text-left md:text-right">
-                    <span class="text-blue-800 dark:text-amber-300">Modalidade:</span>
-                    <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getModalidade() ?></span>
-                </p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 w-full md:w-96">
-                <p>
-                    <span class="text-blue-800 dark:text-amber-300">Tamanho:</span>
-                    <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getTamanhoQuadra() ?></span>
-                </p>
-                <p class="text-left md:text-right">
-                    <span class="text-blue-800 dark:text-amber-300">Valor:</span>
-                    <span class="text-slate-800 dark:text-slate-100"><?php echo Formatter::valueReais($quadra->getValorAluguel()) ?></span>
-                </p>
-            </div>
-            <div class="grid grid-cols-1 gap-3 w-full md:w-96">
-                <p>
-                    <span class="text-blue-800 dark:text-amber-300">Quantidade máxima de jogadores:</span>
-                    <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getQuantMaxJogadores() ?></span>
-                </p>
-            </div>
-            <p>
-                <span class="text-blue-800 dark:text-amber-300">Descrição:</span>
-                <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getDescricao() ?></span>
-            </p>
 
-            <div class="flex gap-8 items-center justify-center md:justify-start mt-4">
-                <a id="botaoLink" href="/editar-quadras/<?php echo $quadra->getId() ?>" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
-                    Editar
-                </a>
+            <div class="flex flex-col gap-4 w-full">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 w-full md:w-96">
+                    <p>
+                        <span class="text-blue-800 dark:text-amber-300">Tipo:</span>
+                        <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getIdentificador() ?></span>
+                    </p>
+                    <p class="text-left md:text-right">
+                        <span class="text-blue-800 dark:text-amber-300">Modalidade:</span>
+                        <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getModalidade() ?></span>
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 w-full md:w-96">
+                    <p>
+                        <span class="text-blue-800 dark:text-amber-300">Tamanho:</span>
+                        <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getTamanhoQuadra() ?></span>
+                    </p>
+                    <p class="text-left md:text-right">
+                        <span class="text-blue-800 dark:text-amber-300">Valor:</span>
+                        <span class="text-slate-800 dark:text-slate-100"><?php echo Formatter::valueReais($quadra->getValorAluguel()) ?></span>
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 gap-3 w-full md:w-96">
+                    <p>
+                        <span class="text-blue-800 dark:text-amber-300">Quantidade máxima de jogadores:</span>
+                        <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getQuantMaxJogadores() ?></span>
+                    </p>
+                </div>
+                <p>
+                    <span class="text-blue-800 dark:text-amber-300">Descrição:</span>
+                    <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getDescricao() ?></span>
+                </p>
 
-                <a id="botaoLink" href="#" onclick="confirmElimination()" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
+                <div class="flex gap-8 items-center justify-center md:justify-start mt-4">
+                    <a href="/editar-quadras/<?php echo $quadra->getId() ?>" class="transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
+                        Editar
+                    </a>
+
+                <a id="" href="#" onclick="confirmElimination()" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
                     Eliminar
                 </a>
                 <a id="botaoInativarAtivar" href="#" onclick="toggleQuadraStatus()" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
                     <?php echo $quadra->getStatus() === 'INACTIVE' ? 'Ativar' : 'Inativar'; ?>
                 </a>
 
-                <a id="botaoLink" href="/minhas-quadras/<?php echo $quadra->getId() ?>/disponibilidade" onclick="" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
-                    Disponibilidade
-                </a>
+                    <a href="/minhas-quadras/<?php echo $quadra->getId() ?>/disponibilidade" onclick="" class="transform hover:scale-105 px-3 py-2 bg-transparent  dark:text-white text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
+                        Disponibilidade
+                    </a>
+                </div>
             </div>
         </div>
     </div>
