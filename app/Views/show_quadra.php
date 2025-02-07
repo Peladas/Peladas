@@ -1,4 +1,6 @@
 <?php
+
+use App\Enums\QuadrasStatusEnum;
 Use App\Helpers\Formatter;
 ?>
 
@@ -52,11 +54,11 @@ Use App\Helpers\Formatter;
                         Editar
                     </a>
 
-                <a id="" href="#" onclick="confirmElimination()" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
+                <a href="#" onclick="confirmElimination()" class="transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
                     Eliminar
                 </a>
-                <a id="botaoInativarAtivar" href="#" onclick="toggleQuadraStatus()" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
-                    <?php echo $quadra->getStatus() === 'INACTIVE' ? 'Ativar' : 'Inativar'; ?>
+                <a id="botaoInativarAtivar" href="#" onclick="toggleQuadraStatus()" class="transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
+                    <?php echo $quadra->getStatus() === QuadrasStatusEnum::INACTIVE ? 'Ativar' : 'Inativar'; ?>
                 </a>
 
                     <a href="/minhas-quadras/<?php echo $quadra->getId() ?>/disponibilidade" onclick="" class="transform hover:scale-105 px-3 py-2 bg-transparent  dark:text-white text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
@@ -70,8 +72,7 @@ Use App\Helpers\Formatter;
 
 <script>
     // Passa o status da quadra para o JavaScript
-    const quadraStatus = "<?php echo $quadra->getStatus(); ?>"; // Supondo que getStatus() retorne 'ACTIVE' ou 'INACTIVE'
-    let isInactive = quadraStatus === "INACTIVE"; // Define o estado inicial do botão
+    let isInactive = <?=  $quadra->getStatus() == QuadrasStatusEnum::INACTIVE ? 'true' : 'false' ?>; // Define o estado inicial do botão
 
     function confirmElimination() {
         const excluir = confirm("Deseja excluir a quadra selecionada?");
@@ -80,8 +81,12 @@ Use App\Helpers\Formatter;
             fetch('/remover-quadras/<?php echo $quadra->getId() ?>', {
                     method: 'POST'
                 })
-                .then(() => {
-                    alert("Quadra eliminada com sucesso")
+                .then(async (response) => {
+                    return await response.json()
+                })
+                .then((json) => {
+                    alert(json.message)
+                    window.location.assign('/minhas-quadras');
                 })
                 .catch((error) => {
                     alert(`Error: ${error.message}`)
@@ -108,10 +113,7 @@ Use App\Helpers\Formatter;
             fetch(endpoint, { method: 'POST' })
                 .then(() => {
                     alert(successMessage);
-                    // Alterna o estado da quadra
-                    isInactive = !isInactive;
-                    // Atualiza o texto do botão
-                    document.getElementById('botaoInativarAtivar').textContent = isInactive ? "Ativar" : "Inativar";
+                    document.location.reload();
                 })
                 .catch((error) => {
                     alert(`Erro: ${error.message}`);

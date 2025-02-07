@@ -5,7 +5,7 @@
             <h1 class="capitalize h-auto dark:text-amber-300 text-3xl">Áreas Disponíveis para Locação</h1>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16 md:gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-16 md:gap-8">
             <?php
             if ($data) {
                 foreach ($data as $locador) {

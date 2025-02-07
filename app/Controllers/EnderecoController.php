@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Dao\EnderecoDAO;
+use App\Dao\LocadorDAO;
 use App\Services\EnderecoService\UpdateEnderecoService;
 
 class EnderecoController extends Controller {
@@ -16,9 +17,10 @@ class EnderecoController extends Controller {
         $locador = $this->getLocador();
         $id = $locador->getId();
 
+        $enderecoDAO = new EnderecoDAO();
+        $endereco = $enderecoDAO->first(['locador_id' => $id]);
+
         if ($this->getMethod() === 'get') {
-            $enderecoDAO = new EnderecoDAO();
-            $endereco = $enderecoDAO->first(['locador_id' => $id]);
             return $this->render('endereco', compact('endereco'));
         }
 
@@ -28,8 +30,12 @@ class EnderecoController extends Controller {
             $errors = $enderecoService->run($id, $data);
 
             if (count($errors) > 0) {
-                return $this->render('endereco_edit', compact('errors', 'data'));
+                return $this->render('endereco', compact('errors', 'data', 'endereco'));
             }
+
+            $cadastroCompleto = $locador->checarCadastroCompleto();
+            $locadorDAO = new LocadorDAO();
+            $locadorDAO->update($locador->getId(), ['cadastro_completo' => (int) $cadastroCompleto]);
 
             header(header: 'Location: /perfil-locador');
         } catch (\Throwable $th) {

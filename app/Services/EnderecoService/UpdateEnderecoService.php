@@ -51,7 +51,7 @@ class UpdateEnderecoService {
         $endereco = $enderecoDAO->first(['locador_id' => $this->locadorId]);
 
         if ($endereco) {
-            if (isset($data['endereco'])) {
+            if (isset($data['rua'])) {
                 // Atualizar o endereço no BD
                 $enderecoDAO->update($endereco->getId(), [
                     'rua' => $data['rua'] ?? $endereco->rua,

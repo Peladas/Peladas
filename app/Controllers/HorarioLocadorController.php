@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Dao\HorarioLocadorDAO;
+use App\Dao\LocadorDAO;
 use App\Services\HorarioLocadorServices\UpdateHorarioLocadorService;
 use App\Services\HorarioLocadorServices\CreateHorarioLocadorService;
 
@@ -53,6 +54,10 @@ class HorarioLocadorController extends Controller{
             if (count($errors) > 0) {
                 return $this->render('horario_locador_edit', compact('errors', 'data'));
             }
+
+            $cadastroCompleto = $locador->checarCadastroCompleto();
+            $locadorDAO = new LocadorDAO();
+            $locadorDAO->update($locador->getId(), ['cadastro_completo' => (int) $cadastroCompleto]);
 
             header(header: 'Location: /perfil-locador');
         } catch (\Throwable $th) {

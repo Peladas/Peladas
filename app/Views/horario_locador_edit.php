@@ -30,17 +30,7 @@
                             <div class="relative">
                                 <input type="time" id="<?= $startTimeName ?>" name="<?= $startTimeName ?>" value="<?php echo $data['hora_inicio'] ?? '' ?>"
                                     class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white text-center"
-                                    min="00:00" max="23:59" onfocus="showTimeOptions(this)" />
-
-                                <!-- Select de horários pré-definidos -->
-                                <select id="timeSelect" class="hidden absolute bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                                    onchange="setTimeFromSelect(this, '<?= $startTimeName ?>')">
-                                    <option value="" disabled selected>Selecione um horário</option>
-                                    <?php for ($h = 0; $h < 24; $h++): ?>
-                                        <?php $time = sprintf("%02d:00", $h); ?>
-                                        <option value="<?= $time ?>"><?= $time ?></option>
-                                    <?php endfor; ?>
-                                </select>
+                                    min="00:00" max="23:59" />
                             </div>
                         </div>
 

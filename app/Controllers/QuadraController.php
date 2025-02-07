@@ -90,13 +90,15 @@ class QuadraController extends Controller {
         header('Content-type: application/json');
         $locador = $this->getLocador();
         $deleteQuadraService = new DeleteQuadraService();
-        $deleteQuadraService->run($id, $locador->getId());
-
-        // echo json_encode([
-        //     'message' => 'Catch',
-        // ]);
-
-        header('Location: /minhas-quadras');
+        try {
+            $deleteQuadraService->run($id, $locador->getId());
+            echo json_encode(['error' => false, 'message' => 'Quadra eliminada com sucesso']);
+            return;
+        } catch (\Throwable $th) {
+            http_response_code(400);
+            echo json_encode(['error' => true, 'message' => 'Erro eliminando a quadra']);
+            return;
+        }
     }
 
     public function inactivate(int $id) {

@@ -37,7 +37,7 @@ class CreateQuadraService {
             $errors['tamanho_quadra'] = 'Obrigatório espicificar o tamanho da quadra';
         }
         if (!Validator::notEmpty(value: $data['quant_max_jogadores'])) {
-            $errors['quant_max_jogadores'] = 'Obrigatório espicificar a quantidade mínima de jogadores';
+            $errors['quant_max_jogadores'] = 'Obrigatório espicificar a quantidade máxima de jogadores';
         }
         if (!Validator::notEmpty(value: $data['valor_aluguel'])) {
             $errors['valor_aluguel'] = 'Obrigatório espicificar o valor da quadra';

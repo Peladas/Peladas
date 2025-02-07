@@ -11,6 +11,16 @@ use App\Models\Locador;
 use App\Models\User;
 
 class RegistrationService {
+    private UserDAO $userDAO;
+    private LocadorDAO $locadorDAO;
+    private JogadorDAO $jogadorDAO;
+
+    public function __construct() {
+        $this->userDAO = new UserDAO();
+        $this->locadorDAO = new LocadorDAO();
+        $this->jogadorDAO = new JogadorDAO();
+    }
+
     public function run(array $data): array {
 
 
@@ -23,8 +33,7 @@ class RegistrationService {
                 ->setTelefone(telefone: $data["phone"])
                 ->setAtivo(ativo: true);
 
-            $userDAO = new UserDAO();
-            $userId = $userDAO->create(user: $newUser);
+            $userId = $this->userDAO->create(user: $newUser);
 
             switch ($data['user_type']) {
                 case 'jogador':
@@ -46,6 +55,9 @@ class RegistrationService {
             $errors['email'] = 'E-mail obrigatório';
         } elseif (!Validator::email($data['email'])) {
             $errors['email'] = 'E-mail inválido';
+        } else {
+            $usersWithSameEmail = $this->userDAO->getAll(['email' => "'" . $data['email'] . "'"]);
+            if (count($usersWithSameEmail)) $errors['email'] = 'Email em uso';
         }
 
         if (!Validator::notEmpty($data['phone'])) {
@@ -75,6 +87,9 @@ class RegistrationService {
                 $errors['cpf'] = 'CPF obrigatório';
             } elseif (!Validator::cpf($data['cpf'])) {
                 $errors['cpf'] = 'CPF inválido';
+            } else {
+                $playersWithSameDocument = $this->jogadorDAO->getAll(['cpf' => $data['cpf']]);
+                if (count($playersWithSameDocument)) $errors['cpf'] = 'CPF em uso';
             }
 
             if (!Validator::notEmpty($data['birthday'])) {
@@ -89,12 +104,20 @@ class RegistrationService {
                 $errors['locador-name'] = 'Nome muito curto';
             }
 
+            if (!Validator::notEmpty($data['locador-alias'])) {
+                $errors['locador-alias'] = 'Nome fantasia obrigatório';
+            }
+
             if (!Validator::notEmpty($data['cnpj'])) {
                 $errors['cnpj'] = 'CNPJ obrigatório';
             } elseif (!Validator::cnpj($data['cnpj'])) {
                 $errors['cnpj'] = 'CNPJ inválido';
+            } else {
+                $playersWithSameDocument = $this->locadorDAO->getAll(['cnpj' => $data['cnpj']]);
+                if (count($playersWithSameDocument)) $errors['cnpj'] = 'CNPJ em uso';
             }
         }
+
         return $errors;
     }
 
@@ -106,8 +129,7 @@ class RegistrationService {
             ->setCpf(cpf: $data["cpf"])
             ->setDataNascimento(data_nascimento: $data["birthday"]);
 
-        $jogadorDAO = new JogadorDAO();
-        $jogadorDAO->create(jogador: $newJogador);
+        $this->jogadorDAO->create(jogador: $newJogador);
     }
 
     private function createLocador(int $userId, array $data): void {
@@ -117,7 +139,6 @@ class RegistrationService {
             ->setRazaoSocial(razao_social: $data["locador-alias"])
             ->setCnpj(cnpj: $data["cnpj"]);
 
-        $locadorDAO = new LocadorDAO();
-        $locadorDAO->create(locador: $newLocador);
+        $this->locadorDAO->create(locador: $newLocador);
     }
 }

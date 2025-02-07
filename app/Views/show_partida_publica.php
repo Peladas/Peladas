@@ -32,6 +32,12 @@ use App\Enums\PartidaTypeEnum;
                             <span class="text-slate-800 dark:text-slate-100"><?php echo $quadra->getModalidade() ?></span>
                         </p>
                     </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full md:w-96">
+                        <p>
+                            <span class="text-blue-800 dark:text-amber-300">Locador:</span>
+                            <span class="text-slate-800 dark:text-slate-100"><?php echo $locador->getNomeFantasia() ?></span>
+                        </p>
+                    </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 w-full md:w-96">
                         <p>
                             <span class="text-blue-800 dark:text-amber-300">Tamanho:</span>
@@ -69,7 +75,7 @@ use App\Enums\PartidaTypeEnum;
                         <div class="gap-3 text-wrap">
                             <p>
                                 <span class="text-blue-800 dark:text-amber-300">Data da partida:</span>
-                                <span class="text-slate-800 dark:text-slate-100"><?php echo $reserva->getDataReserva() ?></span>
+                                <span class="text-slate-800 dark:text-slate-100"><?php echo $reserva->getDataReservaFormatado() ?></span>
                             </p>
                         </div>
                         <div class="w-full md:w-96">
@@ -82,12 +88,9 @@ use App\Enums\PartidaTypeEnum;
                 </div>
             </div>
         </div>
-
-
     </div>
 
     <div class="py-2 mt-6">
-
         <div class="my-6 md:my-5">
             <h1 class="text-2xl text-center dark:text-amber-300">Lista de Jogadores</h1>
         </div>
@@ -123,22 +126,24 @@ use App\Enums\PartidaTypeEnum;
             </div>
 
             <!-- Botão de inscrição/cancelamento -->
-            <?php if ($estaInscritoNaPartida) { ?>
-                <form action="/partida-publica/<?= $reserva->getId() ?>/cancelar" method="POST" class="my-8 md:my-6">
-                    <button type="submit" class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
-                        Cancelar Inscrição
-                    </button>
-                </form>
-            <?php } else { ?>
-                <?php if ($vagasRestantes > 0): ?>
-                    <form action="/partida-publica/<?= $reserva->getId() ?>/inscrever" method="POST" class="my-8 md:my-6">
+            <?php if ($jogadorLogadoId !== $jogador->getId()) { ?>
+                <?php if ($estaInscritoNaPartida) { ?>
+                    <form action="/partida-publica/<?= $reserva->getId() ?>/cancelar" method="POST" class="my-8 md:my-6">
                         <button type="submit" class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
-                            Inscrever-se na Partida
+                            Cancelar Inscrição
                         </button>
                     </form>
-                <?php else: ?>
-                    <p class="mt-6 text-slate-600 dark:text-slate-400 text-center">Todas as vagas foram preenchidas.</p>
-                <?php endif; ?>
+                <?php } else { ?>
+                    <?php if ($vagasRestantes > 0): ?>
+                        <form action="/partida-publica/<?= $reserva->getId() ?>/inscrever" method="POST" class="my-8 md:my-6">
+                            <button type="submit" class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
+                                Inscrever-se na Partida
+                            </button>
+                        </form>
+                    <?php else: ?>
+                        <p class="mt-6 text-slate-600 dark:text-slate-400 text-center">Todas as vagas foram preenchidas.</p>
+                    <?php endif; ?>
+                <?php } ?>
             <?php } ?>
         </div>
     </div>

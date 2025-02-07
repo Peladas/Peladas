@@ -9,7 +9,7 @@ final class ReservaStatusEnum {
 
     public static function getName(int $value): string {
         $status = match ($value) {
-            self::PENDING => 'Pendente',
+            self::PENDING => 'Aberta',
             self::COMPLETED => 'Finalizada',
             self::CANCELED => 'Cancelada',
             default => NULL,

@@ -11,7 +11,7 @@ use App\Enums\QuadrasStatusEnum;
 
 class AreasDesportivasController extends Controller {
 
-    private $locadorDAO;
+    private LocadorDAO $locadorDAO;
 
     public function __construct() {
         parent::__construct();
@@ -19,7 +19,7 @@ class AreasDesportivasController extends Controller {
     }
     public function index() {
         if ($this->getMethod() === 'get') {
-            $locadores = $this->locadorDAO->getAll();
+            $locadores = $this->locadorDAO->getAll(['cadastro_completo' => (int) true]);
 
             $enderecoDAO = new EnderecoDAO();
 
