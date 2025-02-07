@@ -102,7 +102,7 @@ use App\Helpers\Formatter;
                         if ($usuario !== 'locador' && $reserva->getStatus() === ReservaStatusEnum::PENDING) {
                         ?>
                             <div class="flex gap-8 items-center justify-center md:justify-start mt-4">
-                                <a id="botaoLink" href="#" onclick="confirmCancelation()" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
+                                <a id="" href="#" onclick="confirmCancelation()" class="transform hover:scale-105 px-3 py-2 bg-transparent text-gray-700 border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
                                     Cancelar Reserva
                                 </a>
                             </div>
@@ -113,11 +113,7 @@ use App\Helpers\Formatter;
                 </div>
             </div>
         </div>
-
     </div>
-
-
-
 </div>
 
 <script>
@@ -128,11 +124,16 @@ use App\Helpers\Formatter;
             fetch('/cancelar-reserva/<?php echo $reserva->getId() ?>', {
                     method: 'POST'
                 })
-                .then(() => {
-                    alert("Reserva cancelada com sucesso")
+                .then(async (response) => {
+                    return await response.json()
+                })
+                .then((json) => {
+                    alert(json.message)
+                    window.location.assign('/lista-reservas');
                 })
                 .catch((error) => {
                     alert(`Error: ${error.message}`)
+                    console.error(error)
                 })
         }
     }

@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Dao\EnderecoDAO;
+use App\Dao\HorarioLocadorDAO;
+
 class Locador extends Model {
     /*public $nome_fantasia;
     public $razao_socsial;
@@ -11,6 +14,7 @@ class Locador extends Model {
     protected ?String $nome_fantasia;
     protected ?String $razao_social;
     protected ?String $cnpj;
+    protected bool $cadastro_completo;
 
     protected ?int $usuario_id;
 
@@ -66,5 +70,41 @@ class Locador extends Model {
         $this->usuario_id = $usuario_id;
 
         return $this;
+    }
+
+    /**
+     * Get the value of cadastro_completo
+     */
+    public function isCadastroCompleto(): bool
+    {
+        return $this->cadastro_completo;
+    }
+
+    /**
+     * Set the value of cadastro_completo
+     */
+    public function setCadastroCompleto(bool $cadastro_completo): self
+    {
+        $this->cadastro_completo = $cadastro_completo;
+
+        return $this;
+    }
+
+    public function checarCadastroCompleto() {
+        //endereco
+        $enderecoDAO = new EnderecoDAO();
+        $endereco = $enderecoDAO->first(['locador_id' => $this->id]);
+        if (!$endereco) {
+            return false;
+        }
+
+        //horario
+        $horarioLocadorDAO = new HorarioLocadorDAO();
+        $horarios = $horarioLocadorDAO->getAll(['locador_id' => $this->id]);
+        if (!count($horarios)) {
+            return false;
+        }
+
+        return true;
     }
 }

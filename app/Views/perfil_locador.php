@@ -54,28 +54,30 @@ use App\Helpers\Formatter;
                         </div>
                     </div>
                 <?php else: ?>
-                    <div class="flex flex-col items-center justify-center gap-5">
+                    <div class="flex flex-col items-center justify-center gap-5 mb-8">
 
                         <div class="mt-5">
                             <p class="text-center text-red-500">Você ainda não cadastrou um endereço.</p>
                             <div class="w-auto mt-5 text-center">
-                                <a href="/perfil-locador/editar-endereco" id="botaoLink">
+                                <a href="/perfil-locador/editar-endereco" class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
                                     Cadastrar Endereço
                                 </a>
                             </div>
                         </div>
-                    <?php endif; ?>
-                    <div class="w-auto flex items-center justify-center flex-col">
-                        <a href="/minhas-quadras" class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
-                            Minhas quadras
-                        </a>
-                    </div>
 
                     </div>
+                <?php endif; ?>
+                <div class="w-auto flex items-center justify-center flex-col">
+                    <a href="/minhas-quadras" class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">
+                        Minhas quadras
+                    </a>
+                </div>
 
 
             </div>
         </div>
+    </div>
+    <div class="flex flex-col w-auto md:w-1/2 flex items-center justify-center">
         <div class="flex flex items-center justify-center text-center flex-col w-1/2">
             <h1 class="flex flex itemns-center text-center text-2xl mb-5 dark:text-amber-300">Horários para Locações</h1>
             <?php
@@ -127,8 +129,6 @@ use App\Helpers\Formatter;
         </div>
     </div>
 
-
-</div>
 </div>
 
 <script>

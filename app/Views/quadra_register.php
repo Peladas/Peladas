@@ -48,7 +48,7 @@
                 <div class="relative w-80 md:w-full ">
                     <input type="text" id="quant_max_jogadores" name="quant_max_jogadores" class="peer w-full h-10 px-2 border-2 dark:border-amber-300 placeholder-transparent dark:bg-[#18181b]" placeholder=" " value="<?php echo $data['quant_max_jogadores'] ?? '' ?>"/>
                     <label for="quant_max_jogadores" class="absolute left-2 -top-3 text-gray-500 transition-all duration-200 transform origin-left scale-75 bg-slate-100 dark:bg-[#18181b] px-1 peer-placeholder-shown:px-0 peer-placeholder-shown:top-2 peer-placeholder-shown:scale-100">
-                        Quantidade mínima de jogadores
+                        Quantidade máxima de jogadores
                     </label>
                     <?php if (isset($errors['quant_max_jogadores'])) { ?>
                         <small class="helper-text text-red-600 font-sm"><?php echo $errors['quant_max_jogadores'] ?></small>

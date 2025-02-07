@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Dao\JogadorDAO;
+use App\Dao\LocadorDAO;
 use App\Dao\PartidaPublicaDAO;
 use App\Dao\QuadraDAO;
 use App\Dao\ReservaDAO;
@@ -23,20 +24,27 @@ class PartidaPublicaController extends Controller {
     public function index() {
         $jogador = $this->getJogador();
 
-        $filtro = $_GET['filtro'] ?? '1'; // Pega o status do filtro, se houver
+        $filtro = $_GET['filtro'] ?? '1'; // Filtro de tipo de partida
+        $statusFiltro = $_GET['status'] ?? null; // Filtro de status
 
-        $reservasAux = array();
+        $reservasAux = [];
+
+        $condicoes = [
+            'tipo_reserva' => PartidaTypeEnum::PUBLICA
+        ];
+
+        if ($statusFiltro) {
+            $condicoes['status'] = $statusFiltro;
+        }
 
         switch ($filtro) {
             case '3':
-                //Disponíveis
-                $reservas = $this->reservaDAO->getAll([
-                    'tipo_reserva' => PartidaTypeEnum::PUBLICA,
-                    'status' => ReservaStatusEnum::PENDING,
-                    'jogador_id' => '!' . $jogador->getId()
-                ]);
+                // Disponíveis (pendentes e que o jogador ainda não participa)
+                $condicoes['status'] = ReservaStatusEnum::PENDING;
+                $condicoes['jogador_id'] = '!' . $jogador->getId();
+                $reservas = $this->reservaDAO->getAll($condicoes);
                 $reservasAux = array_filter($reservas, function ($reserva) use ($jogador) {
-                    $participantes = $this->partidaPublicaDAO->getAll(['reserva_id' =>$reserva->getId()]);
+                    $participantes = $this->partidaPublicaDAO->getAll(['reserva_id' => $reserva->getId()]);
                     foreach ($participantes as $participant) {
                         if ($participant->getJogadorId() == $jogador->getId()) return false;
                     }
@@ -44,20 +52,18 @@ class PartidaPublicaController extends Controller {
                 });
                 break;
             case '2':
-                //Inscrito
-                $reservasAux = $this->reservaDAO->getSQL("SELECT r.* from reservas r WHERE id IN (SELECT pp.reserva_id from partidas_publicas pp WHERE pp.jogador_id = " . $jogador->getId() . ")");
-                // $reservasAux = $this->reservaDAO->getSQL(
-                //     sql: "SELECT r.*
-                //         FROM partidas_publicas pp
-                //         JOIN reservas r ON (r.id = pp.reserva_id AND pp.jogador_id = " . $jogador->getId() . ")"
-                // );
+                // Inscrito
+                $sql = "SELECT r.* FROM reservas r WHERE id IN (
+                    SELECT pp.reserva_id FROM partidas_publicas pp WHERE pp.jogador_id = " . $jogador->getId() . ")";
+                if ($statusFiltro) {
+                    $sql .= " AND r.status = '$statusFiltro'";
+                }
+                $reservasAux = $this->reservaDAO->getSQL($sql);
                 break;
             default:
-                //Minhas partidas (1 ou qualquer outro valor)
-                $reservasAux = $this->reservaDAO->getAll([
-                    'tipo_reserva' => PartidaTypeEnum::PUBLICA,
-                    'jogador_id' => $jogador->getId()
-                ]);
+                // Minhas partidas (1 ou qualquer outro valor)
+                $condicoes['jogador_id'] = $jogador->getId();
+                $reservasAux = $this->reservaDAO->getAll($condicoes);
         }
 
         $reservas = [];
@@ -68,7 +74,6 @@ class PartidaPublicaController extends Controller {
             $reservaDado['reserva'] = $r;
             $reservaDado['quadra'] = $quadraDAO->find($r->getQuadraId());
             $reservaDado['jogador'] = $jogadorDAO->find($r->getJogadorId());
-
             $reservas[] = $reservaDado;
         }
 
@@ -80,6 +85,8 @@ class PartidaPublicaController extends Controller {
         $reservaDAO = new ReservaDAO();
         $jogadorDAO = new JogadorDAO();
         $quadraDAO = new QuadraDAO();
+        $locadorDAO = new LocadorDAO();
+
 
         $reserva = $reservaDAO->find($id);
         $jogadoresInscritos = $reserva->getJogadoresInscritos();
@@ -87,6 +94,7 @@ class PartidaPublicaController extends Controller {
         $estaInscritoNaPartida = $this->estaInscritoNaPartida($id, $jogadorLogadoId);
 
         $quadra = $quadraDAO->find($reserva->getQuadraId());
+        $locador = $locadorDAO->find($quadra->getLocadorId());
         $maxJogadores = $quadra->getQuantMaxJogadores() - 1;
         $vagasRestantes = $maxJogadores - count($jogadoresInscritos);
 
@@ -96,12 +104,18 @@ class PartidaPublicaController extends Controller {
 
         // Buscar jogadores inscritos nessa partida
 
-        return $this->render('show_partida_publica', compact('reserva', 'quadra', 'jogador', 'jogadoresInscritos', 'vagasRestantes', 'jogadorLogadoId', 'errors', 'estaInscritoNaPartida'));
+        return $this->render('show_partida_publica', compact('reserva', 'quadra', 'jogador', 'locador', 'jogadoresInscritos', 'vagasRestantes', 'jogadorLogadoId', 'errors', 'estaInscritoNaPartida'));
     }
 
     public function inscrever(int $id) {
         $jogador = $this->getJogador();
         $reserva = $this->reservaDAO->find($id);
+
+        if ($reserva->getJogadorId() == $jogador->getId() ) {
+            $_SESSION['errors']['global'] = 'Você não pode se inscrever na sua própria partida.';
+            header('Location: /partida-publica/' . $id . '/inscrever' );
+            return;
+        }
 
         $estaInscritoNaPartida = $this->estaInscritoNaPartida($id, $jogador->getId());
 

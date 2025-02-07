@@ -10,8 +10,7 @@
             <p class="w-auto md:w-full mb-2 md:mb-2 md:text-2xl text-center md:text-left">
             Venha encontrar um lugar para praticar esporte, seja para uma partida com os amigos ou com pessoas novas, temos tudo o que você precisa para aproveitar ao máximo seus esportes favoritos.
             Explore nossas opções e prepare-se para viver grandes partidas!
-
-        </p>
+            </p>
         </div>
     </div>
 </div>
@@ -49,7 +48,8 @@
                          marque a partida e aproveite o jogo sem complicações.</p>
                 </div>
                 <div class="flex justify-center m-8">
-                    <a class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">Acessar as Listas Públicas</a>
+                    <a class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300"
+                    href="<?php echo $user_type === 'jogador' ? '/partidas-publicas' : '' ?>">Acessar as Listas Públicas</a>
                 </div>
             </div>
         </div>

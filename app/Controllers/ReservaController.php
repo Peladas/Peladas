@@ -34,7 +34,6 @@ class ReservaController extends Controller {
         // Cria as condições de busca para a consulta
         $condicoes = [
             'jogador_id' => $jogador->getId(),
-            'status' => $statusFiltro ?? '!' . ReservaStatusEnum::CANCELED
         ];
         // Se um status foi filtrado, adicione à condição
         if ($statusFiltro) {
@@ -73,8 +72,6 @@ class ReservaController extends Controller {
 
         if ($statusFiltro) {
             $sql .= " AND r.status = '$statusFiltro'";
-        } else {
-            $sql .= " AND r.status != '" . ReservaStatusEnum::CANCELED . "'";
         }
 
         if ($partidaFiltro) {
@@ -160,10 +157,15 @@ class ReservaController extends Controller {
         header('Content-type: application/json');
         $jogador = $this->getJogador();
         $cancelReservaService = new CancelReservaService();
-        $cancelReservaService->run($id);
-
-        header('Location: /lista-reservas');
-        return;
+        try {
+            $cancelReservaService->run($id);
+            echo json_encode(['error' => false, 'message' => 'Reserva cancelada com sucesso']);
+            return;
+        } catch (\Throwable $th) {
+            http_response_code(400);
+            echo json_encode(['error' => true, 'message' => 'Erro cancelando a reserva']);
+            return;
+        }
     }
 
     private function atualizarStatusReservasConcluidas() {

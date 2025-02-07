@@ -16,7 +16,7 @@ use App\Enums\ReservaStatusEnum;
             <select id="filtro-status" class="border-[1px] border-ehite border-slate-400 rounded-lg py-2 px-4 bg-transparent text-slate-800 dark:text-white
             dark:hover:bg-zinc-900">
                 <option class="dark:bg-zinc-900" value="">Todos</option>
-                <option class="dark:bg-zinc-900" value="<?= ReservaStatusEnum::PENDING ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::PENDING ? 'selected' : '' ?>>Pendente</option>
+                <option class="dark:bg-zinc-900" value="<?= ReservaStatusEnum::PENDING ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::PENDING ? 'selected' : '' ?>>Aberta</option>
                 <option class="dark:bg-zinc-900" value="<?= ReservaStatusEnum::COMPLETED ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::COMPLETED ? 'selected' : '' ?>>Concluída</option>
                 <option class="dark:bg-zinc-900" value="<?= ReservaStatusEnum::CANCELED ?>" <?= isset($_GET['status']) && $_GET['status'] == ReservaStatusEnum::CANCELED ? 'selected' : '' ?>>Cancelada</option>
             </select>
@@ -34,6 +34,23 @@ use App\Enums\ReservaStatusEnum;
     </div>
 
     <?php if (!empty($reservas)) { ?>
+        <?php
+        // Define a prioridade de cada status
+        $prioridadeStatus = [
+            ReservaStatusEnum::PENDING => 1,   // Pendente (maior prioridade)
+            ReservaStatusEnum::COMPLETED => 2, // Concluída
+            ReservaStatusEnum::CANCELED => 3,  // Cancelada (menor prioridade)
+        ];
+
+        // Ordena as reservas com base na prioridade do status
+        usort($reservas, function ($a, $b) use ($prioridadeStatus) {
+            $prioridadeA = $prioridadeStatus[$a['reserva']->getStatus()];
+            $prioridadeB = $prioridadeStatus[$b['reserva']->getStatus()];
+
+            return $prioridadeA <=> $prioridadeB;
+        });
+        ?>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-16 md:gap-8">
             <?php
             foreach ($reservas as $reservaDado) {
@@ -45,9 +62,10 @@ use App\Enums\ReservaStatusEnum;
                 $dataReserva = new DateTime($reserva->getDataReserva());
                 $hoje = new DateTime();
                 $isCompletedAndPast = $reserva->getStatus() === ReservaStatusEnum::COMPLETED && $dataReserva < $hoje;
+                $isCanceled = $reserva->getStatus() === ReservaStatusEnum::CANCELED;
             ?>
                 <!-- Aplica a classe 'opacity-50' se a reserva estiver concluída e a data já tiver passado -->
-                <a href="/lista-reservas/reserva/<?= $reserva->getId() ?>" class="border bg-transparent rounded-lg py-3 px-5 <?= $isCompletedAndPast ? 'opacity-50' : '' ?>">
+                <a href="/lista-reservas/reserva/<?= $reserva->getId() ?>" class="border bg-transparent rounded-lg py-3 px-5 <?= $isCompletedAndPast ? 'opacity-50' : '' ?> <?= $isCanceled ? 'opacity-50' : '' ?>">
                     <?php
                         $reservaStatus = $reserva->getStatus();
                         $statusClassesList = [
@@ -90,9 +108,7 @@ use App\Enums\ReservaStatusEnum;
                 </a>
             <?php } ?>
         </div>
-
     <?php } else { ?>
-
         <div class="flex items-center justify-center flex-col md:flex-row gap-10 justify-items-center h-full md:h-96">
             <div class="w-auto">
                 <img class="size-auto" src="/imagens/icon.png">
@@ -101,27 +117,27 @@ use App\Enums\ReservaStatusEnum;
                 <p class="jersey text-5xl md:text-8xl text-purple-800 dark:text-amber-300 flex items-center text-center">Falta de Reservas</p>
             </div>
         </div>
-
     <?php } ?>
+</div>
 
-    <script>
-        document.getElementById("filtro-partida").addEventListener("change", function() {
-            const url = new URL(window.location.href);
-            if (this.value) {
-                url.searchParams.set('tipo_reserva', this.value);
-            } else {
-                url.searchParams.delete('tipo_reserva');
-            }
-            window.location.href = url.toString();
-        });
+<script>
+    document.getElementById("filtro-partida").addEventListener("change", function() {
+        const url = new URL(window.location.href);
+        if (this.value) {
+            url.searchParams.set('tipo_reserva', this.value);
+        } else {
+            url.searchParams.delete('tipo_reserva');
+        }
+        window.location.href = url.toString();
+    });
 
-        document.getElementById("filtro-status").addEventListener("change", function () {
-            const url = new URL(window.location.href);
-            if (this.value) {
-                url.searchParams.set('status', this.value);
-            } else {
-                url.searchParams.delete('status');
-            }
-            window.location.href = url.toString();
-        });
-    </script>
+    document.getElementById("filtro-status").addEventListener("change", function () {
+        const url = new URL(window.location.href);
+        if (this.value) {
+            url.searchParams.set('status', this.value);
+        } else {
+            url.searchParams.delete('status');
+        }
+        window.location.href = url.toString();
+    });
+</script>
