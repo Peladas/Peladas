@@ -8,8 +8,10 @@
             </div>
 
             <p class="w-auto md:w-full mb-2 md:mb-2 md:text-2xl text-center md:text-left">
-                Simplifique a gestão das suas quadras esportivas com nossa plataforma! Gerencie reservas de forma intuitiva, aumente a visibilidade e a ocupação, e alcance novos públicos. Otimize operações e foque em oferecer uma experiência excepcional aos seus clientes. Leve seu negócio esportivo a outro nível!
-            </p>
+            Venha encontrar um lugar para praticar esporte, seja para uma partida com os amigos ou com pessoas novas, temos tudo o que você precisa para aproveitar ao máximo seus esportes favoritos.
+            Explore nossas opções e prepare-se para viver grandes partidas!
+
+        </p>
         </div>
     </div>
 </div>
@@ -30,9 +32,8 @@
             <div class="text-center">
                 <h1 class="text-center m-5 md:text-3xl text-2xl dark:text-yellow-400 py-3">Quadras</h1>
                 <div class="border-solid border-2 p-4 mb-5 w-72">
-                    <p class="text-center text-lg md:text-xl">Encontre facilmente lugares próximos, com uma grande variedade de quadras para diversas modalidades esportivas.
-                        Alugue uma quadra para uso exclusivo ou crie uma lista para partidas públicas, convidando amigos ou conhecendo novas pessoas.
-                        Aproveite sua experiência esportiva ao máximo e conecte-se com quem compartilha sua paixão!</p>
+                    <p class="text-center text-lg md:text-xl">Encontre quadras próximas para diversas modalidades, alugue para uso exclusivo ou crie partidas públicas.
+                        Conecte-se com outros jogadores e aproveite ao máximo sua experiência esportiva!</p>
                 </div>
                 <div class="flex justify-center m-8">
                     <a class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300"
@@ -44,10 +45,8 @@
             <div class="text-center">
                 <h1 class="text-center m-5 md:text-3xl text-2xl dark:text-yellow-400 py-3">Listas Públicas</h1>
                 <div class="border-solid border-2 p-4 mb-5 w-72">
-                    <p class="text-center text-lg md:text-xl">Se você quer praticar seu esporte favorito, mas não tem companhia suficiente,
-                        não se preocupe! Aqui, você pode criar ou participar de uma partida pública, onde o valor da quadra
-                        será dividido igualmente entre os participantes. Dessa forma, você se diverte e ainda faz novas
-                        amizades enquanto joga o esporte de sua preferência. Participe e comece a jogar!</p>
+                    <p class="text-center text-lg md:text-xl">Crie ou participe de partidas públicas, divida os custos e conheça novos jogadores enquanto se diverte! Escolha sua modalidade favorita,
+                         marque a partida e aproveite o jogo sem complicações.</p>
                 </div>
                 <div class="flex justify-center m-8">
                     <a class="rounded-full transform hover:scale-105 px-3 py-2 bg-transparent dark:text-white border border-gray-300 px-4 py-2 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform transition-all duration-300">Acessar as Listas Públicas</a>
