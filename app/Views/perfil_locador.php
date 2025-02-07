@@ -5,7 +5,7 @@ use App\Helpers\Formatter;
 
 ?>
 
-<div class="flex flex-col md:flex-row gap-8 md:h-screen w-auto mt-16 dark:bg-zinc-900 items-center">
+<div class="flex flex-col md:flex-row gap-8 md:h-screen w-auto dark:bg-zinc-900 items-center">
 
     <div class="flex flex-col w-auto md:w-1/2 flex items-center justify-center">
         <div class="my-3">

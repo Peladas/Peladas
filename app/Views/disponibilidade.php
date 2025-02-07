@@ -20,7 +20,7 @@ use App\Enums\DiaSemanaEnum;
                             $fim = (new \DateTime($inicio))->modify('+1 hour')->format('H:i');
                         ?>
                             <a href="#" class="border rounded-md px-4 py-2 text-base dark:bg-zinc-900 dark:border-gray-600 dark:text-zinc-300
-                        dark:hover:bg-zinc-800 transform transition-all duration-300 hover:scale-105 hover:bg-gray-200 hover:text-gray-800 hover:border-gray-400 shadow-sm
+                        dark:hover:bg-zinc-800 transform transition-all duration-300 hover:scale-105 hover:bg-gray-200 hover:text-white hover:border-gray-400 shadow-sm
                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                                 <?php echo "$inicio - $fim" ?>
                             </a>
